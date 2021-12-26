@@ -1,7 +1,6 @@
 import {
   Avatar,
   Box,
-  Container,
   Heading,
   Image,
   Stack,

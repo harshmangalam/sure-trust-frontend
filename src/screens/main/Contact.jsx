@@ -19,8 +19,7 @@ import {
   WrapItem,
   Wrap,
 } from "@chakra-ui/react";
-import { MdFacebook } from "react-icons/md";
-import { contacts, content, address, socialLinks } from "../../data/contact";
+import { contacts, address, socialLinks } from "../../data/contact";
 import { BsSubtract } from "react-icons/bs";
 
 export default function Contact() {

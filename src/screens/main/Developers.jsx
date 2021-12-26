@@ -1,4 +1,4 @@
-import { Container, Grid, Heading, Box, VStack } from "@chakra-ui/react";
+import { Container, Grid, Heading, Box } from "@chakra-ui/react";
 import DeveloperCard from "../../components/main/DeveloperCard";
 import {
   developers,

@@ -1,12 +1,12 @@
 import { Box, SimpleGrid, Heading } from "@chakra-ui/react";
 import { useQuery } from "react-query";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Error from "../../../components/shared/Error";
 import PostCard from "../../../components/dashboard/teacher/PostCard";
 import { fetchTeacherBatchAssignmentPosts } from "../../../services";
 
 function Posts() {
-  const { batchId, courseId } = useParams();
+  const { batchId } = useParams();
   const assignmentPosts = useQuery(
     ["teacherBatchAssignmentPosts", batchId],
     () => fetchTeacherBatchAssignmentPosts(batchId)

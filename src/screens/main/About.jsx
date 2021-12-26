@@ -13,7 +13,6 @@ import {
 import {
   boardOfAdvisers,
   coFounders,
-  executiveDirector,
   executiveMembers,
   seniorExecutives,
 } from "../../data/about";
@@ -23,11 +22,7 @@ function About() {
     <Box>
       <Box as="section" mt={12}>
         <Container maxW="container.xl">
-          <Heading
-            textAlign="center"
-            textAlign="center"
-            fontSize={{ base: "4xl", md: "5xl" }}
-          >
+          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             BIRTH OF THE SURE INITIATIVE
           </Heading>
 
@@ -72,7 +67,7 @@ function About() {
                   <Text fontSize="md">{coFounder.bio}</Text>
                   <Wrap>
                     {coFounder.links.map((link) => (
-                      <a target="_blank" href={link.url} key={link.url}>
+                      <a target="_blank" rel="noreferrer" href={link.url} key={link.url}>
                         <Badge variant="subtle" colorScheme="green">
                           {link.name}
                         </Badge>
@@ -98,7 +93,7 @@ function About() {
               Senior Executive Members
             </Heading>
 
-            <SimpleGrid columns={{ base: 1, md: 2}} spacing={6} mt={12}>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={12}>
               {seniorExecutives.map((executive) => (
                 <GridItem key={executive.name}>
                   <VStack
@@ -122,7 +117,7 @@ function About() {
                     <Text fontSize="md">{executive.bio}</Text>
                     <Wrap>
                       {executive.links.map((link) => (
-                        <a target="_blank" href={link.url} key={link.url}>
+                        <a target="_blank"  rel="noreferrer" href={link.url} key={link.url}>
                           <Badge variant="subtle" colorScheme="green">
                             {link.name}
                           </Badge>
@@ -165,7 +160,7 @@ function About() {
                     <Text fontSize="md">{executive.bio}</Text>
                     <Wrap>
                       {executive.links.map((link) => (
-                        <a target="_blank" href={link.url} key={link.url}>
+                        <a target="_blank" rel="noreferrer" href={link.url} key={link.url}>
                           <Badge variant="subtle" colorScheme="green">
                             {link.name}
                           </Badge>
@@ -211,7 +206,7 @@ function About() {
                   <Text fontSize="md">{advisor.bio}</Text>
                   <Wrap>
                     {advisor.links.map((link) => (
-                      <a target="_blank" href={link.url} key={link.url}>
+                      <a target="_blank" rel="noreferrer" href={link.url} key={link.url}>
                         <Badge variant="subtle" colorScheme="green">
                           {link.name}
                         </Badge>

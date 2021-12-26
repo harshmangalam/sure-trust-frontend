@@ -4,7 +4,6 @@ import {
   useColorModeValue,
   Stack,
   Button,
-  Heading,
   FormControl,
   FormLabel,
   SimpleGrid,
@@ -12,10 +11,8 @@ import {
   FormErrorMessage,
   RadioGroup,
   Radio,
-  Text,
   useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
@@ -76,7 +73,6 @@ function EditProfile() {
         payload
       );
 
-      
       toast({
         title: "Account Updated.",
         description: `We've updated  account for ${data?.name}`,

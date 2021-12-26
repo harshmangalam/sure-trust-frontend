@@ -6,7 +6,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import NavProfileMenu from "../../shared/NavProfileMenu"
-import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import Logo from "../../shared/Logo";
 import Notification from "../../shared/Notification";
 import ThemeToggle from "../../shared/ThemeToggle";

@@ -3,7 +3,6 @@ import {
   Avatar,
   Box,
   Text,
-  Button,
   useColorModeValue,
   Wrap,
   IconButton,

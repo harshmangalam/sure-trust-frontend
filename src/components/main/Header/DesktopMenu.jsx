@@ -14,7 +14,12 @@ function DesktopMenu() {
       <MenuButton as={IconButton} aria-label="Menus" icon={<CgMenuGridO />} />
       <MenuList>
         {links.map((menu) => (
-          <MenuItem key={menu.name} as={NavLink} to={menu.to}>
+          <MenuItem
+            key={menu.name}
+            as={NavLink}
+            to={menu.to}
+            aria-label={menu.name}
+          >
             {menu.name}
           </MenuItem>
         ))}
@@ -24,4 +29,3 @@ function DesktopMenu() {
 }
 
 export default DesktopMenu;
-

@@ -1,10 +1,10 @@
 import { Box, SimpleGrid, Stack, Button, Heading } from "@chakra-ui/react";
 import { useQuery } from "react-query";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Error from "../../../components/shared/Error";
 import PostCard from "../../../components/dashboard/student/PostCard";
 import { fetchBatchPosts } from "../../../services";
-import { IoVideocamOutline, IoAdd } from "react-icons/io5";
+
 import {
   HiOutlineArrowNarrowRight,
   HiOutlineArrowNarrowLeft,
@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 function Posts() {
   const [page, setPage] = useState(1);
-  const { batchId, courseId } = useParams();
+  const { batchId } = useParams();
   const posts = useQuery(
     ["teacherBatchPosts", batchId, page],
     () => fetchBatchPosts(batchId, page),

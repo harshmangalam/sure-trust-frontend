@@ -1,5 +1,5 @@
 import { BiBookAlt } from "react-icons/bi";
-import { MdOutlineArticle, MdOutlineAssignmentInd, MdOutlineChatBubbleOutline, MdPerson } from "react-icons/md";
+import { MdPerson } from "react-icons/md";
 
 const studentNavLinks = [
     { name: "My Batches", icon: BiBookAlt, to: "/dashboard/batches" },

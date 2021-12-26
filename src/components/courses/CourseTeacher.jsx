@@ -1,7 +1,6 @@
 import {
   Heading,
   Avatar,
-  Box,
   Text,
   useColorModeValue,
   VStack,
@@ -19,7 +18,11 @@ export default function CourseTeacher({ teacher }) {
       <Heading fontSize={"xl"} fontFamily={"body"}>
         {teacher.name}
       </Heading>
-      <Text textAlign={"center"} color={useColorModeValue("gray.700", "gray.300")} fontWeight={600}>
+      <Text
+        textAlign={"center"}
+        color={useColorModeValue("gray.700", "gray.300")}
+        fontWeight={600}
+      >
         {teacher.qualification}
       </Text>
     </VStack>

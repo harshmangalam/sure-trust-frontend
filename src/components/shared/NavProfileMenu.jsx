@@ -7,12 +7,11 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { MdPerson } from "react-icons/md";
-import { useAuthDispatch, useAuthState } from "../../contexts/auth";
+import { useAuthDispatch } from "../../contexts/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 import { removeFromStorage } from "../../utils/storage";
 function NavProfileMenu() {
-  const { currentUser } = useAuthState();
   const authDispatch = useAuthDispatch();
 
   const navigate = useNavigate();
@@ -30,6 +29,7 @@ function NavProfileMenu() {
         as={IconButton}
         icon={<MdPerson fontSize={"26px"} />}
         rounded={"full"}
+        aria-label="Profile"
       ></MenuButton>
       <MenuList>
         <MenuItem as={Link} to="/dashboard">

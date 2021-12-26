@@ -36,9 +36,7 @@ function Home() {
 
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
-          <Heading textAlign="center" textAlign="center">
-            Features
-          </Heading>
+          <Heading textAlign="center">Features</Heading>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
             {features.map((feature) => (
@@ -73,9 +71,7 @@ function Home() {
 
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
-          <Heading textAlign="center" textAlign="center">
-            Accomplishments
-          </Heading>
+          <Heading textAlign="center">Accomplishments</Heading>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
             {accomplishments.map((accomplishment) => (
@@ -114,9 +110,7 @@ function Home() {
 
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
-          <Heading textAlign="center" textAlign="center">
-            Uniqueness Of Our Training
-          </Heading>
+          <Heading textAlign="center">Uniqueness Of Our Training</Heading>
 
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={12}>
             {uniquenessTrainings.map((uniquenessTraining) => (

@@ -43,6 +43,9 @@ const reducer = (state, { type, payload }) => {
         ...state,
         currentUser: payload,
       };
+
+    default:
+     throw new Error(`${type} is nat a valid action`)
   }
 };
 

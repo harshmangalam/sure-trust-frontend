@@ -1,4 +1,0 @@
-student are not allowed to enroll in more than one batch
-show all batches in which student enroll
-get student by id
-show students in batch
