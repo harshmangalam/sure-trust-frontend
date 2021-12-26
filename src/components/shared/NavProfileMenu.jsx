@@ -30,9 +30,10 @@ function NavProfileMenu() {
         icon={<MdPerson fontSize={"26px"} />}
         rounded={"full"}
         aria-label="Profile"
+        alt="Profile"
       ></MenuButton>
       <MenuList>
-        <MenuItem as={Link} to="/dashboard">
+        <MenuItem as={Link} to="/dashboard" >
           Dashboard
         </MenuItem>
         <MenuItem onClick={handleLogout}> Logout</MenuItem>

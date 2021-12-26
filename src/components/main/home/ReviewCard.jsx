@@ -66,13 +66,7 @@ const ReviewText = ({ children }) => {
 const ReviewAvatar = ({ src, name, title }) => {
   return (
     <Flex align={"center"} mt={8} direction={"column"}>
-      <Avatar src={src} alt={name} mb={2} />
-      <Stack spacing={-1} align={"center"}>
-        <Text fontWeight={600}>{name}</Text>
-        <Text fontSize={"sm"} color={useColorModeValue("gray.600", "gray.400")}>
-          {title}
-        </Text>
-      </Stack>
+      <Avatar src={src}  mb={2} />
     </Flex>
   );
 };
@@ -80,10 +74,7 @@ const ReviewAvatar = ({ src, name, title }) => {
 export default function ReviewCard({ review }) {
   return (
     <Box>
-      <Stack
-        direction={{ base: "column", md: "row" }}
-       
-      >
+      <Stack direction={{ base: "column", md: "row" }}>
         <Review>
           <ReviewContent>
             <ReviewHeading>{review.name}</ReviewHeading>

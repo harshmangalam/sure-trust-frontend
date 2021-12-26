@@ -19,7 +19,8 @@ import {
   WrapItem,
   Wrap,
 } from "@chakra-ui/react";
-import { contacts, address, socialLinks } from "../../data/contact";
+import { contacts, address } from "../../data/contact";
+import { socialLinks } from "../../data/social";
 import { BsSubtract } from "react-icons/bs";
 
 export default function Contact() {
@@ -33,8 +34,8 @@ export default function Contact() {
 
             <Box py={4}>
               <SimpleGrid columns={1} spacing={3}>
-                {contacts.map((contact) => (
-                  <GridItem>
+                {contacts.map((contact, i) => (
+                  <GridItem key={i}>
                     <Button
                       size="md"
                       height="48px"
@@ -56,8 +57,8 @@ export default function Contact() {
             </Box>
 
             <Wrap justify="center" my={4}>
-              {socialLinks.map((link) => (
-                <WrapItem>
+              {socialLinks.map((link, i) => (
+                <WrapItem key={i}>
                   <Tooltip label={link.name}>
                     <IconButton
                       aria-label={link.name}

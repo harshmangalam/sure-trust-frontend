@@ -1,6 +1,5 @@
 import { MdPhone, MdOutlinePhone, MdMailOutline, MdLocationOn } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io"
-import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
 export const contacts = [
   {
     icon: <MdPhone />,
@@ -33,21 +32,3 @@ export const address = {
   icon: <MdLocationOn size="32px" />,
   text: "Sreeguru towers, Second floor, Gopuram road, opp. Union bank of India, Puttaparthi, Andhra Pradesh 515134"
 }
-
-export const socialLinks = [
-  {
-    name: "Facebook",
-    icon: <BsFacebook size="24px" />,
-    link: ""
-  },
-  {
-    name: "Linkedin",
-    icon: <BsLinkedin size="24px" />,
-    link: ""
-  },
-  {
-    name: "Twitter",
-    icon: <BsTwitter size="24px" />,
-    link: ""
-  }
-]

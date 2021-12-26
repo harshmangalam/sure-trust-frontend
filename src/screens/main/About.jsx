@@ -31,6 +31,7 @@ function About() {
             rounded="md"
             src="https://www.suretrustforruralyouth.com/static/media/baba.7e6db166.jpg"
             width="100%"
+            alt="Founder"
           />
         </Container>
       </Box>
@@ -61,7 +62,7 @@ function About() {
                   }}
                   h="full"
                 >
-                  <Image src={coFounder.image} alt="image" w="full" h="sm" />
+                  <Image src={coFounder.image} alt={coFounder.name} w="full" h="sm" />
 
                   <Heading size="md">{coFounder.name}</Heading>
                   <Text fontSize="md">{coFounder.bio}</Text>
@@ -111,7 +112,7 @@ function About() {
                     }}
                     h="full"
                   >
-                    <Image src={executive.image} alt="image" w="full" h="sm" />
+                    <Image src={executive.image} alt={executive.name} w="full" h="sm" />
 
                     <Heading size="md">{executive.name}</Heading>
                     <Text fontSize="md">{executive.bio}</Text>
@@ -154,7 +155,7 @@ function About() {
                     }}
                     h="full"
                   >
-                    <Image src={executive.image} alt="image" w="full" h="sm" />
+                    <Image src={executive.image} alt={executive.name} w="full" h="sm" />
 
                     <Heading size="md">{executive.name}</Heading>
                     <Text fontSize="md">{executive.bio}</Text>
@@ -199,7 +200,7 @@ function About() {
                   }}
                   h="full"
                 >
-                  <Image src={advisor.image} alt="image" w="full" h="sm" />
+                  <Image src={advisor.image} alt={advisor.name} w="full" h="sm" />
 
                   <Heading size="md">{advisor.name}</Heading>
                   <Heading size="sm">{advisor.title}</Heading>

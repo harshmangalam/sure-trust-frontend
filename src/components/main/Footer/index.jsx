@@ -6,7 +6,8 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+
+import { socialLinks } from "../../../data/social";
 import Logo from "../../shared/Logo";
 
 export default function SmallWithLogoLeft() {
@@ -24,15 +25,11 @@ export default function SmallWithLogoLeft() {
         <Logo />
         <Text>SURE Trust &copy; {new Date().getFullYear()}</Text>
         <Stack direction={"row"} spacing={6}>
-          <IconButton rounded={"full"}>
-            <FaTwitter />
-          </IconButton>
-          <IconButton rounded={"full"}>
-            <FaYoutube />
-          </IconButton>
-          <IconButton rounded={"full"}>
-            <FaInstagram />
-          </IconButton>
+          {socialLinks.map((link) => (
+            <IconButton key={link.name} rounded={"full"} aria-label={link.name}>
+              {link.icon}
+            </IconButton>
+          ))}
         </Stack>
       </Container>
     </Box>
