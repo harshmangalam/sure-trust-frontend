@@ -7,23 +7,55 @@ import {
   SimpleGrid,
   Text,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import Error from "../../components/shared/Error";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useAuthState } from "../../contexts/auth";
-import { fetchCourseById, fetchCourseTeachers } from "../../services";
+import {
+  enrollStudentToCourse,
+  fetchCourseById,
+  fetchCourseTeachers,
+} from "../../services";
 import CourseSkeleton from "../../components/courses/CourseSkeleton";
 import CourseCard from "../../components/courses/CourseCard";
 import CourseTeacher from "../../components/courses/CourseTeacher";
 
 function Course() {
+  const toast = useToast();
+  const navigate = useNavigate();
   const { id } = useParams();
   const { role, isAuthenticated } = useAuthState();
   const query = useQuery(["courses", id], () => fetchCourseById(id));
   const teacherQuery = useQuery(["courseTeachers", id], () =>
     fetchCourseTeachers(id)
   );
+
+  async function handleEnrollStudent() {
+    try {
+      const data = await enrollStudentToCourse(id);
+      toast({
+        duration: 3000,
+        title: "Enroll",
+        description: data.success || data.error,
+        isClosable: true,
+        status: data.success ? "success" : "error",
+      });
+      if (data.success) {
+        navigate("/dashboard/batches");
+      }
+    } catch (error) {
+      console.log(error);
+      toast({
+        duration: 3000,
+        title: "Enroll",
+        description: "Error during course enroll",
+        isClosable: true,
+        status: "error",
+      });
+    }
+  }
 
   if (query.isLoading) {
     return <CourseSkeleton />;
@@ -42,7 +74,11 @@ function Course() {
           {!query.data.subcourses?.length &&
             isAuthenticated &&
             role === "student" && (
-              <Button colorScheme={"blue"} size={"lg"}>
+              <Button
+                colorScheme={"blue"}
+                size={"lg"}
+                onClick={handleEnrollStudent}
+              >
                 Enroll Now
               </Button>
             )}

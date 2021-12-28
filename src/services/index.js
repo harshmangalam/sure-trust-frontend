@@ -67,6 +67,16 @@ export const loginStudent = async (payload) => {
 
 // ------------- students ----------------
 
+export const enrollStudentToCourse = async (courseId) => {
+  try {
+    const { data } = await axios.post(`/users/add-to-course/${courseId}/`);
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
 export const updateStudentProfile = async (regno, payload) => {
   try {
     const { data } = await axios.put(`student/student/${regno}/`, { ...payload, registration_no: regno });
