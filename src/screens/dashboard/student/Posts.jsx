@@ -2,7 +2,7 @@ import { Box, SimpleGrid, Stack, Button, Heading } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Error from "../../../components/shared/Error";
-import PostCard from "../../../components/dashboard/student/PostCard";
+import PostCard from "../../../components/dashboard/post/PostCard";
 import { fetchBatchPosts } from "../../../services";
 
 import {
