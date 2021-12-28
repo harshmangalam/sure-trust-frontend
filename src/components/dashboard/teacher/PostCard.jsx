@@ -9,19 +9,23 @@ import {
   GridItem,
   Stack,
   Wrap,
+  Flex
 } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { Link, useParams } from "react-router-dom";
+import PostFile from "./PostFile";
 function CourseCard({ post }) {
   const { batchId, courseId } = useParams();
   const cardBg = useColorModeValue("white", "gray.700");
   return (
     <Box p={6} border="2px" borderColor="blue.500" bg={cardBg} rounded="xl">
-      <VStack spacing={1}>
+     <Flex direction="column" justify="space-between" minH="400px">
+     <VStack spacing={1}>
         <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
           {post.title}
         </Heading>
         <Text
+          maxW="sm"
           textAlign="center"
           color={useColorModeValue("gray.600", "gray.400")}
         >
@@ -31,13 +35,17 @@ function CourseCard({ post }) {
 
       <SimpleGrid
         mt={12}
-        columns={{ base: 1 }}
+        columns={{ base: 1, md: 2 }}
         spacing={6}
         justifyContent="center"
       >
         <GridItem>
           <Stack spacing={0} align={"center"}>
-            <Text textAlign="center" fontWeight={600}>
+            <Text
+              textTransform="capitalize"
+              textAlign="center"
+              fontWeight={600}
+            >
               {post.type}
             </Text>
             <Text fontSize={"sm"} color={"gray.500"}>
@@ -48,7 +56,7 @@ function CourseCard({ post }) {
         <GridItem>
           <Stack spacing={0} align={"center"}>
             <Text textAlign="center" fontWeight={600}>
-              {post.file || "Not Available"}
+              {post.file ? "Available" : "Not Available"}
             </Text>
             <Text fontSize={"sm"} color={"gray.500"}>
               Post File
@@ -72,10 +80,12 @@ function CourseCard({ post }) {
           as={Link}
           to={`/dashboard/courses/${courseId}/batches/${batchId}/posts/${post.id}/grades`}
           colorScheme="blue"
-       >
+        >
           Grades
         </Button>
+        {post.file && <PostFile file={post.file} />}
       </Wrap>
+     </Flex>
     </Box>
   );
 }

@@ -19,6 +19,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { createTeacherPost } from "../../../services";
+import { useRef } from "react";
 
 const schema = yup.object({
   title: yup.string().required(),
@@ -28,6 +29,9 @@ const schema = yup.object({
 function Login() {
   const { batchId, courseId } = useParams();
   const navigate = useNavigate();
+
+  const fileRef = useRef();
+
   const {
     handleSubmit,
     register,
@@ -35,9 +39,20 @@ function Login() {
     setError,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = async (values) => {
+  function handleFileChange(e) {
+    fileRef.current = e.target.files[0];
+  }
+  const onSubmit = async ({ title, content, type }) => {
     try {
-      const data = await createTeacherPost({ ...values, batch: batchId });
+      const formData = new FormData();
+
+      formData.append("title", title);
+      formData.append("content", content);
+      formData.append("type", type);
+      formData.append("batch", batchId);
+      formData.append("file", fileRef.current);
+
+      const data = await createTeacherPost(formData, batchId);
 
       if (data?.error) {
         console.log(data.error);
@@ -94,6 +109,16 @@ function Login() {
               {...register("content")}
             />
             <FormErrorMessage>{errors.content?.message}</FormErrorMessage>
+          </FormControl>
+
+          <FormControl>
+            <FormLabel htmlFor="file">Post File</FormLabel>
+            <Input
+              id="file"
+              name="file"
+              type="file"
+              onChange={handleFileChange}
+            />
           </FormControl>
           <Button
             type="submit"

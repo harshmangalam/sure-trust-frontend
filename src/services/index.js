@@ -233,11 +233,11 @@ export const fetchTeacherBatchGrades = async (postId) => {
 
 
 
-export const createTeacherPost = async (payload) => {
+export const createTeacherPost = async (formData,batchId) => {
   try {
-    const { data } = await axios.post(`/courses/posts/`, payload, {
+    const { data } = await axios.post(`/courses/posts/`, formData, {
       headers: {
-        "batch-id": payload.batch
+        "batch-id":batchId
       }
     });
     return data;
