@@ -42,7 +42,7 @@ function Home() {
                   _hover={{
                     boxShadow: "2xl",
                     shadow: "1px 1px 20px blue",
-                    transform: "scale(1.04)",
+                    transform: "scale(1.02)",
                   }}
                   h="full"
                 >
@@ -55,7 +55,7 @@ function Home() {
                     />
 
                     <Heading size="md">{feature.title}</Heading>
-                    <Text fontSize="md">{feature.description}</Text>
+                    <Text textAlign="justify" fontSize="md">{feature.description}</Text>
                   </VStack>
                 </Box>
               </GridItem>

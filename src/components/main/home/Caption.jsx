@@ -19,7 +19,6 @@ export default function Caption() {
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
-          
         >
           Sure Trust <br />
           <Text as={"span"} color={"purple.500"}>
@@ -37,26 +36,20 @@ export default function Caption() {
           <Button
             as={Link}
             to="/auth/signup"
-            colorScheme={"blue"}
-            bg={"blue.400"}
+            colorScheme="green"
             rounded={"full"}
             px={6}
-            _hover={{
-              bg: "blue.500",
-            }}
           >
             Get Started
           </Button>
           <Button
             as={Link}
             to="/courses"
-            colorScheme={"purple"}
-            bg={"purple.400"}
+            colorScheme="pink"
+           
             rounded={"full"}
             px={6}
-            _hover={{
-              bg: "purple.500",
-            }}
+           
           >
             Explore Courses
           </Button>
@@ -77,7 +70,7 @@ export default function Caption() {
               top={"-15px"}
               transform={"rotate(10deg)"}
             >
-            Totally free of cost
+              Totally free of cost
             </Text>
           </Box>
         </Stack>

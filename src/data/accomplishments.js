@@ -10,7 +10,7 @@ export const accomplishments = [
   {
     title: "IMPACT OF THE INITIATIVE",
     description: [
-      `The impact of the initiative can be gauged from the progress made within a short span of one year in-terms of increase in the number of beneficiaries, well qualified trainers besides pouring in advisory and other support. Beginning with three students, three trainers and three courses the initiative currently embraces more than two hundred students, spreading across more than 40 courses which are in high demand in the industry sector.`,
+      `The impact of the initiative can be gauged from the progress made within a short span of one year in-terms of increase in the number of beneficiaries, well qualified trainers besides advisory support. and other support. Beginning with three students, three trainers and three courses the initiative currently embraces more than two hundred students, spreading across more than 40 courses which are in high demand in the industry sector.`,
     ],
   },
   {
