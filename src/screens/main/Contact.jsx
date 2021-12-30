@@ -65,6 +65,9 @@ export default function Contact() {
                       size="lg"
                       isRound={true}
                       icon={link.icon}
+                      as="a"
+                      href={link.link}
+                      target="_blank"
                     />
                   </Tooltip>
                 </WrapItem>
