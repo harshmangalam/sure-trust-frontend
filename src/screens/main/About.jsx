@@ -15,6 +15,7 @@ import {
   coFounders,
   executiveMembers,
   seniorExecutives,
+  narrationByFounder,
 } from "../../data/about";
 
 function About() {
@@ -33,6 +34,21 @@ function About() {
             width="100%"
             alt="Founder"
           />
+        </Container>
+      </Box>
+
+      <Box mt={12}>
+        <Container maxW="container.xl">
+          <Box p={6} border="2px" borderColor="blue.500" rounded="xl">
+            <Heading fontSize={"3xl"}>{narrationByFounder.title}</Heading>
+            <VStack mt={6} spacing={4}>
+              {narrationByFounder.contents.map((content, i) => (
+                <Text as="p" key={i} textAlign={"justify"}>
+                  {content}
+                </Text>
+              ))}
+            </VStack>
+          </Box>
         </Container>
       </Box>
 
@@ -62,13 +78,23 @@ function About() {
                   }}
                   h="full"
                 >
-                  <Image src={coFounder.image} alt={coFounder.name} w="full" h="sm" />
+                  <Image
+                    src={coFounder.image}
+                    alt={coFounder.name}
+                    w="full"
+                    h="sm"
+                  />
 
                   <Heading size="md">{coFounder.name}</Heading>
                   <Text fontSize="md">{coFounder.bio}</Text>
                   <Wrap>
                     {coFounder.links.map((link) => (
-                      <a target="_blank" rel="noreferrer" href={link.url} key={link.url}>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={link.url}
+                        key={link.url}
+                      >
                         <Badge variant="subtle" colorScheme="green">
                           {link.name}
                         </Badge>
@@ -112,13 +138,23 @@ function About() {
                     }}
                     h="full"
                   >
-                    <Image src={executive.image} alt={executive.name} w="full" h="sm" />
+                    <Image
+                      src={executive.image}
+                      alt={executive.name}
+                      w="full"
+                      h="sm"
+                    />
 
                     <Heading size="md">{executive.name}</Heading>
                     <Text fontSize="md">{executive.bio}</Text>
                     <Wrap>
                       {executive.links.map((link) => (
-                        <a target="_blank"  rel="noreferrer" href={link.url} key={link.url}>
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={link.url}
+                          key={link.url}
+                        >
                           <Badge variant="subtle" colorScheme="green">
                             {link.name}
                           </Badge>
@@ -155,13 +191,23 @@ function About() {
                     }}
                     h="full"
                   >
-                    <Image src={executive.image} alt={executive.name} w="full" h="sm" />
+                    <Image
+                      src={executive.image}
+                      alt={executive.name}
+                      w="full"
+                      h="sm"
+                    />
 
                     <Heading size="md">{executive.name}</Heading>
                     <Text fontSize="md">{executive.bio}</Text>
                     <Wrap>
                       {executive.links.map((link) => (
-                        <a target="_blank" rel="noreferrer" href={link.url} key={link.url}>
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={link.url}
+                          key={link.url}
+                        >
                           <Badge variant="subtle" colorScheme="green">
                             {link.name}
                           </Badge>
@@ -200,14 +246,24 @@ function About() {
                   }}
                   h="full"
                 >
-                  <Image src={advisor.image} alt={advisor.name} w="full" h="sm" />
+                  <Image
+                    src={advisor.image}
+                    alt={advisor.name}
+                    w="full"
+                    h="sm"
+                  />
 
                   <Heading size="md">{advisor.name}</Heading>
                   <Heading size="sm">{advisor.title}</Heading>
                   <Text fontSize="md">{advisor.bio}</Text>
                   <Wrap>
                     {advisor.links.map((link) => (
-                      <a target="_blank" rel="noreferrer" href={link.url} key={link.url}>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={link.url}
+                        key={link.url}
+                      >
                         <Badge variant="subtle" colorScheme="green">
                           {link.name}
                         </Badge>

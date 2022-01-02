@@ -7,6 +7,7 @@ import {
   GridItem,
   Container,
   Image,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import { accomplishments } from "../../data/accomplishments";
@@ -17,6 +18,9 @@ import { collaborators } from "../../data/collaborators";
 import Caption from "../../components/main/home/Caption";
 
 function Home() {
+  const featureHeadingColor = useColorModeValue("blue.500", "blue.300");
+  const accomplishmentHeadingColor = useColorModeValue("pink.500", "pink.300");
+  const trainingHedingColor = useColorModeValue("blue.500", "blue.300");
   return (
     <Box>
       {/* Welcome section  */}
@@ -54,8 +58,12 @@ function Home() {
                       h="sm"
                     />
 
-                    <Heading size="md">{feature.title}</Heading>
-                    <Text textAlign="justify" fontSize="md">{feature.description}</Text>
+                    <Heading size="md" color={featureHeadingColor}>
+                      {feature.title}
+                    </Heading>
+                    <Text textAlign="justify" fontSize="md">
+                      {feature.description}
+                    </Text>
                   </VStack>
                 </Box>
               </GridItem>
@@ -87,12 +95,16 @@ function Home() {
                   transform: "scale(1.04)",
                 }}
               >
-                <Heading size="md" textTransform="uppercase">
+                <Heading
+                  color={accomplishmentHeadingColor}
+                  size="md"
+                  textTransform="uppercase"
+                >
                   {accomplishment.title}
                 </Heading>
                 <VStack>
                   {accomplishment.description.map((para, i) => (
-                    <Text fontSize="md" key={i}>
+                    <Text textAlign={"justify"} fontSize="md" key={i}>
                       {para}
                     </Text>
                   ))}
@@ -126,7 +138,11 @@ function Home() {
                     transform: "scale(1.04)",
                   }}
                 >
-                  <Heading size="md" textTransform="uppercase">
+                  <Heading
+                    color={trainingHedingColor}
+                    size="md"
+                    textTransform="uppercase"
+                  >
                     {uniquenessTraining.title}
                   </Heading>
                   <Text fontSize="md">{uniquenessTraining.description}</Text>
@@ -172,7 +188,13 @@ function Home() {
                   }}
                   cursor="pointer"
                 >
-                  <Heading fontSize="xl" textAlign="center">
+                  <Heading
+                    as="a"
+                    href={collaborator.link}
+                    target="_blank"
+                    fontSize="3xl"
+                    textAlign="center"
+                  >
                     {collaborator.name}
                   </Heading>
                 </Box>

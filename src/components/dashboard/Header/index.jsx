@@ -5,11 +5,13 @@ import {
   HStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import NavProfileMenu from "../../shared/NavProfileMenu"
+import NavProfileMenu from "../../shared/NavProfileMenu";
 import { FiMenu } from "react-icons/fi";
 import Logo from "../../shared/Logo";
 import Notification from "../../shared/Notification";
 import ThemeToggle from "../../shared/ThemeToggle";
+import { RiHome2Line } from "react-icons/ri";
+import { Link } from "react-router-dom";
 function Header({ onOpen }) {
   return (
     <Flex
@@ -36,7 +38,9 @@ function Header({ onOpen }) {
       </Box>
 
       <HStack spacing={{ base: 4, md: 6 }}>
-        <Notification />
+        <IconButton as={Link} to="/" aria-label="Home">
+          <RiHome2Line />
+        </IconButton>
         <ThemeToggle />
 
         <NavProfileMenu />

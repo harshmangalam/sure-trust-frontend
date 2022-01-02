@@ -7,13 +7,13 @@ import img6 from "../assets/features/img6.svg";
 
 export const features = [
   {
-    image: img1,
+    image: img2,
     title: "Why SURE Initiative ?",
     description:
       `There is an urgent need to make quality training in skills upgradation more accessible to  rural youth considering the fact that half of India’s population is expected to be in rural India by 2050 and the rural work force accounting for 70% of the total workforce.`,
   },
   {
-    image: img2,
+    image:img1 ,
 
     title: "Vision of SURE Initiative",
     description:

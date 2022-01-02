@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import SubCourses from "./SubCourses";
 import { Link } from "react-router-dom";
+import EnrollCourse from "../students/EnrollCourse";
 function CourseCard({ course }) {
   const courseCardBg = useColorModeValue("white", "gray.700");
   return (
@@ -30,9 +31,15 @@ function CourseCard({ course }) {
 
         <Text fontSize="md">{course.prerequisites}</Text>
         <Wrap>
-          <Button colorScheme={"blue"} rounded={"full"} as={Link} to={`/courses/${course.id}`}>
+          <Button
+            colorScheme={"blue"}
+            rounded={"full"}
+            as={Link}
+            to={`/courses/${course.id}`}
+          >
             Explore
           </Button>
+          <EnrollCourse course={course} rounded="full" size="md" />
           {course.subcourses?.length ? (
             <SubCourses subcourses={course.subcourses} />
           ) : null}
