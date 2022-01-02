@@ -5,7 +5,6 @@ import {
   useColorModeValue,
   Button,
   Box,
-  Wrap,
   Badge,
   SimpleGrid,
   GridItem,
@@ -13,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import ToggleMeet from "./ToggleMeet";
 function BatchCard({ courseId, batch }) {
   const cardBg = useColorModeValue("white", "gray.700");
   return (
@@ -98,34 +98,42 @@ function BatchCard({ courseId, batch }) {
         </GridItem>
       </SimpleGrid>
 
-      <Wrap mt={6} justify="center">
-        <Button
-          colorScheme={"blue"}
-          rounded={"full"}
-          as={Link}
-          to={`/dashboard/courses/${courseId}/batches/${batch.id}/students`}
-        >
-          Students
-        </Button>
+      <SimpleGrid mt={6} columns={{ base: 1, md: 2 }} spacing={6}>
+        <GridItem>
+          <ToggleMeet batchId={batch.id} courseId={courseId} />
+        </GridItem>
+        <GridItem>
+          <Button
+            colorScheme={"pink"}
+            as={Link}
+            w="full"
+            to={`/dashboard/courses/${courseId}/batches/${batch.id}/students`}
+          >
+            Students
+          </Button>
+        </GridItem>
+        <GridItem>
+          <Button
+            colorScheme={"green"}
+            as={Link}
+            w="full"
+            to={`/dashboard/courses/${courseId}/batches/${batch.id}/posts`}
+          >
+            Posts
+          </Button>
+        </GridItem>
 
-        <Button
-          colorScheme={"green"}
-          rounded={"full"}
-          as={Link}
-          to={`/dashboard/courses/${courseId}/batches/${batch.id}/posts`}
-        >
-          Posts
-        </Button>
-
-        <Button
-          colorScheme={"purple"}
-          rounded={"full"}
-          as={Link}
-          to={`/dashboard/courses/${courseId}/batches/${batch.id}/assignment-posts`}
-        >
-          Assigment Posts
-        </Button>
-      </Wrap>
+        <GridItem>
+          <Button
+            colorScheme={"purple"}
+            as={Link}
+            w="full"
+            to={`/dashboard/courses/${courseId}/batches/${batch.id}/assignment-posts`}
+          >
+            Assigment Posts
+          </Button>
+        </GridItem>
+      </SimpleGrid>
     </Box>
   );
 }

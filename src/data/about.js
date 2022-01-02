@@ -1,5 +1,3 @@
-
-
 export const coFounders = [
   {
     title: "EXECUTIVE DIRECTOR & FOUNDER",
@@ -114,7 +112,6 @@ export const coFounders = [
       },
     ],
   },
- 
 ];
 
 export const seniorExecutives = [
@@ -145,8 +142,6 @@ export const seniorExecutives = [
       },
     ],
   },
-
- 
 ];
 
 export const executiveMembers = [
@@ -256,6 +251,7 @@ export const boardOfAdvisers = [
       },
     ],
   },
+
   {
     title: "Advisor-Communications & Outreach",
     image:

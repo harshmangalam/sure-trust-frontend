@@ -3,7 +3,7 @@ import { Box, Text } from "@chakra-ui/react";
 function KnowMore() {
   return (
     <Box>
-      <Text textAlign="center">KnowMore - Comming Soon</Text>
+      <Text textAlign="center">KnowMore - Coming Soon</Text>
     </Box>
   );
 }

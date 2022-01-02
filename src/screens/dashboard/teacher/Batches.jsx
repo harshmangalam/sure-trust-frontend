@@ -22,6 +22,7 @@ function Batches() {
   return (
     <Box p={4}>
       <Heading>Batches</Heading>
+
       <SimpleGrid
         mt={12}
         columns={{ base: 1, md: 1, lg: 2, xl: 3 }}

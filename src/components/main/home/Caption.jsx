@@ -9,9 +9,10 @@ import {
   useColorModeValue,
   createIcon,
 } from "@chakra-ui/react";
-
+import { useAuthState } from "../../../contexts/auth";
 import { Link } from "react-router-dom";
 export default function Caption() {
+  const { isAuthenticated } = useAuthState();
   return (
     <Container maxW="container.lg">
       <Stack as={Box} textAlign={"center"} spacing={{ base: 8, md: 14 }}>
@@ -33,23 +34,33 @@ export default function Caption() {
           alignSelf={"center"}
           position={"relative"}
         >
-          <Button
-            as={Link}
-            to="/auth/signup"
-            colorScheme="green"
-            rounded={"full"}
-            px={6}
-          >
-            Get Started
-          </Button>
+          {!isAuthenticated ? (
+            <Button
+              as={Link}
+              to="/auth/signup"
+              colorScheme="green"
+              rounded={"full"}
+              px={6}
+            >
+              Get Started
+            </Button>
+          ) : (
+            <Button
+              as={Link}
+              to="/dashboard"
+              colorScheme="green"
+              rounded={"full"}
+              px={6}
+            >
+              Dashboard
+            </Button>
+          )}
           <Button
             as={Link}
             to="/courses"
             colorScheme="pink"
-           
             rounded={"full"}
             px={6}
-           
           >
             Explore Courses
           </Button>

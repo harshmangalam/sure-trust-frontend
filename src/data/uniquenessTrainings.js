@@ -2,7 +2,7 @@ export const uniquenessTrainings = [
   {
     title: "Secular Education Coupled with Education in Human Values",
     description:
-      "Number of rural youth educated & certified to date Excceds 125",
+      "Number of rural youth educated & certified to date exceeds 125",
   },
   {
     title: "Mandatory training in Education in Human Values / Life Skills",

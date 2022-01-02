@@ -31,12 +31,6 @@ function Posts() {
       <Heading>Posts</Heading>
       <Stack mt={12} direction="row" justify="start" spacing={6}>
         <Button
-          colorScheme="purple"
-          leftIcon={<IoVideocamOutline size="24px" />}
-        >
-          Start Meet
-        </Button>
-        <Button
           colorScheme="blue"
           leftIcon={<IoAdd size="24px" />}
           as={Link}

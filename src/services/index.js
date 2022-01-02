@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const signup = async (payload) => {
   try {
     const { data } = await axios.post(`/users/`, payload);
@@ -10,8 +9,6 @@ export const signup = async (payload) => {
     throw error;
   }
 };
-
-
 
 export const fetchCourses = async () => {
   try {
@@ -63,8 +60,6 @@ export const loginStudent = async (payload) => {
   }
 };
 
-
-
 // ------------- students ----------------
 
 export const enrollStudentToCourse = async (courseId) => {
@@ -79,14 +74,16 @@ export const enrollStudentToCourse = async (courseId) => {
 
 export const updateStudentProfile = async (regno, payload) => {
   try {
-    const { data } = await axios.put(`student/student/${regno}/`, { ...payload, registration_no: regno });
+    const { data } = await axios.put(`student/student/${regno}/`, {
+      ...payload,
+      registration_no: regno,
+    });
     return data;
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
-
 
 export const fetchStudentCourses = async () => {
   try {
@@ -112,8 +109,8 @@ export const fetchStudentPostGrades = async (postId) => {
   try {
     const { data } = await axios.get(`/courses/grades/`, {
       headers: {
-        "post-id": postId
-      }
+        "post-id": postId,
+      },
     });
     return data;
   } catch (error) {
@@ -121,10 +118,6 @@ export const fetchStudentPostGrades = async (postId) => {
     throw error;
   }
 };
-
-
-
-
 
 // batches
 
@@ -132,8 +125,8 @@ export const fetchBatchPosts = async (batchId, page = 1) => {
   try {
     const { data } = await axios.get(`/courses/posts/?page=${page}`, {
       headers: {
-        "batch-id": batchId
-      }
+        "batch-id": batchId,
+      },
     });
     return data;
   } catch (error) {
@@ -141,10 +134,6 @@ export const fetchBatchPosts = async (batchId, page = 1) => {
     throw error;
   }
 };
-
-
-
-
 
 // -------- teacher-------
 
@@ -158,13 +147,12 @@ export const fetchTeacherData = async ({ teacher_id }) => {
   }
 };
 
-
 export const fetchTeacherBatches = async (courseId) => {
   try {
     const { data } = await axios.get(`/courses/batch/`, {
       headers: {
-        "course-id": courseId
-      }
+        "course-id": courseId,
+      },
     });
     return data;
   } catch (error) {
@@ -172,13 +160,11 @@ export const fetchTeacherBatches = async (courseId) => {
     throw error;
   }
 };
-
-
 
 export const fetchTeacherBatchStudents = async (batchId) => {
   try {
     const { data } = await axios.post(`/courses/students-of-batch/`, {
-      batch_id: batchId
+      batch_id: batchId,
     });
     return data;
   } catch (error) {
@@ -186,14 +172,13 @@ export const fetchTeacherBatchStudents = async (batchId) => {
     throw error;
   }
 };
-
 
 export const fetchTeacherBatchPosts = async (batchId, page = 1) => {
   try {
     const { data } = await axios.get(`/courses/posts/?page=${page}`, {
       headers: {
-        "batch-id": batchId
-      }
+        "batch-id": batchId,
+      },
     });
     return data;
   } catch (error) {
@@ -201,7 +186,6 @@ export const fetchTeacherBatchPosts = async (batchId, page = 1) => {
     throw error;
   }
 };
-
 
 export const fetchTeacherCourses = async () => {
   try {
@@ -213,25 +197,24 @@ export const fetchTeacherCourses = async () => {
   }
 };
 
-
-
 export const fetchTeacherBatchAssignmentPosts = async (batchId) => {
   try {
-    const { data } = await axios.post(`/courses/assignment-posts/`, { batch_id: batchId });
+    const { data } = await axios.post(`/courses/assignment-posts/`, {
+      batch_id: batchId,
+    });
     return data;
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
-
 
 export const fetchTeacherBatchGrades = async (postId) => {
   try {
     const { data } = await axios.get(`/courses/grades/`, {
       headers: {
-        "post-id": postId
-      }
+        "post-id": postId,
+      },
     });
     return data;
   } catch (error) {
@@ -240,15 +223,12 @@ export const fetchTeacherBatchGrades = async (postId) => {
   }
 };
 
-
-
-
-export const createTeacherPost = async (formData,batchId) => {
+export const createTeacherPost = async (formData, batchId) => {
   try {
     const { data } = await axios.post(`/courses/posts/`, formData, {
       headers: {
-        "batch-id":batchId
-      }
+        "batch-id": batchId,
+      },
     });
     return data;
   } catch (error) {
@@ -257,3 +237,26 @@ export const createTeacherPost = async (formData,batchId) => {
   }
 };
 
+export const patchBatchInformation = async ({
+  batchId,
+  courseId,
+  meetingCode,
+}) => {
+  try {
+    const { data } = await axios.patch(
+      `/courses/batch/${batchId}/`,
+      {
+        meeting_code: meetingCode,
+      },
+      {
+        headers: {
+          "course-id": courseId,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};

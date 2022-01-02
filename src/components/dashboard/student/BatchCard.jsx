@@ -5,7 +5,6 @@ import {
   useColorModeValue,
   Button,
   Box,
-  Wrap,
   Badge,
   SimpleGrid,
   GridItem,
@@ -13,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import ToggleMeet from "./ToggleMeet";
 function BatchCard({ batch }) {
   const cardBg = useColorModeValue("white", "gray.700");
   return (
@@ -102,25 +102,26 @@ function BatchCard({ batch }) {
         </GridItem>
       </SimpleGrid>
 
-      <Wrap mt={6} justify="center">
+      <SimpleGrid mt={6} columns={{ base: 1, md: 2 }} spacing={6}>
+        <ToggleMeet meeting_code={batch.meeting_code} />
         <Button
           colorScheme={"pink"}
-          rounded={"full"}
           as={Link}
           to={`/courses/${batch.course.id}`}
+          width={"full"}
         >
           View Course
         </Button>
 
         <Button
           colorScheme={"green"}
-          rounded={"full"}
           as={Link}
           to={`/dashboard/batches/${batch.id}/courses/${batch.course.id}/posts`}
+          width={"full"}
         >
           Posts
         </Button>
-      </Wrap>
+      </SimpleGrid>
     </Box>
   );
 }
