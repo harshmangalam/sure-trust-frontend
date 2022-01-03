@@ -64,6 +64,10 @@ const StudentPostGrades = lazy(() =>
   import("../screens/dashboard/student/Grades")
 );
 
+const StudentRecording = lazy(() =>
+  import("../screens/StudentRecording")
+);
+
 const NotFound = lazy(() => import("../screens/NotFound"));
 
 function AppRoutes() {
@@ -136,7 +140,12 @@ function AppRoutes() {
           <Route path="profile" element={<Profile />} />
           <Route path="profile/edit" element={<EditProfile />} />
         </Route>
-        <Route path="meet" element={<TeacherRecording />} />
+        {role === "student" && (
+          <Route path="meet" element={<StudentRecording />} />
+        )}
+         {role === "teacher" && (
+          <Route path="meet" element={<TeacherRecording />} />
+        )}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
