@@ -1,3 +1,7 @@
+import sarahImage from "../images/sarah.png";
+import amarImage from "../images/amar.jpeg";
+import bharatImage from "../images/bharat.jpeg";
+import ramananImage from "../images/ramanan.jpeg";
 export const coFounders = [
   {
     title: "EXECUTIVE DIRECTOR & FOUNDER",
@@ -58,8 +62,9 @@ export const coFounders = [
   },
   {
     image:
-      "https://www.suretrustforruralyouth.com/static/media/kumarsir.576ab33e.jpeg",
+      "https://media-exp1.licdn.com/dms/image/D4E03AQFobqvJRh5nQw/profile-displayphoto-shrink_200_200/0/1640558482065?e=1646870400&v=beta&t=UP81QIiXABFNCL-E4Z9hJ5HJ3f6skZ2jZzu-V0XalkM",
     name: "Dr. SSR Kumar:",
+    subHeading: `Founder, President & CSO, Xheme Inc`,
     bio: `Dr. Kumar is based in Boston, MA, USA. He is currently involved with biotech startups having taken a break from his academic pursuits with most recent assignment as Managing Director at Harvard University managing its Energy Frontier Research Center (EFRC).`,
 
     links: [
@@ -70,8 +75,7 @@ export const coFounders = [
     ],
   },
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/amar.f15f3769.jpeg",
+    image: amarImage,
     name: "Mr. Amar Vivek Aggarwal B.A (Hons), M.B.A and LL.B;",
     bio: `Founding partner-Avsai Legal; and Legal Practitioner-practicing Attorney for more than 31yrs., at various High Courts, and Hon’ble Supreme Court of India.
 
@@ -174,7 +178,7 @@ export const executiveMembers = [
 
   {
     image:
-      "https://www.suretrustforruralyouth.com/static/media/sudhamadam.a765828e.jpg",
+      "https://media-exp1.licdn.com/dms/image/C4D03AQGPw4g7ZYTMNw/profile-displayphoto-shrink_200_200/0/1517580043001?e=1646870400&v=beta&t=JB3xMiDOivWLdeudxumxf9cpkrueESuPVQmo3pvTeXk",
 
     name: "Mrs. Sai Sudha Nunna",
     bio: `CFA, MBA, Btech Co-Founder & COO, Smartnerd Future Communities, India.`,
@@ -189,7 +193,7 @@ export const executiveMembers = [
 
   {
     image:
-      "https://www.suretrustforruralyouth.com/static/media/jagadeeshsir.bd0a7090.jpg",
+      "https://media-exp1.licdn.com/dms/image/C5603AQH0TeSk8yHB5g/profile-displayphoto-shrink_200_200/0/1630570179653?e=1646870400&v=beta&t=AlGoFzJ1uJ889_s7YNZ1r7n973sAihSsx0qEoaUBz1E",
     name: "Mr. Jagadeesh Gajula",
     bio: `Grey Scientific Labs from Greyslide Imaging
     BCA PGD (AIML), MSc (AIML) - Liver Poole John Moores University, London; Technical Manager - Grey Slide Imaging; Junior Research Fellow - IIT, Hyderabad. The very first proud product of the SURE TRUST`,
@@ -203,8 +207,7 @@ export const executiveMembers = [
   },
 
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/bharatsir.fafea725.jpg",
+    image: bharatImage,
     name: "Mr. Bharat Reddy Bora",
     bio: `Btech (ECE) Graduate student in Robotics from the University of Maryland College Park, USA. Currently working as ROS (Robotics Operating System) Developer, TheDush Robotics, Coimbatore, TN.`,
 
@@ -220,8 +223,7 @@ export const executiveMembers = [
 export const boardOfAdvisers = [
   {
     title: "Advisor - Lateral Thinking Skills",
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/Sairam.767c41db.jpeg",
+    image: ramananImage,
     name: "Mr. Vaidya Ramanan",
     bio: `
         Undergraduate in Electronics from Bangalore University, Graduate in Computer Science from IISc. Moved to US in 2000. Worked at various chip / semiconductor / networking companies like AMD, Nvidia, Cisco. Presently working for Nokia. Scope of work: Design of processors and networking switches, Performance Modeling and characterization of next generation architecture.`,
@@ -229,7 +231,7 @@ export const boardOfAdvisers = [
     links: [
       {
         name: "Linkedin",
-        url: "https://www.linkedin.com/in/ramananvaidya/n",
+        url: "https://www.linkedin.com/in/ramananvaidya",
       },
     ],
   },
@@ -254,8 +256,7 @@ export const boardOfAdvisers = [
 
   {
     title: "Advisor-Communications & Outreach",
-    image:
-      "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Sarah%20--%20new%20(1).png/:/",
+    image: sarahImage,
     name: "Ms. Sarah Berry",
     bio: `
     Sarah Berry brings with her 25 years of diverse professional experience in the domains of training, public diplomacy/advocacy, writing, communications and outreach (including partnerships and networking). She has written more than 500 articles covering diverse topics.

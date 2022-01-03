@@ -9,6 +9,7 @@ import {
   GridItem,
   Wrap,
   Badge,
+  AspectRatio,
 } from "@chakra-ui/react";
 import {
   boardOfAdvisers,
@@ -17,7 +18,7 @@ import {
   seniorExecutives,
   narrationByFounder,
 } from "../../data/about";
-
+import satyaSaiBaba from "../../images/satya_sai_baba.jpg";
 function About() {
   return (
     <Box>
@@ -26,18 +27,19 @@ function About() {
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             BIRTH OF THE SURE INITIATIVE
           </Heading>
-
-          <Image
-            mt={12}
-            rounded="md"
-            src="https://www.suretrustforruralyouth.com/static/media/baba.7e6db166.jpg"
-            width="100%"
-            alt="Founder"
-          />
+          <AspectRatio mx="auto" maxW="full" ratio={4 / 2}>
+            <Image
+              mt={12}
+              rounded="md"
+              src={satyaSaiBaba}
+              width="100%"
+              alt="Founder"
+            />
+          </AspectRatio>
         </Container>
       </Box>
 
-      <Box mt={12}>
+      <Box mt={24}>
         <Container maxW="container.xl">
           <Box p={6} border="2px" borderColor="blue.500" rounded="xl">
             <Heading fontSize={"3xl"}>{narrationByFounder.title}</Heading>
@@ -86,7 +88,10 @@ function About() {
                   />
 
                   <Heading size="md">{coFounder.name}</Heading>
-                  <Text fontSize="md">{coFounder.bio}</Text>
+                  <VStack spacing={0}>
+                    <Text fontSize="xl">{coFounder?.subHeading}</Text>
+                    <Text fontSize="md">{coFounder.bio}</Text>
+                  </VStack>
                   <Wrap>
                     {coFounder.links.map((link) => (
                       <a
@@ -120,7 +125,7 @@ function About() {
               Senior Executive Members
             </Heading>
 
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={12}>
+            <SimpleGrid columns={{ base: 1, md: 3 }}  spacing={6} mt={12}>
               {seniorExecutives.map((executive) => (
                 <GridItem key={executive.name}>
                   <VStack
