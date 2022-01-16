@@ -2,6 +2,7 @@ import sarahImage from "../images/sarah.png";
 import amarImage from "../images/amar.jpeg";
 import bharatImage from "../images/bharat.jpeg";
 import ramananImage from "../images/ramanan.jpeg";
+import ssrImage from "../images/ssr.jpeg";
 export const coFounders = [
   {
     title: "EXECUTIVE DIRECTOR & FOUNDER",
@@ -61,8 +62,7 @@ export const coFounders = [
     ],
   },
   {
-    image:
-      "https://media-exp1.licdn.com/dms/image/D4E03AQFobqvJRh5nQw/profile-displayphoto-shrink_200_200/0/1640558482065?e=1646870400&v=beta&t=UP81QIiXABFNCL-E4Z9hJ5HJ3f6skZ2jZzu-V0XalkM",
+    image: ssrImage,
     name: "Dr. SSR Kumar:",
     subHeading: `Founder, President & CSO, Xheme Inc`,
     bio: `Dr. Kumar is based in Boston, MA, USA. He is currently involved with biotech startups having taken a break from his academic pursuits with most recent assignment as Managing Director at Harvard University managing its Energy Frontier Research Center (EFRC).`,
