@@ -21,13 +21,13 @@ export const modalities = {
   title: "Uniqueness Of the Course",
   items: [
     { heading: "Mode of Training", subHeading: "Online" },
-    { heading: "Period of Training", subHeading: "Four months" },
-    { heading: "Sessions per week", subHeading: "3 to 6" },
-    { heading: "Length of the session", subHeading: "1 to 2 hours" },
+    { heading: "Period of Training", subHeading: "4 months" },
+    { heading: "Sessions per week", subHeading: "6" },
+    { heading: "Length of the session", subHeading: "1 hour" },
     { heading: "Assignments", subHeading: "2 per month" },
     {
       heading: "Last 15 days",
-      subHeading: "Preparing the project and course reports",
+      subHeading: "Preparing the course reports",
     },
   ],
 };

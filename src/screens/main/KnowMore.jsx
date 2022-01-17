@@ -35,7 +35,7 @@ function KnowMore() {
           {modalities.items.map((item, i) => (
             <GridItem key={item}>
               <Box border="2px" rounded="xl" borderColor="blue.500" p={6}>
-                <Heading fontSize={"xl"} textTransform={"capitalize"}>{item.subHeading}</Heading>
+                <Heading fontSize={"xl"}>{item.subHeading}</Heading>
                 <Text>{item.heading}</Text>
               </Box>
             </GridItem>
