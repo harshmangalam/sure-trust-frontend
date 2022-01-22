@@ -1,5 +1,11 @@
 import { FaLinkedin } from "react-icons/fa";
-
+import AshokImage from "../images/ashok.jpeg";
+import JagadeeshImage from "../images/jagadeeshsir.jpg";
+import NiteshImage from "../images/nitesh.jpeg";
+import NamanImage from "../images/naman.jpeg";
+import AmitImage from "../images/amit.jpeg";
+import PraneethImage from "../images/praneeth.jpg";
+import VidushiImage from "../images/vidhushi.jpeg";
 export const frontendManager = {
   image: "",
   name: "Harsh Mangalam",
@@ -16,8 +22,7 @@ export const frontendManager = {
 };
 
 export const backendManager = {
-  image:
-    "https://www.suretrustforruralyouth.com/static/media/ashok.f78c5ee5.jpeg",
+  image: AshokImage,
   name: "Mr. Ashok Babu",
   education:
     "B.Tech 3rd year, CSE, SRKR Engineering College, Bhimavaram, Andhra Pradhesh.",
@@ -34,8 +39,7 @@ export const backendManager = {
 
 export const developers = [
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/jagadeeshsir.bd0a7090.jpg",
+    image: JagadeeshImage,
     name: "Mr. Jagadeesh Gajula",
 
     education:
@@ -51,8 +55,7 @@ export const developers = [
     position: "Website Building Coordinator",
   },
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/ashok.f78c5ee5.jpeg",
+    image: AshokImage,
     name: "Mr. Ashok Babu",
     education:
       "B.Tech 3rd year, CSE, SRKR Engineering College, Bhimavaram, Andhra Pradhesh.",
@@ -68,8 +71,7 @@ export const developers = [
   },
 
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/nitesh.872868f0.jpeg",
+    image: NiteshImage,
     name: "Mr. Nitesh Kumar",
     education:
       "B.Tech 3rd year CSE, Netaji Subhash University of Technology, East Campus (Formerly AIACT&R), Geeta Colony, New Delhi, India.",
@@ -85,8 +87,7 @@ export const developers = [
   },
 
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/naman.38fe016a.jpeg",
+    image: NamanImage,
     name: "Mr. Naman Garg",
     education:
       "BCA 2nd year, Kamal Institute of Higher Education and Advance Technology, New Delhi, India.",
@@ -102,8 +103,7 @@ export const developers = [
   },
 
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/amit.3e18132f.jpeg",
+    image: AmitImage,
     name: "Mr. Amit",
     education:
       "MCA 2nd year, Lovely Professional University, Amritser, Punjab.",
@@ -119,8 +119,7 @@ export const developers = [
   },
 
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/praneeth.67a5b43f.jpg",
+    image: PraneethImage,
     name: "Mr. Praneeth Kumar Ketha",
     education:
       "B.Tech 3rd year CSE, Sri Venkateswara College of Engineering, Tirupati, Andhra Pradesh.",
@@ -136,8 +135,7 @@ export const developers = [
   },
 
   {
-    image:
-      "https://www.suretrustforruralyouth.com/static/media/vidhushi.2269cfa3.jpeg",
+    image: VidushiImage,
     name: "Ms. Vidushi Agarwal",
     education:
       "B.Tech 3rd year CSE, Dehradun Institute of Technology, Varanasi Tehsil, Uttar Pradesh.",

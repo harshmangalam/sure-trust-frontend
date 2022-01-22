@@ -20,7 +20,7 @@ function Developers() {
         </Grid>
       </Box>
       <Box mt={24}>
-        <Heading>Developers</Heading>
+        <Heading>Website Developers</Heading>
         <Grid
           templateColumns={{ base: "repeat(1,1fr)", md: "repeat(3,1fr)" }}
           gridGap={6}

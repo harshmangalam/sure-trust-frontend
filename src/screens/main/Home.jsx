@@ -175,29 +175,31 @@ function Home() {
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
             {collaborators.map((collaborator) => (
               <GridItem key={collaborator.name}>
-                <Box
-                  border="2px"
-                  rounded="xl"
-                  borderColor="blue.500"
-                  p={6}
-                  transition="0.5s all"
-                  _hover={{
-                    boxShadow: "2xl",
-                    shadow: "1px 1px 20px blue",
-                    transform: "scale(1.04)",
-                  }}
-                  cursor="pointer"
-                >
-                  <Heading
-                    as="a"
-                    href={collaborator.link}
-                    target="_blank"
-                    fontSize="3xl"
-                    textAlign="center"
+                <a href={collaborator.link} target={"_blank"}>
+                  <Box
+                    border="1px"
+                    rounded="xl"
+                    borderColor="blue.500"
+                    p={6}
+                    transition="0.5s all"
+                    _hover={{
+                      boxShadow: "xl",
+                      shadow: "1px 1px 20px blue",
+                      transform: "scale(1.02)",
+                    }}
+                    cursor="pointer"
                   >
-                    {collaborator.name}
-                  </Heading>
-                </Box>
+                    <Heading
+                      as="a"
+                      href={collaborator.link}
+                      target="_blank"
+                      fontSize="3xl"
+                      textAlign="center"
+                    >
+                      {collaborator.name}
+                    </Heading>
+                  </Box>
+                </a>
               </GridItem>
             ))}
           </SimpleGrid>
