@@ -8,9 +8,8 @@ export const coFounders = [
     title: "EXECUTIVE DIRECTOR & FOUNDER",
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/edit%203593.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:66.64%25/rs=w:388,h:388,cg:true",
-    name: "Prof. Radhakumari Challa",
-    bio: `Retd. DMC, Anantapur Campus, SSSIHL.
-      Founded “Skill Upgradation for Rural Youth Empowerment" (SURE INITIATIVE), an online initiative, totally free of cost, to educated unemployed youth.`,
+    name: "Prof. Radhakumari Challa, M.Com, M.Phil & Ph.D",
+    bio: `Executive Director and Founder - SURE Trust; Retd Professor-Dept of Management & Commerce, SSSIHL, Puttaparthi`,
 
     links: [
       {
@@ -22,9 +21,8 @@ export const coFounders = [
   {
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/WhatsApp%20Image%202020-07-03%20at%201.17.57%20PM.jpeg/:/cr=t:12.5%25,l:0%25,w:100%25,h:75%25/rs=w:388,h:388,cg:true",
-    name: "Ms. Vandana Nagesh",
-    bio: `Worked as Senior HR in US Consulate, Hyderabad.
-    Co-Founded “Skill Upgradation for Rural Youth Empowerment" (SURE INITIATIVE), an online initiative, totally free of cost, to educated unemployed youth.`,
+    name: "Ms. Vandana Nagesh, B.Com & MBA",
+    bio: `Co-Founder and Dirctor-SURE Trust ; Sr. HR  Manager - IIIT, Hyderabad`,
     links: [
       {
         name: "Linkedin",
@@ -35,15 +33,26 @@ export const coFounders = [
   {
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Krithika%20Ram.jfif/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:388,h:388,cg:true",
-    name: "Ms. Krithika Ram",
-    bio: `Chief Operating Officer,
-      Feminist Approach To Technology (FAT),
-      Delhi, India`,
+    name: "Ms. Krithika Ram, M.A",
+    bio: `Coach- Operations and Donor Management, Feminist Approach to Technology`,
 
     links: [
       {
         name: "Linkedin",
         url: "https://www.linkedin.com/in/krithika-ram-she-her-ab47752b",
+      },
+    ],
+  },
+  {
+    image: ssrImage,
+    name: "Dr. SSR Kumar, M.Sc, Ph.D, Post-Doc-Maxplank (Germany)",
+    subHeading: `Founder, President & CSO, Xheme Inc`,
+    bio: `Dr. Kumar is based in Boston, MA, USA. He is currently involved with biotech startups having taken a break from his academic pursuits with most recent assignment as Managing Director at Harvard University managing its Energy Frontier Research Center (EFRC).`,
+
+    links: [
+      {
+        name: "Linkedin",
+        url: "https://www.linkedin.com/in/kumar-challa-4a30284",
       },
     ],
   },
@@ -61,19 +70,7 @@ export const coFounders = [
       },
     ],
   },
-  {
-    image: ssrImage,
-    name: "Dr. SSR Kumar:",
-    subHeading: `Founder, President & CSO, Xheme Inc`,
-    bio: `Dr. Kumar is based in Boston, MA, USA. He is currently involved with biotech startups having taken a break from his academic pursuits with most recent assignment as Managing Director at Harvard University managing its Energy Frontier Research Center (EFRC).`,
 
-    links: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/kumar-challa-4a30284",
-      },
-    ],
-  },
   {
     image: amarImage,
     name: "Mr. Amar Vivek Aggarwal B.A (Hons), M.B.A and LL.B;",
@@ -92,7 +89,7 @@ export const coFounders = [
   {
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Amar.jpeg/:/cr=t:0%25,l:0.95%25,w:98.1%25,h:100%25/rs=w:388,h:388,cg:true",
-    name: "Mr. Amaresh:",
+    name: "Mr. Amaresh, M.Sc",
     bio: `Director & CEO of Grey scientific labs and few other companies in USA, Canada and India.`,
 
     links: [
@@ -106,8 +103,8 @@ export const coFounders = [
   {
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Krishna%20Kanth.jfif/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:388,h:388,cg:true",
-    name: "Mr. Sai Krishna kanth",
-    bio: `Lead Analyst – Wipro Digital Operations and Platforms. Experienced and accomplished Team Leader with over 7+ years of client-facing experience looking to leverage extensive background in Software implementation, Financial Reporting in Private Equity (LP & GP), Structured Finance and Retail Banking.`,
+    name: "Mr. Sai Krishna kanth, B.Com & MBA",
+    bio: `Lead Analyst – Wipro Digital Operations and Platforms.`,
 
     links: [
       {
@@ -122,8 +119,8 @@ export const seniorExecutives = [
   {
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/WhatsApp%20Image%202020-07-05%20at%2011.35.51%20AM.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:600,h:600,cg:true",
-    name: "Sri Chandramohan",
-    bio: `Group President Finance and Investment Tractor and Farm Equipment Limited Chennai, India`,
+    name: "Sri Chandramohan, CA",
+    bio: `Director on Board - TVS Ltd. Group President Finance and Investment Tractor and Farm Equipment Limited Chennai, India`,
 
     links: [
       {
@@ -136,7 +133,7 @@ export const seniorExecutives = [
   {
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/dr%20cm%20kumar.png/:/cr=t:8.05%25,l:0%25,w:100%25,h:83.9%25/rs=w:600,h:600,cg:true",
-    name: "Dr. C. Muralikrishna Kumar",
+    name: "Dr. C. Muralikrishna Kumar, M.Sc & Ph.D",
     bio: `Former Senior Adviser, NITI Aayog. During his career spanning over 34 years, Dr. C.M Kumar headed divisions responsible for the development of Information & Communication Technology, Science & Technology and Innovation.`,
 
     links: [
@@ -152,8 +149,8 @@ export const executiveMembers = [
   {
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Mr.%20Vijayalakshmi.jfif/:/rs=w:600,h:600,cg:true,m/cr=w:600,h:600",
-    name: "Mrs. Vijayalakshmi Suresh",
-    bio: `Actively involved in Vidyavahini, Sri Sathya Sai Central Trust;Volunteered as Sai Spiritual Education Guru, Dubai & Toronto, for several years; Volunteered as Special needs educator in Dubai Center for Special Needs.`,
+    name: "Mrs. Vijayalakshmi Suresh, M.Com",
+    bio: `Options Trader, US stock market.`,
 
     links: [
       {
@@ -165,7 +162,7 @@ export const executiveMembers = [
   {
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Usha.jfif/:/cr=t:0%25,l:0.3%25,w:97.7%25,h:73.53%25/rs=w:600,h:600,cg:true,m",
-    name: "Mrs. G Usha",
+    name: "Mrs. G Usha, M.Sc",
     bio: `Scientist / Engineer "SE", Solar Panel Division, Power Systems Group,U R RAO SATELLITE CENTER, Bangalore.`,
 
     links: [
@@ -180,8 +177,8 @@ export const executiveMembers = [
     image:
       "https://media-exp1.licdn.com/dms/image/C4D03AQGPw4g7ZYTMNw/profile-displayphoto-shrink_200_200/0/1517580043001?e=1646870400&v=beta&t=JB3xMiDOivWLdeudxumxf9cpkrueESuPVQmo3pvTeXk",
 
-    name: "Mrs. Sai Sudha Nunna",
-    bio: `CFA, MBA, Btech Co-Founder & COO, Smartnerd Future Communities, India.`,
+    name: "Mrs. Sai Sudha Nunna, CFA, MBA, B.Tech (CSE)",
+    bio: `Co-Founder & COO, Smartnerd Future Communities, India.`,
 
     links: [
       {
@@ -194,9 +191,8 @@ export const executiveMembers = [
   {
     image:
       "https://media-exp1.licdn.com/dms/image/C5603AQH0TeSk8yHB5g/profile-displayphoto-shrink_200_200/0/1630570179653?e=1646870400&v=beta&t=AlGoFzJ1uJ889_s7YNZ1r7n973sAihSsx0qEoaUBz1E",
-    name: "Mr. Jagadeesh Gajula",
-    bio: `Grey Scientific Labs from Greyslide Imaging
-    BCA PGD (AIML), MSc (AIML) - Liver Poole John Moores University, London; Technical Manager - Grey Slide Imaging; Junior Research Fellow - IIT, Hyderabad. The very first proud product of the SURE TRUST`,
+    name: "Mr. Jagadeesh Gajula, BCA PGD (AIML), MSc (AIML) - Liver Poole John Moores University, London;",
+    bio: `Research Fellow - IIT, Hyderabad. The very first proud product of the SURE TRUST`,
 
     links: [
       {
@@ -208,8 +204,8 @@ export const executiveMembers = [
 
   {
     image: bharatImage,
-    name: "Mr. Bharat Reddy Bora",
-    bio: `Btech (ECE) Graduate student in Robotics from the University of Maryland College Park, USA. Currently working as ROS (Robotics Operating System) Developer, TheDush Robotics, Coimbatore, TN.`,
+    name: "Mr. Bharat Reddy Bora, B.Tech (ECE)",
+    bio: `Graduate student in Robotics from the University of Maryland College Park, USA. Currently working as ROS (Robotics Operating System) Developer, TheDush Robotics, Coimbatore, TN.`,
 
     links: [
       {

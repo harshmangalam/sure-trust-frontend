@@ -107,7 +107,7 @@ function BatchCard({ batch }) {
         <Button
           colorScheme={"pink"}
           as={Link}
-          to={`/courses/${batch.course.id}`}
+          to={`/courses/${batch.course?.id}`}
           width={"full"}
         >
           View Course
@@ -116,7 +116,7 @@ function BatchCard({ batch }) {
         <Button
           colorScheme={"green"}
           as={Link}
-          to={`/dashboard/batches/${batch.id}/courses/${batch.course.id}/posts`}
+          to={`/dashboard/batches/${batch?.id}/courses/${batch.course?.id}/posts`}
           width={"full"}
         >
           Posts
