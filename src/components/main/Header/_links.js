@@ -6,4 +6,5 @@ export const links = [
   { name: "Research Guidance", to: "/research-guidance" },
   { name: "Website Developers", to: "/developers" },
   { name: "Photo Gallery", to: "/photo-gallery" },
+  { name: "Video Gallery", to: "/video-gallery" },
 ];

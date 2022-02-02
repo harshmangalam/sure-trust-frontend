@@ -164,9 +164,10 @@ function Login() {
             </Button>
             <Button
               variant="ghost"
-              as={Link}
+              as="a"
               size="sm"
-              to="/auth/reset-password"
+              href={`${process.env.REACT_APP_BASEURL}/users/reset_password/`}
+              target={"_blank"}
             >
               Forgotton password
             </Button>

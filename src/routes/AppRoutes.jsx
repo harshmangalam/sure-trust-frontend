@@ -13,6 +13,7 @@ const Course = lazy(() => import("../screens/main/Course"));
 const KnowMore = lazy(() => import("../screens/main/KnowMore"));
 const PhotoGallery = lazy(() => import("../screens/main/PhotoGallery"));
 const Developers = lazy(() => import("../screens/main/Developers"));
+const VideoGallary = lazy(() => import("../screens/main/VideoGallary"));
 
 const AuthLayout = lazy(() => import("../screens/auth"));
 const Login = lazy(() => import("../screens/auth/Login"));
@@ -85,6 +86,7 @@ function AppRoutes() {
           <Route path="courses" element={<Courses />} />
           <Route path="courses/:id" element={<Course />} />
           <Route path="developers" element={<Developers />} />
+          <Route path="video-gallery" element={<VideoGallary />} />
         </Route>
 
         <Route path="/auth" element={<AuthLayout />}>
