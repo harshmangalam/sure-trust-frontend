@@ -175,7 +175,7 @@ function Home() {
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
             {collaborators.map((collaborator) => (
               <GridItem key={collaborator.name}>
-                <a href={collaborator.link} target={"_blank"}>
+                <a rel="noreferrer" href={collaborator.link} target={"_blank"}>
                   <Box
                     border="1px"
                     rounded="xl"
