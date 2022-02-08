@@ -14,9 +14,11 @@ function MainLayout() {
       flexDir="column"
       justifyContent="space-between"
     >
-      <ScrollingMessages />
+      <div>
+        <Header />
+        <ScrollingMessages />
 
-      <Header />
+      </div>
 
       <Box py={12}>
         <Outlet />

@@ -11,7 +11,7 @@ import { links } from "./_links";
 function DesktopMenu() {
   return (
     <Menu>
-      <MenuButton as={IconButton} aria-label="Menus" icon={<CgMenuGridO />} />
+      <MenuButton as={IconButton} aria-label="Menus" icon={<CgMenuGridO size={20} />} />
       <MenuList>
         {links.map((menu) => (
           <MenuItem

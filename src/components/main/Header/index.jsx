@@ -41,7 +41,7 @@ function Header() {
                 </HStack>
               )}
               <IconButton as={NavLink} to="/" aria-label="Home">
-                <RiHome2Line />
+                <RiHome2Line size={20} />
               </IconButton>
               <DesktopMenu />
               <ThemeToggle />
@@ -51,7 +51,7 @@ function Header() {
             {/* display on smaller screen  */}
             <HStack display={{ base: "flex", md: "none" }}>
               <IconButton as={NavLink} to="/" aria-label="Home">
-                <RiHome2Line />
+                <RiHome2Line size={20} />
               </IconButton>
               <ThemeToggle />
               <MobileMenu />

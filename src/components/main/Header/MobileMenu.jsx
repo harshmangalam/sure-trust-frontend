@@ -25,7 +25,7 @@ function MobileMenu() {
   return (
     <Box>
       <IconButton onClick={onOpen}>
-        <AiOutlineMenu />
+        <AiOutlineMenu size={20} />
       </IconButton>
       <Drawer
         variant=""
