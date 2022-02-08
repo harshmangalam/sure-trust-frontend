@@ -19,7 +19,7 @@ function PhotoGallery() {
       >
         {[...Array(10).keys()].map((image, i) => (
           <GridItem>
-            <AspectRatio maxW="560px" ratio={1}>
+            <AspectRatio maxW="560px" ratio={1} >
               <iframe
                 title="naruto"
                 src="https://www.youtube.com/embed/QhBnZ6NPOY0"

@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import Header from "../../components/main/Header";
 import Footer from "../../components/main/Footer";
+import ScrollingMessages from "../../components/main/ScrollingMessages";
 
 function MainLayout() {
   return (
@@ -13,6 +14,8 @@ function MainLayout() {
       flexDir="column"
       justifyContent="space-between"
     >
+      <ScrollingMessages />
+
       <Header />
 
       <Box py={12}>
