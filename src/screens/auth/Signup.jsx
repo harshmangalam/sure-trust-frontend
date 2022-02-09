@@ -21,6 +21,7 @@ import {
   AlertIcon,
   AlertDescription,
   useToast,
+  Select,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -29,7 +30,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-import { signup } from "../../services";
+import { fetchCourses, signup } from "../../services";
+import { useQuery } from "react-query";
 const schema = yup.object({
   name: yup.string().required("Name is required"),
   email: yup
@@ -47,6 +49,7 @@ const schema = yup.object({
   collegePlace: yup.string(),
   collegeDistrict: yup.string(),
   collegeState: yup.string(),
+  courseId: yup.string().required("Please select course to proceed"),
 });
 
 function Signup() {
@@ -54,6 +57,7 @@ function Signup() {
   const navigate = useNavigate();
   const [steps, setSteps] = useState(0);
   const [conditions, setConditions] = useState([]);
+  const courseQuery = useQuery("courses", fetchCourses);
 
   const {
     handleSubmit,
@@ -81,7 +85,9 @@ function Signup() {
     collegePlace,
     collegeDistrict,
     collegeState,
+    courseId,
   }) => {
+    console.log(courseId, typeof courseId);
     if (conditions.length !== 4) {
       setError("conditions", {
         message: "Please accept all terms and conditions",
@@ -144,7 +150,7 @@ function Signup() {
   };
 
   const renderActionButtons = () => {
-    if (steps >= 0 && steps < 3) {
+    if (steps >= 0 && steps < 4) {
       return (
         <HStack justifyContent="center">
           <Button
@@ -165,7 +171,7 @@ function Signup() {
           </Button>
         </HStack>
       );
-    } else if (steps === 3) {
+    } else if (steps === 4) {
       return (
         <VStack justifyContent="center">
           <Button
@@ -398,8 +404,46 @@ function Signup() {
             </SimpleGrid>
           )}
 
-          {/* Terms and Conditions   */}
+          {/* select course  */}
+
           {steps === 3 && (
+            <Box>
+              {errors.courseId && (
+                <Alert status="error" mb={6}>
+                  <AlertIcon />
+
+                  <AlertDescription>
+                    {errors.courseId?.message}
+                  </AlertDescription>
+                </Alert>
+              )}
+
+              <Heading fontSize="2xl">Select Course</Heading>
+              <Box mt={6}>
+                <FormControl isInvalid={errors.courseId}>
+                  <FormLabel htmlFor="collegeState">Select course</FormLabel>
+                  <Select
+                    id="courseId"
+                    name="courseId"
+                    {...register("courseId")}
+                    placeholder="Select course"
+                  >
+                    {courseQuery.data?.map((course) => (
+                      <option key={course.id} value={course.id}>
+                        {course.course_name}
+                      </option>
+                    ))}
+                  </Select>
+                  <FormErrorMessage>
+                    {errors.courseId?.message}
+                  </FormErrorMessage>
+                </FormControl>
+              </Box>
+            </Box>
+          )}
+
+          {/* Terms and Conditions   */}
+          {steps === 4 && (
             <Box>
               {errors.conditions && (
                 <Alert status="error" mb={6}>
