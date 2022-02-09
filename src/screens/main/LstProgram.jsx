@@ -19,7 +19,7 @@ export default function LstProgram() {
   return (
     <Box maxW="container.xl" mx="auto" px={2}>
       <Box>
-        <Heading fontSize={"3xl"}>Intro</Heading>
+        <Heading fontSize={"3xl"}>Introduction</Heading>
         <SimpleGrid columns={[1, 1, 2, 3]} spacing={6} my={6}>
           {intro.map((text, i) => (
             <GridItem bg={cardBg} rounded="md" p={6} key={i} shadow={"lg"}>
