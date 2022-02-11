@@ -43,7 +43,9 @@ function Home() {
 
       <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>
-          <Heading textAlign="center">Features</Heading>
+          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+            Features
+          </Heading>
 
           <Grid
             mt={12}
@@ -102,7 +104,13 @@ function Home() {
         bgPos={"center"}
       >
         <Container maxW="container.xl">
-          <Heading textAlign="center" color="white">Accomplishments</Heading>
+          <Heading
+            textAlign="center"
+            color="white"
+            fontSize={{ base: "4xl", md: "5xl" }}
+          >
+            Accomplishments
+          </Heading>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
             {accomplishments.map((accomplishment) => (
@@ -124,7 +132,13 @@ function Home() {
                 </Heading>
                 <VStack>
                   {accomplishment.description.map((para, i) => (
-                    <Text fontWeight={"500"} textAlign={"justify"} fontSize="lg" color="white" key={i}>
+                    <Text
+                      fontWeight={"500"}
+                      textAlign={"justify"}
+                      fontSize="lg"
+                      color="white"
+                      key={i}
+                    >
                       {para}
                     </Text>
                   ))}
@@ -139,7 +153,9 @@ function Home() {
 
       <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>
-          <Heading textAlign="center">Uniqueness Of Our Training</Heading>
+          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+            Uniqueness Of Our Training
+          </Heading>
 
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={12}>
             {uniquenessTrainings.map((uniquenessTraining) => (
@@ -187,7 +203,9 @@ function Home() {
       {/* collaborators */}
       <Box my={24}>
         <Container maxW="container.xl">
-          <Heading textAlign="center">Collaborators</Heading>
+          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+            Collaborators
+          </Heading>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
             {collaborators.map((collaborator) => (

@@ -45,7 +45,7 @@ function About() {
             <Heading fontSize={"3xl"}>{narrationByFounder.title}</Heading>
             <VStack mt={6} spacing={4}>
               {narrationByFounder.contents.map((content, i) => (
-                <Text as="p" key={i} textAlign={"justify"}>
+                <Text key={i} textAlign={"justify"}>
                   {content}
                 </Text>
               ))}
@@ -125,7 +125,7 @@ function About() {
               Senior Executive Members
             </Heading>
 
-            <SimpleGrid columns={{ base: 1, md: 3 }}  spacing={6} mt={12}>
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
               {seniorExecutives.map((executive) => (
                 <GridItem key={executive.name}>
                   <VStack
