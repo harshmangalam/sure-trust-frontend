@@ -15,8 +15,8 @@ function Courses() {
     return <Error code={500} message={query.error} />;
   }
   return (
-    <Container maxW="container.xl">
-      <Heading>Courses</Heading>
+    <Container maxW="container.xl" my={12}>
+      <Heading fontSize={{ base: "4xl", md: "5xl" }} textAlign={"center"} mt={12}>Courses</Heading>
       <SimpleGrid mt={12} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
         {query.data.map((course) => (
           <CourseCard course={course} />
