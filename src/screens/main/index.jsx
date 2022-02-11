@@ -20,7 +20,7 @@ function MainLayout() {
 
       </div>
 
-      <Box py={12}>
+      <Box>
         <Outlet />
       </Box>
       <Footer />

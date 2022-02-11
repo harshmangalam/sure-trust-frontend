@@ -1,92 +1,93 @@
 import {
   Box,
-  Heading,
-  Container,
   Text,
   Button,
   Stack,
   Icon,
   useColorModeValue,
   createIcon,
+  VStack,
 } from "@chakra-ui/react";
 import { useAuthState } from "../../../contexts/auth";
 import { Link } from "react-router-dom";
 export default function Caption() {
   const { isAuthenticated } = useAuthState();
   return (
-    <Container maxW="container.lg">
-      <Stack as={Box} textAlign={"center"} spacing={{ base: 8, md: 14 }}>
-        <Heading
-          fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
-          lineHeight={"110%"}
+    <Stack as={Box} textAlign={"center"} spacing={{ base: 8, md: 14 }}>
+      <VStack>
+        <Text
+          bgGradient="linear(to-l, #7928CA, #FF0080)"
+          bgClip="text"
+          fontSize="6xl"
+          fontWeight="extrabold"
         >
-          Sure Trust <br />
-          <Text as={"span"} color={"purple.500"}>
-            Work hard today for a better tomorrow
-          </Text>
-        </Heading>
+          Sure Trust
+        </Text>
+        <Text fontSize={"4xl"} color="white">
+          Work hard today for a better tomorrow
+        </Text>
+      </VStack>
 
-        <Stack
-          direction={{ base: "column", md: "row" }}
-          spacing={3}
-          align={"center"}
-          alignSelf={"center"}
-          position={"relative"}
-        >
-          {!isAuthenticated ? (
-            <Button
-              as={Link}
-              to="/auth/signup"
-              colorScheme="green"
-              rounded={"full"}
-              px={6}
-            >
-              Get Started
-            </Button>
-          ) : (
-            <Button
-              as={Link}
-              to="/dashboard"
-              colorScheme="green"
-              rounded={"full"}
-              px={6}
-            >
-              Dashboard
-            </Button>
-          )}
+      <Stack
+        direction={{ base: "column", md: "row" }}
+        spacing={3}
+        align={"center"}
+        alignSelf={"center"}
+        position={"relative"}
+      >
+        {!isAuthenticated ? (
           <Button
             as={Link}
-            to="/courses"
-            colorScheme="pink"
+            to="/auth/signup"
+            colorScheme="green"
             rounded={"full"}
             px={6}
           >
-            Explore Courses
+            Get Started
           </Button>
-          <Box display={{ base: "none", md: "block" }}>
-            <Icon
-              as={Arrow}
-              color={useColorModeValue("gray.800", "gray.300")}
-              w={71}
-              position={"absolute"}
-              right={-71}
-              top={"10px"}
-            />
-            <Text
-              fontSize={"lg"}
-              fontFamily={"Caveat"}
-              position={"absolute"}
-              right={"-125px"}
-              top={"-15px"}
-              transform={"rotate(10deg)"}
-            >
-              Totally free of cost
-            </Text>
-          </Box>
-        </Stack>
+        ) : (
+          <Button
+            as={Link}
+            to="/dashboard"
+            colorScheme="green"
+            rounded={"full"}
+            px={6}
+          >
+            Dashboard
+          </Button>
+        )}
+        <Button
+          as={Link}
+          to="/courses"
+          colorScheme="pink"
+          rounded={"full"}
+          px={6}
+        >
+          Explore Courses
+        </Button>
+        <Box display={{ base: "none", md: "block" }}>
+          <Icon
+            as={Arrow}
+            color={"white"}
+            w={71}
+            position={"absolute"}
+            right={-71}
+            top={"10px"}
+          />
+          <Text
+            fontSize={"lg"}
+            fontFamily={"Caveat"}
+            position={"absolute"}
+            right={"-125px"}
+            top={"-15px"}
+            transform={"rotate(10deg)"}
+            color="white"
+          >
+            Totally free of cost
+          </Text>
+        </Box>
       </Stack>
-    </Container>
+    </Stack>
   );
 }
 

@@ -18,7 +18,7 @@ function Header() {
   const { isAuthenticated } = useAuthState();
 
   return (
-    <Box as="header" bg={useColorModeValue("white", "gray.700")}>
+    <Box as="header" bg={useColorModeValue("white","gray.700")}>
       <Box shadow="sm" as="nav" py="2" px={{ base: 4, md: 8 }} mx="auto">
         <Flex justify="space-between" align="center">
           <Logo />

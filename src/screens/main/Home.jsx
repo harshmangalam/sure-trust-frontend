@@ -8,6 +8,7 @@ import {
   Container,
   Image,
   useColorModeValue,
+  Grid,
 } from "@chakra-ui/react";
 
 import { accomplishments } from "../../data/accomplishments";
@@ -21,90 +22,109 @@ function Home() {
   const featureHeadingColor = useColorModeValue("blue.500", "blue.300");
   const accomplishmentHeadingColor = useColorModeValue("pink.500", "pink.300");
   const trainingHedingColor = useColorModeValue("blue.500", "blue.300");
+  const cardBg = useColorModeValue("white", "gray.700");
   return (
     <Box>
       {/* Welcome section  */}
-      <Box as="section">
+      <Box
+        as="section"
+        minH={"85vh"}
+        display={"grid"}
+        placeItems={"center"}
+        bgImage="https://img.freepik.com/free-vector/abstact-hexagon-background-memphis-style_1017-31955.jpg?w=996"
+        backgroundRepeat={"no-repeat"}
+        backgroundPosition={"center"}
+        backgroundSize={"cover"}
+      >
         <Caption />
       </Box>
 
       {/* Features section */}
 
       <Box as="section" mt={24}>
-        <Container maxW="container.xl">
+        <Container maxW={"container.xl"}>
           <Heading textAlign="center">Features</Heading>
 
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
+          <Grid
+            mt={12}
+            templateColumns={{
+              base: "repeat(1,1fr)",
+              md: "repeat(2,1fr)",
+              xl: "repeat(3,1fr)",
+            }}
+            gridGap={6}
+          >
             {features.map((feature) => (
-              <GridItem key={feature.title}>
-                <Box
-                  p={6}
-                  border="2px"
-                  borderColor="blue.500"
-                  rounded="xl"
-                  transition="0.5s all"
-                  _hover={{
-                    boxShadow: "2xl",
-                    shadow: "1px 1px 20px blue",
-                    transform: "scale(1.02)",
-                  }}
-                  h="full"
-                >
-                  <VStack spacing={4} alignItems="start">
-                    <Image
-                      src={feature.image}
-                      alt={feature.title}
-                      w="full"
-                      h="sm"
-                    />
+              <Box
+                key={feature.title}
+                p={4}
+                bg={cardBg}
+                boxShadow={"2xl"}
+                rounded={"lg"}
+                textAlign={"center"}
+              >
+                <VStack spacing={4}>
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    w="full"
+                    h="xs"
+                  />
 
-                    <Heading size="md" color={featureHeadingColor}>
-                      {feature.title}
-                    </Heading>
-                    <Text textAlign="justify" fontSize="md">
-                      {feature.description}
-                    </Text>
-                  </VStack>
-                </Box>
-              </GridItem>
+                  <Heading
+                    size="md"
+                    color={featureHeadingColor}
+                    textAlign={"center"}
+                  >
+                    {feature.title}
+                  </Heading>
+                  <Text textAlign={"justify"} fontSize="lg">
+                    {feature.description}
+                  </Text>
+                </VStack>
+              </Box>
             ))}
-          </SimpleGrid>
+          </Grid>
         </Container>
       </Box>
 
       {/* Accomplishments  */}
 
-      <Box as="section" mt={24}>
+      <Box
+        as="section"
+        mt={24}
+        py={6}
+        bgImage={
+          "https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg?w=826"
+        }
+        bgRepeat={"no-repeat"}
+        bgSize={"cover"}
+        bgPos={"center"}
+      >
         <Container maxW="container.xl">
-          <Heading textAlign="center">Accomplishments</Heading>
+          <Heading textAlign="center" color="white">Accomplishments</Heading>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
             {accomplishments.map((accomplishment) => (
               <VStack
                 key={accomplishment.title}
                 spacing={4}
-                alignItems="start"
-                p={6}
-                border="2px"
-                borderColor="blue.500"
-                rounded="xl"
-                transition="0.5s all"
-                _hover={{
-                  boxShadow: "2xl",
-                  shadow: "1px 1px 20px blue",
-                  transform: "scale(1.04)",
-                }}
+                p={4}
+                rounded={"lg"}
+                textAlign={"center"}
+                border={1}
               >
                 <Heading
                   color={accomplishmentHeadingColor}
                   size="md"
                   textTransform="uppercase"
+                  textAlign={"center"}
                 >
                   {accomplishment.title}
                 </Heading>
                 <VStack>
                   {accomplishment.description.map((para, i) => (
-                    <Text textAlign={"justify"} fontSize="md" key={i}>
+                    <Text fontWeight={"500"} textAlign={"justify"} fontSize="lg" color="white" key={i}>
                       {para}
                     </Text>
                   ))}
@@ -118,34 +138,31 @@ function Home() {
       {/* Uniqueness Of Our Training  */}
 
       <Box as="section" mt={24}>
-        <Container maxW="container.xl">
+        <Container maxW={"container.xl"}>
           <Heading textAlign="center">Uniqueness Of Our Training</Heading>
 
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={12}>
             {uniquenessTrainings.map((uniquenessTraining) => (
               <GridItem key={uniquenessTraining.title}>
-                <VStack
-                  spacing={4}
-                  alignItems="start"
-                  p={6}
-                  border="2px"
-                  borderColor="blue.500"
-                  rounded="xl"
-                  transition="0.5s all"
-                  _hover={{
-                    boxShadow: "2xl",
-                    shadow: "1px 1px 20px blue",
-                    transform: "scale(1.04)",
-                  }}
-                >
-                  <Heading
-                    color={trainingHedingColor}
-                    size="md"
-                    textTransform="uppercase"
-                  >
-                    {uniquenessTraining.title}
-                  </Heading>
-                  <Text fontSize="md">{uniquenessTraining.description}</Text>
+                <VStack spacing={6} p={6} rounded="xl">
+                  <Image
+                    src={uniquenessTraining.image}
+                    width={"100%"}
+                    height="sm"
+                  />
+                  <Box>
+                    <Heading
+                      color={trainingHedingColor}
+                      size="md"
+                      textTransform="uppercase"
+                      textAlign={"center"}
+                    >
+                      {uniquenessTraining.title}
+                    </Heading>
+                    <Text fontSize="md" textAlign={"center"}>
+                      {uniquenessTraining.description}
+                    </Text>
+                  </Box>
                 </VStack>
               </GridItem>
             ))}
@@ -156,7 +173,7 @@ function Home() {
       {/* Google Ratings  */}
 
       {/* <Box mt={24} p={12} bg={useColorModeValue("gray.100", "gray.700")}>
-        <Container maxW={"container.xl"}>
+        <Box maxW={"container.xl"}>
           <VStack>
             <Heading>Google Reviews</Heading>
             <Text>We have been working with students around the world</Text>
@@ -164,11 +181,11 @@ function Home() {
           <Box mt={12} maxW={"md"} mx="auto">
             <ReviewCarousel />
           </Box>
-        </Container>
+        </Box>
       </Box> */}
 
       {/* collaborators */}
-      <Box mt={24}>
+      <Box my={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center">Collaborators</Heading>
 
@@ -177,24 +194,22 @@ function Home() {
               <GridItem key={collaborator.name}>
                 <a rel="noreferrer" href={collaborator.link} target={"_blank"}>
                   <Box
-                    border="1px"
+                    border="2px"
                     rounded="xl"
                     borderColor="blue.500"
                     p={6}
-                    transition="0.5s all"
-                    _hover={{
-                      boxShadow: "xl",
-                      shadow: "1px 1px 20px blue",
-                      transform: "scale(1.02)",
-                    }}
+                    bg={cardBg}
+                    boxShadow={"2xl"}
+                    textAlign={"center"}
                     cursor="pointer"
                   >
                     <Heading
                       as="a"
                       href={collaborator.link}
                       target="_blank"
-                      fontSize="3xl"
+                      fontSize="xl"
                       textAlign="center"
+                      color={"pink.500"}
                     >
                       {collaborator.name}
                     </Heading>

@@ -7,9 +7,9 @@ import AmitImage from "../images/amit.jpeg";
 import PraneethImage from "../images/praneeth.jpg";
 import VidushiImage from "../images/vidhushi.jpeg";
 export const frontendManager = {
-  image: "",
+  image: "https://avatars.githubusercontent.com/u/57381638?v=4",
   name: "Harsh Mangalam",
-  education: "BCA 2nd year, Marwari College , Bhagalpur , Bihar.",
+  education: "Open source developer and blogger",
   links: [
     {
       name: "Linkedin",
@@ -150,9 +150,9 @@ export const developers = [
     position: "Frontend Team Member",
   },
   {
-    image: "",
+    image: "https://avatars.githubusercontent.com/u/57381638?v=4",
     name: "Harsh Mangalam",
-    education: "BCA 2nd year, Marwari College , Bhagalpur , Bihar.",
+    education: "Open source developer and blogger",
     links: [
       {
         name: "Linkedin",
