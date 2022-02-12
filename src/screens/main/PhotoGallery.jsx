@@ -2,8 +2,9 @@ import { Container, Image, Grid, GridItem, Heading } from "@chakra-ui/react";
 
 function PhotoGallery() {
   return (
-    <Container maxW={"container.xl"}>
-      <Heading>Picture Gallary</Heading>
+    <Container maxW={"container.xl"} py={12}>
+      <Heading>Comming-Soon</Heading>
+      {/* <Heading>Picture Gallary</Heading>
       <Grid
         columnGap={2}
         my={4}
@@ -19,7 +20,7 @@ function PhotoGallery() {
             />
           </GridItem>
         ))}
-      </Grid>
+      </Grid> */}
     </Container>
   );
 }

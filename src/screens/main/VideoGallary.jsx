@@ -9,8 +9,9 @@ import {
 
 function PhotoGallery() {
   return (
-    <Container maxW={"container.xl"}>
-      <Heading>Video Gallary</Heading>
+    <Container maxW={"container.xl"} py={12}>
+      <Heading>Comming-Soon</Heading>
+      {/* <Heading>Video Gallary</Heading>
       <Grid
         columnGap={2}
         rowGap={2}
@@ -28,7 +29,7 @@ function PhotoGallery() {
             </AspectRatio>
           </GridItem>
         ))}
-      </Grid>
+      </Grid> */}
     </Container>
   );
 }

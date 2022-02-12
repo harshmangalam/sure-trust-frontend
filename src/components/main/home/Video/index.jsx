@@ -1,16 +1,8 @@
-import React from "react";
-import {
-  Box,
-  Link,
-  Image,
-  useColorModeValue,
-  SimpleGrid,
-  GridItem,
-} from "@chakra-ui/react";
+import { Box, SimpleGrid, GridItem } from "@chakra-ui/react";
 
 export default function Video() {
   return (
-    <SimpleGrid zIndex="2" mt={8} columns={[1, 1, 2,3]} spacing={10}>
+    <SimpleGrid zIndex="2" mt={8} columns={[1, 1, 2, 3]} spacing={10}>
       {[...Array(3).keys()].map((video) => (
         <GridItem>
           <Box

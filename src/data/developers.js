@@ -9,7 +9,7 @@ import VidushiImage from "../images/vidhushi.jpeg";
 export const frontendManager = {
   image: "https://avatars.githubusercontent.com/u/57381638?v=4",
   name: "Harsh Mangalam",
-  education: "Open source developer and blogger",
+  education: "BCA 2nd Year, Open source developer and blogger",
   links: [
     {
       name: "Linkedin",
@@ -18,7 +18,7 @@ export const frontendManager = {
       color: "linkedin",
     },
   ],
-  position: "Frontend Team Leader",
+  position: "Front-end",
 };
 
 export const backendManager = {
@@ -34,7 +34,7 @@ export const backendManager = {
       color: "linkedin",
     },
   ],
-  position: "Backend Team Leader",
+  position: "Back-end",
 };
 
 export const developers = [
@@ -83,7 +83,7 @@ export const developers = [
         color: "linkedin",
       },
     ],
-    position: "Frontend Team Leader",
+    position: "Frontend Team Member",
   },
 
   {
@@ -152,7 +152,7 @@ export const developers = [
   {
     image: "https://avatars.githubusercontent.com/u/57381638?v=4",
     name: "Harsh Mangalam",
-    education: "Open source developer and blogger",
+    education: "BCA 2nd Year, Open source developer and blogger",
     links: [
       {
         name: "Linkedin",

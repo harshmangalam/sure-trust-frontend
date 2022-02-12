@@ -10,15 +10,15 @@ import {
   Button
 } from "@chakra-ui/react";
 import {Link} from "react-router-dom"
-import r1Image from "../../assets/features/img1.svg";
+import r1Image from "../../assets/home/1.svg";
 function ResearchGuidance() {
   return (
-    <Container maxW={"container.xl"}>
-      <Heading textAlign="center">APPROACH FOR COURSE COMPLETION</Heading>
+    <Container maxW={"container.xl"} py={12}>
+      <Heading textAlign="center" fontSize={["4xl","5xl"]}>Research Guidance</Heading>
       <Box mt={24}>
         <SimpleGrid columns={[1, 2]} spacing={6}>
           <GridItem>
-            <Image src={r1Image} width={"100%"} />
+            <Image src={r1Image} width={"100%"} height={"400px"} />
           </GridItem>
           <GridItem>
             <VStack  alignItems={"start"} spacing={3}>

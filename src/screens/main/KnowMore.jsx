@@ -23,8 +23,8 @@ import {
 } from "../../data/knowMore";
 function KnowMore() {
   return (
-    <Container maxW={"container.xl"}>
-      <Heading textAlign="center">APPROACH FOR COURSE COMPLETION</Heading>
+    <Container maxW={"container.xl"} py={12}>
+      <Heading textAlign="center" fontSize={["4xl","5xl"]}>Approach For Course Completion</Heading>
 
       <Box mt={24}>
         <Heading fontSize={"3xl"} textAlign={"center"}>

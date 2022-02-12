@@ -7,8 +7,8 @@ import {
 } from "../../data/developers";
 function Developers() {
   return (
-    <Container maxW={"container.xl"}>
-      <Heading>Website Maintenance and Management</Heading>
+    <Container maxW={"container.xl"} py={12}>
+      <Heading fontSize={["4xl","5xl"]} textAlign={"center"}> Website Management</Heading>
       <Box mt={12}>
         <Grid
           templateColumns={{ base: "repeat(1,1fr)", md: "repeat(2,1fr)" }}
@@ -20,7 +20,7 @@ function Developers() {
         </Grid>
       </Box>
       <Box mt={24}>
-        <Heading>Website Developers</Heading>
+        <Heading fontSize={["4xl","5xl"]} textAlign={"center"}>Website Developers</Heading>
         <Grid
           templateColumns={{ base: "repeat(1,1fr)", md: "repeat(3,1fr)" }}
           gridGap={6}

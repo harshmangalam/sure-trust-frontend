@@ -26,7 +26,7 @@ import { BsSubtract } from "react-icons/bs";
 export default function Contact() {
   const cardBg = useColorModeValue("white", "gray.700");
   return (
-    <Container maxW="container.xl">
+    <Container maxW="container.xl" py={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12}>
         <GridItem>
           <Box textAlign="center">

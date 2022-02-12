@@ -5,7 +5,6 @@ import {
   SimpleGrid,
   GridItem,
   Container,
-  Image,
 } from "@chakra-ui/react";
 
 // import ReviewCarousel from "../../components/main/home/ReviewCarousel"
@@ -14,7 +13,6 @@ import { collaborators } from "../../data/collaborators";
 
 import Caption from "../../components/main/home/Caption";
 import Features from "../../components/main/home/Features";
-import Video from "../../components/main/home/Video";
 
 function Home() {
   return (
@@ -68,7 +66,6 @@ function Home() {
                 border="1px"
                 borderColor={"purple.500"}
               >
-                <Image src={uniquenessTraining.image} h="xs" w="100%" />
                 <Text fontSize={"xl"} textAlign={"center"}>
                   {uniquenessTraining.title}
                 </Text>
@@ -96,16 +93,16 @@ function Home() {
 
       {/* videos collections  */}
 
-      <Box as="section" my={24}>
+      {/* <Box as="section" my={24}>
         <Container maxW={"container.xl"}>
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
-            Videos
+            Pause -- Listen to trainers
           </Heading>
           <Box mt={12}>
             <Video />
           </Box>
         </Container>
-      </Box>
+      </Box> */}
 
       <Box my={24}>
         <Container maxW="container.xl">

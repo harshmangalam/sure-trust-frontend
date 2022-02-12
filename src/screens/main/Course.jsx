@@ -33,7 +33,7 @@ function Course() {
   }
 
   return (
-    <Box my={12}>
+    <Box py={12}>
       <Container maxW="container.xl">
         <VStack>
           <Heading textAlign={"center"}>{query.data.course_name}</Heading>

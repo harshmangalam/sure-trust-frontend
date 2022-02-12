@@ -67,7 +67,7 @@ export const trainingModules = [
       {
         mentor: "Ekta Pathak, CFA, MBA finance",
         text: `Currently she is  a founder of Ekrang - a holistic yoga platform. Ekta is on a mission to teach self love using Yoga to corporates, education institutions, kids, teenagers, Not-for-profit institutions, and cluster batches in India and abroad. She also provides personal sessions, tailored to the specific health need of Individuals. Ekta is a regular speaker in various national & international conferences, platforms, podcasts and Pro-bono events`,
-        image: amarVivekImage,
+        image: "",
       },
     ],
   },

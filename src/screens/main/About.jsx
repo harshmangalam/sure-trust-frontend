@@ -21,7 +21,7 @@ import {
 import satyaSaiBaba from "../../images/satya_sai_baba.jpg";
 function About() {
   return (
-    <Box>
+    <Box py={12}>
       <Box as="section" mt={12}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
