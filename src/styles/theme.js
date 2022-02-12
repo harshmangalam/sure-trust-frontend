@@ -6,7 +6,7 @@ const config = {
 };
 const theme = extendTheme({
   config,
-  fonts: { body: "Oxygen, sans-serif", heading: "Oswald, sans-serif" },
+  fonts: {  heading: "'Sora', sans-serif" },
 });
 
 export default theme;

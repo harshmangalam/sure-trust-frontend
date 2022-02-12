@@ -12,7 +12,7 @@ import Logo from "../../shared/Logo";
 
 export default function SmallWithLogoLeft() {
   return (
-    <Box bg={useColorModeValue("white", "gray.700")}>
+    <Box bg={useColorModeValue("gray.100", "gray.700")}>
       <Container
         as={Stack}
         maxW="container.xl"

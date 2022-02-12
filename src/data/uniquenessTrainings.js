@@ -1,17 +1,21 @@
-import Img1 from "../assets/home/1.svg";
-import Img2 from "../assets/home/2.svg";
+import img4 from "../assets/features/img4.svg";
+import img5 from "../assets/features/img5.svg";
+import img6 from "../assets/features/img6.svg";
 
 export const uniquenessTrainings = [
   {
-    title: "Secular Education Coupled with Education in Human Values",
-    description:
-      "Number of rural youth educated & certified to date exceeds 125",
-    image: Img1,
+    image: img4,
+    title:
+      "Bridging gap between the skills acquired through academic degrees and the skills required in the industry",
   },
   {
+    image: img5,
     title: "Mandatory training in Education in Human Values / Life Skills",
-    description:
-      "EHV / LST sessions contribute to developing students integrated personality",
-    image: Img2,
+  },
+
+  {
+    image: img6,
+    title:
+      "The cost students have to pay for each course is 'discipline, regularity and Punctuality but not money.",
   },
 ];

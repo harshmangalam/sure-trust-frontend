@@ -24,8 +24,9 @@ export default function Caption() {
           Sure Trust
         </Text>
         <Text fontSize={"4xl"} color="white">
-          Work hard today for a better tomorrow
+        Service to Youth is Service to Nation 
         </Text>
+        
       </VStack>
 
       <Stack

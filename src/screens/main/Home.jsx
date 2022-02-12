@@ -1,27 +1,22 @@
 import {
   Box,
   Heading,
-  VStack,
   Text,
   SimpleGrid,
   GridItem,
   Container,
-  Image,
   useColorModeValue,
   Grid,
+  Image,
 } from "@chakra-ui/react";
 
-import { accomplishments } from "../../data/accomplishments";
 import { uniquenessTrainings } from "../../data/uniquenessTrainings";
-import { features } from "../../data/features";
 import { collaborators } from "../../data/collaborators";
 
 import Caption from "../../components/main/home/Caption";
+import Features from "../../components/main/home/Features";
 
 function Home() {
-  const featureHeadingColor = useColorModeValue("blue.500", "blue.300");
-  const accomplishmentHeadingColor = useColorModeValue("pink.500", "pink.300");
-  const trainingHedingColor = useColorModeValue("blue.500", "blue.300");
   const cardBg = useColorModeValue("white", "gray.700");
   return (
     <Box>
@@ -47,105 +42,7 @@ function Home() {
             Features
           </Heading>
 
-          <Grid
-            mt={12}
-            templateColumns={{
-              base: "repeat(1,1fr)",
-              md: "repeat(2,1fr)",
-              xl: "repeat(3,1fr)",
-            }}
-            gridGap={6}
-          >
-            {features.map((feature) => (
-              <Box
-                key={feature.title}
-                p={4}
-                bg={cardBg}
-                boxShadow={"2xl"}
-                rounded={"lg"}
-                textAlign={"center"}
-              >
-                <VStack spacing={4}>
-                  <Image
-                    src={feature.image}
-                    alt={feature.title}
-                    w="full"
-                    h="xs"
-                  />
-
-                  <Heading
-                    size="md"
-                    color={featureHeadingColor}
-                    textAlign={"center"}
-                  >
-                    {feature.title}
-                  </Heading>
-                  <Text textAlign={"justify"} fontSize="lg">
-                    {feature.description}
-                  </Text>
-                </VStack>
-              </Box>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Accomplishments  */}
-
-      <Box
-        as="section"
-        mt={24}
-        py={6}
-        bgImage={
-          "https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg?w=826"
-        }
-        bgRepeat={"no-repeat"}
-        bgSize={"cover"}
-        bgPos={"center"}
-      >
-        <Container maxW="container.xl">
-          <Heading
-            textAlign="center"
-            color="white"
-            fontSize={{ base: "4xl", md: "5xl" }}
-          >
-            Accomplishments
-          </Heading>
-
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
-            {accomplishments.map((accomplishment) => (
-              <VStack
-                key={accomplishment.title}
-                spacing={4}
-                p={4}
-                rounded={"lg"}
-                textAlign={"center"}
-                border={1}
-              >
-                <Heading
-                  color={accomplishmentHeadingColor}
-                  size="md"
-                  textTransform="uppercase"
-                  textAlign={"center"}
-                >
-                  {accomplishment.title}
-                </Heading>
-                <VStack>
-                  {accomplishment.description.map((para, i) => (
-                    <Text
-                      fontWeight={"500"}
-                      textAlign={"justify"}
-                      fontSize="lg"
-                      color="white"
-                      key={i}
-                    >
-                      {para}
-                    </Text>
-                  ))}
-                </VStack>
-              </VStack>
-            ))}
-          </SimpleGrid>
+          <Features />
         </Container>
       </Box>
 
@@ -157,30 +54,22 @@ function Home() {
             Uniqueness Of Our Training
           </Heading>
 
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={12}>
-            {uniquenessTrainings.map((uniquenessTraining) => (
-              <GridItem key={uniquenessTraining.title}>
-                <VStack spacing={6} p={6} rounded="xl">
-                  <Image
-                    src={uniquenessTraining.image}
-                    width={"100%"}
-                    height="sm"
-                  />
-                  <Box>
-                    <Heading
-                      color={trainingHedingColor}
-                      size="md"
-                      textTransform="uppercase"
-                      textAlign={"center"}
-                    >
-                      {uniquenessTraining.title}
-                    </Heading>
-                    <Text fontSize="md" textAlign={"center"}>
-                      {uniquenessTraining.description}
-                    </Text>
-                  </Box>
-                </VStack>
-              </GridItem>
+          <SimpleGrid spacing={10} columns={[1, 1, 2, 3]} mt={12}>
+            {uniquenessTrainings.map((uniquenessTraining, i) => (
+              <Box
+                spacing={6}
+                p={8}
+                boxShadow={"2xl"}
+                textAlign={"center"}
+                rounded={"xl"}
+                display={"grid"}
+                placeItems={"center"}
+              >
+                <Image src={uniquenessTraining.image} h="xs" w="100%" />
+                <Text fontSize={"xl"} textAlign={"center"}>
+                  {uniquenessTraining.title}
+                </Text>
+              </Box>
             ))}
           </SimpleGrid>
         </Container>
@@ -214,23 +103,24 @@ function Home() {
                   <Box
                     border="2px"
                     rounded="xl"
-                    borderColor="blue.500"
+                    borderColor="pink.500"
                     p={6}
-                    bg={cardBg}
+                    bgGradient="linear(to-l, purple.500, blue.500)"
                     boxShadow={"2xl"}
                     textAlign={"center"}
                     cursor="pointer"
                   >
-                    <Heading
+                    <Text
                       as="a"
                       href={collaborator.link}
                       target="_blank"
                       fontSize="xl"
                       textAlign="center"
-                      color={"pink.500"}
+                      color="white"
+                      fontWeight={"bold"}
                     >
                       {collaborator.name}
-                    </Heading>
+                    </Text>
                   </Box>
                 </a>
               </GridItem>

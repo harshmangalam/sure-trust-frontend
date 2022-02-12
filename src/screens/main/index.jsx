@@ -9,7 +9,6 @@ function MainLayout() {
   return (
     <Box
       minH="100vh"
-      bg={useColorModeValue("gray.50", "auto")}
       display="flex"
       flexDir="column"
       justifyContent="space-between"
@@ -17,7 +16,6 @@ function MainLayout() {
       <div>
         <Header />
         <ScrollingMessages />
-
       </div>
 
       <Box>
