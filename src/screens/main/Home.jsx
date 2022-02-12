@@ -5,19 +5,18 @@ import {
   SimpleGrid,
   GridItem,
   Container,
-  useColorModeValue,
-  Grid,
   Image,
 } from "@chakra-ui/react";
 
+// import ReviewCarousel from "../../components/main/home/ReviewCarousel"
 import { uniquenessTrainings } from "../../data/uniquenessTrainings";
 import { collaborators } from "../../data/collaborators";
 
 import Caption from "../../components/main/home/Caption";
 import Features from "../../components/main/home/Features";
+import Video from "../../components/main/home/Video";
 
 function Home() {
-  const cardBg = useColorModeValue("white", "gray.700");
   return (
     <Box>
       {/* Welcome section  */}
@@ -42,13 +41,15 @@ function Home() {
             Features
           </Heading>
 
-          <Features />
+          <Box mt={12}>
+            <Features />
+          </Box>
         </Container>
       </Box>
 
       {/* Uniqueness Of Our Training  */}
 
-      <Box as="section" mt={24}>
+      <Box as="section" my={24}>
         <Container maxW={"container.xl"}>
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Uniqueness Of Our Training
@@ -64,6 +65,8 @@ function Home() {
                 rounded={"xl"}
                 display={"grid"}
                 placeItems={"center"}
+                border="1px"
+                borderColor={"purple.500"}
               >
                 <Image src={uniquenessTraining.image} h="xs" w="100%" />
                 <Text fontSize={"xl"} textAlign={"center"}>
@@ -90,6 +93,20 @@ function Home() {
       </Box> */}
 
       {/* collaborators */}
+
+      {/* videos collections  */}
+
+      <Box as="section" my={24}>
+        <Container maxW={"container.xl"}>
+          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+            Videos
+          </Heading>
+          <Box mt={12}>
+            <Video />
+          </Box>
+        </Container>
+      </Box>
+
       <Box my={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>

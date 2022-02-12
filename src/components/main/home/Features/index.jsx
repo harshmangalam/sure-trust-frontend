@@ -47,7 +47,9 @@ function TestmonialCard(props) {
       }}
     >
       <VStack align="start">
-        <Heading fontSize={"lg"} textAlign={"justify"}>{title}</Heading>
+        <Heading fontSize={"lg"} textAlign={"justify"}>
+          {title}
+        </Heading>
         <chakra.p
           fontFamily={"Inter"}
           fontWeight={"medium"}
@@ -66,18 +68,12 @@ export default function GridBlurredBackdrop() {
   return (
     <Flex
       textAlign={"center"}
-      pt={10}
       justifyContent={"center"}
       direction={"column"}
       width={"full"}
     >
       <Box width={{ base: "full", sm: "lg", lg: "xl" }} margin={"auto"}></Box>
-      <SimpleGrid
-        columns={{ base: 1, md: 2 }}
-        spacing={"20"}
-        mt={16}
-        mx={"auto"}
-      >
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={"20"} mx={"auto"}>
         {features.map((feature, index) => (
           <TestmonialCard {...feature} index={index} />
         ))}
