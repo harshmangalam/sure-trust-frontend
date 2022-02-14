@@ -3,6 +3,11 @@ import {
   GridItem,
   Heading,
   SimpleGrid,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -14,6 +19,39 @@ export default function LstProgram() {
   return (
     <Box maxW="container.xl" mx="auto" px={2} py={12}>
       <Box>
+        <Tabs variant="soft-rounded" colorScheme="purple">
+          <TabList>
+            <Tab>Lifeskills Form</Tab>
+            <Tab>Get Inspired</Tab>
+            <Tab>Gallery</Tab>
+            <Tab>Get Inspired</Tab>
+            <Tab>Testimonials</Tab>
+            <Tab>Contact Us</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <Text>Lifeskills Form</Text>
+            </TabPanel>
+            <TabPanel>
+              <Text>Get Inspired</Text>
+            </TabPanel>
+            <TabPanel>
+              <Text>Gallery</Text>
+            </TabPanel>
+            <TabPanel>
+              <Text>Get Inspired</Text>
+            </TabPanel>
+            <TabPanel>
+              <Text>Testimonials</Text>
+            </TabPanel>
+
+            <TabPanel>
+              <Text>Contact Us</Text>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Box>
+      <Box mt={24}>
         <Heading fontSize={["4xl", "5xl"]} textAlign={"center"}>
           Introduction
         </Heading>
@@ -38,20 +76,20 @@ export default function LstProgram() {
           Life Skills Training Module
         </Heading>
 
-        <Box py={12}>
+        <SimpleGrid columns={1} spacing={6} mt={12}>
           {trainingModules.map((module, i) => (
-            <Box py={12}>
+            <GridItem key={i}>
               <Heading fontSize={"3xl"}>{module.title}</Heading>
-              <SimpleGrid columns={[1, 2, 3]} spacing={6} my={6}>
+              <SimpleGrid columns={[1]} spacing={6} my={6}>
                 {module.body.map((mod, i) => (
                   <GridItem key={i}>
                     <LstMentorCard body={mod} />
                   </GridItem>
                 ))}
               </SimpleGrid>
-            </Box>
+            </GridItem>
           ))}
-        </Box>
+        </SimpleGrid>
       </Box>
     </Box>
   );

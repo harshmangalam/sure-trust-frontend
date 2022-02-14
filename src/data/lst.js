@@ -36,7 +36,7 @@ export const trainingModules = [
     ],
   },
   {
-    title: "COMMUNICATION SKILLS ",
+    title: "Communication Skills ",
     body: [
       {
         mentor: "Mrs. G Usha, M.Sc",

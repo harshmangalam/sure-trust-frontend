@@ -15,6 +15,7 @@ export default function LstMentorCard({ body }) {
       rounded={"lg"}
       p={6}
       textAlign={"center"}
+      maxW={"md"}
     >
       <Image width={"100%"} h={400} src={body.image} alt={body.name} mb={4} />
 
