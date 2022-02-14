@@ -35,13 +35,7 @@ function Home() {
 
       <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>
-          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
-            Features
-          </Heading>
-
-          <Box mt={12}>
-            <Features />
-          </Box>
+          <Features />
         </Container>
       </Box>
 
