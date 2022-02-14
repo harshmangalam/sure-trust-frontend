@@ -6,7 +6,7 @@ import ssrImage from "../images/ssr.jpeg";
 import vijayaImg from "../images/lst/4.jpeg";
 export const coFounders = [
   {
-    title: "EXECUTIVE DIRECTOR & FOUNDER",
+    title: "Executive Director & Founder",
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/edit%203593.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:66.64%25/rs=w:388,h:388,cg:true",
     name: "Prof. Radhakumari Challa, M.Com, M.Phil & Ph.D",
