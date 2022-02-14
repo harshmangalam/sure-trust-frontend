@@ -1,5 +1,7 @@
 import axios from "axios";
 
+export * from "./gallery";
+
 export const signup = async (payload) => {
   try {
     const { data } = await axios.post(`/users/`, payload);
