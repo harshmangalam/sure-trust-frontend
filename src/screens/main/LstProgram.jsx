@@ -1,9 +1,4 @@
 import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
   Box,
   GridItem,
   Heading,
@@ -47,7 +42,7 @@ export default function LstProgram() {
           {trainingModules.map((module, i) => (
             <Box py={12}>
               <Heading fontSize={"3xl"}>{module.title}</Heading>
-              <SimpleGrid columns={[1, 2]} spacing={6} my={6}>
+              <SimpleGrid columns={[1, 2, 3]} spacing={6} my={6}>
                 {module.body.map((mod, i) => (
                   <GridItem key={i}>
                     <LstMentorCard body={mod} />

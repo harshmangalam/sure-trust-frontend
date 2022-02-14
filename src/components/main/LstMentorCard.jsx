@@ -1,9 +1,10 @@
 import {
   Heading,
-  Avatar,
   Box,
   Text,
   useColorModeValue,
+  Image,
+  AspectRatio,
 } from "@chakra-ui/react";
 
 export default function LstMentorCard({ body }) {
@@ -15,32 +16,16 @@ export default function LstMentorCard({ body }) {
       p={6}
       textAlign={"center"}
     >
-      <Avatar
-        size={"xl"}
-        src={body.image}
-        alt={body.name}
-        mb={4}
-        pos={"relative"}
-        _after={{
-          content: '""',
-          w: 4,
-          h: 4,
-          bg: "green.300",
-          border: "2px solid white",
-          rounded: "full",
-          pos: "absolute",
-          bottom: 0,
-          right: 3,
-        }}
-      />
+      <Image width={"100%"} h={400} src={body.image} alt={body.name} mb={4} />
+
       <Heading fontSize={"2xl"} fontFamily={"body"}>
         {body.mentor}
       </Heading>
 
       <Text
-        textAlign={"center"}
+        textAlign={"justify"}
         color={useColorModeValue("gray.700", "gray.400")}
-        px={3}
+        mt={4}
       >
         {body.text}
       </Text>

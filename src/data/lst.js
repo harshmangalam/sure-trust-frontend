@@ -1,5 +1,8 @@
-import ramananImage from "../images/ramanan.jpeg";
+import ramananImage from "../images/lst/3.jpeg";
+import ektaImage from "../images/lst/1.jpeg";
+import kritikaImage from "../images/lst/2.jpeg";
 import amarVivekImage from "../images/amar.jpeg";
+import vijayaImg from "../images/lst/4.jpeg";
 
 export const intro = [
   `Life skill is a term used to describe a set of basic skills acquired either through learning or  by direct life experience.  This enables individuals and groups to effectively handle issues and problems commonly encountered in daily life.`,
@@ -17,8 +20,7 @@ export const trainingModules = [
       {
         mentor: "Ms Kritika Ram",
         text: "Chief Operating Officer, Feminist Approach To Technology (FAT) , Delhi , India",
-        image:
-          "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Krithika%20Ram.jfif/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:388,h:388,cg:true",
+        image: kritikaImage,
       },
     ],
   },
@@ -45,8 +47,7 @@ export const trainingModules = [
       {
         mentor: "Mrs. Vijayalakshmi Suresh, M.Com",
         text: `Multimedia Volunteer : Vidya Vahini – Sri Satya Sai Central Trust. Occupation : Option Trader in US Stock Market.`,
-        image:
-          "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Mr.%20Vijayalakshmi.jfif/:/rs=w:600,h:600,cg:true,m/cr=w:600,h:600",
+        image: vijayaImg,
       },
     ],
   },
@@ -67,7 +68,7 @@ export const trainingModules = [
       {
         mentor: "Ekta Pathak, CFA, MBA finance",
         text: `Currently she is  a founder of Ekrang - a holistic yoga platform. Ekta is on a mission to teach self love using Yoga to corporates, education institutions, kids, teenagers, Not-for-profit institutions, and cluster batches in India and abroad. She also provides personal sessions, tailored to the specific health need of Individuals. Ekta is a regular speaker in various national & international conferences, platforms, podcasts and Pro-bono events`,
-        image: "",
+        image: ektaImage,
       },
     ],
   },

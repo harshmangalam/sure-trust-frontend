@@ -3,6 +3,7 @@ import amarImage from "../images/amar.jpeg";
 import bharatImage from "../images/bharat.jpeg";
 import ramananImage from "../images/ramanan.jpeg";
 import ssrImage from "../images/ssr.jpeg";
+import vijayaImg from "../images/lst/4.jpeg";
 export const coFounders = [
   {
     title: "EXECUTIVE DIRECTOR & FOUNDER",
@@ -147,8 +148,7 @@ export const seniorExecutives = [
 
 export const executiveMembers = [
   {
-    image:
-      "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Mr.%20Vijayalakshmi.jfif/:/rs=w:600,h:600,cg:true,m/cr=w:600,h:600",
+    image: vijayaImg,
     name: "Mrs. Vijayalakshmi Suresh, M.Com",
     bio: `Options Trader, US stock market.`,
 
