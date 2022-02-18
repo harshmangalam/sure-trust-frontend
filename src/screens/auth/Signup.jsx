@@ -45,9 +45,9 @@ const schema = yup.object({
   gender: yup.string().required("Gender is required").nullable(),
   phone: yup.string().required("Phone is required"),
   qualification: yup.string().required("Qualification is required"),
-  collegeName: yup.string(),
-  collegePlace: yup.string(),
-  collegeDistrict: yup.string(),
+  collegeName: yup.string().required("College name is required"),
+  collegePlace: yup.string().required("College place is required"),
+  collegeDistrict: yup.string().required("College district is required"),
   collegeState: yup.string(),
   courseId: yup.string().required("Please select course to proceed"),
 });

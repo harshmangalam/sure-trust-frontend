@@ -5,6 +5,7 @@ import {
   SimpleGrid,
   GridItem,
   Container,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 // import ReviewCarousel from "../../components/main/home/ReviewCarousel"
@@ -15,6 +16,10 @@ import Caption from "../../components/main/home/Caption";
 import Features from "../../components/main/home/Features";
 
 function Home() {
+  const collaboratorBg = useColorModeValue(
+    "linear(to-l, purple.400, blue.300)",
+    "linear(to-l, purple.900, blue.300)"
+  );
   return (
     <Box>
       {/* Welcome section  */}
@@ -109,11 +114,9 @@ function Home() {
               <GridItem key={collaborator.name}>
                 <a rel="noreferrer" href={collaborator.link} target={"_blank"}>
                   <Box
-                    border="2px"
                     rounded="xl"
-                    borderColor="pink.500"
                     p={6}
-                    bgGradient="linear(to-l, purple.500, blue.500)"
+                    bgGradient={collaboratorBg}
                     boxShadow={"2xl"}
                     textAlign={"center"}
                     cursor="pointer"
