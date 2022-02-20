@@ -4,7 +4,6 @@ import {
   Button,
   Stack,
   Icon,
-  useColorModeValue,
   createIcon,
   VStack,
 } from "@chakra-ui/react";
@@ -21,12 +20,11 @@ export default function Caption() {
           fontSize="6xl"
           fontWeight="extrabold"
         >
-          Sure Trust
+          SURE Trust
         </Text>
         <Text fontSize={"4xl"} color="white">
-        Service to Youth is Service to Nation 
+          Skill Upgradation for Rural-youth Empowerment
         </Text>
-        
       </VStack>
 
       <Stack
