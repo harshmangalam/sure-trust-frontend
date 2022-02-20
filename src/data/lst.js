@@ -1,9 +1,13 @@
-import ramananImage from "../images/lst/3.jpeg";
+import ramananImage from "../images/lst/ramnan.jpeg";
 import ektaImage from "../images/lst/1.jpeg";
-import kritikaImage from "../images/lst/2.jpeg";
 import amarVivekImage from "../images/amar.jpeg";
 import vijayaImg from "../images/lst/4.jpeg";
+import kritikaImage from "../images/lst/kritika.jpeg";
 
+import wyMod from "../assets/lst/wm.pdf";
+import ssMod from "../assets/lst/ss.pdf";
+import lMode from "../assets/lst/l.pdf";
+import cMode from "../assets/lst/c.pdf";
 export const intro = [
   `Life skill is a term used to describe a set of basic skills acquired either through learning or  by direct life experience.  This enables individuals and groups to effectively handle issues and problems commonly encountered in daily life.`,
   `They include creativity, critical thinking, problem-solving, decision-making, the ability to communicate and collaborate, along with personal and social responsibility that contribute to wholesome wellbeing of an individual. `,
@@ -16,9 +20,10 @@ export const intro = [
 export const trainingModules = [
   {
     title: "Personality Branding & Networking",
+    module: "",
     body: [
       {
-        mentor: "Ms Kritika Ram",
+        mentor: "Mrs. Kritika Ram",
         text: "Chief Operating Officer, Feminist Approach To Technology (FAT) , Delhi , India",
         image: kritikaImage,
       },
@@ -27,6 +32,7 @@ export const trainingModules = [
 
   {
     title: "Lateral Thinking",
+    module: lMode,
     body: [
       {
         mentor: "V.J.Ramanan",
@@ -37,6 +43,7 @@ export const trainingModules = [
   },
   {
     title: "Communication Skills ",
+    module: cMode,
     body: [
       {
         mentor: "Mrs. G Usha, M.Sc",
@@ -45,7 +52,7 @@ export const trainingModules = [
           "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Usha.jfif/:/cr=t:0%25,l:0.3%25,w:97.7%25,h:73.53%25/rs=w:600,h:600,cg:true,m",
       },
       {
-        mentor: "Mrs. Vijayalakshmi Suresh, M.Com",
+        mentor: "Mrs. Vijayalakshmi Suresh, M.Com, B.Ed",
         text: `Multimedia Volunteer : Vidya Vahini – Sri Satya Sai Central Trust. Occupation : Option Trader in US Stock Market.`,
         image: vijayaImg,
       },
@@ -54,6 +61,7 @@ export const trainingModules = [
 
   {
     title: "Social Service",
+    module: ssMod,
     body: [
       {
         mentor: "Mr. Amar Vivek Aggarwal  B.A (Hons), M.B.A and LL.B",
@@ -64,6 +72,7 @@ export const trainingModules = [
   },
   {
     title: "Wellbeing and Yoga",
+    module: wyMod,
     body: [
       {
         mentor: "Ekta Pathak, CFA, MBA finance",
