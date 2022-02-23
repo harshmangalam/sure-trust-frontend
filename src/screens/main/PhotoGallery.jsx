@@ -28,7 +28,7 @@ function PhotoGallery() {
     <Container maxW={"container.xl"} py={12}>
       <Heading>Picture Gallery</Heading>
       <Grid
-        columnGap={2}
+        gap={4}
         my={4}
         templateColumns={["repeat(1,1fr)", "repeat(2,1fr)", "repeat(3,1fr)"]}
       >

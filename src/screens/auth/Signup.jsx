@@ -87,7 +87,6 @@ function Signup() {
     collegeState,
     courseId,
   }) => {
-    console.log(courseId, typeof courseId);
     if (conditions.length !== 4) {
       setError("conditions", {
         message: "Please accept all terms and conditions",
@@ -107,6 +106,8 @@ function Signup() {
       college_district: collegeDistrict,
       college_place: collegePlace,
       college_state: collegeState,
+
+      courseId,
     };
 
     try {

@@ -1,4 +1,4 @@
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 
 import Header from "../../components/main/Header";
@@ -13,10 +13,10 @@ function MainLayout() {
       flexDir="column"
       justifyContent="space-between"
     >
-      <div>
+      <Box pos={"sticky"} top={0} zIndex={100}>
         <Header />
         <ScrollingMessages />
-      </div>
+      </Box>
 
       <Box>
         <Outlet />

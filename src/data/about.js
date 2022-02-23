@@ -23,7 +23,7 @@ export const coFounders = [
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/WhatsApp%20Image%202020-07-03%20at%201.17.57%20PM.jpeg/:/cr=t:12.5%25,l:0%25,w:100%25,h:75%25/rs=w:388,h:388,cg:true",
     name: "Ms. Vandana Nagesh, B.Com & MBA",
-    bio: `Co-Founder and Dirctor-SURE Trust ; Sr. HR  Manager - IIIT, Hyderabad`,
+    bio: `Co-Founder and Director-SURE Trust ; Sr. HR  Manager - IIIT, Hyderabad`,
     links: [
       {
         name: "Linkedin",
@@ -77,7 +77,7 @@ export const coFounders = [
     name: "Mr. Amar Vivek Aggarwal B.A (Hons), M.B.A and LL.B;",
     bio: `Founding partner-Avsai Legal; and Legal Practitioner-practicing Attorney for more than 31yrs., at various High Courts, and Hon’ble Supreme Court of India.
 
-    Last Assignment: Additional Advocate General, Haryana, at High Courts of Delhi, Punjab and Hy, and Supreme Court, from December 2014 till November, 2019.`,
+    Last Assignment: Additional Advocate General, Haryana, at High Courts of Delhi, Punjab and Harayana, and Supreme Court, from December 2014 till November, 2019.`,
 
     links: [
       {
@@ -135,7 +135,7 @@ export const seniorExecutives = [
     image:
       "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/dr%20cm%20kumar.png/:/cr=t:8.05%25,l:0%25,w:100%25,h:83.9%25/rs=w:600,h:600,cg:true",
     name: "Dr. C. Muralikrishna Kumar, M.Sc & Ph.D",
-    bio: `Former Senior Adviser, NITI Aayog. During his career spanning over 34 years, Dr. C.M Kumar headed divisions responsible for the development of Information & Communication Technology, Science & Technology and Innovation.`,
+    bio: `Former Senior Advisor, NITI Aayog. During his career spanning over 34 years, Dr. C.M Kumar headed divisions responsible for the development of Information & Communication Technology, Science & Technology and Innovation.`,
 
     links: [
       {
