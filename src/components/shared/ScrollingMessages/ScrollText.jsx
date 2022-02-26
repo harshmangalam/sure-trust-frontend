@@ -14,7 +14,7 @@ export default function ScrollText({ text }) {
         </g>
       </svg>
 
-      <Text fontSize={"xl"} fontWeight={"bold"}>{text}</Text>
+      <Text fontSize={["md","lg","xl"]} fontWeight={"bold"}>{text}</Text>
     </HStack>
   );
 }

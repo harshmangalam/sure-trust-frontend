@@ -106,15 +106,14 @@ function Signup() {
       college_district: collegeDistrict,
       college_place: collegePlace,
       college_state: collegeState,
-
-      courseId,
+      course_id: courseId,
     };
 
     try {
       const data = await signup(payload);
       toast({
         title: "Account created.",
-        description: `We've created  account for ${data?.email}`,
+        description: `Account created successfully.`,
         status: "success",
         duration: 2000,
         isClosable: true,
@@ -126,6 +125,7 @@ function Signup() {
         duration: 4000,
         isClosable: true,
       });
+      
       navigate("/auth/login");
     } catch (error) {
       console.log(error);
@@ -138,7 +138,6 @@ function Signup() {
       });
 
       if (error?.response?.data?.email) {
-        console.log(error.response.data.email);
         toast({
           title: "Email Error",
           description: error.response.data.email[0],
