@@ -93,7 +93,7 @@ export default function LstProgram() {
                 <GridItem colSpan={[1, 1, 1, 1]}>
                   <SimpleGrid columns={[1]} spacing={6}>
                     {module.body.map((mod, i) => (
-                      <GridItem>
+                      <GridItem key={i}>
                         <LstMentorCard body={mod} />
                       </GridItem>
                     ))}
@@ -120,6 +120,7 @@ export default function LstProgram() {
                             h="xl"
                             data={module.module}
                             type="application/pdf"
+                            
                           >
                             <Box
                               as="iframe"
