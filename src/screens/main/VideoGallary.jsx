@@ -4,6 +4,8 @@ import {
   GridItem,
   Heading,
   AspectRatio,
+  SimpleGrid,
+  Box,
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import Error from "../../components/shared/Error";
@@ -24,20 +26,21 @@ function PhotoGallery() {
   return (
     <Container maxW={"container.xl"} py={12}>
       <Heading>Video Gallery</Heading>
-      <Grid
-        columnGap={2}
-        rowGap={2}
-        my={4}
-        templateColumns={["repeat(1,1fr)", "repeat(2,1fr)", "repeat(3,1fr)"]}
-      >
+      <SimpleGrid columns={[1, 1, 2, 3]} gap={6} my={4}>
         {query.data.map((video) => (
           <GridItem>
             <AspectRatio maxW="560px" ratio={1}>
-              <iframe title="naruto" src={video.videos} allowFullScreen />
+              <Box
+                as={"iframe"}
+                rounded={"xl"}
+                title="video"
+                src={`https://www.youtube.com/embed/${video.video_name}`}
+                allowFullScreen
+              ></Box>
             </AspectRatio>
           </GridItem>
         ))}
-      </Grid>
+      </SimpleGrid>
     </Container>
   );
 }
