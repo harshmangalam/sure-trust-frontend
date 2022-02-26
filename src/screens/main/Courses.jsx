@@ -19,7 +19,7 @@ function Courses() {
       <Heading fontSize={{ base: "4xl", md: "5xl" }} textAlign={"center"}>Courses</Heading>
       <SimpleGrid mt={12} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
         {query.data.map((course) => (
-          <CourseCard course={course} />
+          <CourseCard course={course} key={course.id} />
         ))}
       </SimpleGrid>
     </Container>
