@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import Error from "../../../components/shared/Error";
 import PostCard from "../../../components/dashboard/post/PostCard";
 import { fetchTeacherBatchPosts } from "../../../services";
-import { IoVideocamOutline, IoAdd } from "react-icons/io5";
+import { IoAdd } from "react-icons/io5";
 import {
   HiOutlineArrowNarrowRight,
   HiOutlineArrowNarrowLeft,

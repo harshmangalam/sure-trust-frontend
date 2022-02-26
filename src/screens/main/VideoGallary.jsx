@@ -1,6 +1,5 @@
 import {
   Container,
-  Image,
   Grid,
   GridItem,
   Heading,

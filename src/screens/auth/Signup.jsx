@@ -110,7 +110,7 @@ function Signup() {
     };
 
     try {
-      const data = await signup(payload);
+      await signup(payload);
       toast({
         title: "Account created.",
         description: `Account created successfully.`,
@@ -125,7 +125,7 @@ function Signup() {
         duration: 4000,
         isClosable: true,
       });
-      
+
       navigate("/auth/login");
     } catch (error) {
       console.log(error);

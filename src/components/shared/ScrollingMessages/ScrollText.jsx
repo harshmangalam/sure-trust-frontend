@@ -2,7 +2,7 @@ import { HStack, Text } from "@chakra-ui/react";
 
 export default function ScrollText({ text }) {
   return (
-    <HStack as="p" spacing={2} justify={"center"} align={["start", "center"]}>
+    <HStack spacing={2} justify={"center"} align={["start", "center"]}>
       <svg
         data-ux="SVG"
         viewBox=" 0 0 35 35"
@@ -14,7 +14,9 @@ export default function ScrollText({ text }) {
         </g>
       </svg>
 
-      <Text fontSize={["md","lg","xl"]} fontWeight={"bold"}>{text}</Text>
+      <Text fontSize={["md", "lg", "xl"]} fontWeight={"bold"}>
+        {text}
+      </Text>
     </HStack>
   );
 }

@@ -21,8 +21,6 @@ import {
 } from "../../data/about";
 import satyaSaiBaba from "../../images/satya_sai_baba.jpg";
 function About() {
-
-
   return (
     <Box py={12}>
       <Box as="section" mt={12}>
@@ -45,20 +43,21 @@ function About() {
       <Box mt={24}>
         <Container maxW="container.xl">
           <Box>
-            <Heading textAlign={"center"} fontSize={"3xl"}>{narrationByFounder.title}</Heading>
+            <Heading textAlign={"center"} fontSize={"3xl"}>
+              {narrationByFounder.title}
+            </Heading>
 
             <List spacing={3} mt={6}>
               {narrationByFounder.contents.map((content, i) => (
-                <Text
-                  key={i}
-                  textAlign={"justify"}
-                  fontSize={"lg"}
-                  fontFamily={"Sora"}
-                >
-                  <ListItem>
-                    <Text fontSize={"xl"}>{content}</Text>
-                  </ListItem>
-                </Text>
+                <ListItem key={i}>
+                  <Text
+                    textAlign={"justify"}
+                    fontSize={"lg"}
+                    fontFamily={"Sora"}
+                  >
+                    {content}
+                  </Text>
+                </ListItem>
               ))}
             </List>
           </Box>

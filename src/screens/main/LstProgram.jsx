@@ -13,7 +13,6 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { Fragment } from "react";
 import LstMentorCard from "../../components/main/LstMentorCard";
 
 import { intro, trainingModules } from "../../data/lst";
