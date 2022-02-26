@@ -42,7 +42,7 @@ function Course() {
         </VStack>
 
         {query.data.subcourses?.length ? (
-          <Box mt={24}>
+          <Box mt={24} >
             <Heading>Sub Courses</Heading>
             <SimpleGrid mt={12} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
               {query.data.subcourses.map((course) => (
@@ -58,8 +58,8 @@ function Course() {
           <Box mt={24}>
             <Heading>Course Teachers</Heading>
             <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
-              {teacherQuery.data.map((teacher) => (
-                <CourseTeacher teacher={teacher} />
+              {teacherQuery.data.map((teacher,i) => (
+                <CourseTeacher teacher={teacher} key={i} />
               ))}
             </SimpleGrid>
           </Box>

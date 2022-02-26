@@ -26,8 +26,8 @@ function Developers() {
           gridGap={6}
           mt={12}
         >
-          {developers.map((developer) => (
-            <DeveloperCard developer={developer} />
+          {developers.map((developer,i) => (
+            <DeveloperCard developer={developer} key={i} />
           ))}
         </Grid>
       </Box>

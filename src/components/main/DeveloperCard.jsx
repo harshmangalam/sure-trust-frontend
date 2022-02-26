@@ -51,8 +51,8 @@ export default function DeveloperCard({ developer }) {
       </Text>
 
       <Wrap align={"center"} justify={"center"} direction={"row"} mt={6}>
-        {developer.links.map((link) => (
-          <Tooltip hasArrow label={link.name}>
+        {developer.links.map((link,i) => (
+          <Tooltip hasArrow label={link.name} key={i}>
             <IconButton
               colorScheme={link.color}
               as="a"

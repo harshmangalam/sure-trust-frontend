@@ -33,7 +33,7 @@ function KnowMore() {
 
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
           {modalities.items.map((item, i) => (
-            <GridItem key={item}>
+            <GridItem key={i}>
               <Box border="2px" rounded="xl" borderColor="blue.500" p={6}>
                 <Heading fontSize={"xl"}>{item.subHeading}</Heading>
                 <Text>{item.heading}</Text>
