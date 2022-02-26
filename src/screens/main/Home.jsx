@@ -20,6 +20,10 @@ function Home() {
     "linear(to-l, purple.400, blue.300)",
     "linear(to-l, purple.900, blue.300)"
   );
+  const collaboratorHoverBg = useColorModeValue(
+    "linear(to-l, blue.500, purple.400)",
+    "linear(to-l, blue.800, purple.400)"
+  );
   return (
     <Box>
       {/* Welcome section  */}
@@ -55,6 +59,7 @@ function Home() {
           <SimpleGrid spacing={10} columns={[1, 1, 2, 3]} mt={12}>
             {uniquenessTrainings.map((uniquenessTraining, i) => (
               <Box
+                key={i}
                 spacing={6}
                 p={8}
                 boxShadow={"2xl"}
@@ -110,21 +115,21 @@ function Home() {
           </Heading>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
-            {collaborators.map((collaborator) => (
-              <GridItem key={collaborator.name}>
+            {collaborators.map((collaborator, i) => (
+              <GridItem key={i}>
                 <a rel="noreferrer" href={collaborator.link} target={"_blank"}>
                   <Box
                     rounded="xl"
-                    p={6}
+                    p={4}
                     bgGradient={collaboratorBg}
                     boxShadow={"2xl"}
                     textAlign={"center"}
                     cursor="pointer"
+                    _hover={{
+                      bgGradient: collaboratorHoverBg,
+                    }}
                   >
                     <Text
-                      as="a"
-                      href={collaborator.link}
-                      target="_blank"
                       fontSize="xl"
                       textAlign="center"
                       color="white"

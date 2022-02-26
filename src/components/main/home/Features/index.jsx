@@ -75,7 +75,7 @@ export default function GridBlurredBackdrop() {
       <Box width={{ base: "full", sm: "lg", lg: "xl" }} margin={"auto"}></Box>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={"20"} mx={"auto"}>
         {features.map((feature, index) => (
-          <TestmonialCard {...feature} index={index} />
+          <TestmonialCard {...feature} index={index} key={index} />
         ))}
       </SimpleGrid>
     </Flex>
