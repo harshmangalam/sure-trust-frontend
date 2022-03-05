@@ -22,6 +22,18 @@ export const fetchCourses = async () => {
   }
 };
 
+export const exitCourse = async (courseId) => {
+  try {
+    const { data } = await axios.post(`/student/exit-course`, {
+      course_id: courseId,
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
 export const fetchCourseById = async (id) => {
   try {
     const { data } = await axios.get(`/courses/get-course/${id}/`);

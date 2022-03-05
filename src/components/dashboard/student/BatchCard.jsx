@@ -9,12 +9,39 @@ import {
   SimpleGrid,
   GridItem,
   Stack,
+  useToast,
 } from "@chakra-ui/react";
 import { format } from "date-fns";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { exitCourse } from "../../../services";
 import ToggleMeet from "./ToggleMeet";
 function BatchCard({ batch }) {
   const cardBg = useColorModeValue("white", "gray.700");
+  const toast = useToast();
+  const navigate = useNavigate()
+
+  const handleExitCourse = async (courseId) => {
+    try {
+      await exitCourse(courseId);
+      toast({
+        title: "Course Leave",
+        description: "You have no longer access to this course",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+
+      navigate("/dashboard")
+    } catch (error) {
+      toast({
+        title: "Course Leave",
+        description: "Something went wrong",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
   return (
     <Box p={6} border="2px" borderColor="blue.500" bg={cardBg} rounded="xl">
       <VStack spacing={1}>
@@ -120,6 +147,13 @@ function BatchCard({ batch }) {
           width={"full"}
         >
           Posts
+        </Button>
+        <Button
+          colorScheme={"red"}
+          onClick={() => handleExitCourse(batch.course?.id)}
+          width={"full"}
+        >
+          Leave Course
         </Button>
       </SimpleGrid>
     </Box>
