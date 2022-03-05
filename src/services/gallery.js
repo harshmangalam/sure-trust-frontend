@@ -20,4 +20,14 @@ const fetchVideos = async () => {
   }
 };
 
-export { fetchImages, fetchVideos };
+const fetchDocuments = async () => {
+  try {
+    const { data } = await axios.get("/gallery/documents/");
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export { fetchImages, fetchVideos, fetchDocuments };

@@ -15,6 +15,7 @@ const KnowMore = lazy(() => import("../screens/main/KnowMore"));
 const PhotoGallery = lazy(() => import("../screens/main/PhotoGallery"));
 const Developers = lazy(() => import("../screens/main/Developers"));
 const VideoGallary = lazy(() => import("../screens/main/VideoGallary"));
+const Documents = lazy(() => import("../screens/main/Documents"));
 
 const AuthLayout = lazy(() => import("../screens/auth"));
 const Login = lazy(() => import("../screens/auth/Login"));
@@ -66,9 +67,7 @@ const StudentPostGrades = lazy(() =>
   import("../screens/dashboard/student/Grades")
 );
 
-const StudentRecording = lazy(() =>
-  import("../screens/StudentRecording")
-);
+const StudentRecording = lazy(() => import("../screens/StudentRecording"));
 
 const NotFound = lazy(() => import("../screens/NotFound"));
 
@@ -89,6 +88,7 @@ function AppRoutes() {
           <Route path="courses/:id" element={<Course />} />
           <Route path="developers" element={<Developers />} />
           <Route path="video-gallery" element={<VideoGallary />} />
+          <Route path="documents" element={<Documents />} />
         </Route>
 
         <Route path="/auth" element={<AuthLayout />}>
@@ -147,7 +147,7 @@ function AppRoutes() {
         {role === "student" && (
           <Route path="meet" element={<StudentRecording />} />
         )}
-         {role === "teacher" && (
+        {role === "teacher" && (
           <Route path="meet" element={<TeacherRecording />} />
         )}
         <Route path="*" element={<NotFound />} />

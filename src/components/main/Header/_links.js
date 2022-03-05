@@ -8,4 +8,5 @@ export const links = [
   { name: "Website Developers", to: "/developers" },
   { name: "Photo Gallery", to: "/photo-gallery" },
   { name: "Video Gallery", to: "/video-gallery" },
+  { name: "Documents", to: "/documents" },
 ];

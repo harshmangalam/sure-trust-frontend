@@ -18,7 +18,7 @@ function MainLayout() {
         <ScrollingMessages />
       </Box>
 
-      <Box>
+      <Box flexGrow={1}>
         <Outlet />
       </Box>
       <Footer />
