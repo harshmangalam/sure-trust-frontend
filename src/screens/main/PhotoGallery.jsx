@@ -5,6 +5,9 @@ import {
   GridItem,
   Heading,
   AspectRatio,
+  Box,
+  HStack,
+  Button,
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import Loader from "../../components/shared/Loader";
@@ -15,7 +18,10 @@ import { useState } from "react";
 import ImageModal from "../../components/main/ImageModal";
 function PhotoGallery() {
   const [currentImage, setCurrentImage] = useState(null);
-  const query = useQuery("image-gallery", fetchImages);
+  const [pageUrl, setPageUrl] = useState("");
+  const query = useQuery(["image-gallery", pageUrl], () =>
+    fetchImages(pageUrl)
+  );
 
   if (query.isLoading) {
     return <Loader />;
@@ -32,7 +38,7 @@ function PhotoGallery() {
         my={4}
         templateColumns={["repeat(1,1fr)", "repeat(2,1fr)", "repeat(3,1fr)"]}
       >
-        {query.data.map((image) => (
+        {query.data.results.map((image) => (
           <GridItem key={image.id}>
             <AspectRatio ratio={1}>
               <Image
@@ -50,6 +56,22 @@ function PhotoGallery() {
         ))}
       </Grid>
 
+      <Box mt={12}>
+        <HStack>
+          <Button
+            disabled={!query.data.previous}
+            onClick={() => setPageUrl(query.data.previous)}
+          >
+            Prev
+          </Button>
+          <Button
+            disabled={!query.data.next}
+            onClick={() => setPageUrl(query.data.next)}
+          >
+            Next
+          </Button>
+        </HStack>
+      </Box>
       {currentImage && (
         <ImageModal image={currentImage} setImage={setCurrentImage} />
       )}

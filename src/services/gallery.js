@@ -1,8 +1,10 @@
 import axios from "axios";
 
-const fetchImages = async () => {
+const fetchImages = async (url) => {
   try {
-    const { data } = await axios.get("/gallery/get-all-images/");
+    const { data } = await axios.get(
+      url.trim() ? url : "/gallery/get-all-images/"
+    );
     return data;
   } catch (error) {
     console.log(error);
