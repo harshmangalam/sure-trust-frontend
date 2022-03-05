@@ -1,8 +1,17 @@
 import {
   Box,
+  Button,
   Grid,
   GridItem,
   Heading,
+  HStack,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   SimpleGrid,
   Tab,
   TabList,
@@ -13,12 +22,15 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import LstMentorCard from "../../components/main/LstMentorCard";
 
 import { intro, trainingModules } from "../../data/lst";
 export default function LstProgram() {
   const cardBg = useColorModeValue("white", "gray.700");
   const tabBg = useColorModeValue("white", "gray.700");
+
+  const [lst, setLst] = useState(null);
 
   return (
     <Box maxW="container.xl" mx="auto" px={2} py={12}>
@@ -81,16 +93,8 @@ export default function LstProgram() {
               <Heading textAlign={"center"} fontSize={"3xl"}>
                 {module.title}
               </Heading>
-              <Grid
-                gap={6}
-                templateColumns={[
-                  "repeat(1, 1fr)",
-                  "repeat(1, 1fr)",
-                  "repeat(1, 1fr)",
-                  "repeat(3, 1fr)",
-                ]}
-              >
-                <GridItem colSpan={[1, 1, 1, 1]}>
+              <SimpleGrid columns={[1]} spacing={6}>
+                <GridItem>
                   <SimpleGrid columns={[1]} spacing={6}>
                     {module.body.map((mod, i) => (
                       <GridItem key={i}>
@@ -99,49 +103,48 @@ export default function LstProgram() {
                     ))}
                   </SimpleGrid>
                 </GridItem>
-                <GridItem
-                  bg={tabBg}
-                  maxH={"2xl"}
-                  colSpan={[1, 1, 1, 2]}
-                  rounded="lg"
-                >
-                  <Tabs>
-                    <TabList>
-                      <Tab>Module</Tab>
-                      <Tab>Session Recording</Tab>
-                    </TabList>
-
-                    <TabPanels>
-                      <TabPanel>
-                        {module.module && (
-                          <Box
-                            as="object"
-                            w="full"
-                            h="xl"
-                            data={module.module}
-                            type="application/pdf"
-                            
-                          >
-                            <Box
-                              as="iframe"
-                              src={module.module}
-                              w="full"
-                              h="xl"
-                            ></Box>
-                          </Box>
-                        )}
-                      </TabPanel>
-                      <TabPanel>
-                        <p>Session Recording</p>
-                      </TabPanel>
-                    </TabPanels>
-                  </Tabs>
+                <GridItem>
+                  <HStack>
+                    <Button
+                      colorScheme={"twitter"}
+                      onClick={() => setLst(module)}
+                    >
+                      Module
+                    </Button>
+                    <Button colorScheme={"whatsapp"}>
+                      Sessions Recordings
+                    </Button>
+                  </HStack>
                 </GridItem>
-              </Grid>
+              </SimpleGrid>
             </VStack>
           ))}
         </VStack>
       </Box>
+
+      <Modal onClose={() => setLst(null)} size={"full"} isOpen={Boolean(lst)}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{lst?.title}</ModalHeader>
+          <ModalCloseButton />
+
+          <ModalBody>
+            <Box
+              mt={12}
+              as="object"
+              w="100%"
+              h="70vh"
+              data={lst?.module}
+              type="application/pdf"
+            >
+              <Box as="iframe" src={lst?.module} w="full" h="xl"></Box>
+            </Box>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={() => setLst(null)}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }
