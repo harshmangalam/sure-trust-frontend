@@ -1,6 +1,5 @@
 import {
   Container,
-  Grid,
   GridItem,
   Heading,
   AspectRatio,
