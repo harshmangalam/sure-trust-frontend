@@ -6,14 +6,20 @@ import {
   AspectRatio,
   SimpleGrid,
   Box,
+  HStack,
+  Button,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import Error from "../../components/shared/Error";
 import Loader from "../../components/shared/Loader";
 import { fetchVideos } from "../../services";
 
 function PhotoGallery() {
-  const query = useQuery("video-gallery", fetchVideos);
+  const [pageUrl, setPageUrl] = useState("");
+  const query = useQuery(["video-gallery", pageUrl], () =>
+    fetchVideos(pageUrl)
+  );
 
   if (query.isLoading) {
     return <Loader />;
@@ -27,7 +33,7 @@ function PhotoGallery() {
     <Container maxW={"container.xl"} py={12}>
       <Heading>Video Gallery</Heading>
       <SimpleGrid columns={[1, 1, 2, 3]} gap={6} my={4}>
-        {query.data.map((video) => (
+        {query.data.results.map((video) => (
           <GridItem>
             <AspectRatio maxW="560px" ratio={1}>
               <Box
@@ -41,6 +47,22 @@ function PhotoGallery() {
           </GridItem>
         ))}
       </SimpleGrid>
+      <Box mt={12}>
+        <HStack>
+          <Button
+            disabled={!query.data.previous}
+            onClick={() => setPageUrl(query.data.previous)}
+          >
+            Prev
+          </Button>
+          <Button
+            disabled={!query.data.next}
+            onClick={() => setPageUrl(query.data.next)}
+          >
+            Next
+          </Button>
+        </HStack>
+      </Box>
     </Container>
   );
 }

@@ -13,7 +13,6 @@ import {
   ModalHeader,
   ModalOverlay,
   SimpleGrid,
-  Text,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
@@ -24,8 +23,10 @@ import Error from "../../components/shared/Error";
 import { useState } from "react";
 
 export default function Documents() {
-  const query = useQuery("documents", fetchDocuments);
+  const [pageUrl, setPageUrl] = useState("");
+  const query = useQuery(["documents", pageUrl], () => fetchDocuments(pageUrl));
   const [doc, setDoc] = useState(null);
+
   const bg = useColorModeValue("white", "gray.700");
 
   if (query.isLoading) {
@@ -63,8 +64,18 @@ export default function Documents() {
 
       <Box mt={6}>
         <HStack>
-          <Button disabled={!query.data.next}>Prev</Button>
-          <Button disabled={!query.data.next}>Next</Button>
+          <Button
+            disabled={!query.data.previous}
+            onClick={() => setPageUrl(query.data.previous)}
+          >
+            Prev
+          </Button>
+          <Button
+            disabled={!query.data.next}
+            onClick={() => setPageUrl(query.data.next)}
+          >
+            Next
+          </Button>
         </HStack>
       </Box>
       <Modal onClose={() => setDoc(null)} size={"full"} isOpen={Boolean(doc)}>

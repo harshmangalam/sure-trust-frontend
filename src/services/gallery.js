@@ -2,9 +2,7 @@ import axios from "axios";
 
 const fetchImages = async (url) => {
   try {
-    const { data } = await axios.get(
-      url.trim() ? url : "/gallery/get-all-images/"
-    );
+    const { data } = await axios.get(url ? url : "/gallery/get-all-images/");
     return data;
   } catch (error) {
     console.log(error);
@@ -12,9 +10,9 @@ const fetchImages = async (url) => {
   }
 };
 
-const fetchVideos = async () => {
+const fetchVideos = async (url) => {
   try {
-    const { data } = await axios.get("/gallery/get-all-video/");
+    const { data } = await axios.get(url ? url : "/gallery/get-all-video/");
     return data;
   } catch (error) {
     console.log(error);
@@ -22,9 +20,9 @@ const fetchVideos = async () => {
   }
 };
 
-const fetchDocuments = async () => {
+const fetchDocuments = async (url) => {
   try {
-    const { data } = await axios.get("/gallery/documents/");
+    const { data } = await axios.get(url ? url : "/gallery/documents/");
     return data;
   } catch (error) {
     console.log(error);
