@@ -6,14 +6,20 @@ import {
   GridItem,
   Container,
   useColorModeValue,
+  HStack,
+  Link,
+  Avatar,
+  Tooltip,
 } from "@chakra-ui/react";
 
-// import ReviewCarousel from "../../components/main/home/ReviewCarousel"
+import ReviewCarousel from "../../components/main/home/ReviewCarousel";
+import Video from "../../components/main/home/Video";
 import { uniquenessTrainings } from "../../data/uniquenessTrainings";
 import { collaborators } from "../../data/collaborators";
 
 import Caption from "../../components/main/home/Caption";
 import Features from "../../components/main/home/Features";
+import { FaChevronCircleRight } from "react-icons/fa";
 
 function Home() {
   const collaboratorBg = useColorModeValue(
@@ -52,7 +58,7 @@ function Home() {
 
       <Box as="section" my={24}>
         <Container maxW={"container.xl"}>
-          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+          <Heading fontSize={{ base: "4xl", md: "5xl" }}>
             Uniqueness Of Our Training
           </Heading>
 
@@ -81,38 +87,45 @@ function Home() {
 
       {/* Google Ratings  */}
 
-      {/* <Box mt={24} p={12} bg={useColorModeValue("gray.100", "gray.700")}>
-        <Box maxW={"container.xl"}>
-          <VStack>
-            <Heading>Google Reviews</Heading>
-            <Text>We have been working with students around the world</Text>
-          </VStack>
+      {/* <Box my={24}>
+        <Container maxW="container.xl">
+          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+            Google Reviews
+          </Heading>
           <Box mt={12} maxW={"md"} mx="auto">
             <ReviewCarousel />
-          </Box>
-        </Box>
-      </Box> */}
-
-      {/* collaborators */}
-
-      {/* videos collections  */}
-
-      {/* <Box as="section" my={24}>
-        <Container maxW={"container.xl"}>
-          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
-            Pause -- Listen to trainers
-          </Heading>
-          <Box mt={12}>
-            <Video />
           </Box>
         </Container>
       </Box> */}
 
+      {/* videos collections  */}
+
+      <Box as="section" my={24}>
+        <Container maxW={"container.xl"}>
+          <HStack justify={"space-between"}>
+            <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+              Videos
+            </Heading>
+            <Tooltip hasArrow label="More Videos" bg="purple" color="white">
+              <Link href="/video-gallery">
+                <Avatar
+                  bg={"purple"}
+                  color={"white"}
+                  icon={<FaChevronCircleRight size={24} />}
+                />
+              </Link>
+            </Tooltip>
+          </HStack>
+          <Box mt={12}>
+            <Video />
+          </Box>
+        </Container>
+      </Box>
+
+      {/* collaborators */}
       <Box my={24}>
         <Container maxW="container.xl">
-          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
-            Collaborators
-          </Heading>
+          <Heading fontSize={{ base: "4xl", md: "5xl" }}>Collaborators</Heading>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
             {collaborators.map((collaborator, i) => (
