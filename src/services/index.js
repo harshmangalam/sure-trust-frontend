@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export * from "./gallery";
+export * from "./reviews"
 
 export const signup = async (payload) => {
   try {
@@ -274,3 +275,8 @@ export const patchBatchInformation = async ({
     throw error;
   }
 };
+
+
+
+
+

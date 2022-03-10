@@ -12,7 +12,6 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 
-import ReviewCarousel from "../../components/main/home/ReviewCarousel";
 import Video from "../../components/main/home/Video";
 import { uniquenessTrainings } from "../../data/uniquenessTrainings";
 import { collaborators } from "../../data/collaborators";
@@ -20,8 +19,12 @@ import { collaborators } from "../../data/collaborators";
 import Caption from "../../components/main/home/Caption";
 import Features from "../../components/main/home/Features";
 import { FaChevronCircleRight } from "react-icons/fa";
-
+import { useQuery } from "react-query";
+import { fetchReviews } from "../../services";
+import ReviewCard from "../../components/main/ReviewCard";
 function Home() {
+  const query = useQuery(["reviews", 1], () => fetchReviews(1));
+
   const collaboratorBg = useColorModeValue(
     "linear(to-l, purple.400, blue.300)",
     "linear(to-l, purple.900, blue.300)"
@@ -85,19 +88,32 @@ function Home() {
         </Container>
       </Box>
 
-      {/* Google Ratings  */}
-
-      {/* <Box my={24}>
-        <Container maxW="container.xl">
-          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
-            Google Reviews
-          </Heading>
-          <Box mt={12} maxW={"md"} mx="auto">
-            <ReviewCarousel />
+      {/*  Ratings  */}
+      <Box as="section" my={24}>
+        <Container maxW={"container.xl"}>
+          <HStack justify={"space-between"}>
+            <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+              Reviews
+            </Heading>
+            <Tooltip hasArrow label="More Reviews" bg="purple" color="white">
+              <Link href="/reviews">
+                <Avatar
+                  bg={"purple"}
+                  color={"white"}
+                  icon={<FaChevronCircleRight size={24} />}
+                />
+              </Link>
+            </Tooltip>
+          </HStack>
+          <Box mt={12}>
+            <SimpleGrid columns={[1,1,2,2,3]} spacing={6}>
+            {query.data?.data?.result?.data?.slice(0, 3).map((review) => (
+              <ReviewCard {...review} />
+            ))}
+            </SimpleGrid>
           </Box>
         </Container>
-      </Box> */}
-
+      </Box>
       {/* videos collections  */}
 
       <Box as="section" my={24}>
