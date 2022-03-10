@@ -1,7 +1,7 @@
 import sarahImage from "../images/sarah.png";
 import amarImage from "../images/amar.jpeg";
 import bharatImage from "../images/bharat.jpeg";
-import ramananImage from "../images/ramanan.jpeg";
+import ramananImage from "../images/lst/ramnan.jpeg";
 import ssrImage from "../images/ssr.jpeg";
 import vijayaImg from "../images/lst/4.jpeg";
 export const coFounders = [
@@ -220,7 +220,7 @@ export const boardOfAdvisers = [
   {
     title: "Advisor - Lateral Thinking Skills",
     image: ramananImage,
-    name: "Mr. Vaidya Ramanan",
+    name: "V.J.Ramanan",
     bio: `
         Undergraduate in Electronics from Bangalore University, Graduate in Computer Science from IISc. Moved to US in 2000. Worked at various chip / semiconductor / networking companies like AMD, Nvidia, Cisco. Presently working for Nokia. Scope of work: Design of processors and networking switches, Performance Modeling and characterization of next generation architecture.`,
 

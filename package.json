@@ -1,6 +1,6 @@
 {
   "name": "suretrust-frontend",
-  "version": "5.8.1",
+  "version": "5.9.1",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.7.2",

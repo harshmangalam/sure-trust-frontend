@@ -44,7 +44,7 @@ export default function AboutUserCard({ image, name, links, bio }) {
         <VStack spacing={6} align="start">
           <Image src={image} alt={name} w="full" h="sm" roundedTop={"xl"} />
 
-          <Heading px={4} size="md" textAlign={"center"}>
+          <Heading px={4} size="md" fontFamily={"body"} textAlign={"center"}>
             {name}
           </Heading>
           <Text px={4} fontSize="md" textAlign={"justify"}>
