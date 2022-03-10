@@ -7,6 +7,7 @@ const config = {
 const theme = extendTheme({
   config,
   fonts: {  heading: "'Hind', sans-serif" },
+  
 });
 
 export default theme;
