@@ -10,6 +10,7 @@ export const frontendManager = {
   image: "https://avatars.githubusercontent.com/u/57381638?v=4",
   name: "Harsh Mangalam",
   education: "BCA 2nd Year, Open source developer and blogger",
+  active: true,
   links: [
     {
       name: "Linkedin",
@@ -24,6 +25,7 @@ export const frontendManager = {
 export const backendManager = {
   image: AshokImage,
   name: "Mr. Ashok Babu",
+  active: true,
   education:
     "B.Tech 3rd year, CSE, SRKR Engineering College, Bhimavaram, Andhra Pradhesh.",
   links: [
@@ -40,6 +42,8 @@ export const backendManager = {
 export const developers = [
   {
     image: JagadeeshImage,
+    active: false,
+
     name: "Mr. Jagadeesh Gajula",
 
     education:
@@ -56,6 +60,8 @@ export const developers = [
   },
   {
     image: AshokImage,
+    active: true,
+
     name: "Mr. Ashok Babu",
     education:
       "B.Tech 3rd year, CSE, SRKR Engineering College, Bhimavaram, Andhra Pradhesh.",
@@ -73,6 +79,8 @@ export const developers = [
   {
     image: NiteshImage,
     name: "Mr. Nitesh Kumar",
+    active: false,
+
     education:
       "B.Tech 3rd year CSE, Netaji Subhash University of Technology, East Campus (Formerly AIACT&R), Geeta Colony, New Delhi, India.",
     links: [
@@ -89,6 +97,8 @@ export const developers = [
   {
     image: NamanImage,
     name: "Mr. Naman Garg",
+    active: false,
+
     education:
       "BCA 2nd year, Kamal Institute of Higher Education and Advance Technology, New Delhi, India.",
     links: [
@@ -105,6 +115,8 @@ export const developers = [
   {
     image: AmitImage,
     name: "Mr. Amit",
+    active: false,
+
     education:
       "MCA 2nd year, Lovely Professional University, Amritser, Punjab.",
     links: [
@@ -121,6 +133,8 @@ export const developers = [
   {
     image: PraneethImage,
     name: "Mr. Praneeth Kumar Ketha",
+    active: false,
+
     education:
       "B.Tech 3rd year CSE, Sri Venkateswara College of Engineering, Tirupati, Andhra Pradesh.",
     links: [
@@ -137,6 +151,8 @@ export const developers = [
   {
     image: VidushiImage,
     name: "Ms. Vidushi Agarwal",
+    active: false,
+
     education:
       "B.Tech 3rd year CSE, Dehradun Institute of Technology, Varanasi Tehsil, Uttar Pradesh.",
     links: [
@@ -152,6 +168,8 @@ export const developers = [
   {
     image: "https://avatars.githubusercontent.com/u/57381638?v=4",
     name: "Harsh Mangalam",
+    active: true,
+
     education: "BCA 2nd Year, Open source developer and blogger",
     links: [
       {

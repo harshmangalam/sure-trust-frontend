@@ -19,20 +19,20 @@ export default function DeveloperCard({ developer }) {
       textAlign={"center"}
     >
       <Avatar
-        size={"xl"}
+        size={"2xl"}
         src={developer.image}
         alt={developer.name}
         mb={4}
         pos={"relative"}
         _after={{
           content: '""',
-          w: 4,
-          h: 4,
-          bg: "green.300",
+          w: 5,
+          h: 5,
+          bg: developer.active ? "green.500" : "red.500",
           border: "2px solid white",
           rounded: "full",
           pos: "absolute",
-          bottom: 0,
+          bottom: 1,
           right: 3,
         }}
       />
@@ -51,7 +51,7 @@ export default function DeveloperCard({ developer }) {
       </Text>
 
       <Wrap align={"center"} justify={"center"} direction={"row"} mt={6}>
-        {developer.links.map((link,i) => (
+        {developer.links.map((link, i) => (
           <Tooltip hasArrow label={link.name} key={i}>
             <IconButton
               colorScheme={link.color}
