@@ -28,7 +28,7 @@ export default function DeveloperCard({ developer }) {
           content: '""',
           w: 5,
           h: 5,
-          bg: developer.active ? "green.500" : "red.500",
+          bg: developer.active ? "green.400" : "red.400",
           border: "2px solid white",
           rounded: "full",
           pos: "absolute",
