@@ -6,7 +6,7 @@ const config = {
 };
 const theme = extendTheme({
   config,
-  fonts: {  heading: "'Sora', sans-serif" },
+  fonts: {  heading: "'Hind', sans-serif" },
 });
 
 export default theme;
