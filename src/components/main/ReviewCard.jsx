@@ -116,7 +116,7 @@ export default function ReviewCard({
       </TestimonialContent>
       <TestimonialAvatar
         src={reviewer_picture_url}
-        name={"Jane Cooper"}
+        name={reviewer_name}
         title={`${supplier}  review`}
         url={url}
       />
