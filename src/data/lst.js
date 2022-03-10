@@ -4,11 +4,10 @@ import amarVivekImage from "../images/amar.jpeg";
 import vijayaImg from "../images/lst/4.jpeg";
 import kritikaImage from "../images/lst/kritika.jpeg";
 
-import wyMod from "../assets/lst/wm.pdf";
 import ssMod from "../assets/lst/ss.pdf";
 import lMode from "../assets/lst/l.pdf";
 import cMode from "../assets/lst/c.pdf";
-import krMode from "../assets/lst/kr.pdf";
+import ekMode from "../assets/lst/ek.pdf";
 export const intro = [
   `Life skill is a term used to describe a set of basic skills acquired either through learning or  by direct life experience.  This enables individuals and groups to effectively handle issues and problems commonly encountered in daily life.`,
   `They include creativity, critical thinking, problem-solving, decision-making, the ability to communicate and collaborate, along with personal and social responsibility that contribute to wholesome wellbeing of an individual. `,
@@ -21,7 +20,7 @@ export const intro = [
 export const trainingModules = [
   {
     title: "Personality Branding & Networking",
-    module: krMode,
+    module: "",
     body: [
       {
         mentor: "Mrs. Kritika Ram",
@@ -73,7 +72,7 @@ export const trainingModules = [
   },
   {
     title: "Wellbeing and Yoga",
-    module: wyMod,
+    module: ekMode,
     body: [
       {
         mentor: "Ekta Pathak, CFA, MBA finance",

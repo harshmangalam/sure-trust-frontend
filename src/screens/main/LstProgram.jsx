@@ -28,7 +28,6 @@ import LstMentorCard from "../../components/main/LstMentorCard";
 import { intro, trainingModules } from "../../data/lst";
 export default function LstProgram() {
   const cardBg = useColorModeValue("white", "gray.700");
-  const tabBg = useColorModeValue("white", "gray.700");
 
   const [lst, setLst] = useState(null);
 
@@ -63,7 +62,7 @@ export default function LstProgram() {
       </Tabs>
 
       <Box mt={24}>
-        <Heading fontSize={["4xl", "5xl"]} textAlign={"center"}>
+        <Heading color={"#967bb6"} fontSize={["4xl", "5xl"]} textAlign={"center"}>
           Introduction
         </Heading>
         <SimpleGrid columns={[1, 1, 2]} spacing={6} my={12}>
@@ -83,14 +82,14 @@ export default function LstProgram() {
       </Box>
 
       <Box my={24}>
-        <Heading fontSize={["4xl", "5xl"]} textAlign={"center"}>
+        <Heading color={"#967bb6"} fontSize={["4xl", "5xl"]} textAlign={"center"}>
           Life Skills Training Module
         </Heading>
 
         <VStack align="center" my={12} spacing={12}>
           {trainingModules.map((module, i) => (
             <VStack spacing={12} key={i}>
-              <Heading textAlign={"center"} fontSize={"3xl"}>
+              <Heading textAlign={"center"} color={"#967bb6"} fontSize={"3xl"}>
                 {module.title}
               </Heading>
               <SimpleGrid columns={[1]} spacing={6}>
