@@ -82,3 +82,49 @@ export const trainingModules = [
     ],
   },
 ];
+
+export const lstGoogleFormLink = "https://forms.gle/GMiVg4AHFYPbEHuS7";
+
+export const guidelines = {
+  title: `Guidelines for competitions /events`,
+  headerText: `Greetings to one and all!. We at suretrust encourage you to post your skills & talent. However, while posting your talent/skill as an image or video please make sure that you follow the guidelines given below.`,
+  footerText: `Anything you present, just make sure that you as presenters are well groomed. And what you are presenting is equally modest and decent. How you conduct yourselves even casually projects a lot about your inner personality. This is personality branding and networking too. Face is the index of mind. Your display picture in whats app /mobile or email also needs to align itself to a certain code of conduct. I understand these are extremely personal but since media is the medium through which,  all of us get connected predominantly, you need to take utmost care in maintaining your profile in the most professional manner.  `,
+  lists: [
+    {
+      title: `Choice of any song either for singing/dancing`,
+      content: `competition can be patriotic, devotional , philosophical or something meaningful. There should be some message in whatever you submit for any event. Even if it is a filmy song, please check for above parameters. Decency cannot be compromised under any circumstances.`,
+    },
+    {
+      title: `Dresscode`,
+      content: `lease be very conscious of what you are wearing when you are presenting yourself. What we wear reflects a lot about our personality. Groom very well, do not wear shorts. Wear dresses which are completely covered and modest. `,
+    },
+    {
+      title: `Choice of images for  painting`,
+      content: `Again,please choose good images that can convey meaningful messages or just nature or decent portrait is fine. You cannot draw or paint pictures which are not suitable enough to showcase it for a larger audience. `,
+    },
+    {
+      title: `Timing`,
+      content: `1min video where you are presenting , painting, any other skill etc. if you want to show more contents then it should be in fast forward mode for painting. For singing/dancing actual 1 min will do. Social service you can show for 2 mins`,
+    },
+    {
+      title: `Gmail`,
+      content: `post your videos and all the presentation to suretrustlifeskills99@gmail.com incase you are not able to upload it in the form itself.`,
+    },
+    {
+      title: `Subject line`,
+      content: `Talent show name / skill name/ social service title should be mentioned`,
+    },
+    {
+      title: `Presentation format`,
+      content: `ntroduce your name, Univ degree, suretrust course, title of your presentation and then go ahead with your video. If you are writing an article/ story / poem then you need to have these details in your presentation document itself`,
+    },
+    {
+      title: `Photo`,
+      content: `You need to also send your small passport size photo which can be taken at home itself. 3.5 by 3.5 cm . It should be a decent formal and a well groomed one. Also your photo file should be saved under your full name. so when you upload your photo from PC then your file should have your name. When we collect your photos in our drive, it will be easy for us to match your name to your photo. Please follow all these instructions.`,
+    },
+    {
+      title: `File name`,
+      content: `All your photo image, audio and video files should start with full name and course at suretrust Eg. Lakshmi Suresh_ Datascience`,
+    },
+  ],
+};

@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Grid,
   GridItem,
   Heading,
   HStack,
@@ -23,6 +22,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import LstForm from "../../components/main/lst/LstForm";
 import LstMentorCard from "../../components/main/LstMentorCard";
 
 import { intro, trainingModules } from "../../data/lst";
@@ -33,36 +33,41 @@ export default function LstProgram() {
 
   return (
     <Box maxW="container.xl" mx="auto" px={2} py={12}>
-      <Tabs isFitted>
-        <TabList display={"flex"} flexWrap={"wrap"}>
-          <Tab>Lifeskills Form</Tab>
-          <Tab>Gallery</Tab>
-          <Tab>Get Inspired</Tab>
-          <Tab>Testimonials</Tab>
-          <Tab>Contact Us</Tab>
+      <LstForm />
+      <Tabs isFitted variant="soft-rounded" colorScheme="purple" mt={24}>
+        <TabList overflowX={"auto"} py={4} px={2} className="custom-scrollbar">
+          <Tab minW={"180px"}>Lifeskills Form</Tab>
+          <Tab minW={"180px"}>Gallery</Tab>
+          <Tab minW={"180px"}>Get Inspired</Tab>
+          <Tab minW={"180px"}>Testimonials</Tab>
+          <Tab minW={"180px"}>Contact Us</Tab>
         </TabList>
-        <TabPanels>
+        <TabPanels p={4}>
           <TabPanel>
-            <Text>Lifeskills Form</Text>
+            <Text>Lifeskills Form ---- Comming Soon</Text>
           </TabPanel>
           <TabPanel>
-            <Text>Gallery</Text>
+            <Text>Gallery ---- Comming Soon</Text>
           </TabPanel>
           <TabPanel>
-            <Text>Get Inspired</Text>
+            <Text>Get Inspired ---- Comming Soon</Text>
           </TabPanel>
           <TabPanel>
-            <Text>Testimonials</Text>
+            <Text>Testimonials ---- Comming Soon</Text>
           </TabPanel>
 
           <TabPanel>
-            <Text>Contact Us</Text>
+            <Text>Contact Us ---- Comming Soon</Text>
           </TabPanel>
         </TabPanels>
       </Tabs>
 
       <Box mt={24}>
-        <Heading color={"#967bb6"} fontSize={["4xl", "5xl"]} textAlign={"center"}>
+        <Heading
+          color={"#967bb6"}
+          fontSize={["4xl", "5xl"]}
+          textAlign={"center"}
+        >
           Introduction
         </Heading>
         <SimpleGrid columns={[1, 1, 2]} spacing={6} my={12}>
@@ -82,7 +87,11 @@ export default function LstProgram() {
       </Box>
 
       <Box my={24}>
-        <Heading color={"#967bb6"} fontSize={["4xl", "5xl"]} textAlign={"center"}>
+        <Heading
+          color={"#967bb6"}
+          fontSize={["4xl", "5xl"]}
+          textAlign={"center"}
+        >
           Life Skills Training Module
         </Heading>
 
