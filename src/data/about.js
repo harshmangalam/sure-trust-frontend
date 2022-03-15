@@ -4,6 +4,8 @@ import bharatImage from "../images/bharat.jpeg";
 import ramananImage from "../images/lst/ramnan.jpeg";
 import ssrImage from "../images/ssr.jpeg";
 import vijayaImg from "../images/lst/4.jpeg";
+import saiSudhaImg from "../images/saisudha.jpg";
+import jagadeeshImg from "../images/jagadeesh.jfif";
 export const coFounders = [
   {
     title: "Executive Director & Founder",
@@ -174,9 +176,7 @@ export const executiveMembers = [
   },
 
   {
-    image:
-      "https://media-exp1.licdn.com/dms/image/C4D03AQGPw4g7ZYTMNw/profile-displayphoto-shrink_200_200/0/1517580043001?e=1646870400&v=beta&t=JB3xMiDOivWLdeudxumxf9cpkrueESuPVQmo3pvTeXk",
-
+    image: saiSudhaImg,
     name: "Mrs. Sai Sudha Nunna, CFA, MBA, B.Tech (CSE)",
     bio: `Co-Founder & COO, Smartnerd Future Communities, India.`,
 
@@ -189,8 +189,7 @@ export const executiveMembers = [
   },
 
   {
-    image:
-      "https://media-exp1.licdn.com/dms/image/C5603AQH0TeSk8yHB5g/profile-displayphoto-shrink_200_200/0/1630570179653?e=1646870400&v=beta&t=AlGoFzJ1uJ889_s7YNZ1r7n973sAihSsx0qEoaUBz1E",
+    image: jagadeeshImg,
     name: "Mr. Jagadeesh Gajula, BCA PGD (AIML), MSc (AIML) - Liver Poole John Moores University, London;",
     bio: `Research Fellow - IIT, Hyderabad. The very first proud product of the SURE TRUST`,
 

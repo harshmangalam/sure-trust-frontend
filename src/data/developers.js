@@ -1,6 +1,6 @@
 import { FaLinkedin } from "react-icons/fa";
 import AshokImage from "../images/ashok.jpeg";
-import JagadeeshImage from "../images/jagadeeshsir.jpg";
+import JagadeeshImage from "../images/jagadeesh.jfif";
 import NiteshImage from "../images/nitesh.jpeg";
 import NamanImage from "../images/naman.jpeg";
 import AmitImage from "../images/amit.jpeg";
