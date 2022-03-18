@@ -146,6 +146,20 @@ export const seniorExecutives = [
       },
     ],
   },
+  {
+    title: "Advisor - Lateral Thinking Skills",
+    image: ramananImage,
+    name: "V.J.Ramanan",
+    bio: `
+        Undergraduate in Electronics from Bangalore University, Graduate in Computer Science from IISc. Moved to US in 2000. Worked at various chip / semiconductor / networking companies like AMD, Nvidia, Cisco. Presently working for Nokia. Scope of work: Design of processors and networking switches, Performance Modeling and characterization of next generation architecture.`,
+
+    links: [
+      {
+        name: "Linkedin",
+        url: "https://www.linkedin.com/in/ramananvaidya",
+      },
+    ],
+  },
 ];
 
 export const executiveMembers = [
@@ -188,48 +202,12 @@ export const executiveMembers = [
     ],
   },
 
-  {
-    image: jagadeeshImg,
-    name: "Mr. Jagadeesh Gajula, BCA PGD (AIML), MSc (AIML) - Liver Poole John Moores University, London;",
-    bio: `Research Fellow - IIT, Hyderabad. The very first proud product of the SURE TRUST`,
-
-    links: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/jagadeeshgajula1",
-      },
-    ],
-  },
-
-  {
-    image: bharatImage,
-    name: "Mr. Bharat Reddy Bora, B.Tech (ECE)",
-    bio: `Graduate student in Robotics from the University of Maryland College Park, USA. Currently working as ROS (Robotics Operating System) Developer, TheDush Robotics, Coimbatore, TN.`,
-
-    links: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/bharath-reddy-bora-820172154",
-      },
-    ],
-  },
+  
+  
 ];
 
 export const boardOfAdvisers = [
-  {
-    title: "Advisor - Lateral Thinking Skills",
-    image: ramananImage,
-    name: "V.J.Ramanan",
-    bio: `
-        Undergraduate in Electronics from Bangalore University, Graduate in Computer Science from IISc. Moved to US in 2000. Worked at various chip / semiconductor / networking companies like AMD, Nvidia, Cisco. Presently working for Nokia. Scope of work: Design of processors and networking switches, Performance Modeling and characterization of next generation architecture.`,
-
-    links: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/ramananvaidya",
-      },
-    ],
-  },
+ 
 
   {
     title: "Advisor-Networking",
