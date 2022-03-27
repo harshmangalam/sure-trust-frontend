@@ -11,10 +11,12 @@ import Sidebar from "../../components/dashboard/Sidebar";
 import Header from "../../components/dashboard/Header";
 import Footer from "../../components/dashboard/Footer";
 
+import useNetwork from "../../hooks/useNetwork";
 import { useAuthState } from "../../contexts/auth";
 import { studentNavLinks, teacherNavLinks } from "../../data/dashboard";
 
 export default function DashboardLayout() {
+  useNetwork();
   const { role } = useAuthState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -66,7 +68,6 @@ export default function DashboardLayout() {
           flexGrow={1}
           py={12}
         >
-          
           <Outlet />
         </Box>
         <Box ml={{ base: 0, md: 60 }}>
