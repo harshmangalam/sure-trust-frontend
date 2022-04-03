@@ -1,8 +1,8 @@
 import { HStack, Text } from "@chakra-ui/react";
-
-export default function ScrollText({ text }) {
+import NoticeModal from "./NoticeModal";
+export default function ScrollText({ notice }) {
   return (
-    <HStack spacing={2} justify={"center"} align={["start", "center"]}>
+    <HStack spacing={2} justify={"center"} align={["start", "center"]} px="2">
       <svg
         data-ux="SVG"
         viewBox=" 0 0 35 35"
@@ -15,8 +15,9 @@ export default function ScrollText({ text }) {
       </svg>
 
       <Text fontSize={["md", "lg", "xl"]} fontWeight={"bold"}>
-        {text}
+        {notice.title}
       </Text>
+      <NoticeModal notice={notice} />
     </HStack>
   );
 }

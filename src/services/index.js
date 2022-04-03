@@ -2,6 +2,7 @@ import axios from "axios";
 
 export * from "./gallery";
 export * from "./reviews";
+export * from "./home";
 
 export const signup = async (payload) => {
   try {
