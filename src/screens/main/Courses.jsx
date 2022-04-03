@@ -4,6 +4,7 @@ import {
   Container,
   Flex,
   Heading,
+  HStack,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -22,7 +23,8 @@ import courseSchedule from "../../assets/course-table.pdf";
 import { useState } from "react";
 function Courses() {
   const [courseModal, setCourseModal] = useState(false);
-  const query = useQuery("courses", fetchCourses);
+  const [pageUrl, setPageUrl] = useState("");
+  const query = useQuery(["courses", pageUrl], () => fetchCourses(pageUrl));
 
   if (query.isLoading) {
     return <CoursesSkeleton />;
@@ -41,17 +43,33 @@ function Courses() {
           rounded={"full"}
           colorScheme={"twitter"}
           onClick={() => setCourseModal(true)}
-          display={["none","block"]}
+          display={["none", "block"]}
         >
           Course Schedule
         </Button>
       </Flex>
 
       <SimpleGrid mt={12} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-        {query.data.map((course) => (
+        {query.data.results.map((course) => (
           <CourseCard course={course} key={course.id} />
         ))}
       </SimpleGrid>
+      <Box mt={12}>
+        <HStack>
+          <Button
+            disabled={!query.data.previous}
+            onClick={() => setPageUrl(query.data.previous)}
+          >
+            Prev
+          </Button>
+          <Button
+            disabled={!query.data.next}
+            onClick={() => setPageUrl(query.data.next)}
+          >
+            Next
+          </Button>
+        </HStack>
+      </Box>
 
       <Modal
         onClose={() => setCourseModal(false)}

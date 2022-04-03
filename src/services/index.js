@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export * from "./gallery";
-export * from "./reviews"
+export * from "./reviews";
 
 export const signup = async (payload) => {
   try {
@@ -13,9 +13,9 @@ export const signup = async (payload) => {
   }
 };
 
-export const fetchCourses = async () => {
+export const fetchCourses = async (url) => {
   try {
-    const { data } = await axios.get(`/courses/get-all-courses/`);
+    const { data } = await axios.get(url ? url : `/courses/get-all-courses/`);
     return data;
   } catch (error) {
     console.log(error);
@@ -275,8 +275,3 @@ export const patchBatchInformation = async ({
     throw error;
   }
 };
-
-
-
-
-
