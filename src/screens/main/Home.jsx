@@ -3,9 +3,7 @@ import {
   Heading,
   Text,
   SimpleGrid,
-  GridItem,
   Container,
-  useColorModeValue,
   HStack,
   Link,
   Avatar,
@@ -22,17 +20,10 @@ import { FaChevronCircleRight } from "react-icons/fa";
 import { useQuery } from "react-query";
 import { fetchReviews } from "../../services";
 import ReviewCard from "../../components/main/ReviewCard";
+import Collaborators from "../../components/main/home/Collaborators";
 function Home() {
   const query = useQuery(["reviews", 1], () => fetchReviews(1));
 
-  const collaboratorBg = useColorModeValue(
-    "linear(to-l, purple.400, blue.300)",
-    "linear(to-l, purple.900, blue.300)"
-  );
-  const collaboratorHoverBg = useColorModeValue(
-    "linear(to-l, blue.500, purple.400)",
-    "linear(to-l, blue.800, purple.400)"
-  );
   return (
     <Box>
       {/* Welcome section  */}
@@ -106,10 +97,10 @@ function Home() {
             </Tooltip>
           </HStack>
           <Box mt={12}>
-            <SimpleGrid columns={[1,1,2,2,3]} spacing={6}>
-            {query.data?.data?.result?.data?.slice(0, 3).map((review) => (
-              <ReviewCard {...review} />
-            ))}
+            <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={6}>
+              {query.data?.data?.result?.data?.slice(0, 3).map((review) => (
+                <ReviewCard {...review} />
+              ))}
             </SimpleGrid>
           </Box>
         </Container>
@@ -143,34 +134,7 @@ function Home() {
         <Container maxW="container.xl">
           <Heading fontSize={{ base: "4xl", md: "5xl" }}>Collaborators</Heading>
 
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
-            {collaborators.map((collaborator, i) => (
-              <GridItem key={i}>
-                <a rel="noreferrer" href={collaborator.link} target={"_blank"}>
-                  <Box
-                    rounded="xl"
-                    p={4}
-                    bgGradient={collaboratorBg}
-                    boxShadow={"2xl"}
-                    textAlign={"center"}
-                    cursor="pointer"
-                    _hover={{
-                      bgGradient: collaboratorHoverBg,
-                    }}
-                  >
-                    <Text
-                      fontSize="xl"
-                      textAlign="center"
-                      color="white"
-                      fontWeight={"bold"}
-                    >
-                      {collaborator.name}
-                    </Text>
-                  </Box>
-                </a>
-              </GridItem>
-            ))}
-          </SimpleGrid>
+          <Collaborators />
         </Container>
       </Box>
     </Box>
