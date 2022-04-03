@@ -10,11 +10,12 @@ import {
 import SubCourses from "./SubCourses";
 import { Link } from "react-router-dom";
 import EnrollCourse from "../students/EnrollCourse";
-import {share} from "../../utils/share"
+import { share, hasShareSupported } from "../../utils/share";
+import { useMemo } from "react";
 function CourseCard({ course }) {
   const courseCardBg = useColorModeValue("white", "gray.700");
 
-
+  const hasShareSupportCache = useMemo(() => hasShareSupported(), []);
   return (
     <Box
       key={course.id}
@@ -47,13 +48,17 @@ function CourseCard({ course }) {
             <SubCourses subcourses={course.subcourses} />
           ) : null}
 
-          <Button
-            colorScheme={"green"}
-            rounded={"full"}
-            onClick={() => share("hi")}
-          >
-            Share
-          </Button>
+          {hasShareSupportCache && (
+            <Button
+              colorScheme={"green"}
+              rounded={"full"}
+              onClick={() =>
+                share(`${window.location.href}/courses/${course.id}`)
+              }
+            >
+              Share
+            </Button>
+          )}
         </Wrap>
       </VStack>
     </Box>
