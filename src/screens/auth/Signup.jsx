@@ -30,7 +30,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-import { fetchCourses, signup } from "../../services";
+import { fetchCoursesForSignup, signup } from "../../services";
 import { useQuery } from "react-query";
 const schema = yup.object({
   name: yup.string().required("Name is required"),
@@ -57,7 +57,7 @@ function Signup() {
   const navigate = useNavigate();
   const [steps, setSteps] = useState(0);
   const [conditions, setConditions] = useState([]);
-  const courseQuery = useQuery("courses", fetchCourses);
+  const courseQuery = useQuery("courses", fetchCoursesForSignup);
 
   const {
     handleSubmit,

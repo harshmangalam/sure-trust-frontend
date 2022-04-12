@@ -14,6 +14,17 @@ export const signup = async (payload) => {
   }
 };
 
+
+export const fetchCoursesForSignup = async () => {
+  try {
+    const { data } = await axios.get(`/courses/get-all-courses-for-signup/`);
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
 export const fetchCourses = async (url) => {
   try {
     const { data } = await axios.get(url ? url : `/courses/get-all-courses/`);
