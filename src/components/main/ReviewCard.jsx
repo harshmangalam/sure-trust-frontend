@@ -109,8 +109,8 @@ export default function ReviewCard({
         <TestimonialHeading>{reviewer_name}</TestimonialHeading>
         <TestimonialText>{text}</TestimonialText>
         <Flex mt={2} color={"yellow.500"}>
-          {[...Array(Math.round(rating)).keys()].map((r) => (
-            <AiFillStar />
+          {[...Array(Math.round(rating)).keys()].map((_,i) => (
+            <AiFillStar key={i} />
           ))}
         </Flex>
       </TestimonialContent>

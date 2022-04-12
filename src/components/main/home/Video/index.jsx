@@ -15,7 +15,7 @@ export default function Video() {
   return (
     <SimpleGrid zIndex="2" mt={8} columns={[1, 1, 2, 3]} spacing={10}>
       {query.data.results.slice(0,3).map((video) => (
-        <GridItem>
+        <GridItem key={video.id}>
           <Box
           rounded="xl"
             as="iframe"

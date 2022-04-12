@@ -1,11 +1,9 @@
 import sarahImage from "../images/sarah.png";
 import amarImage from "../images/amar.jpeg";
-import bharatImage from "../images/bharat.jpeg";
 import ramananImage from "../images/lst/ramnan.jpeg";
 import ssrImage from "../images/ssr.jpeg";
 import vijayaImg from "../images/lst/4.jpeg";
 import saiSudhaImg from "../images/saisudha.jpg";
-import jagadeeshImg from "../images/jagadeesh.jfif";
 export const coFounders = [
   {
     title: "Executive Director & Founder",

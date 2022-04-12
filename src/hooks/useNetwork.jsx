@@ -26,6 +26,11 @@ export default function useNetwork() {
 
     window.addEventListener("online", handleStatusChange);
     window.addEventListener("offline", handleStatusChange);
+
+    return () => {
+      window.removeEventListener("online", handleStatusChange)
+      window.removeEventListener("offline", handleStatusChange)
+    }
   }, []);
   return {
     isOnline,

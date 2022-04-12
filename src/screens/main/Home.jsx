@@ -12,7 +12,6 @@ import {
 
 import Video from "../../components/main/home/Video";
 import { uniquenessTrainings } from "../../data/uniquenessTrainings";
-import { collaborators } from "../../data/collaborators";
 
 import Caption from "../../components/main/home/Caption";
 import Features from "../../components/main/home/Features";
@@ -98,8 +97,8 @@ function Home() {
           </HStack>
           <Box mt={12}>
             <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={6}>
-              {query.data?.data?.result?.data?.slice(0, 3).map((review) => (
-                <ReviewCard {...review} />
+              {query.data?.data?.result?.data?.slice(0, 3).map((review,i) => (
+                <ReviewCard {...review} key={i} />
               ))}
             </SimpleGrid>
           </Box>
