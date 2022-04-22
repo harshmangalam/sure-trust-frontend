@@ -15,7 +15,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
-import { fetchCourses } from "../../services";
+import { fetchCourses, fetchCoursesSchedule } from "../../services";
 import CourseCard from "../../components/courses/CourseCard";
 import CoursesSkeleton from "../../components/courses/CoursesSkeleton";
 import Error from "../../components/shared/Error";
@@ -25,6 +25,7 @@ function Courses() {
   const [courseModal, setCourseModal] = useState(false);
   const [pageUrl, setPageUrl] = useState("");
   const query = useQuery(["courses", pageUrl], () => fetchCourses(pageUrl));
+  const courseSchedule = useQuery("courseSchedule", fetchCoursesSchedule);
 
   if (query.isLoading) {
     return <CoursesSkeleton />;
@@ -33,6 +34,8 @@ function Courses() {
   if (query.isError) {
     return <Error code={500} message={query.error} />;
   }
+
+  
   return (
     <Container maxW="container.xl" py={12}>
       <Flex justify={"space-between"}>
@@ -87,7 +90,7 @@ function Courses() {
               as="object"
               w="100%"
               h="70vh"
-              data={courseSchedule}
+              data={courseSchedule?.data[0].shedule}
               type="application/pdf"
             >
               <Box as="iframe" src={courseSchedule} w="full" h="70vh"></Box>

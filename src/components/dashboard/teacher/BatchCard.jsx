@@ -51,7 +51,7 @@ function BatchCard({ courseId, batch }) {
         <GridItem>
           <Stack spacing={0} align={"center"}>
             <Text textAlign="center" fontWeight={600}>
-              {format(new Date(batch.start_date), "dd MMMM  YYY")}
+              {batch.start_date ? format(new Date(batch.start_date), "dd MMMM  YYY") : "Not Available"}
             </Text>
             <Text fontSize={"sm"} color={"gray.500"}>
               Start Date
@@ -70,7 +70,7 @@ function BatchCard({ courseId, batch }) {
         <GridItem>
           <Stack spacing={0} align={"center"}>
             <Text textAlign="center" fontWeight={600}>
-              {format(new Date(batch.end_date), "dd MMMM  YYY")}
+              {batch.end_date ? format(new Date(batch.end_date), "dd MMMM  YYY") : "Not Available"}
             </Text>
             <Text fontSize={"sm"} color={"gray.500"}>
               End Date
