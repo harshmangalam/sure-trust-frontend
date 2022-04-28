@@ -1,4 +1,10 @@
-import { Box, GridItem, SimpleGrid, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  GridItem,
+  SimpleGrid,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { fetchCollaborators } from "../../../services";
 
@@ -13,11 +19,16 @@ export default function Collaborators() {
   );
   const query = useQuery("collabortors", () => fetchCollaborators(null));
 
+  function getLink(link) {
+    return link.startsWith("https") || link.startsWith("http")
+      ? link
+      : `https://${link}`;
+  }
   return (
     <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
-      {query.data?.results.map((collaborator, i) => (
+      {query.data?.map((collaborator, i) => (
         <GridItem key={collaborator.id}>
-          <a rel="noreferrer" href={collaborator.link} target={"_blank"}>
+          <a href={getLink(collaborator.link)} target={"_blank"}>
             <Box
               rounded="xl"
               p={4}
