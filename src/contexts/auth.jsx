@@ -8,6 +8,11 @@ const defaultState = {
   isAuthenticated: false,
   currentUser: null,
   role: "",
+  classMeet: {
+    meetingCode: null,
+    batchId: null,
+    courseId: null,
+  },
 };
 
 const reducer = (state, { type, payload }) => {
@@ -42,6 +47,12 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         currentUser: payload,
+      };
+
+    case "UPDATE_CLASSMEET":
+      return {
+        ...state,
+        classMeet: payload,
       };
 
     default:

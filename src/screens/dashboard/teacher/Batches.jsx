@@ -7,7 +7,6 @@ import { useParams } from "react-router";
 
 function Batches() {
   const { courseId } = useParams();
-  console.log(courseId);
   const batches = useQuery(["teacherBatches", courseId], () =>
     fetchTeacherBatches(courseId)
   );

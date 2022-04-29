@@ -70,6 +70,7 @@ const StudentPostGrades = lazy(() =>
 );
 
 const StudentRecording = lazy(() => import("../screens/StudentRecording"));
+const Meet = lazy(() => import("../screens/Meet"));
 
 const NotFound = lazy(() => import("../screens/NotFound"));
 
@@ -96,6 +97,7 @@ function AppRoutes() {
         </Route>
 
         <Route path="/auth" element={<AuthLayout />}>
+          <Route index element={<Login />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="reset-password" element={<ResetPassword />} />
@@ -148,12 +150,9 @@ function AppRoutes() {
           <Route path="profile" element={<Profile />} />
           <Route path="profile/edit" element={<EditProfile />} />
         </Route>
-        {role === "student" && (
-          <Route path="meet" element={<StudentRecording />} />
-        )}
-        {role === "teacher" && (
-          <Route path="meet" element={<TeacherRecording />} />
-        )}
+
+        <Route path="meet" element={<Meet />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

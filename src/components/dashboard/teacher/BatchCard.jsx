@@ -86,9 +86,9 @@ function BatchCard({ courseId, batch }) {
           </Stack>
         </GridItem>
 
-        <GridItem>
+        <GridItem colSpan={2}>
           <Stack spacing={0} align={"center"}>
-            <Text fontWeight={600}>
+            <Text textAlign={"center"} fontWeight={600}>
               {batch.meeting_code || "Not Available"}
             </Text>
             <Text fontSize={"sm"} color={"gray.500"}>

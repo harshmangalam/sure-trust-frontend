@@ -1,44 +1,57 @@
 import { Button } from "@chakra-ui/react";
-import { useState } from "react";
-import { useAuthState } from "../../../contexts/auth";
+import { useNavigate } from "react-router-dom";
+import { useAuthDispatch, useAuthState } from "../../../contexts/auth";
 import { patchBatchInformation } from "../../../services";
 
 function Meet({ batchId, courseId }) {
-  const { currentUser } = useAuthState();
-  const [data, setData] = useState();
+  const { classMeet } = useAuthState();
+  const dispatch = useAuthDispatch();
+  const navigate = useNavigate();
+
   const handleStartMeeting = async () => {
     try {
       const meetingCode = `batch${batchId} ${Date.now()}`;
-      const data = await patchBatchInformation({
+      await patchBatchInformation({
         batchId,
         courseId,
         meetingCode,
       });
-      setData(data);
 
-      localStorage.setItem("MeetCodeTeacher", meetingCode);
-      localStorage.setItem("MeetNameTeacher", currentUser.name);
-      window.open("/meet");
+      dispatch({
+        type: "UPDATE_CLASSMEET",
+        payload: {
+          batchId,
+          courseId,
+          meetingCode,
+        },
+      });
+      navigate("/meet");
     } catch (error) {
       console.log(error);
     }
   };
   const handleEndMeeting = async () => {
     try {
-      const data = await patchBatchInformation({
+      await patchBatchInformation({
         batchId,
         courseId,
         meetingCode: null,
       });
-      setData(data);
-      localStorage.removeItem("MeetNameTeacher");
-      localStorage.removeItem("MeetCodeTeacher");
+
+      dispatch({
+        type: "UPDATE_CLASSMEET",
+        payload: {
+          batchId,
+          courseId,
+          meetingCode: null,
+        },
+      });
     } catch (error) {
       console.log(error);
     }
   };
 
-  if (data?.meeting_code) {
+  if (classMeet?.meetingCode) {
     return (
       <Button w="full" colorScheme={"red"} onClick={handleEndMeeting}>
         End Meet

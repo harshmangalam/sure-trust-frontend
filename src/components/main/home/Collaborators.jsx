@@ -28,7 +28,7 @@ export default function Collaborators() {
     <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
       {query.data?.map((collaborator, i) => (
         <GridItem key={collaborator.id}>
-          <a href={getLink(collaborator.link)} target={"_blank"}>
+          <a rel="noreferrer" href={getLink(collaborator.link)} target={"_blank"}>
             <Box
               rounded="xl"
               p={4}
