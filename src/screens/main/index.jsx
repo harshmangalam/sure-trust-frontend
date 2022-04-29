@@ -15,10 +15,10 @@ function MainLayout() {
     >
       <Box pos={"sticky"} top={0} zIndex={100}>
         <Header />
-        <ScrollingMessages />
       </Box>
 
       <Box flexGrow={1}>
+        <ScrollingMessages />
         <Outlet />
       </Box>
       <Footer />
