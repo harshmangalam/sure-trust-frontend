@@ -10,20 +10,22 @@ import {
   Text,
   useDisclosure,
   VStack,
+  IconButton,
 } from "@chakra-ui/react";
+
+import {FaLongArrowAltRight} from "react-icons/fa"
 
 export default function NoticeModal({ notice }) {
   const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <>
-      <Button
+      <IconButton
         onClick={onOpen}
-        size={"md"}
-        variant="outline"
-        colorScheme={"white"}
-      >
-        View
-      </Button>
+        size={"sm"}
+        variant="solid"
+        colorScheme={"purple"}
+        icon={<FaLongArrowAltRight size={20} />}
+      />
 
       <Modal
         allowPinchZoom

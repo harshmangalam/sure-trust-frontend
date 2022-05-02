@@ -14,7 +14,7 @@ export default function ScrollText({ notice }) {
         </g>
       </svg>
 
-      <Text fontSize={["md", "lg", "xl"]} fontWeight={"bold"}>
+      <Text fontSize={"md"} fontWeight={"bold"}>
         {notice.title}
       </Text>
       <NoticeModal notice={notice} />
