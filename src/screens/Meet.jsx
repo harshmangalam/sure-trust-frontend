@@ -7,7 +7,7 @@ import "../styles/meet.css";
 const DOMAIN = "meet.jit.si";
 
 export default function Meet() {
-  const { currentUser, classMeet } = useAuthState();
+  const { currentUser, classMeet, role } = useAuthState();
   let api = useRef();
 
   const dispatch = useAuthDispatch();
@@ -29,6 +29,8 @@ export default function Meet() {
     } else {
       console.log("Problem while starting class.");
     }
+
+    return () => handleClassEnd();
   }, []);
 
   function handleClassStart() {
@@ -62,15 +64,23 @@ export default function Meet() {
   }
 
   async function handleClassEnd() {
-    console.log("class end");
     api.current = null;
-    const data = await patchBatchInformation({
-      batchId: classMeet.batchId,
-      courseId: classMeet.courseId,
-      meetingCode: null,
+    if (role === "teacher") {
+      const data = await patchBatchInformation({
+        batchId: classMeet.batchId,
+        courseId: classMeet.courseId,
+        meetingCode: null,
+      });
+
+      dispatch({ type: "UPDATE_CLASSMEET", payload: data });
+      return navigate(`/dashboard/courses/${classMeet.courseId}`, {
+        replace: true,
+      });
+    }
+
+    return navigate(`/dashboard/batches/`, {
+      replace: true,
     });
-    dispatch({ type: "UPDATE_CLASSMEET", payload: data });
-    navigate(`/dashboard/courses/${classMeet.courseId}`, { replace: true });
   }
 
   return <Box id="jitsi-iframe" h="100vh"></Box>;

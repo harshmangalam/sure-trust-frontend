@@ -55,8 +55,6 @@ const TeacherPostGrades = lazy(() =>
   import("../screens/dashboard/teacher/Grades")
 );
 
-const TeacherRecording = lazy(() => import("../screens/TeacherRecording"));
-
 const StudentBatches = lazy(() =>
   import("../screens/dashboard/student/Batches")
 );
@@ -69,7 +67,6 @@ const StudentPostGrades = lazy(() =>
   import("../screens/dashboard/student/Grades")
 );
 
-const StudentRecording = lazy(() => import("../screens/StudentRecording"));
 const Meet = lazy(() => import("../screens/Meet"));
 
 const NotFound = lazy(() => import("../screens/NotFound"));
@@ -152,7 +149,6 @@ function AppRoutes() {
         </Route>
 
         <Route path="meet" element={<Meet />} />
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

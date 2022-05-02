@@ -14,11 +14,11 @@ import {
 import { format } from "date-fns";
 import { Link, useNavigate } from "react-router-dom";
 import { exitCourse } from "../../../services";
-import ToggleMeet from "./ToggleMeet";
+import JoinMeet from "./JoinMeet";
 function BatchCard({ batch }) {
   const cardBg = useColorModeValue("white", "gray.700");
   const toast = useToast();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleExitCourse = async (courseId) => {
     try {
@@ -31,7 +31,7 @@ function BatchCard({ batch }) {
         isClosable: true,
       });
 
-      navigate("/dashboard")
+      navigate("/dashboard");
     } catch (error) {
       toast({
         title: "Course Leave",
@@ -130,7 +130,13 @@ function BatchCard({ batch }) {
       </SimpleGrid>
 
       <SimpleGrid mt={6} columns={{ base: 1, md: 2 }} spacing={6}>
-        <ToggleMeet meeting_code={batch.meeting_code} />
+        {batch.meeting_code && (
+          <JoinMeet
+            batchId={batch.id}
+            courseId={batch.course?.id}
+            meetingCode={batch.meeting_code}
+          />
+        )}
         <Button
           colorScheme={"pink"}
           as={Link}
