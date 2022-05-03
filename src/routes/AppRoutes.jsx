@@ -69,6 +69,11 @@ const StudentPostGrades = lazy(() =>
 
 const Meet = lazy(() => import("../screens/Meet"));
 
+// Blog
+const BlogLayout = lazy(() => import("../screens/blog/BlogLayout"));
+const BlogHome = lazy(() => import("../screens/blog"));
+const Posts = lazy(() => import("../screens/blog/posts"));
+
 const NotFound = lazy(() => import("../screens/NotFound"));
 
 function AppRoutes() {
@@ -149,6 +154,12 @@ function AppRoutes() {
         </Route>
 
         <Route path="meet" element={<Meet />} />
+
+        <Route path="blog" element={<BlogLayout />}>
+          <Route index element={<BlogHome />} />
+          <Route path="posts" element={<Posts />} />
+        </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
