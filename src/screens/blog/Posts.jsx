@@ -3,7 +3,7 @@ import PostCard from "../../components/blog/PostCard";
 
 const Posts = () => {
   return (
-    <Box maxW={"container.xl"} p="2" mt={8}>
+    <Box maxW={"container.xl"} p="2">
       <Heading as="h2" marginTop="4">
         Posts
       </Heading>
