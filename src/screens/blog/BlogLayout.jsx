@@ -25,14 +25,14 @@ export default function BlogLayout() {
             </IconButton>
           </Tooltip>
           <Tooltip label="Create Post">
-            <IconButton>
+            <IconButton as={Link} to="create-post">
               <RiAddLine size={20} />
             </IconButton>
           </Tooltip>
           <ThemeToggle />
         </HStack>
       </Flex>
-      <Box as={"main"} maxW="container.xl" mx="auto">
+      <Box as={"main"} maxW="container.xl" mx="auto" py={8}>
         <Outlet />
       </Box>
     </Box>

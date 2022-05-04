@@ -72,7 +72,8 @@ const Meet = lazy(() => import("../screens/Meet"));
 // Blog
 const BlogLayout = lazy(() => import("../screens/blog/BlogLayout"));
 const BlogHome = lazy(() => import("../screens/blog"));
-const Posts = lazy(() => import("../screens/blog/posts"));
+const Posts = lazy(() => import("../screens/blog/Posts"));
+const CreatePost = lazy(() => import("../screens/blog/CreatePost"));
 
 const NotFound = lazy(() => import("../screens/NotFound"));
 
@@ -158,6 +159,7 @@ function AppRoutes() {
         <Route path="blog" element={<BlogLayout />}>
           <Route index element={<BlogHome />} />
           <Route path="posts" element={<Posts />} />
+          <Route path="create-post" element={<CreatePost />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
