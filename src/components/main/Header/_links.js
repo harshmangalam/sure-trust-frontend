@@ -1,4 +1,5 @@
 export const links = [
+  { name: "TICH-TIC-TOE 1.0", to: "/events" },
   { name: "About", to: "/about" },
   { name: "Contact", to: "/contact" },
   { name: "Courses", to: "/courses" },

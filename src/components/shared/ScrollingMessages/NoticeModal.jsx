@@ -23,7 +23,7 @@ export default function NoticeModal({ notice }) {
         onClick={onOpen}
         size={"sm"}
         variant="solid"
-        colorScheme={"purple"}
+        colorScheme={"blue"}
         icon={<FaLongArrowAltRight size={20} />}
       />
 

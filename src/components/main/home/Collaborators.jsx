@@ -10,12 +10,12 @@ import { fetchCollaborators } from "../../../services";
 
 export default function Collaborators() {
   const collaboratorBg = useColorModeValue(
-    "linear(to-l, purple.400, blue.300)",
-    "linear(to-l, purple.900, blue.300)"
+    "linear(to-l, pink.400, blue.300)",
+    "linear(to-l, pink.500, blue.400)"
   );
   const collaboratorHoverBg = useColorModeValue(
-    "linear(to-l, blue.500, purple.400)",
-    "linear(to-l, blue.800, purple.400)"
+    "linear(to-l, blue.500, pink.400)",
+    "linear(to-l, blue.400, pink.500)"
   );
   const query = useQuery("collabortors", () => fetchCollaborators(null));
 
@@ -28,17 +28,24 @@ export default function Collaborators() {
     <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
       {query.data?.map((collaborator, i) => (
         <GridItem key={collaborator.id}>
-          <a rel="noreferrer" href={getLink(collaborator.link)} target={"_blank"}>
+          <a
+            rel="noreferrer"
+            href={getLink(collaborator.link)}
+            target={"_blank"}
+          >
             <Box
               rounded="xl"
               p={4}
               bgGradient={collaboratorBg}
+              transform="scale(1.0)"
+              transition="0.3s ease-in-out"
+              _hover={{
+                transform: "scale(1.05)",
+                bgGradient: collaboratorHoverBg,
+              }}
               boxShadow={"2xl"}
               textAlign={"center"}
               cursor="pointer"
-              _hover={{
-                bgGradient: collaboratorHoverBg,
-              }}
             >
               <Text
                 fontSize="xl"
