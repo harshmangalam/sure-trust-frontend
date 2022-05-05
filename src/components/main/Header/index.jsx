@@ -69,5 +69,5 @@ export default Header;
 const authLinks = [
   { name: "Login", to: "/auth/login" },
   { name: "Signup", to: "/auth/signup" },
-  { name: "Events-2022", to: "/events" },
+
 ];

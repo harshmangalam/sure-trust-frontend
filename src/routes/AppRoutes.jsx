@@ -10,6 +10,8 @@ const About = lazy(() => import("../screens/main/About"));
 const Contact = lazy(() => import("../screens/main/Contact"));
 const Courses = lazy(() => import("../screens/main/Courses"));
 const Reviews = lazy(() => import("../screens/main/Reviews"));
+// events
+const Events = lazy(() => import("../screens/Events"));
 
 const Course = lazy(() => import("../screens/main/Course"));
 const LstProgram = lazy(() => import("../screens/main/LstProgram"));
@@ -89,6 +91,7 @@ function AppRoutes() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="reviews" element={<Reviews />} />
+          <Route path="events" element={<Events />} />
 
           <Route path="photo-gallery" element={<PhotoGallery />} />
           <Route path="courses" element={<Courses />} />
