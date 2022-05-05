@@ -47,17 +47,18 @@ export default function Events() {
                 rounded={"full"}
                 px={6}
               >
-                Register
+                Register for events
               </Button>
 
               <Button
-                as={Link}
-                to="/"
+                as={"a"}
+                href="https://tech-tic-toe-1-0.vercel.app/"
+                target="_blank"
                 colorScheme="blue"
                 rounded={"full"}
                 px={6}
               >
-                Events
+                Events Information
               </Button>
             </Stack>
           </Stack>
@@ -75,16 +76,15 @@ export default function Events() {
               top={"-20%"}
               left={0}
               zIndex={-1}
-              color={useColorModeValue("blue.100", "blue.300")}
+              color={useColorModeValue("gray.100", "gray.700")}
             />
 
             <Box
               as={Link}
               to="/events"
               position={"relative"}
-              height={"300px"}
+              height={"100%"}
               rounded={"2xl"}
-              boxShadow={"2xl"}
               width={"full"}
               overflow={"hidden"}
             >
@@ -98,9 +98,7 @@ export default function Events() {
                 align={"center"}
                 w={"100%"}
                 h={"100%"}
-                src={
-                  "https://img.freepik.com/free-vector/app-development-illustration_52683-47931.jpg?t=st=1651719322~exp=1651719922~hmac=4382ec43a109bf1a0b04713cecd5b74f334b6263d1136f64b35c76cb447d9eec&w=740"
-                }
+                src={"hackathon.png"}
               />
             </Box>
           </Flex>

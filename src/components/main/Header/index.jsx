@@ -69,5 +69,6 @@ export default Header;
 const authLinks = [
   { name: "Login", to: "/auth/login" },
   { name: "Signup", to: "/auth/signup" },
+  { name: "TECH-TIC-TOE 1.0", to: "/events" },
 
 ];

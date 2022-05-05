@@ -19,7 +19,6 @@ import { fetchCourses, fetchCoursesSchedule } from "../../services";
 import CourseCard from "../../components/courses/CourseCard";
 import CoursesSkeleton from "../../components/courses/CoursesSkeleton";
 import Error from "../../components/shared/Error";
-import courseSchedule from "../../assets/course-table.pdf";
 import { useState } from "react";
 function Courses() {
   const [courseModal, setCourseModal] = useState(false);
@@ -35,7 +34,6 @@ function Courses() {
     return <Error code={500} message={query.error} />;
   }
 
-  
   return (
     <Container maxW="container.xl" py={12}>
       <Flex justify={"space-between"}>
@@ -90,10 +88,15 @@ function Courses() {
               as="object"
               w="100%"
               h="70vh"
-              data={courseSchedule?.data[0].shedule}
+              data={courseSchedule?.data[0]?.shedule}
               type="application/pdf"
             >
-              <Box as="iframe" src={courseSchedule} w="full" h="70vh"></Box>
+              <Box
+                as="iframe"
+                src={courseSchedule?.data[0]?.shedule}
+                w="full"
+                h="70vh"
+              ></Box>
             </Box>
           </ModalBody>
           <ModalFooter>
