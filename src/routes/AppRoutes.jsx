@@ -91,7 +91,7 @@ function AppRoutes() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="reviews" element={<Reviews />} />
-          <Route path="events" element={<Events />} />
+          <Route path="tech-tic-toe-1.0" element={<Events />} />
 
           <Route path="photo-gallery" element={<PhotoGallery />} />
           <Route path="courses" element={<Courses />} />

@@ -4,10 +4,18 @@ import { AuthProvider } from "./contexts/auth";
 import { QueryClient, QueryClientProvider } from "react-query";
 import axios from "axios";
 import AppRoutes from "./routes/AppRoutes";
+// import { useEffect } from "react";
+// import ReactGA from 'react-ga';
+
 
 const queryClient = new QueryClient();
-
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
+
+
+
+// const TRACKING_ID = "GTM-M356JTD"; // OUR_TRACKING_ID
+// ReactGA.initialize(TRACKING_ID);
+
 
 const student = localStorage.student
   ? JSON.parse(localStorage.getItem("student"))
@@ -26,6 +34,10 @@ if (teacher) {
 }
 
 function App() {
+
+  // useEffect(() => {
+  //   ReactGA.pageview(window.location.pathname + window.location.search);
+  // }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>

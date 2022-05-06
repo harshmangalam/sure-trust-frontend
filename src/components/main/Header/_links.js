@@ -1,5 +1,5 @@
 export const links = [
-  { name: "TECH-TIC-TOE 1.0", to: "/events" },
+  { name: "TECH-TIC-TOE 1.0", to: "/tech-tic-toe-1.0" },
   { name: "About", to: "/about" },
   { name: "Contact", to: "/contact" },
   { name: "Courses", to: "/courses" },

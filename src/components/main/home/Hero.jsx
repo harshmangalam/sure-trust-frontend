@@ -73,7 +73,7 @@ export default function Hero() {
           </Button>
           <Button
             as={Link}
-            to="/events"
+            to="/tech-tic-toe-1.0"
             colorScheme="pink"
             rounded={"full"}
             px={6}
@@ -101,7 +101,7 @@ export default function Hero() {
 
         <Box
           as={Link}
-          to="/events"
+          to="/tech-tic-toe-1.0"
           position={"relative"}
           height={"100%"}
           rounded={"2xl"}
