@@ -41,8 +41,9 @@ export default function Events() {
 
             <Stack direction={{ base: "column", md: "row" }} spacing={3}>
               <Button
-                as={Link}
-                to="/"
+                as={"a"}
+                target="_blank"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScSlBqzAgLuzelz1z3ZkGWu6NtQ_SmUiD2eAf-poVQdTVRN6A/viewform"
                 colorScheme="green"
                 rounded={"full"}
                 px={6}
