@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { MdCheckCircle } from "react-icons/md";
 import {
-  brochure,
+
   eligibility,
   modalities,
   uniqueness,
@@ -24,7 +24,7 @@ import {
 function KnowMore() {
   return (
     <Container maxW={"container.xl"} py={12}>
-      <Heading textAlign="center" fontSize={["4xl","5xl"]}>Approach For Course Completion</Heading>
+      <Heading textAlign="center" fontSize={["4xl", "5xl"]}>Approach For Course Completion</Heading>
 
       <Box mt={24}>
         <Heading fontSize={"3xl"} textAlign={"center"}>
@@ -90,19 +90,7 @@ function KnowMore() {
         </Accordion>
       </Box>
 
-      <Box mt={24}>
-        <Heading textAlign={"center"} textTransform={"capitalize"} fontSize={"3xl"}>{brochure.title}</Heading>
-        <Box
-          mt={12}
-          as="object"
-          w="full"
-          h="2xl"
-          data={brochure.content}
-          type="application/pdf"
-        >
-          <Box as="iframe" src={brochure.content} w="full" h="xl"></Box>
-        </Box>
-      </Box>
+
     </Container>
   );
 }
