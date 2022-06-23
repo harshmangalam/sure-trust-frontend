@@ -52,8 +52,8 @@ function About() {
                 <ListItem key={i}>
                   <Text
                     textAlign={"justify"}
-                    fontSize={"lg"}
-                    fontFamily={"Sora"}
+                    fontSize={"2xl"}
+                    fontFamily={"Oxygen"}
                   >
                     {content}
                   </Text>
@@ -67,7 +67,7 @@ function About() {
       {/* executive director  */}
 
       {/* director and cofounder  */}
-      <Box as="section" mt={24}>
+      {/* <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Board Of Trustees
@@ -80,10 +80,10 @@ function About() {
             ))}
           </SimpleGrid>
         </Container>
-      </Box>
+      </Box> */}
 
       {/* senior executive members */}
-      <Box as="section" mt={24}>
+      {/* <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Governing Council
@@ -103,7 +103,7 @@ function About() {
             </SimpleGrid>
           </Box>
 
-          {/* Executive Members */}
+          
           <Box as="section" mt={12}>
             <Heading textAlign="center" fontSize="3xl">
               Executive Members
@@ -118,9 +118,9 @@ function About() {
             </SimpleGrid>
           </Box>
         </Container>
-      </Box>
+      </Box> */}
       {/* BOARD OF ADVISORS */}
-      <Box as="section" mt={24}>
+      {/* <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Board Of Advisors
@@ -134,7 +134,7 @@ function About() {
             ))}
           </SimpleGrid>
         </Container>
-      </Box>
+      </Box> */}
     </Box>
   );
 }
