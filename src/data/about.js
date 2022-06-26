@@ -87,19 +87,19 @@ export const coFounders = [
     ],
   },
 
-  {
-    image:
-      "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Amar.jpeg/:/cr=t:0%25,l:0.95%25,w:98.1%25,h:100%25/rs=w:388,h:388,cg:true",
-    name: "Mr. Amaresh, M.Sc",
-    bio: `Director & CEO of Grey scientific labs and few other companies in USA, Canada and India.`,
+  // {
+  //   image:
+  //     "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Amar.jpeg/:/cr=t:0%25,l:0.95%25,w:98.1%25,h:100%25/rs=w:388,h:388,cg:true",
+  //   name: "Mr. Amaresh, M.Sc",
+  //   bio: `Director & CEO of Grey scientific labs and few other companies in USA, Canada and India.`,
 
-    links: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/mvamareshkumar/",
-      },
-    ],
-  },
+  //   links: [
+  //     {
+  //       name: "Linkedin",
+  //       url: "https://www.linkedin.com/in/mvamareshkumar/",
+  //     },
+  //   ],
+  // },
 
   {
     image:
