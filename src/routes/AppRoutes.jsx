@@ -77,6 +77,11 @@ const BlogHome = lazy(() => import("../screens/blog"));
 const Posts = lazy(() => import("../screens/blog/Posts"));
 const CreatePost = lazy(() => import("../screens/blog/CreatePost"));
 
+// chat
+
+const ChatLayout = lazy(() => import("../screens/chat"));
+const ChatHome = lazy(() => import("../screens/chat/Home"));
+
 const NotFound = lazy(() => import("../screens/NotFound"));
 
 function AppRoutes() {
@@ -107,6 +112,10 @@ function AppRoutes() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="reset-password" element={<ResetPassword />} />
+        </Route>
+
+        <Route path="/chat" element={<ChatLayout />}>
+          <Route index element={<ChatHome />} />
         </Route>
 
         <Route path="dashboard" element={<DashboardLayout />}>
