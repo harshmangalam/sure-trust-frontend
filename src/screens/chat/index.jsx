@@ -8,6 +8,7 @@ import {
   Box,
   Button,
   Divider,
+  Flex,
   Heading,
   HStack,
   Input,
@@ -15,9 +16,9 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-
+import { formatDistance, subDays } from "date-fns";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../../components/shared/Logo";
 import ThemeToggle from "../../components/shared/ThemeToggle";
 import { useAuthState } from "../../contexts/auth";
@@ -33,14 +34,20 @@ export default function ChatLayout() {
     }
   }, []);
 
+  const [text, setText] = useState("");
+
   const { courses, batches, activeChat } = useChatState();
-  const { handleFetchBatches, handleFetchMessages } = useChatDispatch();
+  const { handleFetchBatches, handleFetchMessages, handleSentMessage } =
+    useChatDispatch();
 
   const authState = useAuthState();
 
-  const screenBg = useColorModeValue("gray.50", "blue.900");
+  const screenBg = useColorModeValue("gray.100", "blue.900");
   const batchBg = useColorModeValue("white", "blue.800");
   const profileBg = useColorModeValue("gray.50", "blue.700");
+  const senderBg = useColorModeValue("gray.200", "purple.800");
+  const msgBg = useColorModeValue("white", "blue.800");
+  const inputBg = useColorModeValue("white", "blue.800");
 
   return (
     <HStack spacing={0} h={"100vh"} bg={screenBg}>
@@ -121,7 +128,46 @@ export default function ChatLayout() {
             <Divider />
           </Box>
 
-          <Box flex={1}></Box>
+          <Box w="full" flex={1} px={"4"} overflowY="auto" overflowX={"hidden"}>
+            <VStack w="full" align={"flex-start"}>
+              {activeChat.messages?.map((message) => (
+                <Flex
+                  w="full"
+                  justifyContent={
+                    message.sender.id === authState.currentUser.id
+                      ? "flex-end"
+                      : "flex-start"
+                  }
+                >
+                  <VStack
+                    alignItems={"flex-start"}
+                    shadow={"md"}
+                    rounded={"md"}
+                    maxW={"sm"}
+                    p={"3"}
+                    bg={
+                      message.sender.id === authState.currentUser.id
+                        ? senderBg
+                        : msgBg
+                    }
+                    w="full"
+                    key={message._id}
+                  >
+                    <HStack spacing={"4"}>
+                      <Avatar name={message.sender.name} size={"sm"} />
+                      <Heading fontSize={"md"}>{message.sender.name}</Heading>
+                    </HStack>
+                    <Text wordBreak={"break-word"}>{message.text}</Text>
+                    <Text w={"full"} textAlign="end" fontSize={"xs"}>
+                      {formatDistance(new Date(message.createdAt), new Date(), {
+                        addSuffix: true,
+                      })}
+                    </Text>
+                  </VStack>
+                </Flex>
+              ))}
+            </VStack>
+          </Box>
 
           <HStack spacing={2} w="full" px={2} py={2}>
             <Input
@@ -129,8 +175,27 @@ export default function ChatLayout() {
               rounded="full"
               autoFocus
               type={"text"}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              bg={inputBg}
+              size="lg"
             />
-            <Button rounded="full" colorScheme="blue">
+            <Button
+              onClick={() => {
+                handleSentMessage({
+                  batch: activeChat.id,
+                  course: activeChat.course.id,
+                  sender: {
+                    id: authState.currentUser.id,
+                    name: authState.currentUser.name,
+                  },
+                  text,
+                });
+                setText("");
+              }}
+              rounded="full"
+              colorScheme="blue"
+            >
               Send
             </Button>
           </HStack>

@@ -1,12 +1,15 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
-import { useNavigate } from "react-router-dom";
 import {
-  fetchStudentData,
-  fetchTeacherBatches,
-  fetchTeacherCourses,
-  fetchTeacherData,
-} from "../services";
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useRef,
+} from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchTeacherBatches, fetchTeacherCourses } from "../services";
 import { useAuthState } from "./auth";
+import { io } from "socket.io-client";
+import axios from "axios";
 export const ChatStateContext = createContext();
 export const ChatDispatchContext = createContext();
 
@@ -35,12 +38,30 @@ const reducer = (state, { type, payload }) => {
         activeChat: payload,
       };
 
+    case "SET_MESSAGES":
+      return {
+        ...state,
+        activeChat: {
+          ...state.activeChat,
+          messages: payload,
+        },
+      };
+    case "ADD_MESSAGE":
+      return {
+        ...state,
+        activeChat: {
+          ...state.activeChat,
+          messages: [...state.activeChat.messages, payload],
+        },
+      };
+
     default:
       throw new Error(`${type} is nat a valid action`);
   }
 };
 
 export const ChatProvider = ({ children }) => {
+  const socketRef = useRef();
   const { role, isAuthenticated } = useAuthState();
   const [state, dispatch] = useReducer(reducer, defaultState);
   const navigate = useNavigate();
@@ -50,6 +71,12 @@ export const ChatProvider = ({ children }) => {
     }
     if (role === "teacher") {
       handleFetchTeacherCourses();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      socketRef.current = io("http://localhost:4000");
     }
   }, []);
 
@@ -72,13 +99,41 @@ export const ChatProvider = ({ children }) => {
     }
   }
 
-  async function handleFetchMessages(data) {
-    dispatch({ type: "SET_ACTIVE_CHAT", payload: data });
+  async function handleFetchMessages(batch) {
+    dispatch({
+      type: "SET_ACTIVE_CHAT",
+      payload: batch,
+    });
+    try {
+      const res = await axios.get(
+        `http://localhost:4000/${batch.course.id}/${batch.id}`
+      );
+
+      dispatch({
+        type: "SET_MESSAGES",
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleSentMessage(data) {
+    try {
+      const res = await axios.post(`http://localhost:4000/`, data);
+
+      dispatch({
+        type: "ADD_MESSAGE",
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <ChatStateContext.Provider value={state}>
       <ChatDispatchContext.Provider
-        value={{ handleFetchBatches, handleFetchMessages }}
+        value={{ handleFetchBatches, handleFetchMessages, handleSentMessage }}
       >
         {children}
       </ChatDispatchContext.Provider>
