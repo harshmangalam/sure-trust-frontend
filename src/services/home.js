@@ -19,3 +19,14 @@ export const fetchNotices = async () => {
     throw error;
   }
 };
+
+
+export const fetchFeatures = async () => {
+  try {
+    const { data } = await axios.get("/home/about-suretrust/");
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
