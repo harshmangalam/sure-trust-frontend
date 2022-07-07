@@ -72,13 +72,14 @@ export const ChatProvider = ({ children }) => {
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/auth", { replace: true });
-    }
-    if (role === "teacher") {
-      handleFetchTeacherCourses();
-    }
+    } else {
+      if (role === "teacher") {
+        handleFetchTeacherCourses();
+      }
 
-    if (role === "student") {
-      handleFetchStudentBatches();
+      if (role === "student") {
+        handleFetchStudentBatches();
+      }
     }
   }, []);
 
