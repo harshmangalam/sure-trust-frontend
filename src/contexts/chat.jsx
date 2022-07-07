@@ -7,7 +7,7 @@ import {
 } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  fetchStudentCourses,
+  fetchStudentBatches,
   fetchTeacherBatches,
   fetchTeacherCourses,
 } from "../services";
@@ -78,7 +78,7 @@ export const ChatProvider = ({ children }) => {
     }
 
     if (role === "student") {
-      handleFetchStudentCourses();
+      handleFetchStudentBatches();
     }
   }, []);
 
@@ -98,12 +98,12 @@ export const ChatProvider = ({ children }) => {
     }
   }
 
-  async function handleFetchStudentCourses() {
-    console.log("student courses....")
+  async function handleFetchStudentBatches() {
+    console.log("student batches....");
     try {
-      const courses = await fetchStudentCourses();
+      const batches = await fetchStudentBatches();
 
-      dispatch({ type: "SET_COURSES", payload: courses });
+      dispatch({ type: "SET_BATCHES", payload: batches });
     } catch (error) {
       console.log(error);
     }

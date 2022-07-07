@@ -81,6 +81,7 @@ const CreatePost = lazy(() => import("../screens/blog/CreatePost"));
 
 const ChatLayout = lazy(() => import("../screens/chat"));
 const ChatHome = lazy(() => import("../screens/chat/Home"));
+const ActiveChat = lazy(() => import("../screens/chat/ActiveChat"));
 
 const NotFound = lazy(() => import("../screens/NotFound"));
 
@@ -116,6 +117,7 @@ function AppRoutes() {
 
         <Route path="/chat" element={<ChatLayout />}>
           <Route index element={<ChatHome />} />
+          <Route path="activeChat" element={<ActiveChat />} />
         </Route>
 
         <Route path="dashboard" element={<DashboardLayout />}>
