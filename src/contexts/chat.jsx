@@ -6,7 +6,11 @@ import {
   useRef,
 } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchTeacherBatches, fetchTeacherCourses } from "../services";
+import {
+  fetchStudentCourses,
+  fetchTeacherBatches,
+  fetchTeacherCourses,
+} from "../services";
 import { useAuthState } from "./auth";
 import { io } from "socket.io-client";
 import axios from "axios";
@@ -72,6 +76,10 @@ export const ChatProvider = ({ children }) => {
     if (role === "teacher") {
       handleFetchTeacherCourses();
     }
+
+    if (role === "student") {
+      handleFetchStudentCourses();
+    }
   }, []);
 
   useEffect(() => {
@@ -83,6 +91,17 @@ export const ChatProvider = ({ children }) => {
   async function handleFetchTeacherCourses() {
     try {
       const courses = await fetchTeacherCourses();
+
+      dispatch({ type: "SET_COURSES", payload: courses });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleFetchStudentCourses() {
+    console.log("student courses....")
+    try {
+      const courses = await fetchStudentCourses();
 
       dispatch({ type: "SET_COURSES", payload: courses });
     } catch (error) {

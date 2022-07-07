@@ -21,7 +21,7 @@ function NavProfileMenu() {
     removeFromStorage("teacher");
     authDispatch({ type: "REMOVE_CURRENTUSER" });
     authDispatch({ type: "SET_CURRENTUSER_ROLE", payload: "" });
-    navigate("/");
+    window.location.reload()
   };
   return (
     <Menu>
