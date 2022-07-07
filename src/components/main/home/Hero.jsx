@@ -7,7 +7,6 @@ import {
   Button,
   Image,
   Icon,
-  IconButton,
   createIcon,
   useColorModeValue,
   Wrap,
@@ -71,15 +70,6 @@ export default function Hero() {
           >
             Explore Courses
           </Button>
-          <Button
-            as={Link}
-            to="/tech-tic-toe-1.0"
-            colorScheme="pink"
-            rounded={"full"}
-            px={6}
-          >
-            TECH-TIC-TOE 1.0
-          </Button>
         </Wrap>
       </Stack>
       <Flex
@@ -100,8 +90,6 @@ export default function Hero() {
         />
 
         <Box
-          as={Link}
-          to="/tech-tic-toe-1.0"
           position={"relative"}
           height={"100%"}
           rounded={"2xl"}
