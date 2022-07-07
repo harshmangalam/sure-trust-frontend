@@ -7,7 +7,6 @@ import {
   Button,
   Image,
   Icon,
-  IconButton,
   createIcon,
   useColorModeValue,
   Wrap,
@@ -31,11 +30,11 @@ export default function Hero() {
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
         >
-          <Text as={"span"} position={"relative"}>
+          <Text as={"span"} position={"relative"} color={"blue.400"}>
             SURE Trust
           </Text>
           <br />
-          <Text as={"span"} color={"blue.400"}>
+          <Text as={"span"}>
             Skill Upgradation for Rural-youth Empowerment
           </Text>
         </Heading>
@@ -71,15 +70,6 @@ export default function Hero() {
           >
             Explore Courses
           </Button>
-          <Button
-            as={Link}
-            to="/tech-tic-toe-1.0"
-            colorScheme="pink"
-            rounded={"full"}
-            px={6}
-          >
-            TECH-TIC-TOE 1.0
-          </Button>
         </Wrap>
       </Stack>
       <Flex
@@ -100,8 +90,6 @@ export default function Hero() {
         />
 
         <Box
-          as={Link}
-          to="/tech-tic-toe-1.0"
           position={"relative"}
           height={"100%"}
           rounded={"2xl"}

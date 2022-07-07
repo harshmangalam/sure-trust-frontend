@@ -41,7 +41,7 @@ export default function NoticeModal({ notice }) {
           <ModalBody>
             <VStack align={"start"}>
               <Heading fontSize={"lg"}>{notice.title}</Heading>
-              <Text>{notice.description}</Text>
+              <Text wordBreak={"break-word"}>{notice.description}</Text>
             </VStack>
           </ModalBody>
         </ModalContent>

@@ -7,7 +7,7 @@ export default function ScrollingMessages() {
   const query = useQuery("notices", fetchNotices);
 
   return (
-    <Box bg={"blue.500"} color={"white"} pt={2}>
+    <Box bg={"blue.500"}  color={"white"} pt={2}>
       <Slider autoplay autoplaySpeed={4000} arrows={false}>
         {query.data?.map((notice, i) => (
           <ScrollText notice={notice} key={notice.id} />
