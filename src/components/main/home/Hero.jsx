@@ -30,11 +30,11 @@ export default function Hero() {
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
         >
-          <Text as={"span"} position={"relative"}>
+          <Text as={"span"} position={"relative"} color={"blue.400"}>
             SURE Trust
           </Text>
           <br />
-          <Text as={"span"} color={"blue.400"}>
+          <Text as={"span"}>
             Skill Upgradation for Rural-youth Empowerment
           </Text>
         </Heading>
