@@ -28,7 +28,7 @@ function LinkItem({ link, onClose }) {
         {link.icon && (
           <Icon
             mr="4"
-            fontSize="16"
+            fontSize="20"
             _groupHover={{
               color: "white",
             }}

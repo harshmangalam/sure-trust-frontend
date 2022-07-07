@@ -72,38 +72,40 @@ function Courses() {
         </HStack>
       </Box>
 
-      <Modal
-        onClose={() => setCourseModal(false)}
-        size={"full"}
-        isOpen={courseModal}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Course Schedule</ModalHeader>
-          <ModalCloseButton />
+      {courseSchedule.data && (
+        <Modal
+          onClose={() => setCourseModal(false)}
+          size={"full"}
+          isOpen={courseModal}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Course Schedule</ModalHeader>
+            <ModalCloseButton />
 
-          <ModalBody>
-            <Box
-              mt={12}
-              as="object"
-              w="100%"
-              h="70vh"
-              data={courseSchedule?.data[0]?.shedule}
-              type="application/pdf"
-            >
+            <ModalBody>
               <Box
-                as="iframe"
-                src={courseSchedule?.data[0]?.shedule}
-                w="full"
+                mt={12}
+                as="object"
+                w="100%"
                 h="70vh"
-              ></Box>
-            </Box>
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={() => setCourseModal(false)}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+                data={courseSchedule?.data[0]?.shedule}
+                type="application/pdf"
+              >
+                <Box
+                  as="iframe"
+                  src={courseSchedule?.data[0]?.shedule}
+                  w="full"
+                  h="70vh"
+                ></Box>
+              </Box>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => setCourseModal(false)}>Close</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      )}
     </Container>
   );
 }
