@@ -22,7 +22,11 @@ export default function InputMessage() {
         size="lg"
       />
       <Button
+        disabled={!text || text.trim().length === 0}
         onClick={() => {
+          if (!text || text.trim().length === 0) {
+            return;
+          }
           handleSentMessage(activeChat.roomId, {
             batch: activeChat.id,
             course: activeChat.course.id,
