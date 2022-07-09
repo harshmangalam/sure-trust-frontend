@@ -4,10 +4,12 @@ import {
   Divider,
   Heading,
   HStack,
+  IconButton,
+  Tooltip,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Logo from "../../components/shared/Logo";
 import ThemeToggle from "../../components/shared/ThemeToggle";
@@ -19,6 +21,7 @@ import StudentChatBatch from "../../components/chat/StudentChatBatch";
 import ActiveChatHeader from "../../components/chat/ActiveChatHeader";
 import ActiveChatMessages from "../../components/chat/ActiveChatMessages";
 import InputMessage from "../../components/chat/InputMessage";
+import { RiDashboardLine } from "react-icons/ri";
 
 export default function ChatLayout() {
   const navigate = useNavigate();
@@ -40,7 +43,7 @@ export default function ChatLayout() {
 
   return (
     <>
-      <Box h={"100vh"} bg={screenBg} display={["none","none","block"]}>
+      <Box h={"100vh"} bg={screenBg} display={["none", "none", "block"]}>
         <HStack spacing={0} h="full">
           {/* batches  */}
           <VStack
@@ -74,9 +77,21 @@ export default function ChatLayout() {
 
             <Box w="full">
               <Divider />
-              <HStack bg={profileBg} spacing={4} px={2} py={4}>
-                <Avatar size={"sm"} name={authState.currentUser?.name} />
-                <Heading fontSize={"lg"}>{authState.currentUser?.name}</Heading>
+              <HStack w="full" bg={profileBg} spacing={4} px={2} py={4}>
+                <HStack flexGrow={1}>
+                  <Avatar size={"sm"} name={authState.currentUser?.name} />
+                  <Heading fontSize={"lg"}>
+                    {authState.currentUser?.name}
+                  </Heading>
+                </HStack>
+                <Tooltip label={"Dashboard"}>
+                  <IconButton
+                    as={Link}
+                    to="/dashboard"
+                    aria-label="Dashboard"
+                    icon={<RiDashboardLine size={24} />}
+                  />
+                </Tooltip>
               </HStack>
             </Box>
           </VStack>

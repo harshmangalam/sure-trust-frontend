@@ -4,6 +4,8 @@ import {
   Divider,
   Heading,
   HStack,
+  IconButton,
+  Tooltip,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
@@ -12,6 +14,8 @@ import StudentChatBatch from "../../components/chat/StudentChatBatch";
 import Logo from "../../components/shared/Logo";
 import ThemeToggle from "../../components/shared/ThemeToggle";
 import { useAuthState } from "../../contexts/auth";
+import { Link } from "react-router-dom";
+import { RiDashboardLine } from "react-icons/ri";
 
 export default function Home() {
   const batchBg = useColorModeValue("white", "blue.800");
@@ -20,7 +24,7 @@ export default function Home() {
 
   const { role, currentUser } = useAuthState();
   return (
-    <Box h={"100vh"}  bg={screenBg}>
+    <Box h={"100vh"} bg={screenBg}>
       <VStack
         borderRightWidth={1}
         h={"full"}
@@ -51,9 +55,19 @@ export default function Home() {
 
         <Box w="full">
           <Divider />
-          <HStack bg={profileBg} spacing={4} px={2} py={4}>
-            <Avatar size={"sm"} name={currentUser?.name} />
-            <Heading fontSize={"lg"}>{currentUser?.name}</Heading>
+          <HStack w="full" bg={profileBg} spacing={4} px={2} py={4}>
+            <HStack flexGrow={1}>
+              <Avatar size={"sm"} name={currentUser?.name} />
+              <Heading fontSize={"lg"}>{currentUser?.name}</Heading>
+            </HStack>
+            <Tooltip label={"Dashboard"}>
+              <IconButton
+                as={Link}
+                to="/dashboard"
+                aria-label="Dashboard"
+                icon={<RiDashboardLine size={24} />}
+              />
+            </Tooltip>
           </HStack>
         </Box>
       </VStack>
