@@ -1,10 +1,12 @@
 import {
   Avatar,
   Box,
+  Center,
   Divider,
   Heading,
   HStack,
   IconButton,
+  Text,
   Tooltip,
   useColorModeValue,
   VStack,
@@ -22,6 +24,7 @@ import ActiveChatHeader from "../../components/chat/ActiveChatHeader";
 import ActiveChatMessages from "../../components/chat/ActiveChatMessages";
 import InputMessage from "../../components/chat/InputMessage";
 import { RiDashboardLine } from "react-icons/ri";
+import { TiMessages } from "react-icons/ti";
 
 export default function ChatLayout() {
   const navigate = useNavigate();
@@ -96,12 +99,19 @@ export default function ChatLayout() {
             </Box>
           </VStack>
 
-          {activeChat && (
+          {activeChat ? (
             <VStack h={"full"} w={"full"} align={"flex-start"}>
               <ActiveChatHeader />
               <ActiveChatMessages />
               <InputMessage />
             </VStack>
+          ) : (
+            <Center w="full" h={"full"}>
+              <VStack>
+                <TiMessages size={50} />
+                <Text fontSize={"lg"}>Select batch to see messages</Text>
+              </VStack>
+            </Center>
           )}
         </HStack>
       </Box>

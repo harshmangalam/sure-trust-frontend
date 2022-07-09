@@ -1,7 +1,5 @@
 import {
-
   Avatar,
-
   Heading,
   HStack,
   Text,
@@ -9,10 +7,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useChatDispatch, useChatState } from "../../contexts/chat";
-import {IoPeopleOutline} from "react-icons/io5"
+import { IoPeopleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 export default function StudentChatCourses() {
-  const { batches } = useChatState();
+  const { batches, activeChat } = useChatState();
   const { handleFetchMessages } = useChatDispatch();
   const profileBg = useColorModeValue("gray.50", "blue.700");
 
@@ -30,8 +28,13 @@ export default function StudentChatCourses() {
           py={4}
           as={Link}
           to="/chat/activeChat"
+          bg={batch.id === activeChat?.id && profileBg}
         >
-          <Avatar bg={"blue.400"} icon={<IoPeopleOutline color="white" size={24} />} size={"md"} />
+          <Avatar
+            bg={"blue.400"}
+            icon={<IoPeopleOutline color="white" size={24} />}
+            size={"md"}
+          />
           <VStack align={"flex-start"} spacing={0}>
             <Heading fontSize={"lg"}>{batch.batch_name}</Heading>
             <Text fontSize={"sm"}>{batch.course.course_name}</Text>

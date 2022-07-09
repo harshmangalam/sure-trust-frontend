@@ -15,7 +15,7 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 export default function TeacherChatCourses() {
-  const { courses, batches } = useChatState();
+  const { courses, batches, activeChat } = useChatState();
   const { handleFetchBatches, handleFetchMessages } = useChatDispatch();
   const profileBg = useColorModeValue("gray.50", "blue.700");
 
@@ -42,8 +42,9 @@ export default function TeacherChatCourses() {
                 spacing={4}
                 px={2}
                 as={Link}
-                to={'/chat/activeChat'}
+                to={"/chat/activeChat"}
                 py={4}
+                bg={batch.id === activeChat?.id && profileBg}
               >
                 <Avatar
                   bg={"blue.400"}
