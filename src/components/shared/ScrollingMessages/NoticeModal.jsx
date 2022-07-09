@@ -13,13 +13,14 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 
-import {FaEye, FaLongArrowAltRight} from "react-icons/fa"
+import { FaEye, FaLongArrowAltRight } from "react-icons/fa";
 
 export default function NoticeModal({ notice }) {
   const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <>
       <IconButton
+        aria-label="Open"
         onClick={onOpen}
         size={"xs"}
         rounded="full"

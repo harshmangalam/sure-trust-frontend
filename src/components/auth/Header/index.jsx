@@ -9,9 +9,13 @@ function Header() {
       <HStack px={4} justifyContent="space-between">
         <Logo />
         <HStack>
-          <IconButton as={Link} to="/">
-            <RiHome2Line />
-          </IconButton>
+          <IconButton
+            aria-label="Home"
+            as={Link}
+            to="/"
+            icon={<RiHome2Line />}
+          />
+
           <ThemeToggle />
         </HStack>
       </HStack>

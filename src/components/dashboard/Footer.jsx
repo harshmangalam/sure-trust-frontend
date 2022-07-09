@@ -5,8 +5,10 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  Tooltip,
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { socialLinks } from "../../data/social";
 
 export default function SmallWithLogoLeft() {
   return (
@@ -22,15 +24,19 @@ export default function SmallWithLogoLeft() {
       >
         <Text>SURE Trust &copy; {new Date().getFullYear()}</Text>
         <Stack direction={"row"} spacing={6}>
-          <IconButton rounded={"full"}>
-            <FaTwitter />
-          </IconButton>
-          <IconButton rounded={"full"}>
-            <FaYoutube />
-          </IconButton>
-          <IconButton rounded={"full"}>
-            <FaInstagram />
-          </IconButton>
+          {socialLinks.map((link, i) => (
+            <Tooltip key={link.name} label={link.name}>
+              <IconButton
+                aria-label={link.name}
+                size="lg"
+                isRound={true}
+                icon={link.icon}
+                as="a"
+                href={link.link}
+                target="_blank"
+              />
+            </Tooltip>
+          ))}
         </Stack>
       </Container>
     </Box>
