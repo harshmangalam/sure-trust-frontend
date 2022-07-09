@@ -23,7 +23,7 @@ export default function InputMessage() {
       />
       <Button
         onClick={() => {
-          handleSentMessage({
+          handleSentMessage(activeChat.roomId, {
             batch: activeChat.id,
             course: activeChat.course.id,
             sender: {

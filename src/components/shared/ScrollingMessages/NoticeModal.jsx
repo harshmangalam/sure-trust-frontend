@@ -13,7 +13,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 
-import {FaLongArrowAltRight} from "react-icons/fa"
+import {FaEye, FaLongArrowAltRight} from "react-icons/fa"
 
 export default function NoticeModal({ notice }) {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -21,10 +21,11 @@ export default function NoticeModal({ notice }) {
     <>
       <IconButton
         onClick={onOpen}
-        size={"sm"}
-        variant="solid"
-        colorScheme={"blue"}
-        icon={<FaLongArrowAltRight size={20} />}
+        size={"xs"}
+        rounded="full"
+        variant="ghost"
+        colorScheme={"white"}
+        icon={<FaEye size={16} />}
       />
 
       <Modal
