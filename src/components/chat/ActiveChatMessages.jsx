@@ -1,10 +1,14 @@
 import {
   Avatar,
   Box,
+  Center,
+  CircularProgress,
   Flex,
   Heading,
   HStack,
   IconButton,
+  Skeleton,
+  Spinner,
   Text,
   useColorModeValue,
   VStack,
@@ -18,17 +22,20 @@ import { AiOutlineDelete } from "react-icons/ai";
 export default function ActiveChatMessages() {
   const senderBg = useColorModeValue("gray.200", "purple.800");
   const msgBg = useColorModeValue("white", "blue.800");
-  const { activeChat, isLoading } = useChatState();
+  const { activeChat, loading } = useChatState();
   const { currentUser } = useAuthState();
   const { handleRemoveMessage } = useChatDispatch();
 
   const msgBodyRef = useRef();
 
   useEffect(() => {
-    console.log(msgBodyRef.current.scrollHeight);
-    console.log(msgBodyRef.current.scrollTop);
-    msgBodyRef.current.scrollTop = msgBodyRef.current.scrollHeight;
+    if (activeChat?.messagea) {
+      console.log(msgBodyRef.current.scrollHeight);
+      console.log(msgBodyRef.current.scrollTop);
+      msgBodyRef.current.scrollTop = msgBodyRef.current.scrollHeight;
+    }
   }, [activeChat?.messages]);
+
   return (
     <Box
       ref={msgBodyRef}
@@ -37,8 +44,14 @@ export default function ActiveChatMessages() {
       px={"4"}
       overflowY="auto"
       overflowX={"hidden"}
+      h={"full"}
     >
       <VStack w="full" align={"flex-start"}>
+        {loading === "fetching-messages" && (
+          <Center w={"full"} h={"full"}>
+            <Spinner color="blue.400" size="xl" />
+          </Center>
+        )}
         {activeChat.messages?.map((message) => (
           <Flex
             w="full"
@@ -69,7 +82,7 @@ export default function ActiveChatMessages() {
                     aria-label="remove message"
                     icon={<AiOutlineDelete size={16} />}
                     colorScheme="red"
-                    isLoading={isLoading}
+                    isLoading={loading === "removing-message"}
                   />
                 )}
               </Flex>

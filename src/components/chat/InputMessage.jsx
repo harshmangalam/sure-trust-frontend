@@ -7,7 +7,7 @@ export default function InputMessage() {
   const inputBg = useColorModeValue("white", "blue.800");
   const { handleSentMessage } = useChatDispatch();
   const [text, setText] = useState("");
-  const { activeChat } = useChatState();
+  const { activeChat, loading } = useChatState();
   const { currentUser } = useAuthState();
   return (
     <HStack spacing={2} w="full" px={2} py={2} justify="center">
@@ -22,6 +22,7 @@ export default function InputMessage() {
         size="lg"
       />
       <Button
+        isLoading={loading === "sending-message"}
         disabled={!text || text.trim().length === 0}
         onClick={() => {
           if (!text || text.trim().length === 0) {

@@ -25,7 +25,7 @@ const defaultState = {
   activeChat: null,
   courses: [],
   batches: [],
-  isLoading: false,
+  loading: "",
 };
 
 const reducer = (state, { type, payload }) => {
@@ -88,7 +88,7 @@ const reducer = (state, { type, payload }) => {
     case "SET_LOADING":
       return {
         ...state,
-        isLoading: payload,
+        loading: payload,
       };
 
     default:
@@ -130,34 +130,48 @@ export const ChatProvider = ({ children }) => {
   }, []);
 
   async function handleFetchTeacherCourses() {
+    dispatch({ type: "SET_LOADING", payload: "fetching-courses" });
     try {
       const courses = await fetchTeacherCourses();
 
       dispatch({ type: "SET_COURSES", payload: courses });
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch({ type: "SET_LOADING", payload: "" });
     }
   }
 
   async function handleFetchStudentBatches() {
+    dispatch({ type: "SET_LOADING", payload: "fetching-batches" });
+
     try {
       const batches = await fetchStudentBatches();
       dispatch({ type: "SET_BATCHES", payload: batches });
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch({ type: "SET_LOADING", payload: "" });
     }
   }
 
   async function handleFetchBatches(courseId) {
+    dispatch({ type: "SET_BATCHES", payload: [] });
+    dispatch({ type: "SET_LOADING", payload: "fetching-batches" });
+
     try {
       const batches = await fetchTeacherBatches(courseId);
       dispatch({ type: "SET_BATCHES", payload: batches });
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch({ type: "SET_LOADING", payload: "fetching" });
     }
   }
 
   async function handleFetchMessages(batch) {
+    dispatch({ type: "SET_LOADING", payload: "fetching-messages" });
+
     dispatch({
       type: "SET_ACTIVE_CHAT",
       payload: batch,
@@ -178,10 +192,14 @@ export const ChatProvider = ({ children }) => {
       });
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch({ type: "SET_LOADING", payload: "" });
     }
   }
 
   async function handleSentMessage(roomId, data) {
+    dispatch({ type: "SET_LOADING", payload: "sending-message" });
+
     try {
       const res = await axios.post(`http://localhost:4000/${roomId}`, data);
 
@@ -191,11 +209,14 @@ export const ChatProvider = ({ children }) => {
       });
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch({ type: "SET_LOADING", payload: "" });
     }
   }
 
   async function handleRemoveMessage(msgId) {
-    dispatch({ type: "SET_LOADING", payload: true });
+    dispatch({ type: "SET_LOADING", payload: "removing-message" });
+
     try {
       const res = await axios.delete(`http://localhost:4000/${msgId}`);
       if (res.data?.acknowledged) {
@@ -204,7 +225,7 @@ export const ChatProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     } finally {
-      dispatch({ type: "SET_LOADING", payload: false });
+      dispatch({ type: "SET_LOADING", payload: "" });
     }
   }
   return (

@@ -8,14 +8,17 @@ import {
   Box,
   Heading,
   HStack,
+  Skeleton,
+  SkeletonCircle,
   useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
 import { useChatDispatch, useChatState } from "../../contexts/chat";
 import { IoPeopleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 export default function TeacherChatCourses() {
-  const { courses, batches, activeChat } = useChatState();
+  const { courses, batches, activeChat, loading } = useChatState();
   const { handleFetchBatches, handleFetchMessages } = useChatDispatch();
   const profileBg = useColorModeValue("gray.50", "blue.700");
 
@@ -32,29 +35,48 @@ export default function TeacherChatCourses() {
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            {batches?.map((batch) => (
-              <HStack
-                rounded={"md"}
-                w="full"
-                cursor={"pointer"}
-                onClick={() => handleFetchMessages(batch)}
-                _hover={{ bg: profileBg }}
-                spacing={4}
-                px={2}
-                as={Link}
-                to={"/chat/activeChat"}
-                py={4}
-                bg={batch.id === activeChat?.id && profileBg}
-              >
-                <Avatar
-                  bg={"blue.400"}
-                  icon={<IoPeopleOutline color="white" size={24} />}
-                  size={"md"}
+            {loading === "fetching-batches" && (
+              <HStack spacing={4} py={4}>
+                <SkeletonCircle
+                  startColor="pink.500"
+                  endColor="orange.500"
+                  size={12}
+                  flex="none"
                 />
-
-                <Heading fontSize={"lg"}>{batch.batch_name}</Heading>
+                <Skeleton
+                  startColor="pink.500"
+                  endColor="orange.500"
+                  width={"full"}
+                  height={6}
+                  flexGrow={1}
+                />
               </HStack>
-            ))}
+            )}
+            <VStack spacing={2} align={"flex-start"}>
+              {batches?.map((batch) => (
+                <HStack
+                  rounded={"md"}
+                  w="full"
+                  cursor={"pointer"}
+                  onClick={() => handleFetchMessages(batch)}
+                  _hover={{ bg: profileBg }}
+                  spacing={4}
+                  px={2}
+                  as={Link}
+                  to={"/chat/activeChat"}
+                  py={2}
+                  bg={batch.id === activeChat?.id && profileBg}
+                >
+                  <Avatar
+                    bg={"blue.400"}
+                    icon={<IoPeopleOutline color="white" size={24} />}
+                    size={"md"}
+                  />
+
+                  <Heading fontSize={"lg"}>{batch.batch_name}</Heading>
+                </HStack>
+              ))}
+            </VStack>
           </AccordionPanel>
         </AccordionItem>
       ))}
