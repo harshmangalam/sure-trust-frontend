@@ -55,6 +55,7 @@ export default function TeacherChatCourses() {
             <VStack spacing={2} align={"flex-start"}>
               {batches?.map((batch) => (
                 <HStack
+                key={batch.id}
                   rounded={"md"}
                   w="full"
                   cursor={"pointer"}

@@ -39,6 +39,7 @@ export default function StudentChatCourses() {
     <VStack w="full">
       {batches?.map((batch) => (
         <HStack
+        key={batch.id}
           rounded={"md"}
           w="full"
           cursor={"pointer"}

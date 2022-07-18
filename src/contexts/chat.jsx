@@ -17,6 +17,7 @@ import axios from "axios";
 export const ChatStateContext = createContext();
 export const ChatDispatchContext = createContext();
 
+const CHAT_URL = `${process.env.REACT_APP_NODE_BACKEND_URL}/api/chat`;
 const userData =
   (localStorage.student && JSON.parse(localStorage.getItem("student"))) ||
   (localStorage.teacher && JSON.stringify(localStorage.getItem("teacher")));
@@ -117,7 +118,7 @@ export const ChatProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      socketRef.current = io("http://localhost:4000", {
+      socketRef.current = io(CHAT_URL, {
         auth: {
           token: userData?.token,
         },
@@ -177,9 +178,7 @@ export const ChatProvider = ({ children }) => {
       payload: batch,
     });
     try {
-      const res = await axios.get(
-        `http://localhost:4000/${batch.course.id}/${batch.id}`
-      );
+      const res = await axios.get(`${CHAT_URL}/${batch.course.id}/${batch.id}`);
       dispatch({
         type: "SET_MESSAGES",
         payload: res.data,
@@ -201,7 +200,7 @@ export const ChatProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING", payload: "sending-message" });
 
     try {
-      const res = await axios.post(`http://localhost:4000/${roomId}`, data);
+      const res = await axios.post(`${CHAT_URL}/${roomId}`, data);
 
       dispatch({
         type: "ADD_MESSAGE",
@@ -218,7 +217,7 @@ export const ChatProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING", payload: "removing-message" });
 
     try {
-      const res = await axios.delete(`http://localhost:4000/${msgId}`);
+      const res = await axios.delete(`${CHAT_URL}/${msgId}`);
       if (res.data?.acknowledged) {
         dispatch({ type: "REMOVE_MESSAGE", payload: msgId });
       }

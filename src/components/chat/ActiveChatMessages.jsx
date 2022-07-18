@@ -54,6 +54,7 @@ export default function ActiveChatMessages() {
         )}
         {activeChat.messages?.map((message) => (
           <Flex
+            key={message._id}
             w="full"
             justifyContent={
               message.sender.id === currentUser.id ? "flex-end" : "flex-start"
