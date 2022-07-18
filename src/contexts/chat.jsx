@@ -12,12 +12,14 @@ import {
   fetchTeacherCourses,
 } from "../services";
 import { useAuthState } from "./auth";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import axios from "axios";
 export const ChatStateContext = createContext();
 export const ChatDispatchContext = createContext();
 
-const CHAT_URL = `${process.env.REACT_APP_NODE_BACKEND_URL}/api/chat`;
+const NODE_BACKEND_URL = process.env.REACT_APP_NODE_BACKEND_URL;
+
+const CHAT_URL = `${NODE_BACKEND_URL}/api/chat`;
 const userData =
   (localStorage.student && JSON.parse(localStorage.getItem("student"))) ||
   (localStorage.teacher && JSON.stringify(localStorage.getItem("teacher")));
@@ -98,7 +100,7 @@ const reducer = (state, { type, payload }) => {
 };
 
 export const ChatProvider = ({ children }) => {
-  const socketRef = useRef();
+  // const socketRef = useRef();
   const { role, isAuthenticated, currentUser } = useAuthState();
   const [state, dispatch] = useReducer(reducer, defaultState);
   const navigate = useNavigate();
@@ -116,19 +118,19 @@ export const ChatProvider = ({ children }) => {
     }
   }, [role, isAuthenticated]);
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      socketRef.current = io(CHAT_URL, {
-        auth: {
-          token: userData?.token,
-        },
-      });
-    }
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     socketRef.current = io(NODE_BACKEND_URL, {
+  //       auth: {
+  //         token: userData?.token,
+  //       },
+  //     });
+  //   }
 
-    return () => {
-      socketRef.current.disconnect();
-    };
-  }, []);
+  //   return () => {
+  //     socketRef.current.disconnect();
+  //   };
+  // }, []);
 
   async function handleFetchTeacherCourses() {
     dispatch({ type: "SET_LOADING", payload: "fetching-courses" });
