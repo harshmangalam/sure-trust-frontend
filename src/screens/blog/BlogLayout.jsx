@@ -19,8 +19,8 @@ export default function BlogLayout() {
       >
         <Logo />
         <HStack>
-          <Tooltip label="Home">
-            <IconButton as={Link} to="/">
+          <Tooltip label="Blog Home">
+            <IconButton as={Link} to="/blog">
               <RiHome2Line size={20} />
             </IconButton>
           </Tooltip>
