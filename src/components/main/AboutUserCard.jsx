@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Flex,
   Heading,
@@ -8,7 +9,7 @@ import {
   VStack,
   Wrap,
 } from "@chakra-ui/react";
-
+import { FaLinkedin } from "react-icons/fa";
 export default function AboutUserCard({ image, name, linked_in_url, about }) {
   return (
     <Flex
@@ -47,21 +48,22 @@ export default function AboutUserCard({ image, name, linked_in_url, about }) {
           <Heading px={4} size="md" fontFamily={"body"} textAlign={"center"}>
             {name}
           </Heading>
-          <Text px={4} fontSize="md" textAlign={"justify"}>
+          <Text px={4} fontSize="md" as={"p"}>
             {about}
           </Text>
-
-          <Button
-            size={"sm"}
-            colorScheme={"purple"}
-            variant={"outline"}
-            as="a"
-            target="_blank"
-            rel="noreferrer"
-            href={linked_in_url}
-          >
-            Linkedin
-          </Button>
+          <Box px={4} pb={2} w="full">
+            <Button
+              colorScheme={"linkedin"}
+              leftIcon={<FaLinkedin size={24} />}
+              as="a"
+              target="_blank"
+              rel="noreferrer"
+              href={linked_in_url}
+              isFullWidth
+            >
+              Linkedin
+            </Button>
+          </Box>
         </VStack>
       </Flex>
     </Flex>
