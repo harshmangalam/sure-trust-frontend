@@ -14,13 +14,7 @@ import AboutUserCard from "../../components/main/AboutUserCard";
 import { useQuery } from "react-query";
 import { fetchBoardMembers } from "../../services/board";
 import Loader from "../../components/shared/Loader";
-import {
-  boardOfAdvisers,
-  coFounders,
-  executiveMembers,
-  seniorExecutives,
-  narrationByFounder,
-} from "../../data/about";
+import { narrationByFounder } from "../../data/about";
 import satyaSaiBaba from "../../images/satya_sai_baba.jpg";
 function About() {
   const { data, isLoading, isError } = useQuery("board", fetchBoardMembers);
@@ -83,9 +77,7 @@ function About() {
           </Heading>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
             {data.data?.board_of_trustees?.map((user) => (
-              <GridItem key={user.id}>
-                <AboutUserCard {...user} />
-              </GridItem>
+              <AboutUserCard key={user.id} {...user} />
             ))}
           </SimpleGrid>
         </Container>
@@ -107,9 +99,7 @@ function About() {
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
               {data.data["Governing Council"]["senior_executives"].map(
                 (user) => (
-                  <GridItem key={user.id}>
-                    <AboutUserCard {...user} />
-                  </GridItem>
+                  <AboutUserCard key={user.id} {...user} />
                 )
               )}
             </SimpleGrid>
@@ -123,9 +113,7 @@ function About() {
             <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
               {data.data["Governing Council"]["executives_members"].map(
                 (user) => (
-                  <GridItem key={user.name}>
-                    <AboutUserCard {...user} />
-                  </GridItem>
+                  <AboutUserCard key={user.id} {...user} />
                 )
               )}
             </SimpleGrid>
@@ -144,9 +132,7 @@ function About() {
 
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
             {data.data?.board_of_advisers.map((user) => (
-              <GridItem key={user.id}>
-                <AboutUserCard {...user} />
-              </GridItem>
+              <AboutUserCard key={user.id} {...user} />
             ))}
           </SimpleGrid>
         </Container>
