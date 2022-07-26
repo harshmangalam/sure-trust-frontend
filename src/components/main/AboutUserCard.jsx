@@ -9,7 +9,7 @@ import {
   Wrap,
 } from "@chakra-ui/react";
 
-export default function AboutUserCard({ image, name, links, bio }) {
+export default function AboutUserCard({ image, name, linked_in_url, about }) {
   return (
     <Flex
       boxShadow={"lg"}
@@ -48,24 +48,20 @@ export default function AboutUserCard({ image, name, links, bio }) {
             {name}
           </Heading>
           <Text px={4} fontSize="md" textAlign={"justify"}>
-            {bio}
+            {about}
           </Text>
-          <Wrap px={4} pb={4}>
-            {links.map((link) => (
-              <Button
-                size={"sm"}
-                colorScheme={"purple"}
-                variant={"outline"}
-                as="a"
-                target="_blank"
-                rel="noreferrer"
-                href={link.url}
-                key={link.url}
-              >
-                {link.name}
-              </Button>
-            ))}
-          </Wrap>
+
+          <Button
+            size={"sm"}
+            colorScheme={"purple"}
+            variant={"outline"}
+            as="a"
+            target="_blank"
+            rel="noreferrer"
+            href={linked_in_url}
+          >
+            Linkedin
+          </Button>
         </VStack>
       </Flex>
     </Flex>

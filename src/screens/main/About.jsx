@@ -11,7 +11,9 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import AboutUserCard from "../../components/main/AboutUserCard";
-
+import { useQuery } from "react-query";
+import { fetchBoardMembers } from "../../services/board";
+import Loader from "../../components/shared/Loader";
 import {
   boardOfAdvisers,
   coFounders,
@@ -21,6 +23,15 @@ import {
 } from "../../data/about";
 import satyaSaiBaba from "../../images/satya_sai_baba.jpg";
 function About() {
+  const { data, isLoading, isError } = useQuery("board", fetchBoardMembers);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return <p>Error</p>;
+  }
   return (
     <Box py={12}>
       <Box as="section" mt={12}>
@@ -64,25 +75,24 @@ function About() {
         </Container>
       </Box>
 
-      {/* executive director  */}
-
-      {/* director and cofounder  */}
+      {/* board of trustees  start */}
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Board Of Trustees
           </Heading>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
-            {coFounders.map((coFounder) => (
-              <GridItem key={coFounder.name}>
-                <AboutUserCard {...coFounder} />
+            {data.data?.board_of_trustees?.map((user) => (
+              <GridItem key={user.id}>
+                <AboutUserCard {...user} />
               </GridItem>
             ))}
           </SimpleGrid>
         </Container>
       </Box>
+      {/* board of trustees end  */}
 
-      {/* senior executive members */}
+      {/* governing council start  */}
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
@@ -95,11 +105,13 @@ function About() {
             </Heading>
 
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
-              {seniorExecutives.map((executive) => (
-                <GridItem key={executive.name}>
-                  <AboutUserCard {...executive} />
-                </GridItem>
-              ))}
+              {data.data["Governing Council"]["senior_executives"].map(
+                (user) => (
+                  <GridItem key={user.id}>
+                    <AboutUserCard {...user} />
+                  </GridItem>
+                )
+              )}
             </SimpleGrid>
           </Box>
 
@@ -109,16 +121,21 @@ function About() {
             </Heading>
 
             <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
-              {executiveMembers.map((executive) => (
-                <GridItem key={executive.name}>
-                  <AboutUserCard {...executive} />
-                </GridItem>
-              ))}
+              {data.data["Governing Council"]["executives_members"].map(
+                (user) => (
+                  <GridItem key={user.name}>
+                    <AboutUserCard {...user} />
+                  </GridItem>
+                )
+              )}
             </SimpleGrid>
           </Box>
         </Container>
       </Box>
-      {/* BOARD OF ADVISORS */}
+
+      {/* Governing Council end  */}
+
+      {/* BOARD OF ADVISORS start  */}
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
@@ -126,14 +143,16 @@ function About() {
           </Heading>
 
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
-            {boardOfAdvisers.map((advisor) => (
-              <GridItem key={advisor.name}>
-                <AboutUserCard {...advisor} />
+            {data.data?.board_of_advisers.map((user) => (
+              <GridItem key={user.id}>
+                <AboutUserCard {...user} />
               </GridItem>
             ))}
           </SimpleGrid>
         </Container>
       </Box>
+
+      {/* BOARD OF ADVISORS end  */}
     </Box>
   );
 }
