@@ -20,7 +20,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import useCloudinary from "../../hooks/useCloudinary";
 import { useChatDispatch, useChatState } from "../../contexts/chat";
 import { useAuthState } from "../../contexts/auth";
-export default function MetaInput() {
+export default function FileUpload() {
   const { activeChat, loading } = useChatState();
   const fileRef = useRef();
   const imageRef = useRef();
@@ -56,6 +56,11 @@ export default function MetaInput() {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleRemoveImage = () => {
+    imageRef.current = null;
+    setLocalImage("");
   };
   return (
     <Popover defaultIsOpen={false} isLazy lazyBehavior="unmount">
@@ -110,6 +115,7 @@ export default function MetaInput() {
                     size="sm"
                     colorScheme={"red"}
                     icon={<AiOutlineDelete size={24} />}
+                    onClick={handleRemoveImage}
                   />
                 </Tooltip>
               </HStack>

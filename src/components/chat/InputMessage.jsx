@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuthState } from "../../contexts/auth";
 import { useChatDispatch, useChatState } from "../../contexts/chat";
 import EmojiPopver from "./EmojiPopover";
-import MessgeFileUpload from "./MessgeFileUpload";
+import FileUpload from "./FileUpload";
 export default function InputMessage() {
   const inputBg = useColorModeValue("white", "blue.800");
   const { handleSentMessage } = useChatDispatch();
@@ -33,7 +33,7 @@ export default function InputMessage() {
   return (
     <HStack spacing={2} w="full" px={2} py={2} justify="center">
       <EmojiPopver handleEmjojiAdd={handleEmjojiAdd} />
-      <MessgeFileUpload />
+      <FileUpload />
       <Input
         placeholder="Start typing message..."
         rounded="full"

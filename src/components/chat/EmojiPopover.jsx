@@ -8,7 +8,7 @@ import {
   PopoverHeader,
   PopoverTrigger,
 } from "@chakra-ui/react";
-import { BsEmojiSmileFill } from "react-icons/bs";
+import { BsEmojiSunglasses } from "react-icons/bs";
 import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
 export default function EmojiPopover({ handleEmjojiAdd }) {
   const onEmojiClick = (_, emojiObject) => {
@@ -22,9 +22,9 @@ export default function EmojiPopover({ handleEmjojiAdd }) {
           title="Emoji picker"
           colorScheme="twitter"
           isRound
-          variant="solid"
+          variant="ghost"
           size={"sm"}
-          icon={<BsEmojiSmileFill size={28} />}
+          icon={<BsEmojiSunglasses size={28} />}
           aria-label="emoji picker"
         />
       </PopoverTrigger>
