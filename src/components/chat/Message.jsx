@@ -14,7 +14,7 @@ import { formatDistance } from "date-fns";
 import { useChatDispatch, useChatState } from "../../contexts/chat";
 import { AiOutlineDelete } from "react-icons/ai";
 import Linkify from "react-linkify";
-import FileMessage from "./FileMessage";
+import FileView from "./FileView";
 
 export default function Message({ message }) {
   const senderBg = useColorModeValue("blue.400", "blue.600");
@@ -68,7 +68,7 @@ export default function Message({ message }) {
             <Linkify>{message.text}</Linkify>
           </Text>
         )}
-        {message.file && <FileMessage file={message.file} />}
+        {message.file && <FileView file={message.file} />}
         <Text w={"full"} textAlign="end" color="white" fontSize={"xs"}>
           {formatDistance(new Date(message.createdAt), new Date(), {
             addSuffix: true,

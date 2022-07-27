@@ -1,7 +1,7 @@
 import { Box, IconButton, Image, Tooltip } from "@chakra-ui/react";
 import { AiOutlineEye } from "react-icons/ai";
 
-export default function FileMessage({ file }) {
+export default function FileView({ file }) {
   return (
     <Box>
       <Image src={file.url} width="full" height={200} objectFit="contain" />
