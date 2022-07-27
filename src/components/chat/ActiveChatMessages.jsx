@@ -19,7 +19,7 @@ import { useChatDispatch, useChatState } from "../../contexts/chat";
 import { formatDistance, subDays } from "date-fns";
 import { useEffect, useRef } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
-
+import Linkify from "react-linkify";
 export default function ActiveChatMessages() {
   const senderBg = useColorModeValue("blue.400", "blue.600");
   const msgBg = useColorModeValue("white", "blue.800");
@@ -93,7 +93,7 @@ export default function ActiveChatMessages() {
                 )}
               </Flex>
               <Text wordBreak={"break-word"} color="white">
-                {message.text}
+                <Linkify>{message.text}</Linkify>
               </Text>
               <Text w={"full"} textAlign="end" color="white" fontSize={"xs"}>
                 {formatDistance(new Date(message.createdAt), new Date(), {
