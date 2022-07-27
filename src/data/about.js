@@ -1,3 +1,10 @@
+/**
+ * This file data is showing inside about route
+ * This is now dynamic and controlled by admin panel
+ * narrationByFounder data is still in use ---  do not remove them
+ *
+ */
+
 import sarahImage from "../images/sarah.png";
 import amarImage from "../images/amar.jpeg";
 import ramananImage from "../images/lst/ramnan.jpeg";
@@ -199,14 +206,9 @@ export const executiveMembers = [
       },
     ],
   },
-
-  
-  
 ];
 
 export const boardOfAdvisers = [
- 
-
   {
     title: "Advisor-Networking",
     image:
@@ -243,6 +245,8 @@ export const boardOfAdvisers = [
   },
 ];
 
+
+// this data is used by about route top content 
 export const narrationByFounder = {
   title: "A narration by the Founder, Prof. Radhakumari",
   contents: [
