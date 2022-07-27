@@ -21,7 +21,7 @@ export const ChatDispatchContext = createContext();
 const NODE_BACKEND_URL =
   process.env.REACT_APP_NODE_ENV === "development"
     ? process.env.REACT_APP_NODE_DEV_BASEURL
-    : process.env.REACT_APP_NODE_POOD_BASEURL;
+    : process.env.REACT_APP_NODE_PROD_BASEURL;
 
 const CHAT_URL = `${NODE_BACKEND_URL}/api/chat`;
 const userData =
@@ -184,7 +184,9 @@ export const ChatProvider = ({ children }) => {
       payload: batch,
     });
     try {
-      const res = await axios.get(`${CHAT_URL}/${batch.course.id}/${batch.id}`);
+      const res = await axios.get(`/${batch.course.id}/${batch.id}`, {
+        baseURL: CHAT_URL,
+      });
       dispatch({
         type: "SET_MESSAGES",
         payload: res.data,
@@ -206,7 +208,9 @@ export const ChatProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING", payload: "sending-message" });
 
     try {
-      const res = await axios.post(`${CHAT_URL}/${roomId}`, data);
+      const res = await axios.post(`/${roomId}`, data, {
+        baseURL: CHAT_URL,
+      });
 
       dispatch({
         type: "ADD_MESSAGE",
@@ -223,7 +227,7 @@ export const ChatProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING", payload: "removing-message" });
 
     try {
-      const res = await axios.delete(`${CHAT_URL}/${msgId}`);
+      const res = await axios.delete(`/${msgId}`, { baseURL: CHAT_URL });
       if (res.data?.acknowledged) {
         dispatch({ type: "REMOVE_MESSAGE", payload: msgId });
       }
