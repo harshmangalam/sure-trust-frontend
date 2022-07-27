@@ -31,8 +31,3 @@ export const modalities = {
     },
   ],
 };
-
-export const brochure = {
-  title: "SURE  Initiative Brouchure",
-  content: "/pdfs/broucher.pdf",
-};
