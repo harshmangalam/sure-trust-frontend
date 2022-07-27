@@ -1,4 +1,8 @@
 import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
   Button,
   HStack,
   IconButton,
@@ -22,27 +26,37 @@ import { useChatDispatch, useChatState } from "../../contexts/chat";
 import { useAuthState } from "../../contexts/auth";
 export default function FileUpload() {
   const { activeChat, loading } = useChatState();
+  const inputFileRef = useRef();
   const fileRef = useRef();
-  const imageRef = useRef();
-  const [localImage, setLocalImage] = useState("");
+  const [preview, setPreview] = useState("");
   const { uploadToCloud, uploading } = useCloudinary();
   const { handleSentMessage } = useChatDispatch();
   const { currentUser } = useAuthState();
+  const [error, setError] = useState("");
 
-  const handleImageChange = (e) => {
-    imageRef.current = e.target.files[0];
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    fileRef.current = file;
+
+    const size = file.size;
+    const type = file.type;
+
+    if (size > 5 * 1000000) {
+      setError("File size must be less than 5 mb");
+      return;
+    }
     const reader = new FileReader();
     reader.onload = () => {
-      setLocalImage(reader.result);
+      setPreview(reader.result);
     };
     reader.readAsDataURL(e.target.files[0]);
   };
 
-  const sendImage = async () => {
+  const sendFile = async () => {
     try {
-      const data = await uploadToCloud(imageRef.current);
-      imageRef.current = null;
-      setLocalImage("");
+      const data = await uploadToCloud(fileRef.current);
+      fileRef.current = null;
+      setPreview("");
       handleSentMessage(activeChat.roomId, {
         batch: activeChat.id,
         course: activeChat.course.id,
@@ -59,18 +73,18 @@ export default function FileUpload() {
   };
 
   const handleRemoveImage = () => {
-    imageRef.current = null;
-    setLocalImage("");
+    fileRef.current = null;
+    setPreview("");
   };
   return (
     <Popover defaultIsOpen={false} isLazy lazyBehavior="unmount">
       <PopoverTrigger>
         <IconButton
-          title="Image"
+          title="Send Image"
           colorScheme="whatsapp"
           isRound
-          variant="solid"
-          size={"sm"}
+          variant="ghost"
+          size={"md"}
           icon={<BsImages size={24} />}
           aria-label="emoji picker"
         />
@@ -78,37 +92,44 @@ export default function FileUpload() {
       <PopoverContent>
         <PopoverArrow />
         <PopoverCloseButton />
-        <PopoverHeader>Image</PopoverHeader>
+        <PopoverHeader>Send File</PopoverHeader>
         <PopoverBody>
+          {error && (
+            <Alert status="error">
+              <AlertIcon />
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          )}
           <Button
             isLoading={uploading || loading === "sending-message"}
             disabled={uploading || loading}
             isFullWidth
-            onClick={() => fileRef.current?.click()}
+            onClick={() => inputFileRef.current?.click()}
             leftIcon={<BsImages size={24} />}
             colorScheme="twitter"
+            mt={4}
           >
-            Choose Image
+            Choose File
           </Button>
+
           <VisuallyHidden>
             <input
               type={"file"}
-              accept="image/*"
-              onChange={handleImageChange}
-              ref={fileRef}
+              onChange={handleFileChange}
+              ref={inputFileRef}
             />
           </VisuallyHidden>
-          {localImage && (
+          {preview && (
             <VStack mt={4} spacing={4}>
-              <Image src={localImage} w={"full"} h={200} objectFit="contain" />
+              <Image src={preview} w={"full"} h={200} objectFit="contain" />
               <HStack>
                 <Button
                   isLoading={loading === "sending-message"}
-                  onClick={sendImage}
+                  onClick={sendFile}
                   size="sm"
                   colorScheme={"twitter"}
                 >
-                  Send Image
+                  Send File
                 </Button>
                 <Tooltip label="Delete Image">
                   <IconButton
