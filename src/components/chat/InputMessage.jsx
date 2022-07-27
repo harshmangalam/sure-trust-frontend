@@ -2,15 +2,20 @@ import { Button, HStack, Input, useColorModeValue } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAuthState } from "../../contexts/auth";
 import { useChatDispatch, useChatState } from "../../contexts/chat";
-
+import EmojiPopver from "./EmojiPopover";
 export default function InputMessage() {
   const inputBg = useColorModeValue("white", "blue.800");
   const { handleSentMessage } = useChatDispatch();
   const [text, setText] = useState("");
   const { activeChat, loading } = useChatState();
   const { currentUser } = useAuthState();
+
+  const handleEmjojiAdd = (emoji) => {
+    setText((text) => `${text} ${emoji}`);
+  };
   return (
     <HStack spacing={2} w="full" px={2} py={2} justify="center">
+      <EmojiPopver handleEmjojiAdd={handleEmjojiAdd} />
       <Input
         placeholder="Start typing message..."
         rounded="full"
