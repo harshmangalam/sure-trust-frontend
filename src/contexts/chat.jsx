@@ -17,7 +17,11 @@ import axios from "axios";
 export const ChatStateContext = createContext();
 export const ChatDispatchContext = createContext();
 
-const NODE_BACKEND_URL = process.env.REACT_APP_NODE_BACKEND_URL;
+// dynamic endpoint based on running environment
+const NODE_BACKEND_URL =
+  process.env.REACT_APP_NODE_ENV === "development"
+    ? process.env.REACT_APP_NODE_DEV_BASEURL
+    : process.env.REACT_APP_NODE_POOD_BASEURL;
 
 const CHAT_URL = `${NODE_BACKEND_URL}/api/chat`;
 const userData =
