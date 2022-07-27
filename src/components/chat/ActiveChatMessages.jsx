@@ -10,6 +10,7 @@ import {
   Skeleton,
   Spinner,
   Text,
+  Tooltip,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
@@ -20,7 +21,7 @@ import { useEffect, useRef } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 
 export default function ActiveChatMessages() {
-  const senderBg = useColorModeValue("gray.200", "purple.800");
+  const senderBg = useColorModeValue("blue.400", "blue.600");
   const msgBg = useColorModeValue("white", "blue.800");
   const { activeChat, loading } = useChatState();
   const { currentUser } = useAuthState();
@@ -73,22 +74,28 @@ export default function ActiveChatMessages() {
               <Flex w="full">
                 <HStack flexGrow={1} w={"full"} spacing={"4"}>
                   <Avatar name={message.sender.name} size={"sm"} />
-                  <Heading fontSize={"md"}>{message.sender.name}</Heading>
+                  <Heading color={"white"} fontSize={"md"}>
+                    {message.sender.name}
+                  </Heading>
                 </HStack>
                 {currentUser.id === message.sender.id && (
-                  <IconButton
-                    onClick={() => handleRemoveMessage(message._id)}
-                    size={"xs"}
-                    rounded={"full"}
-                    aria-label="remove message"
-                    icon={<AiOutlineDelete size={16} />}
-                    colorScheme="red"
-                    isLoading={loading === "removing-message"}
-                  />
+                  <Tooltip label="Delete Message">
+                    <IconButton
+                      onClick={() => handleRemoveMessage(message._id)}
+                      size={"sm"}
+                      rounded={"full"}
+                      aria-label="remove message"
+                      icon={<AiOutlineDelete size={20} />}
+                      colorScheme="blue"
+                      isLoading={loading === "removing-message"}
+                    />
+                  </Tooltip>
                 )}
               </Flex>
-              <Text wordBreak={"break-word"}>{message.text}</Text>
-              <Text w={"full"} textAlign="end" fontSize={"xs"}>
+              <Text wordBreak={"break-word"} color="white">
+                {message.text}
+              </Text>
+              <Text w={"full"} textAlign="end" color="white" fontSize={"xs"}>
                 {formatDistance(new Date(message.createdAt), new Date(), {
                   addSuffix: true,
                 })}
