@@ -2,7 +2,6 @@ import {
   Alert,
   AlertDescription,
   AlertIcon,
-  AlertTitle,
   Button,
   HStack,
   IconButton,
@@ -14,6 +13,7 @@ import {
   PopoverContent,
   PopoverHeader,
   PopoverTrigger,
+  Tag,
   Tooltip,
   VisuallyHidden,
   VStack,
@@ -37,10 +37,7 @@ export default function FileUpload() {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     fileRef.current = file;
-
     const size = file.size;
-    const type = file.type;
-
     if (size > 5 * 1000000) {
       setError("File size must be less than 5 mb");
       return;
@@ -114,6 +111,7 @@ export default function FileUpload() {
 
           <VisuallyHidden>
             <input
+              accept="image/*"
               type={"file"}
               onChange={handleFileChange}
               ref={inputFileRef}
@@ -121,7 +119,19 @@ export default function FileUpload() {
           </VisuallyHidden>
           {preview && (
             <VStack mt={4} spacing={4}>
-              <Image src={preview} w={"full"} h={200} objectFit="contain" />
+              <VStack spacing={1}>
+                <Image src={preview} w={"full"} h={200} objectFit="contain" />
+
+                <Tag
+                  textAlign={"center"}
+                  w="full"
+                  colorScheme={"twitter"}
+                  size={"lg"}
+                >
+                  {fileRef.current.name}
+                </Tag>
+              </VStack>
+
               <HStack>
                 <Button
                   isLoading={loading === "sending-message"}
