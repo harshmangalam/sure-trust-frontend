@@ -25,7 +25,7 @@ export default function ActiveChatMessages() {
       overflowX={"hidden"}
       h={"full"}
     >
-      {loading ==="fetching-messages" && (
+      {loading === "fetching-messages" && (
         <Center w="full" h="full">
           <Spinner size="xl" />
         </Center>

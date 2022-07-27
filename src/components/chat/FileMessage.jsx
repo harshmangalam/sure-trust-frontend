@@ -12,6 +12,9 @@ export default function FileMessage({ file }) {
           aria-label="Preview"
           icon={<AiOutlineEye size={24} />}
           size={"sm"}
+          as="a"
+          href={file.url}
+          target="_blank"
         />
       </Tooltip>
     </Box>
