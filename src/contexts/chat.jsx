@@ -184,7 +184,7 @@ export const ChatProvider = ({ children }) => {
       payload: batch,
     });
     try {
-      const res = await axios.get(`/${batch.course.id}/${batch.id}`, {
+      const res = await axios.get(`/${batch.course.id}/${batch.id}/`, {
         baseURL: CHAT_URL,
       });
       dispatch({
