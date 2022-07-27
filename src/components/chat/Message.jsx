@@ -14,6 +14,7 @@ import { formatDistance } from "date-fns";
 import { useChatDispatch, useChatState } from "../../contexts/chat";
 import { AiOutlineDelete } from "react-icons/ai";
 import Linkify from "react-linkify";
+import FileMessage from "./FileMessage";
 
 export default function Message({ message }) {
   const senderBg = useColorModeValue("blue.400", "blue.600");
@@ -62,9 +63,12 @@ export default function Message({ message }) {
             </Tooltip>
           )}
         </Flex>
-        <Text wordBreak={"break-word"} color="white">
-          <Linkify>{message.text}</Linkify>
-        </Text>
+        {message.text && (
+          <Text wordBreak={"break-word"} color="white">
+            <Linkify>{message.text}</Linkify>
+          </Text>
+        )}
+        {message.file && <FileMessage file={message.file} />}
         <Text w={"full"} textAlign="end" color="white" fontSize={"xs"}>
           {formatDistance(new Date(message.createdAt), new Date(), {
             addSuffix: true,
