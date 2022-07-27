@@ -17,16 +17,26 @@ import {
 import { useRef, useState } from "react";
 import { BsImages } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
+import useCloudinary from "../../hooks/useCloudinary";
 export default function MetaInput() {
   const fileRef = useRef();
+  const imageRef = useRef();
   const [localImage, setLocalImage] = useState("");
+  const { upload } = useCloudinary();
 
   const handleImageChange = (e) => {
+    imageRef.current = e.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
       setLocalImage(reader.result);
     };
     reader.readAsDataURL(e.target.files[0]);
+  };
+
+  const sendImage = async () => {
+    await upload(imageRef.current);
+    imageRef.current = null;
+    setLocalImage("");
   };
   return (
     <Popover defaultIsOpen={false} isLazy lazyBehavior="unmount">
@@ -65,7 +75,7 @@ export default function MetaInput() {
             <VStack mt={4} spacing={4}>
               <Image src={localImage} w={"full"} h={200} objectFit="contain" />
               <HStack>
-                <Button size="sm" colorScheme={"twitter"}>
+                <Button onClick={sendImage} size="sm" colorScheme={"twitter"}>
                   Send
                 </Button>
                 <Tooltip label="Delete Image">
