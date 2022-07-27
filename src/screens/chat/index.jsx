@@ -56,6 +56,7 @@ export default function ChatLayout() {
             bg={batchBg}
             justify="space-between"
             align={"flex-start"}
+            overflowY={"auto"}
           >
             {/* navbar */}
             <Box w="full">
@@ -64,18 +65,10 @@ export default function ChatLayout() {
                 <ThemeToggle />
               </HStack>
               <Divider />
-
-              {authState?.role === "teacher" && (
-                <VStack align={"flex-start"} spacing={2} px={2} py={4}>
-                  <TeacherChatCourses />
-                </VStack>
-              )}
-
-              {authState?.role === "student" && (
-                <VStack align={"flex-start"} spacing={2} px={2} py={4}>
-                  <StudentChatBatch />
-                </VStack>
-              )}
+              <VStack  align={"flex-start"} spacing={2} px={2} py={4}>
+                {authState?.role === "teacher" && <TeacherChatCourses />}
+                {authState?.role === "student" && <StudentChatBatch />}
+              </VStack>
             </Box>
 
             <Box w="full">
