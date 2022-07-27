@@ -18,11 +18,16 @@ import { useRef, useState } from "react";
 import { BsImages } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
 import useCloudinary from "../../hooks/useCloudinary";
+import { useChatDispatch, useChatState } from "../../contexts/chat";
+import { useAuthState } from "../../contexts/auth";
 export default function MetaInput() {
+  const { activeChat, loading } = useChatState();
   const fileRef = useRef();
   const imageRef = useRef();
   const [localImage, setLocalImage] = useState("");
-  const { upload } = useCloudinary();
+  const { uploadToCloud, uploading } = useCloudinary();
+  const { handleSentMessage } = useChatDispatch();
+  const { currentUser } = useAuthState();
 
   const handleImageChange = (e) => {
     imageRef.current = e.target.files[0];
@@ -34,9 +39,23 @@ export default function MetaInput() {
   };
 
   const sendImage = async () => {
-    await upload(imageRef.current);
-    imageRef.current = null;
-    setLocalImage("");
+    try {
+      const data = await uploadToCloud(imageRef.current);
+      imageRef.current = null;
+      setLocalImage("");
+      handleSentMessage(activeChat.roomId, {
+        batch: activeChat.id,
+        course: activeChat.course.id,
+        sender: {
+          id: currentUser.id,
+          name: currentUser.name,
+        },
+
+        file: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <Popover defaultIsOpen={false} isLazy lazyBehavior="unmount">
@@ -57,9 +76,12 @@ export default function MetaInput() {
         <PopoverHeader>Image</PopoverHeader>
         <PopoverBody>
           <Button
+            isLoading={uploading || loading === "sending-message"}
+            disabled={uploading || loading}
             isFullWidth
             onClick={() => fileRef.current?.click()}
             leftIcon={<BsImages size={24} />}
+            colorScheme="twitter"
           >
             Choose Image
           </Button>
@@ -75,8 +97,13 @@ export default function MetaInput() {
             <VStack mt={4} spacing={4}>
               <Image src={localImage} w={"full"} h={200} objectFit="contain" />
               <HStack>
-                <Button onClick={sendImage} size="sm" colorScheme={"twitter"}>
-                  Send
+                <Button
+                  isLoading={loading === "sending-message"}
+                  onClick={sendImage}
+                  size="sm"
+                  colorScheme={"twitter"}
+                >
+                  Send Image
                 </Button>
                 <Tooltip label="Delete Image">
                   <IconButton

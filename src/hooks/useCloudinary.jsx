@@ -1,10 +1,13 @@
+import { useState } from "react";
 import shortid from "shortid";
 
 const url = "https://api.cloudinary.com/v1_1/harshcloud/image/upload";
 
 export default function useCloudinary() {
-  async function upload(file) {
+  const [uploading, setUploading] = useState(false);
+  async function uploadToCloud(file) {
     const publicId = shortid.generate();
+    setUploading(true);
     try {
       const formData = new FormData();
       formData.append("file", file);
@@ -26,9 +29,12 @@ export default function useCloudinary() {
       return data;
     } catch (error) {
       console.log(error);
+    } finally {
+      setUploading(false);
     }
   }
   return {
-    upload,
+    uploadToCloud,
+    uploading
   };
 }
