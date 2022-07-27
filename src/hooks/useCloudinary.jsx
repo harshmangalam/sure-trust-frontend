@@ -1,7 +1,7 @@
 import { useState } from "react";
 import shortid from "shortid";
 
-const url = "https://api.cloudinary.com/v1_1/harshcloud/image/upload";
+const CLOUDINARY_ENDPOINT = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET}/image/upload`;
 
 export default function useCloudinary() {
   const [uploading, setUploading] = useState(false);
@@ -18,14 +18,13 @@ export default function useCloudinary() {
       formData.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY);
       formData.append("public_id", publicId);
 
-      const response = await fetch(url, {
+      const response = await fetch(CLOUDINARY_ENDPOINT, {
         method: "POST",
         body: formData,
       });
 
       const data = await response.json();
 
-      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
@@ -35,6 +34,6 @@ export default function useCloudinary() {
   }
   return {
     uploadToCloud,
-    uploading
+    uploading,
   };
 }
