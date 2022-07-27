@@ -16,7 +16,7 @@ export default function EmojiPopover({ handleEmjojiAdd }) {
   };
 
   return (
-    <Popover>
+    <Popover defaultIsOpen={false} isLazy lazyBehavior="unmount">
       <PopoverTrigger>
         <IconButton
           title="Emoji picker"
