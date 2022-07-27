@@ -223,7 +223,7 @@ export const ChatProvider = ({ children }) => {
     }
   }
 
-  async function handleRemoveMessage(msgId) {
+  async function deleteMessage(msgId) {
     dispatch({ type: "SET_LOADING", payload: "removing-message" });
 
     try {
@@ -244,7 +244,7 @@ export const ChatProvider = ({ children }) => {
           handleFetchBatches,
           handleFetchMessages,
           handleSentMessage,
-          handleRemoveMessage,
+          deleteMessage,
         }}
       >
         {children}

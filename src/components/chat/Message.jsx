@@ -15,15 +15,26 @@ import { useChatDispatch, useChatState } from "../../contexts/chat";
 import { AiOutlineDelete } from "react-icons/ai";
 import Linkify from "react-linkify";
 import FileView from "./FileView";
+import { useState } from "react";
 
 export default function Message({ message }) {
   const senderBg = useColorModeValue("blue.400", "blue.600");
   const msgBg = useColorModeValue("white", "blue.800");
-
   const { currentUser } = useAuthState();
-  const { loading } = useChatState();
-  const { handleRemoveMessage } = useChatDispatch();
+  const { deleteMessage } = useChatDispatch();
 
+  const [loading, setLoading] = useState(false);
+
+  const handelDeleteMessage = async () => {
+    setLoading(true);
+    try {
+      await deleteMessage(message._id);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <Flex
       key={message._id}
@@ -52,13 +63,14 @@ export default function Message({ message }) {
           {currentUser.id === message.sender.id && (
             <Tooltip label="Delete Message">
               <IconButton
-                onClick={() => handleRemoveMessage(message._id)}
+                onClick={handelDeleteMessage}
                 size={"sm"}
                 rounded={"full"}
                 aria-label="remove message"
                 icon={<AiOutlineDelete size={20} />}
                 colorScheme="blue"
-                isLoading={loading === "removing-message"}
+                isLoading={loading}
+                disabled={loading}
               />
             </Tooltip>
           )}
