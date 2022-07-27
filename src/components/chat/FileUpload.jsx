@@ -89,7 +89,7 @@ export default function FileUpload() {
       <PopoverContent>
         <PopoverArrow />
         <PopoverCloseButton />
-        <PopoverHeader>Send File</PopoverHeader>
+        <PopoverHeader>Send Image</PopoverHeader>
         <PopoverBody>
           {error && (
             <Alert status="error">
@@ -106,7 +106,7 @@ export default function FileUpload() {
             colorScheme="twitter"
             mt={4}
           >
-            Choose File
+            Choose Image
           </Button>
 
           <VisuallyHidden>
@@ -134,12 +134,13 @@ export default function FileUpload() {
 
               <HStack>
                 <Button
-                  isLoading={loading === "sending-message"}
+                  isLoading={uploading}
+                  disabled={uploading}
                   onClick={sendFile}
                   size="sm"
                   colorScheme={"twitter"}
                 >
-                  Send File
+                  Send Image
                 </Button>
                 <Tooltip label="Delete Image">
                   <IconButton
