@@ -18,6 +18,8 @@ export default function StudentChatCourses() {
   const { handleFetchMessages } = useChatDispatch();
   const profileBg = useColorModeValue("gray.50", "blue.700");
 
+
+
   if (loading === "fetching-batches") {
     return (
       <HStack spacing={4} py={4}>
@@ -63,8 +65,8 @@ export default function StudentChatCourses() {
             <Heading fontSize={"lg"}>{batch.batch_name}</Heading>
             <Text fontSize={"sm"}>{batch.course.course_name}</Text>
           </VStack>
-          <Tooltip label={"34 Students"}>
-            <Tag colorScheme={"blue"}>34</Tag>
+          <Tooltip label={`${batch.students.length } Students`}>
+            <Tag colorScheme={"blue"}>{batch.students.length}</Tag>
           </Tooltip>
         </HStack>
       ))}
