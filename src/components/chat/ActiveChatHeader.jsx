@@ -19,7 +19,7 @@ import BatchInfoModal from "./BatchInfoModal";
 export default function ActiveChatHeader() {
   const batchBg = useColorModeValue("white", "blue.800");
   const { activeChat } = useChatState();
-  console.log(activeChat);
+
   return (
     <Box w="full" bg={batchBg}>
       <HStack justify={"space-between"} px={2} py={4} width="full">
@@ -37,7 +37,7 @@ export default function ActiveChatHeader() {
 
         <HStack spacing={2}>
           <BatchInfoModal {...activeChat} />
-          <Box display={["block","block","none"]}>
+          <Box display={["block", "block", "none"]}>
             <Tooltip label={"close chat"}>
               <IconButton as={Link} to={"/chat"} icon={<CgClose />} />
             </Tooltip>
