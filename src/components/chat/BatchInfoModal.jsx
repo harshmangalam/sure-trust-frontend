@@ -66,8 +66,12 @@ export default function BatchInfoModal({
               </HStack>
 
               <HStack justify="space-between" w={"full"}>
-                <Text fontSize={"lg"}>Class Link</Text>
-                {meeting_code || <Tag colorScheme={"red"}>Not Started</Tag>}
+                <Text fontSize={"lg"}>Class Status</Text>
+                {meeting_code ? (
+                  <Tag colorScheme={"blue"}>Started</Tag>
+                ) : (
+                  <Tag colorScheme={"red"}>Not Started</Tag>
+                )}
               </HStack>
             </VStack>
           </ModalBody>
