@@ -52,13 +52,12 @@ export default function Message({ message }) {
         bg={message.sender.id === currentUser.id ? senderBg : msgBg}
         w="full"
         key={message._id}
+        color={message.sender.id === currentUser.id ? "white" : undefined}
       >
         <Flex w="full">
           <HStack flexGrow={1} w={"full"} spacing={"4"}>
             <Avatar name={message.sender.name} size={"sm"} />
-            <Heading fontSize={"md"}>
-              {message.sender.name}
-            </Heading>
+            <Heading fontSize={"md"}>{message.sender.name}</Heading>
           </HStack>
           {currentUser.id === message.sender.id && (
             <Tooltip label="Delete Message">
@@ -81,7 +80,7 @@ export default function Message({ message }) {
           </Text>
         )}
         {message.file && <FileView file={message.file} />}
-        <Text w={"full"} textAlign="end"  fontSize={"xs"}>
+        <Text w={"full"} textAlign="end" fontSize={"xs"}>
           {formatDistance(new Date(message.createdAt), new Date(), {
             addSuffix: true,
           })}
