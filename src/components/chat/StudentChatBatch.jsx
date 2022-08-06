@@ -4,7 +4,9 @@ import {
   HStack,
   Skeleton,
   SkeletonCircle,
+  Tag,
   Text,
+  Tooltip,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
@@ -39,7 +41,7 @@ export default function StudentChatCourses() {
     <VStack w="full">
       {batches?.map((batch) => (
         <HStack
-        key={batch.id}
+          key={batch.id}
           rounded={"md"}
           w="full"
           cursor={"pointer"}
@@ -61,6 +63,9 @@ export default function StudentChatCourses() {
             <Heading fontSize={"lg"}>{batch.batch_name}</Heading>
             <Text fontSize={"sm"}>{batch.course.course_name}</Text>
           </VStack>
+          <Tooltip label={"34 Students"}>
+            <Tag colorScheme={"blue"}>34</Tag>
+          </Tooltip>
         </HStack>
       ))}
     </VStack>
