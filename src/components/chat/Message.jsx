@@ -56,7 +56,7 @@ export default function Message({ message }) {
         <Flex w="full">
           <HStack flexGrow={1} w={"full"} spacing={"4"}>
             <Avatar name={message.sender.name} size={"sm"} />
-            <Heading color={"white"} fontSize={"md"}>
+            <Heading fontSize={"md"}>
               {message.sender.name}
             </Heading>
           </HStack>
@@ -76,12 +76,12 @@ export default function Message({ message }) {
           )}
         </Flex>
         {message.text && (
-          <Text wordBreak={"break-word"} color="white">
+          <Text wordBreak={"break-word"}>
             <Linkify>{message.text}</Linkify>
           </Text>
         )}
         {message.file && <FileView file={message.file} />}
-        <Text w={"full"} textAlign="end" color="white" fontSize={"xs"}>
+        <Text w={"full"} textAlign="end"  fontSize={"xs"}>
           {formatDistance(new Date(message.createdAt), new Date(), {
             addSuffix: true,
           })}
