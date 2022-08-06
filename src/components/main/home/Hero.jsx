@@ -34,9 +34,7 @@ export default function Hero() {
             SURE Trust
           </Text>
           <br />
-          <Text as={"span"}>
-            Skill Upgradation for Rural-youth Empowerment
-          </Text>
+          <Text as={"span"}>Skill Upgradation for Rural-youth Empowerment</Text>
         </Heading>
 
         <Wrap direction={{ base: "column", md: "row" }} spacing={3}>
@@ -90,26 +88,15 @@ export default function Hero() {
         />
 
         <Box
-          position={"relative"}
-          height={"100%"}
-          rounded={"2xl"}
-          width={"full"}
-          overflow={"hidden"}
-        >
-          <Image
-            objectFit={"cover"}
-            transform="scale(1.0)"
-            transition="0.3s ease-in-out"
-            _hover={{
-              transform: "scale(1.05)",
-            }}
-            alt={"Hackathon"}
-            align={"center"}
-            w={"100%"}
-            h={"100%"}
-            src={"hackathon.png"}
-          />
-        </Box>
+          align={"center"}
+          w={"100%"}
+          h={"300px"}
+          as={"iframe"}
+          rounded={"xl"}
+          title="video"
+          src={`https://www.youtube.com/embed/gVZ8m9Ex9ZQ`}
+          allowFullScreen
+        />
       </Flex>
     </Stack>
   );
