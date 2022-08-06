@@ -14,14 +14,15 @@ import { CgClose } from "react-icons/cg";
 import { IoPeopleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useChatState } from "../../contexts/chat";
+import BatchInfoModal from "./BatchInfoModal";
 
 export default function ActiveChatHeader() {
   const batchBg = useColorModeValue("white", "blue.800");
   const { activeChat } = useChatState();
-
+  console.log(activeChat);
   return (
     <Box w="full" bg={batchBg}>
-      <HStack justify={"space-between"} px={2} py={4}>
+      <HStack justify={"space-between"} px={2} py={4} width="full">
         <HStack w="full" spacing={4}>
           <Avatar
             bg={"blue.400"}
@@ -34,11 +35,14 @@ export default function ActiveChatHeader() {
           </VStack>
         </HStack>
 
-        <Box display={["block", "block", "none"]}>
-          <Tooltip label={"close chat"}>
-            <IconButton as={Link} to={"/chat"} icon={<CgClose />} />
-          </Tooltip>
-        </Box>
+        <HStack spacing={2}>
+          <BatchInfoModal {...activeChat} />
+          <Box display={["block","block","none"]}>
+            <Tooltip label={"close chat"}>
+              <IconButton as={Link} to={"/chat"} icon={<CgClose />} />
+            </Tooltip>
+          </Box>
+        </HStack>
       </HStack>
       <Divider />
     </Box>
