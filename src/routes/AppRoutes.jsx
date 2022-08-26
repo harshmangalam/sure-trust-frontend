@@ -11,7 +11,6 @@ const Contact = lazy(() => import("../screens/main/Contact"));
 const Courses = lazy(() => import("../screens/main/Courses"));
 const Reviews = lazy(() => import("../screens/main/Reviews"));
 
-
 const Course = lazy(() => import("../screens/main/Course"));
 const LstProgram = lazy(() => import("../screens/main/LstProgram"));
 const KnowMore = lazy(() => import("../screens/main/KnowMore"));
@@ -71,10 +70,10 @@ const StudentPostGrades = lazy(() =>
 const Meet = lazy(() => import("../screens/Meet"));
 
 // Blog
-const BlogLayout = lazy(() => import("../screens/blog/BlogLayout"));
-const BlogHome = lazy(() => import("../screens/blog"));
-const Posts = lazy(() => import("../screens/blog/Posts"));
-const CreatePost = lazy(() => import("../screens/blog/CreatePost"));
+// const BlogLayout = lazy(() => import("../screens/blog/BlogLayout"));
+// const BlogHome = lazy(() => import("../screens/blog"));
+// const Posts = lazy(() => import("../screens/blog/Posts"));
+// const CreatePost = lazy(() => import("../screens/blog/CreatePost"));
 
 // chat
 
@@ -85,7 +84,7 @@ const ActiveChat = lazy(() => import("../screens/chat/ActiveChat"));
 const NotFound = lazy(() => import("../screens/NotFound"));
 
 function AppRoutes() {
-  const { role } = useAuthState();
+  const { role, isAuthenticated } = useAuthState();
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
@@ -96,7 +95,6 @@ function AppRoutes() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="reviews" element={<Reviews />} />
-         
 
           <Route path="photo-gallery" element={<PhotoGallery />} />
           <Route path="courses" element={<Courses />} />
@@ -107,73 +105,79 @@ function AppRoutes() {
           <Route path="documents" element={<Documents />} />
         </Route>
 
-        <Route path="/auth" element={<AuthLayout />}>
-          <Route index element={<Login />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="reset-password" element={<ResetPassword />} />
-        </Route>
+        {!isAuthenticated && (
+          <Route path="/auth" element={<AuthLayout />}>
+            <Route index element={<Login />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="reset-password" element={<ResetPassword />} />
+          </Route>
+        )}
 
-        <Route path="/chat" element={<ChatLayout />}>
-          <Route index element={<ChatHome />} />
-          <Route path="activeChat" element={<ActiveChat />} />
-        </Route>
+        {isAuthenticated && (
+          <Route path="/chat" element={<ChatLayout />}>
+            <Route index element={<ChatHome />} />
+            <Route path="activeChat" element={<ActiveChat />} />
+          </Route>
+        )}
 
-        <Route path="dashboard" element={<DashboardLayout />}>
-          <Route index element={<Dashboard />} />
+        {isAuthenticated && (
+          <Route path="dashboard" element={<DashboardLayout />}>
+            <Route index element={<Dashboard />} />
 
-          {role === "student" && (
-            <>
-              <Route path="batches" element={<StudentBatches />} />
-              <Route
-                path="batches/:batchId/courses/:courseId/posts"
-                element={<StudentBatchPosts />}
-              />
-              <Route
-                path="batches/:batchId/courses/:courseId/posts/:postId/grades"
-                element={<StudentPostGrades />}
-              />
-            </>
-          )}
+            {role === "student" && (
+              <>
+                <Route path="batches" element={<StudentBatches />} />
+                <Route
+                  path="batches/:batchId/courses/:courseId/posts"
+                  element={<StudentBatchPosts />}
+                />
+                <Route
+                  path="batches/:batchId/courses/:courseId/posts/:postId/grades"
+                  element={<StudentPostGrades />}
+                />
+              </>
+            )}
 
-          {role === "teacher" && (
-            <>
-              <Route path="courses" element={<TeacherCourses />} />
-              <Route path="courses/:courseId" element={<TeacherBatches />} />
-              <Route
-                path="courses/:courseId/batches/:batchId/students"
-                element={<TeacherBatchStudents />}
-              />
-              <Route
-                path="courses/:courseId/batches/:batchId/posts"
-                element={<TeacherBatchPosts />}
-              />
-              <Route
-                path="courses/:courseId/batches/:batchId/posts/create"
-                element={<TeacherBatchPostCreate />}
-              />
-              <Route
-                path="courses/:courseId/batches/:batchId/assignment-posts"
-                element={<TeacherBatchAssignmentPosts />}
-              />
-              <Route
-                path="courses/:courseId/batches/:batchId/posts/:postId/grades"
-                element={<TeacherPostGrades />}
-              />
-            </>
-          )}
+            {role === "teacher" && (
+              <>
+                <Route path="courses" element={<TeacherCourses />} />
+                <Route path="courses/:courseId" element={<TeacherBatches />} />
+                <Route
+                  path="courses/:courseId/batches/:batchId/students"
+                  element={<TeacherBatchStudents />}
+                />
+                <Route
+                  path="courses/:courseId/batches/:batchId/posts"
+                  element={<TeacherBatchPosts />}
+                />
+                <Route
+                  path="courses/:courseId/batches/:batchId/posts/create"
+                  element={<TeacherBatchPostCreate />}
+                />
+                <Route
+                  path="courses/:courseId/batches/:batchId/assignment-posts"
+                  element={<TeacherBatchAssignmentPosts />}
+                />
+                <Route
+                  path="courses/:courseId/batches/:batchId/posts/:postId/grades"
+                  element={<TeacherPostGrades />}
+                />
+              </>
+            )}
 
-          <Route path="profile" element={<Profile />} />
-          <Route path="profile/edit" element={<EditProfile />} />
-        </Route>
+            <Route path="profile" element={<Profile />} />
+            <Route path="profile/edit" element={<EditProfile />} />
+          </Route>
+        )}
 
         <Route path="meet" element={<Meet />} />
 
-        <Route path="blog" element={<BlogLayout />}>
+        {/* <Route path="blog" element={<BlogLayout />}>
           <Route index element={<BlogHome />} />
           <Route path="posts" element={<Posts />} />
           <Route path="create-post" element={<CreatePost />} />
-        </Route>
+        </Route> */}
 
         <Route path="*" element={<NotFound />} />
       </Routes>

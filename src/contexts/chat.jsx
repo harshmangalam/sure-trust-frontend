@@ -110,7 +110,7 @@ export const ChatProvider = ({ children }) => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate("/auth", { replace: true });
+      return
     }
 
     if (role === "teacher") {
