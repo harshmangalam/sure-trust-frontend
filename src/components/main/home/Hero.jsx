@@ -94,7 +94,7 @@ export default function Hero() {
           as={"iframe"}
           rounded={"xl"}
           title="video"
-          src={`https://www.youtube.com/embed/gVZ8m9Ex9ZQ`}
+          src={`https://www.youtube.com/embed/V7IYyODYQ4k`} 
           allowFullScreen
         />
       </Flex>
