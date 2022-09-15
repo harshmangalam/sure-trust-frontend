@@ -19,5 +19,6 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: blue;
+  background:linear-gradient(rgb(123, 123, 230),rgb(195, 120, 132),rgb(184, 98, 184));
+  border-radius: 999px;
 }
