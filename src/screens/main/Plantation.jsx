@@ -13,16 +13,15 @@ export default function Plantation() {
   const countsQuery = useQuery("plantationCounts", fetchPlantationCounts);
   const plantations = useQuery("plantations", fetchPlantationLists);
 
-  const date1 = new Date(2022,8,1);
+  const date1 = new Date(2022, 8, 1);
   const date2 = new Date();
   const diffTime = Math.abs(date2 - date1);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-
   const refetch = () => {
-    countsQuery.refetch()
-    plantations.refetch()
-  }
+    countsQuery.refetch();
+    plantations.refetch();
+  };
   return (
     <Container py={"16"} maxW={"container.xl"}>
       <Flex justify={"flex-end"}>
@@ -41,17 +40,21 @@ export default function Plantation() {
           icon={HiOutlineUser}
         />
       </SimpleGrid>
-      {/* <Box w="full" h={"full"} mt={"16"}>
-        <OverviewChart />
-      </Box> */}
+      {plantations?.data?.data?.length > 0 ? (
+        <Box w="full" h={"full"} mt={"16"}>
+          <OverviewChart plants={plantations?.data?.data} />
+        </Box>
+      ) : null}
 
-      <Box mt={"16"}>
-        <SimpleGrid columns={[1, 1, 2, 3]} spacing={4}>
-          {plantations?.data?.data?.map((p) => (
-            <CoursePlantation {...p} />
-          ))}
-        </SimpleGrid>
-      </Box>
+      {plantations?.data?.data?.length > 0 ? (
+        <Box mt={"16"}>
+          <SimpleGrid columns={[1, 1, 2, 3]} spacing={4}>
+            {plantations?.data?.data?.map((p) => (
+              <CoursePlantation {...p} />
+            ))}
+          </SimpleGrid>
+        </Box>
+      ) : null}
     </Container>
   );
 }
