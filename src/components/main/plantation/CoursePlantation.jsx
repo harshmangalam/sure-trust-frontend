@@ -1,11 +1,4 @@
-import {
-  Box,
-  HStack,
-  Stat,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-} from "@chakra-ui/react";
+import { Box, HStack, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 import React from "react";
 import {
   Chart as ChartJS,
@@ -32,7 +25,7 @@ ChartJS.register(
   Legend
 );
 
-export default function CoursePlantation() {
+export default function CoursePlantation({ _id, plantsCount, users }) {
   const labels = [
     "Jan",
     "Feb",
@@ -78,14 +71,12 @@ export default function CoursePlantation() {
     <Box borderWidth={"1px"} rounded="lg" p={"4"}>
       <HStack justify="space-between" align={"start"}>
         <Stat>
-          <StatLabel>Fullstack development</StatLabel>
-          <StatNumber>10</StatNumber>
+          <StatLabel>{_id}</StatLabel>
+          <StatNumber>{plantsCount}</StatNumber>
         </Stat>
-        <PlantationUsers />
+        <PlantationUsers users={users} />
       </HStack>
-      <Box my={"2"}>
-        <Line options={options} data={data} />
-      </Box>
+      <Box my={"2"}>{/* <Line options={options} data={data} /> */}</Box>
     </Box>
   );
 }

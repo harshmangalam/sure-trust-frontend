@@ -1,4 +1,5 @@
 import { HiPlus } from "react-icons/hi";
+import { createPlantation, fetchCoursesForSignup } from "../../../services";
 import {
   Modal,
   ModalOverlay,
@@ -8,7 +9,6 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
-  Input,
   Stack,
   FormControl,
   FormLabel,
@@ -20,10 +20,13 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  Input,
+  useToast,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useQuery } from "react-query";
 const schema = yup.object({
   batch: yup.string().required(),
   course: yup.string().required(),
@@ -31,17 +34,37 @@ const schema = yup.object({
   plants: yup.string().required(),
 });
 
-export default function CreatePlantation() {
+export default function CreatePlantation({ refetch }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
 
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
     setError,
+    reset,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = () => {};
+  const courseQuery = useQuery("courses", fetchCoursesForSignup);
+
+  const onSubmit = async (values) => {
+    try {
+      await createPlantation(values);
+      refetch();
+      toast({
+        status: "success",
+        description: "Data saved",
+      });
+      reset();
+      onClose();
+    } catch (error) {
+      toast({
+        status: "error",
+        description: "Error while saving data",
+      });
+    }
+  };
 
   return (
     <>
@@ -64,28 +87,22 @@ export default function CreatePlantation() {
               <FormControl isInvalid={errors.course}>
                 <FormLabel>Course name</FormLabel>
                 <Select {...register("course")} placeholder="Select course">
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
+                  {courseQuery?.data?.map((course) => (
+                    <option value={course.course_name}>
+                      {course.course_name}
+                    </option>
+                  ))}
                 </Select>
                 <FormErrorMessage>{errors.course?.message}</FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={errors.batch}>
                 <FormLabel>Batch name</FormLabel>
-                <Select {...register("batch")} placeholder="Select batch">
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </Select>
+                <Input {...register("batch")} />
                 <FormErrorMessage>{errors.batch?.message}</FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={errors.user}>
                 <FormLabel>Planted by</FormLabel>
-                <Select {...register("user")} placeholder="Select user">
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </Select>
+                <Input {...register("user")} />
                 <FormErrorMessage>{errors.user?.message}</FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={errors.plants}>

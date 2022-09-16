@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 import { HiOutlineUser } from "react-icons/hi";
-export default function PlantationUsers() {
+export default function PlantationUsers({ users }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -35,13 +35,12 @@ export default function PlantationUsers() {
           <ModalCloseButton />
           <ModalBody className="custom-scrollbar">
             <Stack spacing={"3"}>
-              {[...new Array(30)].map((user) => (
+              {users.map((user) => (
                 <HStack justify={"space-between"}>
                   <HStack>
-                    <Avatar size={"sm"} name={"User"} />
-                    <Text>User name</Text>
+                    <Avatar size={"sm"} name={user} />
+                    <Text>{user}</Text>
                   </HStack>
-                  <Tag>2</Tag>
                 </HStack>
               ))}
             </Stack>

@@ -6,36 +6,49 @@ import { BsCalendar2 } from "react-icons/bs";
 import { GiPlantRoots } from "react-icons/gi";
 import OverviewChart from "../../components/main/plantation/OverviewChart";
 import CreatePlantation from "../../components/main/plantation/CreatePlantation";
-
-const overview = [
-  { label: "Days", icon: BsCalendar2, count: 10 },
-  { label: "Plantation", icon: GiPlantRoots, count: 80 },
-  { label: "Users", icon: HiOutlineUser, count: 40 },
-];
+import { useQuery } from "react-query";
+import { fetchPlantationCounts, fetchPlantationLists } from "../../services";
 
 export default function Plantation() {
+  const countsQuery = useQuery("plantationCounts", fetchPlantationCounts);
+  const plantations = useQuery("plantations", fetchPlantationLists);
+
+  const date1 = new Date(2022,8,1);
+  const date2 = new Date();
+  const diffTime = Math.abs(date2 - date1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+
+  const refetch = () => {
+    countsQuery.refetch()
+    plantations.refetch()
+  }
   return (
     <Container py={"16"} maxW={"container.xl"}>
       <Flex justify={"flex-end"}>
-        <CreatePlantation />
+        <CreatePlantation refetch={refetch} />
       </Flex>
       <SimpleGrid columns={[1, 2, 3]} spacing={"4"}>
-        {overview.map((data) => (
-          <OverviewCard
-            label={data.label}
-            count={data.count}
-            icon={data.icon}
-          />
-        ))}
+        <OverviewCard label={"Days"} count={diffDays} icon={BsCalendar2} />
+        <OverviewCard
+          label={"Plants"}
+          count={countsQuery?.data?.data?.plants}
+          icon={GiPlantRoots}
+        />
+        <OverviewCard
+          label={"Planters"}
+          count={countsQuery?.data?.data?.users}
+          icon={HiOutlineUser}
+        />
       </SimpleGrid>
-      <Box w="full" h={"full"} mt={"16"}>
+      {/* <Box w="full" h={"full"} mt={"16"}>
         <OverviewChart />
-      </Box>
+      </Box> */}
 
       <Box mt={"16"}>
         <SimpleGrid columns={[1, 1, 2, 3]} spacing={4}>
-          {[...new Array(10)].map((batch) => (
-            <CoursePlantation />
+          {plantations?.data?.data?.map((p) => (
+            <CoursePlantation {...p} />
           ))}
         </SimpleGrid>
       </Box>
