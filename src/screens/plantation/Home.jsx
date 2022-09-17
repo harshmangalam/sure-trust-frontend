@@ -1,4 +1,14 @@
-import { Box, Container, Flex, SimpleGrid } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Flex,
+  SimpleGrid,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from "@chakra-ui/react";
 import CoursePlantation from "../../components/plantation/CoursePlantation";
 import OverviewCard from "../../components/plantation/OverviewCard";
 import { HiOutlineUser } from "react-icons/hi";
@@ -41,11 +51,25 @@ export default function PlantationHome() {
           icon={HiOutlineUser}
         />
       </SimpleGrid>
-      {chartsQuery?.data?.data?.length > 0 ? (
-        <Box w="full" h={"full"} mt={"16"}>
-          <OverviewChart plants={chartsQuery?.data?.data} />
-        </Box>
-      ) : null}
+      <Tabs my={"16"}>
+        <TabList>
+          <Tab>Course</Tab>
+          <Tab>Batch</Tab>
+        </TabList>
+
+        <TabPanels>
+          <TabPanel>
+            {chartsQuery?.data?.data && (
+              <OverviewChart plants={chartsQuery.data.data} />
+            )}
+          </TabPanel>
+          <TabPanel>
+            {plantations?.data?.data && (
+              <OverviewChart plants={plantations.data.data} />
+            )}
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
 
       {plantations?.data?.data?.length > 0 ? (
         <Box mt={"16"}>
