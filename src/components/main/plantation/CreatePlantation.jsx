@@ -1,4 +1,3 @@
-import { HiPlus } from "react-icons/hi";
 import { createPlantation, fetchCoursesForSignup } from "../../../services";
 import {
   Modal,
@@ -22,11 +21,16 @@ import {
   NumberDecrementStepper,
   Input,
   useToast,
+  IconButton,
+  Box,
+  Tooltip,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useQuery } from "react-query";
+import { RiAddLine } from "react-icons/ri";
+
 const schema = yup.object({
   batch: yup.string().required(),
   course: yup.string().required(),
@@ -68,14 +72,13 @@ export default function CreatePlantation({ refetch }) {
 
   return (
     <>
-      <Button
-        onClick={onOpen}
-        mb={"16"}
-        colorScheme={"twitter"}
-        leftIcon={<HiPlus size={24} />}
-      >
-        Add data
-      </Button>
+      <Box>
+        <Tooltip label="Add data">
+          <IconButton onClick={onOpen} to="add-data">
+            <RiAddLine size={20} />
+          </IconButton>
+        </Tooltip>
+      </Box>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

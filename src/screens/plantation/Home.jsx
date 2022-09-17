@@ -13,7 +13,7 @@ import {
   fetchPlantationLists,
 } from "../../services";
 
-export default function Plantation() {
+export default function PlantationHome() {
   const countsQuery = useQuery("plantationCounts", fetchPlantationCounts);
   const plantations = useQuery("plantations", fetchPlantationLists);
   const chartsQuery = useQuery("charts", fetchPlantationCharts);
