@@ -13,6 +13,11 @@ export const fetchPlantationLists = async () => {
   return axios.get(`${NODE_BACKEND_URL}/api/plantation`);
 };
 
+export const fetchPlantationCharts = async () => {
+  return axios.get(`${NODE_BACKEND_URL}/api/plantation/charts`);
+};
+
+
 export const createPlantation = async (data) => {
   return axios.post(`${NODE_BACKEND_URL}/api/plantation`, data);
 };
