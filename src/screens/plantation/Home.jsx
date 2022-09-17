@@ -5,7 +5,6 @@ import { HiOutlineUser } from "react-icons/hi";
 import { BsCalendar2 } from "react-icons/bs";
 import { GiPlantRoots } from "react-icons/gi";
 import OverviewChart from "../../components/plantation/OverviewChart";
-import CreatePlantation from "../../components/plantation/CreatePlantation";
 import { useQuery } from "react-query";
 import {
   fetchPlantationCharts,
