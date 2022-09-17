@@ -7,11 +7,12 @@ import { GiPlantRoots } from "react-icons/gi";
 import OverviewChart from "../../components/main/plantation/OverviewChart";
 import CreatePlantation from "../../components/main/plantation/CreatePlantation";
 import { useQuery } from "react-query";
-import { fetchPlantationCounts, fetchPlantationLists } from "../../services";
+import { fetchPlantationCharts, fetchPlantationCounts, fetchPlantationLists } from "../../services";
 
 export default function Plantation() {
   const countsQuery = useQuery("plantationCounts", fetchPlantationCounts);
   const plantations = useQuery("plantations", fetchPlantationLists);
+  const chartsQuery = useQuery("charts", fetchPlantationCharts);
 
   const date1 = new Date(2022, 8, 1);
   const date2 = new Date();
@@ -40,9 +41,9 @@ export default function Plantation() {
           icon={HiOutlineUser}
         />
       </SimpleGrid>
-      {plantations?.data?.data?.length > 0 ? (
+      {chartsQuery?.data?.data?.length > 0 ? (
         <Box w="full" h={"full"} mt={"16"}>
-          <OverviewChart plants={plantations?.data?.data} />
+          <OverviewChart plants={chartsQuery?.data?.data} />
         </Box>
       ) : null}
 

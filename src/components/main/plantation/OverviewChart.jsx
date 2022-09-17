@@ -2,24 +2,21 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
   Title,
   Tooltip,
   Legend,
+  BarElement,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend
 );
-
 const options = {
   responsive: true,
   plugins: {
@@ -56,5 +53,5 @@ export default function OverviewChart({ plants }) {
     ],
   };
 
-  return <Line options={options} data={data} />;
+  return <Bar options={options} data={data} />;
 }
