@@ -80,8 +80,12 @@ const Meet = lazy(() => import("../screens/Meet"));
 const ChatLayout = lazy(() => import("../screens/chat"));
 const ChatHome = lazy(() => import("../screens/chat/Home"));
 const ActiveChat = lazy(() => import("../screens/chat/ActiveChat"));
-
 const NotFound = lazy(() => import("../screens/NotFound"));
+
+// plantation routes
+
+const PlantationLayout = lazy(() => import("../screens/plantation/Layout"));
+const PlantationHome = lazy(() => import("../screens/plantation/Home"));
 
 function AppRoutes() {
   const { role, isAuthenticated } = useAuthState();
@@ -102,7 +106,6 @@ function AppRoutes() {
           <Route path="developers" element={<Developers />} />
           <Route path="video-gallery" element={<VideoGallary />} />
           <Route path="documents" element={<Documents />} />
-          <Route path="plantation" element={<Plantation />} />
         </Route>
 
         {!isAuthenticated && (
@@ -179,6 +182,9 @@ function AppRoutes() {
           <Route path="create-post" element={<CreatePost />} />
         </Route> */}
 
+        <Route path="plantation" element={<PlantationLayout />}>
+          <Route index element={<PlantationHome />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
