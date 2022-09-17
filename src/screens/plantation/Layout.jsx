@@ -1,10 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
-import { Box, Flex, HStack, IconButton } from "@chakra-ui/react";
+import { Box, Flex, HStack, IconButton, Tooltip } from "@chakra-ui/react";
 import Logo from "../../components/shared/Logo";
-import { Tooltip } from "chart.js";
 import { RiHome2Line } from "react-icons/ri";
 import ThemeToggle from "../../components/shared/ThemeToggle";
-import CreatePlantation from "../../components/main/plantation/CreatePlantation";
+import CreatePlantation from "../../components/plantation/CreatePlantation";
 
 export default function PlantationLayout() {
   return (
@@ -20,6 +19,12 @@ export default function PlantationLayout() {
       >
         <Logo />
         <HStack>
+          <Tooltip label="Home">
+            <IconButton as={Link} to="/">
+              <RiHome2Line size={20} />
+            </IconButton>
+          </Tooltip>
+
           <CreatePlantation />
 
           <ThemeToggle />

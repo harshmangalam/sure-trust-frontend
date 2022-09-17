@@ -17,7 +17,6 @@ const PhotoGallery = lazy(() => import("../screens/main/PhotoGallery"));
 const Developers = lazy(() => import("../screens/main/Developers"));
 const VideoGallary = lazy(() => import("../screens/main/VideoGallary"));
 const Documents = lazy(() => import("../screens/main/Documents"));
-const Plantation = lazy(() => import("../screens/main/Plantation"));
 
 const AuthLayout = lazy(() => import("../screens/auth"));
 const Login = lazy(() => import("../screens/auth/Login"));

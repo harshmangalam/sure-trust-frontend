@@ -1,11 +1,11 @@
 import { Box, Container, Flex, SimpleGrid } from "@chakra-ui/react";
-import CoursePlantation from "../../components/main/plantation/CoursePlantation";
-import OverviewCard from "../../components/main/plantation/OverviewCard";
+import CoursePlantation from "../../components/plantation/CoursePlantation";
+import OverviewCard from "../../components/plantation/OverviewCard";
 import { HiOutlineUser } from "react-icons/hi";
 import { BsCalendar2 } from "react-icons/bs";
 import { GiPlantRoots } from "react-icons/gi";
-import OverviewChart from "../../components/main/plantation/OverviewChart";
-import CreatePlantation from "../../components/main/plantation/CreatePlantation";
+import OverviewChart from "../../components/plantation/OverviewChart";
+import CreatePlantation from "../../components/plantation/CreatePlantation";
 import { useQuery } from "react-query";
 import {
   fetchPlantationCharts,
@@ -29,9 +29,6 @@ export default function PlantationHome() {
   };
   return (
     <Container py={"16"} maxW={"container.xl"}>
-      <Flex justify={"flex-end"}>
-        <CreatePlantation refetch={refetch} />
-      </Flex>
       <SimpleGrid columns={[1, 2, 3]} spacing={"4"}>
         <OverviewCard label={"Days"} count={diffDays} icon={BsCalendar2} />
         <OverviewCard

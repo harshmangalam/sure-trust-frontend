@@ -1,4 +1,4 @@
-import { createPlantation, fetchCoursesForSignup } from "../../../services";
+import { createPlantation, fetchCoursesForSignup } from "../../services";
 import {
   Modal,
   ModalOverlay,
