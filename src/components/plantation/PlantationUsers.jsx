@@ -28,10 +28,13 @@ export default function PlantationUsers({ users }) {
             aria-label="Users"
             icon={<HiOutlineUser size={24} />}
             onClick={onOpen}
+            variant="ghost"
+            colorScheme="whatsapp"
+            rounded="full"
           />
           <Box pos="absolute" top={-2} right={-1}>
             <Badge
-              colorScheme={"twitter"}
+              colorScheme={"whatsapp"}
               w={5}
               h={5}
               display="grid"

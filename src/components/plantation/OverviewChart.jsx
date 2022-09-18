@@ -39,7 +39,7 @@ export default function OverviewChart({ plants }) {
         label: "Plants",
         data: plants.map((p) => p.plantsCount),
         borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        backgroundColor: "#38A169",
         
         
       },
@@ -47,7 +47,7 @@ export default function OverviewChart({ plants }) {
         label: "Planters",
         data: plants.map((p) => p.users.length),
         borderColor: "rgb(100, 100, 200)",
-        backgroundColor: "rgba(100, 100, 200, 0.5)",
+        backgroundColor: "#68D391",
       },
    
     ],

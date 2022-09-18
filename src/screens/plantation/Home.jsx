@@ -51,7 +51,7 @@ export default function PlantationHome() {
           icon={HiOutlineUser}
         />
       </SimpleGrid>
-      <Tabs my={"16"}>
+      <Tabs my={"16"} colorScheme="whatsapp">
         <TabList>
           <Tab>Course</Tab>
           <Tab>Batch</Tab>

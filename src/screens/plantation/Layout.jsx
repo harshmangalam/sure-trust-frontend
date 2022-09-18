@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { Box, Flex, HStack, IconButton, Tooltip } from "@chakra-ui/react";
+import { Box, Flex, HStack, IconButton, Tooltip, useColorModeValue } from "@chakra-ui/react";
 import Logo from "../../components/shared/Logo";
 import { RiHome2Line } from "react-icons/ri";
 import ThemeToggle from "../../components/shared/ThemeToggle";
@@ -7,7 +7,7 @@ import CreatePlantation from "../../components/plantation/CreatePlantation";
 
 export default function PlantationLayout() {
   return (
-    <Box>
+    <Box minH="100vh" bg={useColorModeValue("green.50","green.900")}>
       <Flex
         as={"nav"}
         maxW="container.xl"
