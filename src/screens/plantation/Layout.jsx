@@ -7,7 +7,7 @@ import CreatePlantation from "../../components/plantation/CreatePlantation";
 
 export default function PlantationLayout() {
   return (
-    <Box minH="100vh" bg={useColorModeValue("green.50","green.900")}>
+    <Box minH="100vh" bg={useColorModeValue("white","green.900")}>
       <Flex
         as={"nav"}
         maxW="container.xl"
