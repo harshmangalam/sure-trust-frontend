@@ -30,6 +30,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useQuery } from "react-query";
 import { RiAddLine } from "react-icons/ri";
+import ImageUpload from "../shared/ImageUpload/index";
+import { useState } from "react";
 
 const schema = yup.object({
   batch: yup.string().required(),
@@ -40,6 +42,7 @@ const schema = yup.object({
 
 export default function CreatePlantation({ refetch }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [images, setImages] = useState([]);
   const toast = useToast();
 
   const {
@@ -54,7 +57,7 @@ export default function CreatePlantation({ refetch }) {
 
   const onSubmit = async (values) => {
     try {
-      await createPlantation(values);
+      await createPlantation({ ...values, images });
       refetch();
       toast({
         status: "success",
@@ -119,6 +122,8 @@ export default function CreatePlantation({ refetch }) {
                 </NumberInput>
                 <FormErrorMessage>{errors.plants?.message}</FormErrorMessage>
               </FormControl>
+
+              <ImageUpload images={images} setImages={setImages} />
             </Stack>
           </ModalBody>
           <ModalFooter>
