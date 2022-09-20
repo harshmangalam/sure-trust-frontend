@@ -4,6 +4,7 @@ export * from "./gallery";
 export * from "./reviews";
 export * from "./home";
 export * from "./courses";
+export * from "./plantation"
 
 export const signup = async (payload) => {
   try {

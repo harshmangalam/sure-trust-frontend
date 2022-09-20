@@ -1,15 +1,28 @@
-import { Box, Container, Flex, SimpleGrid } from "@chakra-ui/react";
-import CoursePlantation from "../../components/main/plantation/CoursePlantation";
-import OverviewCard from "../../components/main/plantation/OverviewCard";
+import {
+  Box,
+  Container,
+  Flex,
+  SimpleGrid,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from "@chakra-ui/react";
+import CoursePlantation from "../../components/plantation/CoursePlantation";
+import OverviewCard from "../../components/plantation/OverviewCard";
 import { HiOutlineUser } from "react-icons/hi";
 import { BsCalendar2 } from "react-icons/bs";
 import { GiPlantRoots } from "react-icons/gi";
-import OverviewChart from "../../components/main/plantation/OverviewChart";
-import CreatePlantation from "../../components/main/plantation/CreatePlantation";
+import OverviewChart from "../../components/plantation/OverviewChart";
 import { useQuery } from "react-query";
-import { fetchPlantationCharts, fetchPlantationCounts, fetchPlantationLists } from "../../services";
+import {
+  fetchPlantationCharts,
+  fetchPlantationCounts,
+  fetchPlantationLists,
+} from "../../services";
 
-export default function Plantation() {
+export default function PlantationHome() {
   const countsQuery = useQuery("plantationCounts", fetchPlantationCounts);
   const plantations = useQuery("plantations", fetchPlantationLists);
   const chartsQuery = useQuery("charts", fetchPlantationCharts);
@@ -25,9 +38,6 @@ export default function Plantation() {
   };
   return (
     <Container py={"16"} maxW={"container.xl"}>
-      <Flex justify={"flex-end"}>
-        <CreatePlantation refetch={refetch} />
-      </Flex>
       <SimpleGrid columns={[1, 2, 3]} spacing={"4"}>
         <OverviewCard label={"Days"} count={diffDays} icon={BsCalendar2} />
         <OverviewCard
@@ -41,11 +51,25 @@ export default function Plantation() {
           icon={HiOutlineUser}
         />
       </SimpleGrid>
-      {chartsQuery?.data?.data?.length > 0 ? (
-        <Box w="full" h={"full"} mt={"16"}>
-          <OverviewChart plants={chartsQuery?.data?.data} />
-        </Box>
-      ) : null}
+      <Tabs my={"16"} colorScheme="whatsapp">
+        <TabList>
+          <Tab>Course</Tab>
+          <Tab>Batch</Tab>
+        </TabList>
+
+        <TabPanels>
+          <TabPanel>
+            {chartsQuery?.data?.data && (
+              <OverviewChart plants={chartsQuery.data.data} />
+            )}
+          </TabPanel>
+          <TabPanel>
+            {plantations?.data?.data && (
+              <OverviewChart plants={plantations.data.data} />
+            )}
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
 
       {plantations?.data?.data?.length > 0 ? (
         <Box mt={"16"}>

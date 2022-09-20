@@ -5,6 +5,17 @@ const CLOUDINARY_ENDPOINT = `https://api.cloudinary.com/v1_1/${process.env.REACT
 
 export default function useCloudinary() {
   const [uploading, setUploading] = useState(false);
+  const [removing, setRemoving] = useState(false);
+
+  async function removeImage() {
+    try {
+      setRemoving(true);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setRemoving(false);
+    }
+  }
   async function uploadToCloud(file) {
     const publicId = shortid.generate();
     setUploading(true);
@@ -35,5 +46,7 @@ export default function useCloudinary() {
   return {
     uploadToCloud,
     uploading,
+    removeImage,
+    removing,
   };
 }
