@@ -8,6 +8,7 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
+  ModalFooter,
   ModalHeader,
   ModalOverlay,
   SimpleGrid,
@@ -31,15 +32,18 @@ export default function ImageUpload({ images, setImages }) {
     const imageFiles = e.target.files;
 
     const size = imageFiles.size;
-    if (size > 5 * 1000000) {
-      setError("File size must be less than 5 mb");
+    if (size > 1 * 1000000) {
+      setError("File size must be less than 1 mb");
       return;
     }
 
     for await (let imageFile of imageFiles) {
       const data = await uploadToCloud(imageFile);
       console.log(data);
-      setImages((images) => [...images, data]);
+      setImages((images) => [
+        ...images,
+        { url: data.url, publicId: data.public_id },
+      ]);
     }
     toast({
       status: "success",
@@ -98,7 +102,7 @@ export default function ImageUpload({ images, setImages }) {
               {images.length ? (
                 <SimpleGrid columns={[1, 2, 3]} spacing={"4"}>
                   {images.map((image) => (
-                    <ImagePreview image={image} />
+                    <ImagePreview image={image} setImages={setImages} />
                   ))}
                 </SimpleGrid>
               ) : (
@@ -106,6 +110,9 @@ export default function ImageUpload({ images, setImages }) {
               )}
             </Box>
           </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Done</Button>
+          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

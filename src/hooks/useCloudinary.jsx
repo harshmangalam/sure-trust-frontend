@@ -1,5 +1,6 @@
 import { useState } from "react";
 import shortid from "shortid";
+import { deleteImage } from "../services/images";
 
 const CLOUDINARY_ENDPOINT = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET}/image/upload`;
 
@@ -7,9 +8,10 @@ export default function useCloudinary() {
   const [uploading, setUploading] = useState(false);
   const [removing, setRemoving] = useState(false);
 
-  async function removeImage() {
+  async function removeImage(publicId) {
     try {
       setRemoving(true);
+      await deleteImage(publicId);
     } catch (error) {
       console.log(error);
     } finally {

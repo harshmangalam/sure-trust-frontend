@@ -1,16 +1,16 @@
-import { Box, IconButton, Image, Tag, Tooltip } from "@chakra-ui/react";
+import { Box, IconButton, Image, Tooltip } from "@chakra-ui/react";
 import { RiCloseLine } from "react-icons/ri";
 import useCloudinary from "../../../hooks/useCloudinary";
 
-export default function ImagePreview({ image }) {
+export default function ImagePreview({ image, setImages }) {
   const { removeImage, removing } = useCloudinary();
+  const handleRemoveImage = async () => {
+    await removeImage(image.publicId);
+    setImages((images) => images.filter((i) => i.publicId !== image.publicId));
+  };
   return (
     <Box pos="relative">
-      <Image rounded="md" src={image.url} w={"full"} h={"40"} />
-
-      <Box pos={"absolute"} bottom={"2"} left={"2"} right={"2"}>
-        <Tag variant={"solid"} colorScheme={"whatsapp"}>{image.original_filename}</Tag>
-      </Box>
+      <Image rounded="md" src={image.url} w={"full"} h={"40"} objectFit="cover" />
 
       <Box pos={"absolute"} top={"2"} right={"2"}>
         <Tooltip label="Remove image">
@@ -21,7 +21,7 @@ export default function ImagePreview({ image }) {
             size="sm"
             icon={<RiCloseLine size={20} />}
             aria-label="remove-image"
-            onClick={() => removeImage()}
+            onClick={handleRemoveImage}
             disabled={removing}
           />
         </Tooltip>

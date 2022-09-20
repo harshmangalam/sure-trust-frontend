@@ -8,27 +8,30 @@ import {
   IconButton,
   Tooltip,
   useDisclosure,
-  Stack,
-  HStack,
-  Avatar,
-  Text,
-  Tag,
   Badge,
   Box,
+  SimpleGrid,
+  Image,
   ModalFooter,
   Button,
 } from "@chakra-ui/react";
+import { useMemo } from "react";
 
-import { HiOutlineUser } from "react-icons/hi";
-export default function PlantationUsers({ users }) {
+import { BsImages } from "react-icons/bs";
+export default function PlantationImages({ images }) {
+  images = useMemo(
+    () => images.reduce((prev, curr) => [...prev, ...curr], []),
+    [images]
+  );
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Tooltip label={"Users"}>
+      <Tooltip label={"Images"}>
         <Box pos={"relative"}>
           <IconButton
-            aria-label="Users"
-            icon={<HiOutlineUser size={24} />}
+            aria-label="Images"
+            icon={<BsImages size={24} />}
             onClick={onOpen}
             variant="ghost"
             colorScheme="whatsapp"
@@ -44,28 +47,34 @@ export default function PlantationUsers({ users }) {
               rounded="full"
               variant="solid"
             >
-              {users.length}
+              {images?.length}
             </Badge>
           </Box>
         </Box>
       </Tooltip>
 
-      <Modal scrollBehavior="inside" isOpen={isOpen} onClose={onClose}>
+      <Modal
+        scrollBehavior="inside"
+        isOpen={isOpen}
+        onClose={onClose}
+        size="6xl"
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Users</ModalHeader>
+          <ModalHeader>Images</ModalHeader>
           <ModalCloseButton />
           <ModalBody className="custom-scrollbar">
-            <Stack spacing={"3"}>
-              {users.map((user) => (
-                <HStack justify={"space-between"}>
-                  <HStack>
-                    <Avatar size={"sm"} name={user} />
-                    <Text>{user}</Text>
-                  </HStack>
-                </HStack>
+            <SimpleGrid columns={[1, 2, 3]} spacing={"4"}>
+              {images?.map((image) => (
+                <Image
+                  src={image.url}
+                  w="full"
+                  h={"60"}
+                  rounded="md"
+                  objectFit={"cover"}
+                />
               ))}
-            </Stack>
+            </SimpleGrid>
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>

@@ -34,8 +34,8 @@ import ImageUpload from "../shared/ImageUpload/index";
 import { useState } from "react";
 
 const schema = yup.object({
-  batch: yup.string().required(),
-  course: yup.string().required(),
+  batch: yup.string(),
+  course: yup.string(),
   user: yup.string().required(),
   plants: yup.string().required(),
 });
@@ -57,15 +57,19 @@ export default function CreatePlantation({ refetch }) {
 
   const onSubmit = async (values) => {
     try {
-      await createPlantation({ ...values, images });
-      refetch();
-      toast({
-        status: "success",
-        description: "Data saved",
-      });
-      reset();
-      onClose();
+      const data = await createPlantation({ ...values, images });
+      if (data.data) {
+        refetch();
+        toast({
+          status: "success",
+          description: "Data saved",
+        });
+        reset();
+        setImages([])
+        onClose();
+      }
     } catch (error) {
+      console.log(error);
       toast({
         status: "error",
         description: "Error while saving data",
