@@ -14,7 +14,7 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import { useAuthState } from "../../contexts/auth";
 import CoursePlantation from "../../components/plantation/CoursePlantation";
 import OverviewCard from "../../components/plantation/OverviewCard";
 import { HiOutlineUser } from "react-icons/hi";
@@ -27,15 +27,19 @@ import { RiHome2Line } from "react-icons/ri";
 import ThemeToggle from "../../components/shared/ThemeToggle";
 import CreatePlantation from "../../components/plantation/CreatePlantation";
 import {
+  fetchPlantationAllowedUsers,
   fetchPlantationCharts,
   fetchPlantationCounts,
   fetchPlantationLists,
 } from "../../services";
+import { useMemo } from "react";
 
 export default function PlantationHome() {
+  const { isAuthenticated, currentUser } = useAuthState();
   const countsQuery = useQuery("plantationCounts", fetchPlantationCounts);
   const plantations = useQuery("plantations", fetchPlantationLists);
   const chartsQuery = useQuery("charts", fetchPlantationCharts);
+  const allowedQuery = useQuery("allowed-users", fetchPlantationAllowedUsers);
 
   const date1 = new Date(process.env.REACT_APP_PLANTATION_START_DATE);
   const date2 = new Date();
@@ -47,6 +51,12 @@ export default function PlantationHome() {
     plantations.refetch();
     chartsQuery.refetch();
   };
+
+  const isAuthorized = useMemo(
+    () => allowedQuery?.data?.data.includes(String(currentUser?.id)),
+    [currentUser]
+  );
+
   return (
     <Box minH="100vh">
       <Flex
@@ -66,7 +76,9 @@ export default function PlantationHome() {
             </IconButton>
           </Tooltip>
 
-          <CreatePlantation refetch={refetch} />
+          {isAuthenticated && isAuthorized && (
+            <CreatePlantation refetch={refetch} />
+          )}
 
           <ThemeToggle />
         </HStack>

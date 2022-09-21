@@ -32,7 +32,7 @@ function Profile() {
             h={"sm"}
             w={"full"}
             src={
-              "https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+              "https://suretrustforruralyouth.com/static/media/satya_sai_baba.51377e50.jpg"
             }
             objectFit={"cover"}
             alt="Profile"
@@ -85,6 +85,17 @@ function Profile() {
                   </Stack>
                 </GridItem>
               )}
+               <GridItem>
+                <Stack spacing={0} align={"center"}>
+                  <Text fontWeight={600}>
+                    {currentUser?.id || "Not Available"}
+                  </Text>
+
+                  <Text fontSize={"sm"} color={"gray.500"}>
+                    User Id
+                  </Text>
+                </Stack>
+              </GridItem>
               <GridItem>
                 <Stack spacing={0} align={"center"}>
                   <Text fontWeight={600}>

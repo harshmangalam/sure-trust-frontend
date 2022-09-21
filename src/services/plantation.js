@@ -17,6 +17,11 @@ export const fetchPlantationCharts = async () => {
   return axios.get(`${NODE_BACKEND_URL}/api/plantation/charts`);
 };
 
+export const fetchPlantationAllowedUsers = async () => {
+  return axios.get(`${NODE_BACKEND_URL}/api/plantation/allowed-users`);
+};
+
+
 
 export const createPlantation = async (data) => {
   return axios.post(`${NODE_BACKEND_URL}/api/plantation`, data);
