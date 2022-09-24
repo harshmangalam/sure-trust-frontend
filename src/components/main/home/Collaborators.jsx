@@ -25,7 +25,7 @@ export default function Collaborators() {
       : `https://${link}`;
   }
   return (
-    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mt={12}>
+    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4} mt={6}>
       {query.data?.map((collaborator, i) => (
         <GridItem key={collaborator.id}>
           <a
