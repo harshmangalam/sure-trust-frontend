@@ -9,14 +9,7 @@ import { useQuery } from "react-query";
 import { fetchCollaborators } from "../../../services";
 
 export default function Collaborators() {
-  const collaboratorBg = useColorModeValue(
-    "linear(to-l, pink.400, blue.300)",
-    "linear(to-l, pink.500, blue.400)"
-  );
-  const collaboratorHoverBg = useColorModeValue(
-    "linear(to-l, blue.500, pink.400)",
-    "linear(to-l, blue.400, pink.500)"
-  );
+  const collaboratorHoverBg = useColorModeValue("blue.400", "blue.700");
   const query = useQuery("collabortors", () => fetchCollaborators(null));
 
   function getLink(link) {
@@ -35,24 +28,16 @@ export default function Collaborators() {
           >
             <Box
               rounded="xl"
-              p={4}
-              bgGradient={collaboratorBg}
-              transform="scale(1.0)"
-              transition="0.3s ease-in-out"
+              p={6}
               _hover={{
-                transform: "scale(1.05)",
-                bgGradient: collaboratorHoverBg,
+                bg: collaboratorHoverBg,
+                textColor: "white",
               }}
-              boxShadow={"2xl"}
+              borderWidth="1px"
               textAlign={"center"}
               cursor="pointer"
             >
-              <Text
-                fontSize="xl"
-                textAlign="center"
-                color="white"
-                fontWeight={"bold"}
-              >
+              <Text fontSize="xl" textAlign="center" fontWeight={"bold"}>
                 {collaborator.name}
               </Text>
             </Box>
