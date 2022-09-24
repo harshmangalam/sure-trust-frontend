@@ -29,7 +29,7 @@ export default function Hero() {
         <Heading
           lineHeight={1.1}
           fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+          fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
         >
           <Text as={"span"} position={"relative"} color={"blue.400"}>
             SURE Trust
@@ -38,7 +38,7 @@ export default function Hero() {
           <Text as={"span"}>Skill Upgradation for Rural-youth Empowerment</Text>
         </Heading>
 
-        <Wrap direction={{ base: "column", md: "row" }} spacing={3}>
+        <Wrap  spacing={4}>
           {!isAuthenticated ? (
             <Button
               as={Link}
