@@ -13,7 +13,7 @@ import {
   ModalOverlay,
 } from "@chakra-ui/react";
 
-export default function CourseSchedule() {
+export default function TrainingSchedule() {
   const [courseModal, setCourseModal] = useState(false);
 
   const courseSchedule = useQuery("courseSchedule", fetchCoursesSchedule);
@@ -26,7 +26,7 @@ export default function CourseSchedule() {
         onClick={() => setCourseModal(true)}
         display={["none", "block"]}
       >
-        Course Schedule
+        Training Schedule
       </Button>
 
       {courseSchedule.data && (

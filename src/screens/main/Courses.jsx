@@ -13,7 +13,7 @@ import CourseCard from "../../components/courses/CourseCard";
 import CoursesSkeleton from "../../components/courses/CoursesSkeleton";
 import Error from "../../components/shared/Error";
 import { useState } from "react";
-import CourseSchedule from "../../components/courses/CourseSchedule";
+import TrainingSchedule from "../../components/courses/TrainingSchedule";
 function Courses() {
   const [pageUrl, setPageUrl] = useState("");
   const query = useQuery(["courses", pageUrl], () => fetchCourses(pageUrl));
@@ -32,7 +32,7 @@ function Courses() {
         <Heading fontSize={"4xl"} textAlign={"center"}>
           Courses
         </Heading>
-        <CourseSchedule />
+        <TrainingSchedule />
       </Flex>
 
       <SimpleGrid mt={12} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>

@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuthState } from "../../../contexts/auth";
 import { Link } from "react-router-dom";
-import CourseSchedule from "../../courses/CourseSchedule";
+import TrainingSchedule from "../../courses/TrainingSchedule";
 
 export default function Hero() {
   const { isAuthenticated } = useAuthState();
@@ -70,7 +70,7 @@ export default function Hero() {
             Explore Courses
           </Button>
 
-          <CourseSchedule />
+          <TrainingSchedule />
         </Wrap>
       </Stack>
       <Flex
