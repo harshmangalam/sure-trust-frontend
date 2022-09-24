@@ -43,13 +43,13 @@ function Home() {
 
       {/* Uniqueness Of Our Training  */}
 
-      <Box as="section" my={24}>
+      <Box as="section" mt={12}>
         <Container maxW={"container.xl"}>
-          <Heading fontSize={{ base: "4xl", md: "5xl" }}>
+          <Heading fontSize={"3xl"}>
             Uniqueness Of Our Training
           </Heading>
 
-          <SimpleGrid spacing={10} columns={[1, 1, 2, 3]} mt={12}>
+          <SimpleGrid spacing={4} columns={[1, 1, 2, 3]} mt={6}>
             {uniquenessTrainings.map((uniquenessTraining, i) => (
               <Box
                 key={i}
@@ -73,24 +73,15 @@ function Home() {
       </Box>
 
       {/*  Ratings  */}
-      <Box as="section" my={24}>
+      <Box as="section" mt={12}>
         <Container maxW={"container.xl"}>
           <HStack justify={"space-between"}>
-            <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+            <Heading textAlign="center" fontSize={"3xl"}>
               Reviews
             </Heading>
-            <Tooltip hasArrow label="More Reviews" bg="blue.400" color="white">
-              <Link href="/reviews">
-                <Avatar
-                  bg={"blue.400"}
-                  color={"white"}
-                  icon={<FaChevronCircleRight size={24} />}
-                />
-              </Link>
-            </Tooltip>
           </HStack>
-          <Box mt={12}>
-            <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={6}>
+          <Box mt={6}>
+            <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={4}>
               {query.data?.data?.result?.data?.slice(0, 3).map((review, i) => (
                 <ReviewCard {...review} key={i} />
               ))}
@@ -98,34 +89,27 @@ function Home() {
           </Box>
         </Container>
       </Box>
+
       {/* videos collections  */}
 
-      <Box as="section" my={24}>
+      <Box as="section" mt={12}>
         <Container maxW={"container.xl"}>
           <HStack justify={"space-between"}>
-            <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
+            <Heading textAlign="center" fontSize={"3xl"}>
               Videos
             </Heading>
-            <Tooltip hasArrow label="More Videos" bg="blue.400" color="white">
-              <Link href="/video-gallery">
-                <Avatar
-                  bg={"blue.400"}
-                  color={"white"}
-                  icon={<FaChevronCircleRight size={24} />}
-                />
-              </Link>
-            </Tooltip>
           </HStack>
-          <Box mt={12}>
+          <Box mt={6}>
             <Video />
           </Box>
         </Container>
       </Box>
 
       {/* collaborators */}
-      <Box my={24}>
+
+      <Box mt={12} mb={12}>
         <Container maxW="container.xl">
-          <Heading fontSize={{ base: "4xl", md: "5xl" }}>Collaborators</Heading>
+          <Heading fontSize={"3xl"}>Collaborators</Heading>
 
           <Collaborators />
         </Container>

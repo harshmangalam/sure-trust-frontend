@@ -4,6 +4,7 @@ import {
   GridItem,
   Heading,
   SimpleGrid,
+  Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -33,18 +34,18 @@ function Course() {
   }
 
   return (
-    <Box py={12}>
-      <Container maxW="container.xl">
-        <VStack>
-          <Heading textAlign={"center"}>{query.data.course_name}</Heading>
+    <>
+      <Container maxW="container.xl" py={"12"}>
+        <Stack spacing={"6"}>
+          <Heading>{query.data.course_name}</Heading>
           <Text>{query.data.prerequisites}</Text>
           <EnrollCourse course={query.data} />
-        </VStack>
+        </Stack>
 
         {query.data.subcourses?.length ? (
-          <Box mt={24} >
-            <Heading>Sub Courses</Heading>
-            <SimpleGrid mt={12} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
+          <Box mt={12}>
+            <Heading fontSize={"3xl"}>Sub Courses</Heading>
+            <SimpleGrid mt={"6"} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
               {query.data.subcourses.map((course) => (
                 <GridItem key={course.id}>
                   <CourseCard course={course} />
@@ -55,10 +56,10 @@ function Course() {
         ) : null}
 
         {teacherQuery?.data && (
-          <Box mt={24}>
-            <Heading>Course Teachers</Heading>
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
-              {teacherQuery.data.map((teacher,i) => (
+          <Box mt={12}>
+            <Heading fontSize={"3xl"}>Course Teachers</Heading>
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={"6"}>
+              {teacherQuery.data.map((teacher, i) => (
                 <CourseTeacher teacher={teacher} key={i} />
               ))}
             </SimpleGrid>
@@ -77,7 +78,7 @@ function Course() {
           <Box as="iframe" src={query.data.syllabus} w="full" h="xl"></Box>
         </Box>
       )}
-    </Box>
+    </>
   );
 }
 
