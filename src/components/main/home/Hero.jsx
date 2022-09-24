@@ -60,6 +60,7 @@ export default function Hero() {
               Dashboard
             </Button>
           )}
+
           <Button
             as={Link}
             to="/courses"
