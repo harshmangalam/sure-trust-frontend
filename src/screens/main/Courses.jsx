@@ -5,26 +5,18 @@ import {
   Flex,
   Heading,
   HStack,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
   SimpleGrid,
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
-import { fetchCourses, fetchCoursesSchedule } from "../../services";
+import { fetchCourses } from "../../services";
 import CourseCard from "../../components/courses/CourseCard";
 import CoursesSkeleton from "../../components/courses/CoursesSkeleton";
 import Error from "../../components/shared/Error";
 import { useState } from "react";
+import CourseSchedule from "../../components/courses/CourseSchedule";
 function Courses() {
-  const [courseModal, setCourseModal] = useState(false);
   const [pageUrl, setPageUrl] = useState("");
   const query = useQuery(["courses", pageUrl], () => fetchCourses(pageUrl));
-  const courseSchedule = useQuery("courseSchedule", fetchCoursesSchedule);
 
   if (query.isLoading) {
     return <CoursesSkeleton />;
@@ -40,14 +32,7 @@ function Courses() {
         <Heading fontSize={"4xl"} textAlign={"center"}>
           Courses
         </Heading>
-        <Button
-          rounded={"full"}
-          colorScheme={"twitter"}
-          onClick={() => setCourseModal(true)}
-          display={["none", "block"]}
-        >
-          Course Schedule
-        </Button>
+        <CourseSchedule />
       </Flex>
 
       <SimpleGrid mt={12} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
@@ -71,41 +56,6 @@ function Courses() {
           </Button>
         </HStack>
       </Box>
-
-      {courseSchedule.data && (
-        <Modal
-          onClose={() => setCourseModal(false)}
-          size={"full"}
-          isOpen={courseModal}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Course Schedule</ModalHeader>
-            <ModalCloseButton />
-
-            <ModalBody>
-              <Box
-                mt={12}
-                as="object"
-                w="100%"
-                h="70vh"
-                data={courseSchedule?.data[0]?.shedule}
-                type="application/pdf"
-              >
-                <Box
-                  as="iframe"
-                  src={courseSchedule?.data[0]?.shedule}
-                  w="full"
-                  h="70vh"
-                ></Box>
-              </Box>
-            </ModalBody>
-            <ModalFooter>
-              <Button onClick={() => setCourseModal(false)}>Close</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      )}
     </Container>
   );
 }

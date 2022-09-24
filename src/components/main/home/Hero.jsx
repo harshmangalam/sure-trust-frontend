@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuthState } from "../../../contexts/auth";
 import { Link } from "react-router-dom";
+import CourseSchedule from "../../courses/CourseSchedule";
 
 export default function Hero() {
   const { isAuthenticated } = useAuthState();
@@ -68,6 +69,8 @@ export default function Hero() {
           >
             Explore Courses
           </Button>
+
+          <CourseSchedule />
         </Wrap>
       </Stack>
       <Flex
@@ -94,7 +97,7 @@ export default function Hero() {
           as={"iframe"}
           rounded={"xl"}
           title="video"
-          src={`https://www.youtube.com/embed/NWPSu63Biks`} 
+          src={`https://www.youtube.com/embed/NWPSu63Biks`}
           allowFullScreen
         />
       </Flex>
