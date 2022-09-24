@@ -23,7 +23,7 @@ function CourseCard({ course }) {
       border="2px"
       borderColor="purple.500"
       bg={courseCardBg}
-      rounded="xl"
+      rounded="md"
       transition="0.5s all"
       _hover={{
         boxShadow: "2xl",
@@ -31,9 +31,9 @@ function CourseCard({ course }) {
       }}
     >
       <VStack spacing={4} align="start">
-        <Heading size="md">{course.course_name}</Heading>
+        <Heading size="md" noOfLines={1}>{course.course_name}</Heading>
 
-        <Text fontSize="md">{course.prerequisites}</Text>
+        <Text noOfLines={1} fontSize="md">{course.prerequisites}</Text>
         <Wrap>
           <Button
             colorScheme={"blue"}
