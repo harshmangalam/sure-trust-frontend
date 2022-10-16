@@ -18,6 +18,8 @@ import { Link } from "react-router-dom";
 import { useAuthState } from "../../contexts/auth";
 function Profile() {
   const { currentUser, role } = useAuthState();
+
+  console.log(currentUser);
   return (
     <Box>
       <Container maxW={"container.md"}>
@@ -85,10 +87,10 @@ function Profile() {
                   </Stack>
                 </GridItem>
               )}
-               <GridItem>
+              <GridItem>
                 <Stack spacing={0} align={"center"}>
                   <Text fontWeight={600}>
-                    {currentUser?.id || "Not Available"}
+                    {currentUser?.id || currentUser?.user.id || "Not Available"}
                   </Text>
 
                   <Text fontSize={"sm"} color={"gray.500"}>
