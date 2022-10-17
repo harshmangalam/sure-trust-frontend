@@ -53,8 +53,8 @@ export default function PlantationHome() {
   };
 
   const isAuthorized = useMemo(
-    () => allowedQuery?.data?.data.includes(String(currentUser?.id)),
-    [currentUser]
+    () => allowedQuery?.data?.data.includes(String(currentUser?.id || currentUser?.user?.id)),
+    [currentUser, allowedQuery]
   );
 
   return (
