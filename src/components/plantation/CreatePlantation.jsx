@@ -65,7 +65,7 @@ export default function CreatePlantation({ refetch }) {
           description: "Data saved",
         });
         reset();
-        setImages([])
+        setImages([]);
         onClose();
       }
     } catch (error) {
@@ -131,10 +131,20 @@ export default function CreatePlantation({ refetch }) {
             </Stack>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="red" mr={3} onClick={onClose}>
+            <Button
+              disabled={isSubmitting}
+              colorScheme="red"
+              mr={3}
+              onClick={onClose}
+            >
               Close
             </Button>
-            <Button type="submit" variant="ghost">
+            <Button
+              disabled={isSubmitting}
+              isLoading={isSubmitting}
+              type="submit"
+              variant="ghost"
+            >
               Save
             </Button>
           </ModalFooter>

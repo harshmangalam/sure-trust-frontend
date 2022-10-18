@@ -10,10 +10,12 @@ import {
   useDisclosure,
   Badge,
   Box,
-  SimpleGrid,
   Image,
   ModalFooter,
   Button,
+  Grid,
+  GridItem,
+  AspectRatio,
 } from "@chakra-ui/react";
 import { useMemo } from "react";
 
@@ -25,6 +27,7 @@ export default function PlantationImages({ images }) {
   );
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Tooltip label={"Images"}>
@@ -64,17 +67,33 @@ export default function PlantationImages({ images }) {
           <ModalHeader>Images</ModalHeader>
           <ModalCloseButton />
           <ModalBody className="custom-scrollbar">
-            <SimpleGrid columns={[1, 2, 3]} spacing={"4"}>
-              {images?.map((image) => (
-                <Image
-                  src={image.url}
-                  w="full"
-                  h={"60"}
-                  rounded="md"
-                  objectFit={"cover"}
-                />
+            <Grid
+              gap={4}
+              my={4}
+              templateColumns={[
+                "repeat(1,1fr)",
+                "repeat(2,1fr)",
+                "repeat(3,1fr)",
+              ]}
+            >
+              {images.map((image) => (
+                <GridItem key={image.id}>
+                  <AspectRatio ratio={1}>
+                    <Image
+                      mt={2}
+                      verticalAlign={"middle"}
+                      rounded={"xl"}
+                      src={image.url}
+                      alt={image.url}
+                      maxH={400}
+                      cursor={"pointer"}
+                      onClick={() => window.open(image.url, "_blank")}
+                      objectFit="cover"
+                    />
+                  </AspectRatio>
+                </GridItem>
               ))}
-            </SimpleGrid>
+            </Grid>
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>

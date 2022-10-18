@@ -53,7 +53,7 @@ export default function PlantationUsers({ users }) {
       <Modal scrollBehavior="inside" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Users</ModalHeader>
+          <ModalHeader>Planters</ModalHeader>
           <ModalCloseButton />
           <ModalBody className="custom-scrollbar">
             <Stack spacing={"3"}>
