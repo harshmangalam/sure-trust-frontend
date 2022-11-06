@@ -69,10 +69,9 @@ const StudentPostGrades = lazy(() =>
 const Meet = lazy(() => import("../screens/Meet"));
 
 // Blog
-// const BlogLayout = lazy(() => import("../screens/blog/BlogLayout"));
-// const BlogHome = lazy(() => import("../screens/blog"));
-// const Posts = lazy(() => import("../screens/blog/Posts"));
-// const CreatePost = lazy(() => import("../screens/blog/CreatePost"));
+const BlogLayout = lazy(() => import("../screens/blog/BlogLayout"));
+const BlogHome = lazy(() => import("../screens/blog"));
+const CreatePost = lazy(() => import("../screens/blog/CreatePost"));
 
 // chat
 
@@ -175,11 +174,10 @@ function AppRoutes() {
 
         <Route path="meet" element={<Meet />} />
 
-        {/* <Route path="blog" element={<BlogLayout />}>
+        <Route path="blog" element={<BlogLayout />}>
           <Route index element={<BlogHome />} />
-          <Route path="posts" element={<Posts />} />
           <Route path="create-post" element={<CreatePost />} />
-        </Route> */}
+        </Route>
 
         <Route path="plantation" element={<PlantationLayout />}>
           <Route index element={<PlantationHome />} />
