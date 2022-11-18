@@ -6,11 +6,12 @@ import axios from "axios";
 import AppRoutes from "./routes/AppRoutes";
 import { ChatProvider } from "./contexts/chat";
 // import { useEffect } from "react";
-// import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
+import { useEffect } from "react";
 const queryClient = new QueryClient();
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
-// const TRACKING_ID = "GTM-M356JTD"; // OUR_TRACKING_ID
-// ReactGA.initialize(TRACKING_ID);
+const TRACKING_ID = process.env.REACT_APP_GA;
+ReactGA.initialize(TRACKING_ID);
 
 const student = localStorage.student
   ? JSON.parse(localStorage.getItem("student"))
@@ -29,9 +30,9 @@ if (teacher) {
 }
 
 function App() {
-  // useEffect(() => {
-  //   ReactGA.pageview(window.location.pathname + window.location.search);
-  // }, []);
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
@@ -46,4 +47,3 @@ function App() {
 }
 
 export default App;
-
