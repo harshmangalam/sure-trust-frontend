@@ -25,7 +25,7 @@ export const frontendManager = {
 export const backendManager = {
   image: AshokImage,
   name: "Mr. Ashok Babu",
-  active: true,
+  active: false,
   education:
     "B.Tech 3rd year, CSE, SRKR Engineering College, Bhimavaram, Andhra Pradhesh.",
   links: [
@@ -60,7 +60,7 @@ export const developers = [
   },
   {
     image: AshokImage,
-    active: true,
+    active: false,
 
     name: "Mr. Ashok Babu",
     education:
