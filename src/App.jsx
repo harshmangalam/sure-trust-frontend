@@ -8,6 +8,8 @@ import { ChatProvider } from "./contexts/chat";
 // import { useEffect } from "react";
 import ReactGA from "react-ga";
 import { useEffect } from "react";
+import TagManager from "react-gtm-module";
+
 const queryClient = new QueryClient();
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
 const TRACKING_ID = process.env.REACT_APP_GA;
@@ -30,9 +32,16 @@ if (teacher) {
 }
 
 function App() {
+  // google analytics
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
   }, []);
+
+  // google tag manager
+  useEffect(() => {
+    TagManager.initialize({ gtmId: "GTM-XXXXX" });
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
