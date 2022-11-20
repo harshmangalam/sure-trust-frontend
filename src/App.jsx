@@ -39,7 +39,7 @@ function App() {
 
   // google tag manager
   useEffect(() => {
-    TagManager.initialize({ gtmId: "GTM-XXXXX" });
+    TagManager.initialize({ gtmId: process.env.REACT_APP_GTM_ID });
   }, []);
 
   return (
