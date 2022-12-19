@@ -1,5 +1,5 @@
 import ramananImage from "../images/lst/ramnan.jpeg";
-import ektaImage from "../images/lst/1.jpeg";
+// import ektaImage from "../images/lst/1.jpeg";
 import amarVivekImage from "../images/amar.jpeg";
 import vijayaImg from "../images/lst/4.jpeg";
 import kritikaImage from "../images/lst/kritika.jpeg";
