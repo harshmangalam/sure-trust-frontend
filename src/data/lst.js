@@ -59,11 +59,7 @@ export const trainingModules = [
         text: `Associate consultant-product analytics currently puruing M.Sc data science M.Sc Mathematics`,
         image: GauriImage,
       },
-      {
-        mentor: "Gauri Balachandran",
-        text: `Associate consultant-Product Analytics currently puruing M.Sc Data Science M.Sc Mathematics`,
-        image: GauriImage,
-      },
+
       {
         mentor: "Mrs. Vijayalakshmi Suresh, M.Com, B.Ed",
         text: `LST Anchor, Multimedia Volunteer : Vidya Vahini – Sri Satya Sai Central Trust. Profession: Special needs educator,Dubai`,
