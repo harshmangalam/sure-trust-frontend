@@ -3,6 +3,8 @@ import ektaImage from "../images/lst/1.jpeg";
 import amarVivekImage from "../images/amar.jpeg";
 import vijayaImg from "../images/lst/4.jpeg";
 import kritikaImage from "../images/lst/kritika.jpeg";
+import SaiTejaImage from "../images/lst/sai_teja.jpg";
+import GauriImage from "../images/lst/gauri.jpg";
 
 import ssMod from "../assets/lst/ss.pdf";
 import lMode from "../assets/lst/l.pdf";
@@ -45,15 +47,26 @@ export const trainingModules = [
     title: "Communication Skills ",
     module: cMode,
     body: [
+      // {
+      //   mentor: "Mrs. G Usha, M.Sc",
+      //   text: `Scientist / Engineer "SE", Solar Panel Division, Power Systems Group,U R RAO SATELLITE CENTER, Bangalore`,
+      //   image:
+      //     "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Usha.jfif/:/cr=t:0%25,l:0.3%25,w:97.7%25,h:73.53%25/rs=w:600,h:600,cg:true,m",
+      // },
+
       {
-        mentor: "Mrs. G Usha, M.Sc",
-        text: `Scientist / Engineer "SE", Solar Panel Division, Power Systems Group,U R RAO SATELLITE CENTER, Bangalore`,
-        image:
-          "https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/Usha.jfif/:/cr=t:0%25,l:0.3%25,w:97.7%25,h:73.53%25/rs=w:600,h:600,cg:true,m",
+        mentor: "Gauri Balachandran",
+        text: `Associate consultant-product analytics currently puruing M.Sc data science M.Sc Mathematics`,
+        image: GauriImage,
+      },
+      {
+        mentor: "Gauri Balachandran",
+        text: `Associate consultant-Product Analytics currently puruing M.Sc Data Science M.Sc Mathematics`,
+        image: GauriImage,
       },
       {
         mentor: "Mrs. Vijayalakshmi Suresh, M.Com, B.Ed",
-        text: `Multimedia Volunteer : Vidya Vahini – Sri Satya Sai Central Trust. Occupation : Option Trader in US Stock Market.`,
+        text: `LST Anchor, Multimedia Volunteer : Vidya Vahini – Sri Satya Sai Central Trust. Profession: Special needs educator,Dubai`,
         image: vijayaImg,
       },
     ],
@@ -74,10 +87,15 @@ export const trainingModules = [
     title: "Wellbeing and Yoga",
     module: ekMode,
     body: [
+      // {
+      //   mentor: "Ekta Pathak, CFA, MBA finance",
+      //   text: `Currently she is  a founder of Ekrang - a holistic yoga platform. Ekta is on a mission to teach self love using Yoga to corporates, education institutions, kids, teenagers, Not-for-profit institutions, and cluster batches in India and abroad. She also provides personal sessions, tailored to the specific health need of Individuals. Ekta is a regular speaker in various national & international conferences, platforms, podcasts and Pro-bono events`,
+      //   image: ektaImage,
+      // },
       {
-        mentor: "Ekta Pathak, CFA, MBA finance",
-        text: `Currently she is  a founder of Ekrang - a holistic yoga platform. Ekta is on a mission to teach self love using Yoga to corporates, education institutions, kids, teenagers, Not-for-profit institutions, and cluster batches in India and abroad. She also provides personal sessions, tailored to the specific health need of Individuals. Ekta is a regular speaker in various national & international conferences, platforms, podcasts and Pro-bono events`,
-        image: ektaImage,
+        mentor: "Posam Sai Teja",
+        text: `M.Sc in data science and comuting`,
+        image: SaiTejaImage,
       },
     ],
   },
