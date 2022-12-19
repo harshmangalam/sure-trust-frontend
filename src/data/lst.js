@@ -90,7 +90,7 @@ export const trainingModules = [
       // },
       {
         mentor: "Posam Sai Teja",
-        text: `M.Sc in data science and comuting`,
+        text: `M.Sc in data science and computing`,
         image: SaiTejaImage,
       },
     ],
