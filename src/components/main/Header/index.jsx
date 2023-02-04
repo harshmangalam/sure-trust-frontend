@@ -18,7 +18,7 @@ function Header() {
   const { isAuthenticated } = useAuthState();
 
   return (
-    <Box as="header" bg={useColorModeValue("white","gray.700")}>
+    <Box as="header" bg={useColorModeValue("white", "gray.700")}>
       <Box shadow="sm" as="nav" py="2" px={{ base: 4, md: 8 }} mx="auto">
         <Flex justify="space-between" align="center">
           <Logo />
@@ -26,6 +26,9 @@ function Header() {
           <HStack>
             {/* display on larger screen  */}
             <HStack display={{ base: "none", md: "flex" }} spacing={4}>
+              <Button variant="ghost" as={NavLink} to="/iery">
+                IERY
+              </Button>
               {!isAuthenticated && (
                 <HStack spacing={2}>
                   {authLinks.map((link) => (
@@ -69,5 +72,4 @@ export default Header;
 const authLinks = [
   { name: "Login", to: "/auth/login" },
   { name: "Signup", to: "/auth/signup" },
-
 ];

@@ -2,6 +2,7 @@ export const links = [
   { name: "About", to: "/about" },
   { name: "Contact", to: "/contact" },
   { name: "Courses", to: "/courses" },
+  { name: "IERY", to: "/iery" },
   { name: "Extracurricular Activities", to: "/plantation" },
   { name: "Reviews", to: "/reviews" },
   { name: "Lifeskills Training Program", to: "/lst" },
