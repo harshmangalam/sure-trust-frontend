@@ -86,6 +86,9 @@ const NotFound = lazy(() => import("../screens/NotFound"));
 const PlantationLayout = lazy(() => import("../screens/plantation/Layout"));
 const PlantationHome = lazy(() => import("../screens/plantation/Home"));
 
+// iery
+const IERYHome = lazy(() => import("../screens/main/iery"));
+
 function AppRoutes() {
   const { role, isAuthenticated } = useAuthState();
   return (
@@ -105,6 +108,7 @@ function AppRoutes() {
           <Route path="developers" element={<Developers />} />
           <Route path="video-gallery" element={<VideoGallary />} />
           <Route path="documents" element={<Documents />} />
+          <Route path="iery" element={<IERYHome />} />
         </Route>
 
         {!isAuthenticated && (
@@ -184,6 +188,7 @@ function AppRoutes() {
         <Route path="plantation" element={<PlantationLayout />}>
           <Route index element={<PlantationHome />} />
         </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
