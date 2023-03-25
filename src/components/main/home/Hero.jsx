@@ -38,7 +38,7 @@ export default function Hero() {
           <Text as={"span"}>Skill Upgradation for Rural-youth Empowerment</Text>
         </Heading>
 
-        <Wrap  spacing={4}>
+        <Wrap spacing={4}>
           {!isAuthenticated ? (
             <Button
               as={Link}
@@ -98,7 +98,7 @@ export default function Hero() {
           as={"iframe"}
           rounded={"xl"}
           title="video"
-          src={`https://www.youtube.com/embed/4QBVIugcdPI`}
+          src={`https://www.youtube.com/embed/quVQvVI7Y-U`}
           allowFullScreen
         />
       </Flex>
