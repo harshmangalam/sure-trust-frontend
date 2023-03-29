@@ -88,6 +88,7 @@ const PlantationHome = lazy(() => import("../screens/plantation/Home"));
 
 // iery
 const IERYHome = lazy(() => import("../screens/main/iery"));
+const IERYDomain = lazy(() => import("../screens/main/iery/IeryDomain"));
 
 function AppRoutes() {
   const { role, isAuthenticated } = useAuthState();
@@ -109,6 +110,7 @@ function AppRoutes() {
           <Route path="video-gallery" element={<VideoGallary />} />
           <Route path="documents" element={<Documents />} />
           <Route path="iery" element={<IERYHome />} />
+          <Route path="iery/:ieryDomain" element={<IERYDomain />} />
         </Route>
 
         {!isAuthenticated && (
