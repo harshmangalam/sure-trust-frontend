@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function DomainCard() {
   const collaboratorHoverBg = useColorModeValue("blue.400", "blue.700");
   return (
-    <Link to="/iery">
+    <Link to="/iery/1">
       <Box
         rounded="xl"
         p={6}
