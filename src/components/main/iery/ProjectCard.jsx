@@ -7,9 +7,25 @@ import {
   Avatar,
   useColorModeValue,
   Image,
+  HStack,
 } from "@chakra-ui/react";
+import { useMemo } from "react";
+import StudentsListModal from "./StudentsListModal";
 
-export default function ProjectCard() {
+export default function ProjectCard({
+  project_name,
+  domain,
+  description,
+  STUDENTS,
+  poster_url,
+}) {
+  const admin = useMemo(() => {
+    const student = STUDENTS?.filter((student) => student.is_admin);
+    if (student?.length) {
+      return student[0];
+    }
+    return null;
+  }, [STUDENTS?.length]);
   return (
     <Center>
       <Box
@@ -29,8 +45,8 @@ export default function ProjectCard() {
           pos={"relative"}
         >
           <Image
-            src={"https://avatars.githubusercontent.com/u/14985020?s=200&v=4"}
-            alt="project"
+            src={poster_url}
+            alt={domain}
             w={"full"}
             maxH={"400px"}
             h="full"
@@ -45,32 +61,29 @@ export default function ProjectCard() {
             fontSize={"sm"}
             letterSpacing={1.1}
           >
-            Web Dev
+            {domain}
           </Text>
           <Heading
             color={useColorModeValue("gray.700", "white")}
             fontSize={"2xl"}
             fontFamily={"body"}
           >
-            Full-stack social media web all
+            {project_name}
           </Heading>
-          <Text color={"gray.500"}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </Text>
+          <Text color={"gray.500"}>{description}</Text>
         </Stack>
-        <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
-          <Avatar
-            src={"https://avatars0.githubusercontent.com/u/1164541?v=4"}
-            alt={"Author"}
-          />
-          <Stack direction={"column"} spacing={0} fontSize={"sm"}>
-            <Text fontWeight={600}>Achim Rolle</Text>
-            <Text color={"gray.500"}>Feb 08, 2021 </Text>
-          </Stack>
-        </Stack>
+        <HStack justify={"space-between"}>
+          {admin && (
+            <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
+              <Avatar name={admin.name} src={admin.image_url} alt={"Author"} />
+              <Stack direction={"column"} spacing={0} fontSize={"sm"}>
+                <Text fontWeight={600}>{admin.name}</Text>
+                <Text color={"gray.500"}>Project leader</Text>
+              </Stack>
+            </Stack>
+          )}
+          <StudentsListModal students={STUDENTS} />
+        </HStack>
       </Box>
     </Center>
   );
