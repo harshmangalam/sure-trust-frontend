@@ -11,10 +11,10 @@ import {
 import { BsLinkedin } from "react-icons/bs";
 
 export default function CoordinatorCard({
-  profileImage,
   name,
+  image_url,
   bio,
-  linkedinUrl,
+  linkedin_url
 }) {
   return (
     <Box
@@ -24,7 +24,7 @@ export default function CoordinatorCard({
       p={6}
       textAlign={"center"}
     >
-      <Avatar size={"2xl"} src={profileImage} alt={name} mb={4} />
+      <Avatar size={"2xl"} src={image_url} alt={name} mb={4} />
       <Heading fontSize={"2xl"} fontFamily={"body"}>
         {name}
       </Heading>
@@ -42,9 +42,9 @@ export default function CoordinatorCard({
           <IconButton
             colorScheme="linkedin"
             as="a"
-            href={linkedinUrl}
+            href={linkedin_url}
             target={"_blank"}
-            key={linkedinUrl}
+           
             rounded={"full"}
             size={"lg"}
           >
