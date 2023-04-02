@@ -1,10 +1,10 @@
 import { Box, Text, useColorModeValue } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-export default function DomainCard() {
+export default function DomainCard({id,Name}) {
   const collaboratorHoverBg = useColorModeValue("blue.400", "blue.700");
   return (
-    <Link to="/iery/1">
+    <Link to={`/iery/${id}`}>
       <Box
         rounded="xl"
         p={6}
@@ -17,7 +17,7 @@ export default function DomainCard() {
         cursor="pointer"
       >
         <Text fontSize="lg" textAlign="center">
-          Web Development
+          {Name}
         </Text>
       </Box>
     </Link>
