@@ -5,25 +5,26 @@ import {
   Heading,
   SimpleGrid,
 } from "@chakra-ui/react";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
 import CoordinatorCard from "../../../components/main/iery/CoordinatorCard";
 import ProjectCard from "../../../components/main/iery/ProjectCard";
+import { fetchDomainDetails } from "../../../services/iery";
 
 export default function IeryDomain() {
+  const { id } = useParams();
+  const { data } = useQuery(["domains", id], () => fetchDomainDetails(id), {
+    enabled: !!id,
+  });
+
   return (
     <Container maxW={"container.xl"} py={6}>
       <Box>
         <Heading fontSize={"3xl"}>Coordinators</Heading>
         <SimpleGrid columns={[1, 2, 3]} mt={4} spacing={4}>
-          {[...new Array(3)].map((user) => (
+          {data?.data?.COORDINATORS.map((user) => (
             <CoordinatorCard
-              bio={
-                "Executive Director and Founder - SURE Trust; Retd Professor-Dept of Management & Commerce, SSSIHL, Puttaparthi"
-              }
-              profileImage="https://platform.suretrustforruralyouth.com/media/gallery/radha_mam.webp"
-              linkedinUrl={
-                "https://www.linkedin.com/in/prof-radhakumari-challa-a3850219b"
-              }
-              name="Prof. Radhakumari Challa"
+             {...user}
             />
           ))}
         </SimpleGrid>
@@ -31,8 +32,8 @@ export default function IeryDomain() {
       <Box mt={10}>
         <Heading fontSize={"3xl"}>Projects</Heading>
         <SimpleGrid columns={[1, 2, 3]} mt={4} spacing={4}>
-          {[...new Array(9)].map((project) => (
-            <ProjectCard />
+          {data?.data?.PROJECTS.map((project) => (
+            <ProjectCard {...project} domain={data?.data?.RESULT?.domain_name} />
           ))}
         </SimpleGrid>
       </Box>

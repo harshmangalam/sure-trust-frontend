@@ -110,7 +110,7 @@ function AppRoutes() {
           <Route path="video-gallery" element={<VideoGallary />} />
           <Route path="documents" element={<Documents />} />
           <Route path="iery" element={<IERYHome />} />
-          <Route path="iery/:ieryDomain" element={<IERYDomain />} />
+          <Route path="iery/:id" element={<IERYDomain />} />
         </Route>
 
         {!isAuthenticated && (
