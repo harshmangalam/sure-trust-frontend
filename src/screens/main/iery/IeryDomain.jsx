@@ -1,10 +1,4 @@
-import {
-  Box,
-  Container,
-  GridItem,
-  Heading,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import CoordinatorCard from "../../../components/main/iery/CoordinatorCard";
@@ -20,12 +14,10 @@ export default function IeryDomain() {
   return (
     <Container maxW={"container.xl"} py={6}>
       <Box>
-        <Heading fontSize={"3xl"}>Coordinators</Heading>
+        <Heading fontSize={"3xl"}>Mentors</Heading>
         <SimpleGrid columns={[1, 2, 3]} mt={4} spacing={4}>
           {data?.data?.COORDINATORS.map((user) => (
-            <CoordinatorCard
-             {...user}
-            />
+            <CoordinatorCard key={user.id} {...user} />
           ))}
         </SimpleGrid>
       </Box>
@@ -33,7 +25,11 @@ export default function IeryDomain() {
         <Heading fontSize={"3xl"}>Projects</Heading>
         <SimpleGrid columns={[1, 2, 3]} mt={4} spacing={4}>
           {data?.data?.PROJECTS.map((project) => (
-            <ProjectCard {...project} domain={data?.data?.RESULT?.domain_name} />
+            <ProjectCard
+              key={project.id}
+              {...project}
+              domain={data?.data?.RESULT?.domain_name}
+            />
           ))}
         </SimpleGrid>
       </Box>

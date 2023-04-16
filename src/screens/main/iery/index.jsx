@@ -11,13 +11,13 @@ import IERYCFO from "../../../components/main/iery/IERYCFO";
 import IERYHero from "../../../components/main/iery/IERYHero";
 import { fetchDomains } from "../../../services/iery";
 export default function IERYHome() {
-  const {data} = useQuery(["domains"],fetchDomains)
+  const { data } = useQuery(["domains"], fetchDomains);
   return (
     <Container maxW={"container.xl"} py="8">
       <IERYHero />
-      <Box mt={"24"}>
+      {/* <Box mt={"24"}>
         <IERYCFO />
-      </Box>
+      </Box> */}
       <Box mt={"24"}>
         <Heading textAlign={"center"}>Domains</Heading>
         <SimpleGrid columns={[1, 2, 3, 4]} mt={"12"} spacing="4">
