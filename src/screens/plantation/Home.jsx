@@ -41,8 +41,8 @@ export default function PlantationHome() {
   const chartsQuery = useQuery("charts", fetchPlantationCharts);
   const allowedQuery = useQuery("allowed-users", fetchPlantationAllowedUsers);
 
-  const date1 = new Date(process.env.REACT_APP_PLANTATION_START_DATE);
-  const date2 = new Date();
+  const date1 = Number(process.env.REACT_APP_PLANTATION_START_DATE);
+  const date2 = Date.now()
   const diffTime = Math.abs(date2 - date1);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 

@@ -10,10 +10,12 @@ function Logo() {
           alt="Sure Trust"
           w={16}
         />
-        <VStack spacing={0} align="start" display={{ base: "none", md: "block" }}>
-          <Heading size="md">
-            Sure Trust
-          </Heading>
+        <VStack
+          spacing={0}
+          align="start"
+          display={{ base: "none", md: "block" }}
+        >
+          <Heading size="md">SURE Trust</Heading>
           <Text fontSize={"sm"}>Social Service Inititative</Text>
         </VStack>
       </HStack>
