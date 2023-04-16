@@ -5,7 +5,6 @@ import {
   Image,
   Container,
   SimpleGrid,
-  GridItem,
   AspectRatio,
   List,
   ListItem,

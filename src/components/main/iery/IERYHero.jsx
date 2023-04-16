@@ -6,17 +6,10 @@ import {
   Text,
   Button,
   Icon,
-  createIcon,
   useColorModeValue,
-  Wrap,
 } from "@chakra-ui/react";
-import { useAuthState } from "../../../contexts/auth";
-import { Link } from "react-router-dom";
-import TrainingSchedule from "../../courses/TrainingSchedule";
 
-export default function Hero() {
-  const { isAuthenticated } = useAuthState();
-
+export default function IERYHero() {
   return (
     <Stack
       align={"center"}
@@ -30,48 +23,14 @@ export default function Hero() {
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
         >
-          <Text as={"span"} position={"relative"} color={"blue.400"}>
-            SURE Trust
+          <Text as={"span"} position={"relative"}>
+            Innovation & Entrepreneurship Hub for Educated Rural Youth
           </Text>
           <br />
-          <Text as={"span"}>Skill Upgradation for Rural-youth Empowerment</Text>
+          <Text as={"span"} color={"blue.400"}>
+            SURE Trust - IERY
+          </Text>
         </Heading>
-
-        <Wrap spacing={4}>
-          {!isAuthenticated ? (
-            <Button
-              as={Link}
-              to="/auth/signup"
-              colorScheme="green"
-              rounded={"full"}
-              px={6}
-            >
-              Get Started
-            </Button>
-          ) : (
-            <Button
-              as={Link}
-              to="/dashboard"
-              colorScheme="green"
-              rounded={"full"}
-              px={6}
-            >
-              Dashboard
-            </Button>
-          )}
-
-          <Button
-            as={Link}
-            to="/courses"
-            colorScheme="blue"
-            rounded={"full"}
-            px={6}
-          >
-            Explore Courses
-          </Button>
-
-          <TrainingSchedule />
-        </Wrap>
       </Stack>
       <Flex
         flex={1}
@@ -87,19 +46,28 @@ export default function Hero() {
           top={"-20%"}
           left={0}
           zIndex={-1}
-          color={useColorModeValue("gray.100", "gray.700")}
+          color={useColorModeValue("blue.100", "blue.300")}
         />
 
         <Box
-          align={"center"}
-          w={"100%"}
-          h={"300px"}
-          as={"iframe"}
-          rounded={"xl"}
-          title="video"
-          src={`https://www.youtube.com/embed/quVQvVI7Y-U`}
-          allowFullScreen
-        />
+          position={"relative"}
+          height={"300px"}
+          rounded={"2xl"}
+          boxShadow={"2xl"}
+          width={"full"}
+          overflow={"hidden"}
+        >
+          <Box
+            align={"center"}
+            w={"100%"}
+            h={"300px"}
+            as={"iframe"}
+            rounded={"xl"}
+            title="video"
+            src={`https://www.youtube.com/embed/YTu-pnGVgJQ`}
+            allowFullScreen
+          />
+        </Box>
       </Flex>
     </Stack>
   );
