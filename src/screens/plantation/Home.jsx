@@ -41,8 +41,8 @@ export default function PlantationHome() {
   const chartsQuery = useQuery("charts", fetchPlantationCharts);
   const allowedQuery = useQuery("allowed-users", fetchPlantationAllowedUsers);
 
-  const date1 = Number(process.env.REACT_APP_PLANTATION_START_DATE);
-  const date2 = Date.now()
+  const date1 = Number(1665253800000);
+  const date2 = Date.now();
   const diffTime = Math.abs(date2 - date1);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
@@ -53,7 +53,10 @@ export default function PlantationHome() {
   };
 
   const isAuthorized = useMemo(
-    () => allowedQuery?.data?.data.includes(String(currentUser?.id || currentUser?.user?.id)),
+    () =>
+      allowedQuery?.data?.data.includes(
+        String(currentUser?.id || currentUser?.user?.id)
+      ),
     [currentUser, allowedQuery]
   );
 
