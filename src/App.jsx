@@ -11,10 +11,7 @@ import { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
 const queryClient = new QueryClient();
-axios.defaults.baseURL =
-  process.env.NODE_ENV === "development"
-    ? process.env.REACT_APP_DEV_BASEURL
-    : process.env.REACT_APP_BASEURL;
+axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
 const TRACKING_ID = process.env.REACT_APP_GA;
 ReactGA.initialize(TRACKING_ID);
 

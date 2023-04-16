@@ -31,22 +31,6 @@ export default function IERYHero() {
             SURE Trust - IERY
           </Text>
         </Heading>
-
-        <Stack
-          spacing={{ base: 4, sm: 6 }}
-          direction={{ base: "column", sm: "row" }}
-        >
-          <Button
-            rounded={"full"}
-            size={"lg"}
-            px={6}
-            colorScheme="blue"
-            as="a"
-            href="/iery/join"
-          >
-            Join IERY
-          </Button>
-        </Stack>
       </Stack>
       <Flex
         flex={1}
