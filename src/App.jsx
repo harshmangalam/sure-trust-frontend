@@ -10,7 +10,13 @@ import ReactGA from "react-ga";
 import { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
 const TRACKING_ID = process.env.REACT_APP_GA;
 ReactGA.initialize(TRACKING_ID);
