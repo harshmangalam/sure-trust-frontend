@@ -74,7 +74,7 @@ function About() {
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Board Of Trustees
           </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6} mt={12}>
             {data.data?.board_of_trustees?.map((user) => (
               <AboutUserCard key={user.id} {...user} />
             ))}
@@ -129,7 +129,7 @@ function About() {
             Board Of Advisors
           </Heading>
 
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6} mt={12}>
             {data.data?.board_of_advisers.map((user) => (
               <AboutUserCard key={user.id} {...user} />
             ))}
