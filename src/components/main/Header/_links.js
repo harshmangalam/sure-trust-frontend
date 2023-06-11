@@ -3,7 +3,7 @@ export const links = [
   { name: "Contact", to: "/contact" },
   { name: "Courses", to: "/courses" },
   { name: "IERY", to: "/iery" },
-  { name: "Extracurricular Activities", to: "/plantation" },
+  { name: "Services for Community", to: "/plantation" },
   { name: "Reviews", to: "/reviews" },
   { name: "Lifeskills Training Program", to: "/lst" },
   { name: "Know More", to: "/know-more" },
