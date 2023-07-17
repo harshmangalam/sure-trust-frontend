@@ -88,7 +88,7 @@ export default function PlantationHome() {
       </Flex>
       <Container py={"16"} maxW={"container.xl"}>
         <Heading fontSize={"3xl"}>
-          Plantation Project - Each One Plant One
+          Plantation Project - Each One Plant Two
         </Heading>
         <SimpleGrid columns={[1, 2, 3]} spacing={"4"} mt={"8"}>
           <OverviewCard label={"Days"} count={diffDays} icon={BsCalendar2} />
