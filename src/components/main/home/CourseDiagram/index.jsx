@@ -14,11 +14,12 @@ const CourseDiagram = () => {
         data={data}
         zoom={0.7}
         orientation="horizontal"
+        initialDepth={1}
         collapsible={true}
         draggable={true}
         translate={{ x: 300, y: 50 }}
         nodeSize={{ x: 400, y: 80 }}
-        pathFunc={"diagonal"}
+        pathFunc={"straight"}
         rootNodeClassName="node__root"
         branchNodeClassName="node__branch"
         leafNodeClassName="node__leaf"
