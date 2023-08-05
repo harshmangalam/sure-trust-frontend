@@ -1,29 +1,11 @@
-import {
-  Box,
-  Heading,
-  Text,
-  SimpleGrid,
-  Container,
-  HStack,
-  Link,
-  Avatar,
-  Tooltip,
-} from "@chakra-ui/react";
+import { Box, Heading, Text, SimpleGrid, Container } from "@chakra-ui/react";
 
-import Video from "../../components/main/home/Video";
 import { uniquenessTrainings } from "../../data/uniquenessTrainings";
-
-import Caption from "../../components/main/home/Caption";
 import Features from "../../components/main/home/Features";
-import { FaChevronCircleRight } from "react-icons/fa";
-import { useQuery } from "react-query";
-import { fetchReviews } from "../../services";
-import ReviewCard from "../../components/main/ReviewCard";
 import Collaborators from "../../components/main/home/Collaborators";
 import Hero from "../../components/main/home/Hero";
+import CourseDiagram from "../../components/main/home/CourseDiagram";
 function Home() {
-  const query = useQuery(["reviews", 1], () => fetchReviews(1));
-
   return (
     <Box>
       {/* Welcome section  */}
@@ -45,9 +27,7 @@ function Home() {
 
       <Box as="section" mt={12}>
         <Container maxW={"container.xl"}>
-          <Heading fontSize={"3xl"}>
-            Uniqueness Of Our Training
-          </Heading>
+          <Heading fontSize={"3xl"}>Uniqueness Of Our Training</Heading>
 
           <SimpleGrid spacing={4} columns={[1, 1, 2, 3]} mt={6}>
             {uniquenessTrainings.map((uniquenessTraining, i) => (
@@ -72,36 +52,9 @@ function Home() {
         </Container>
       </Box>
 
-      {/*  Ratings  */}
-      <Box as="section" mt={12}>
+      <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>
-          <HStack justify={"space-between"}>
-            <Heading textAlign="center" fontSize={"3xl"}>
-              Reviews
-            </Heading>
-          </HStack>
-          <Box mt={6}>
-            <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={4}>
-              {query.data?.data?.result?.data?.slice(0, 3).map((review, i) => (
-                <ReviewCard {...review} key={i} />
-              ))}
-            </SimpleGrid>
-          </Box>
-        </Container>
-      </Box>
-
-      {/* videos collections  */}
-
-      <Box as="section" mt={12}>
-        <Container maxW={"container.xl"}>
-          <HStack justify={"space-between"}>
-            <Heading textAlign="center" fontSize={"3xl"}>
-              Videos
-            </Heading>
-          </HStack>
-          <Box mt={6}>
-            <Video />
-          </Box>
+          <CourseDiagram />
         </Container>
       </Box>
 
@@ -110,7 +63,6 @@ function Home() {
       <Box mt={12} mb={12}>
         <Container maxW="container.xl">
           <Heading fontSize={"3xl"}>Collaborators</Heading>
-
           <Collaborators />
         </Container>
       </Box>
