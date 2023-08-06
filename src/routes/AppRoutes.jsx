@@ -28,6 +28,17 @@ const Dashboard = lazy(() => import("../screens/dashboard/Dashboard"));
 const Profile = lazy(() => import("../screens/dashboard/Profile"));
 const EditProfile = lazy(() => import("../screens/dashboard/EditProfile"));
 
+// services for comminity
+const ServicesForCommunityLayout = lazy(() =>
+  import("../screens/services-for-community/layout")
+);
+const ServicesForCommunity = lazy(() =>
+  import("../screens/services-for-community/page")
+);
+const BloodDonation = lazy(() =>
+  import("../screens/services-for-community/blood-donation")
+);
+
 const TeacherCourses = lazy(() =>
   import("../screens/dashboard/teacher/Courses")
 );
@@ -189,6 +200,13 @@ function AppRoutes() {
 
         <Route path="plantation" element={<PlantationLayout />}>
           <Route index element={<PlantationHome />} />
+        </Route>
+        <Route
+          path="services-for-community"
+          element={<ServicesForCommunityLayout />}
+        >
+          <Route index element={<ServicesForCommunity />} />
+          <Route path="blood-donation" element={<BloodDonation />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
