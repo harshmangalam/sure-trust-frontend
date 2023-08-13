@@ -8,23 +8,48 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
-import { fetchCourses } from "../../services";
+import { fetchCoursesByCategory } from "../../services";
 import CourseCard from "../../components/courses/CourseCard";
 import CoursesSkeleton from "../../components/courses/CoursesSkeleton";
 import Error from "../../components/shared/Error";
-import { useState } from "react";
 import TrainingSchedule from "../../components/courses/TrainingSchedule";
+import FilterCourse from "../../components/courses/FilterCourse";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 function Courses() {
-  const [pageUrl, setPageUrl] = useState("");
-  const query = useQuery(["courses", pageUrl], () => fetchCourses(pageUrl));
+  const [searchParams, setSearchParams] = useSearchParams();
+  const category = searchParams.get("category");
+  const page = searchParams.get("page");
+  const query = useQuery(["courses", category, page], () =>
+    fetchCoursesByCategory(page, category)
+  );
+
+  const handlePagination = (url) => {
+    const u = new URL(url);
+    const page = u.searchParams.get("page");
+    setSearchParams({ category, page: page });
+  };
+
+  useEffect(() => {
+    setSearchParams({ category: "NON MEDICAL", page: 1 });
+  }, []);
 
   return (
     <Container maxW="container.xl" py={12}>
-      <Flex justify={"space-between"}>
+      <Flex direction={["column", "column", "row"]} justify={"space-between"}>
         <Heading fontSize={"4xl"} textAlign={"center"}>
           Courses
         </Heading>
-        <TrainingSchedule />
+
+        <Flex
+          direction={["column", "column", "row"]}
+          gap={4}
+          flexGrow={1}
+          justify={["center", "center", "flex-end"]}
+        >
+          <TrainingSchedule />
+          <FilterCourse />
+        </Flex>
       </Flex>
 
       {query?.data && (
@@ -41,13 +66,13 @@ function Courses() {
           <HStack>
             <Button
               disabled={!query.data.previous}
-              onClick={() => setPageUrl(query.data.previous)}
+              onClick={() => handlePagination(query.data.previous)}
             >
               Prev
             </Button>
             <Button
               disabled={!query.data.next}
-              onClick={() => setPageUrl(query.data.next)}
+              onClick={() => handlePagination(query.data.next)}
             >
               Next
             </Button>

@@ -28,6 +28,22 @@ const Dashboard = lazy(() => import("../screens/dashboard/Dashboard"));
 const Profile = lazy(() => import("../screens/dashboard/Profile"));
 const EditProfile = lazy(() => import("../screens/dashboard/EditProfile"));
 
+// services for comminity
+const ServicesForCommunityLayout = lazy(() =>
+  import("../screens/services-for-community/layout")
+);
+const ServicesForCommunity = lazy(() =>
+  import("../screens/services-for-community/page")
+);
+
+const Plantation = lazy(() =>
+  import("../screens/services-for-community/plantation/page")
+);
+
+const BloodDonation = lazy(() =>
+  import("../screens/services-for-community/blood-donation/page")
+);
+
 const TeacherCourses = lazy(() =>
   import("../screens/dashboard/teacher/Courses")
 );
@@ -80,11 +96,6 @@ const ChatLayout = lazy(() => import("../screens/chat"));
 const ChatHome = lazy(() => import("../screens/chat/Home"));
 const ActiveChat = lazy(() => import("../screens/chat/ActiveChat"));
 const NotFound = lazy(() => import("../screens/NotFound"));
-
-// plantation routes
-
-const PlantationLayout = lazy(() => import("../screens/plantation/Layout"));
-const PlantationHome = lazy(() => import("../screens/plantation/Home"));
 
 // iery
 const IERYHome = lazy(() => import("../screens/main/iery"));
@@ -187,8 +198,13 @@ function AppRoutes() {
           <Route path="create-post" element={<CreatePost />} />
         </Route> */}
 
-        <Route path="plantation" element={<PlantationLayout />}>
-          <Route index element={<PlantationHome />} />
+        <Route
+          path="services-for-community"
+          element={<ServicesForCommunityLayout />}
+        >
+          <Route index element={<ServicesForCommunity />} />
+          <Route path="plantation" element={<Plantation />} />
+          <Route path="blood-donation" element={<BloodDonation />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
