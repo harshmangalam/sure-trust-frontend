@@ -1,4 +1,11 @@
-import { Box, Flex, HStack, IconButton, Tooltip } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Flex,
+  HStack,
+  IconButton,
+  Tooltip,
+} from "@chakra-ui/react";
 import { Link, Outlet } from "react-router-dom";
 import Logo from "../../components/shared/Logo";
 import { RiHome2Line } from "react-icons/ri";
@@ -27,7 +34,7 @@ export default function ServicesForCommunityLayout() {
           <ThemeToggle />
         </HStack>
       </Flex>
-      <Box flex={1} w="full">
+      <Box flex={1} w="full" py={6}>
         <Outlet />
       </Box>
     </Flex>

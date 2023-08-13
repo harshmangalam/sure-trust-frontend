@@ -18,12 +18,7 @@ export default function CommunityServiceHero() {
           >
             Services For <Text as={"span"}>Community</Text>
           </Heading>
-          <Text fontSize="lg" textAlign="center">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
-            asperiores libero in esse optio laudantium dolor saepe hic
-            accusantium cupiditate earum, voluptatibus sunt, tempore, laborum
-            modi quasi nemo nobis! Ducimus.
-          </Text>
+          <Text fontSize="lg" textAlign="center"></Text>
         </Stack>
       </Container>
     </Box>

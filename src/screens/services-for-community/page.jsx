@@ -7,13 +7,8 @@ export default function ServicesForCommunity() {
   const services = [
     {
       name: "Plantation",
-      url: "/plantation",
+      url: "/services-for-community/plantation",
       icon: <GiPlantWatering size={24} />,
-    },
-    {
-      name: "Blood donations",
-      url: "blood-donation",
-      icon: <BiDonateBlood size={24} />,
     },
   ];
   return (

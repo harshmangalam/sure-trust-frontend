@@ -49,7 +49,7 @@ export default function CreatePlantation({ refetch }) {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
-    setError,
+
     reset,
   } = useForm({ resolver: yupResolver(schema) });
 
@@ -80,11 +80,9 @@ export default function CreatePlantation({ refetch }) {
   return (
     <>
       <Box>
-        <Tooltip label="Add data">
-          <IconButton onClick={onOpen} to="add-data">
-            <RiAddLine size={20} />
-          </IconButton>
-        </Tooltip>
+        <Button onClick={onOpen} leftIcon={<RiAddLine size={20} />}>
+          Add Plantation
+        </Button>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose}>
