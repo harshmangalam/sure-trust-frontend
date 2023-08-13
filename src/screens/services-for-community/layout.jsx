@@ -27,7 +27,7 @@ export default function ServicesForCommunityLayout() {
           <ThemeToggle />
         </HStack>
       </Flex>
-      <Box flex={1} w="full" py={6}>
+      <Box flex={1} w="full">
         <Outlet />
       </Box>
     </Flex>
