@@ -20,9 +20,7 @@ export default function TrainingSchedule() {
 
   return (
     <>
-      <Button rounded={"full"} colorScheme={"pink"} onClick={onOpen}>
-        Training Schedule
-      </Button>
+      <Button onClick={onOpen}>Training Schedule</Button>
 
       <Modal onClose={onClose} size={"full"} isOpen={isOpen}>
         <ModalOverlay />

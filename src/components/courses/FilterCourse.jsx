@@ -1,7 +1,8 @@
-import { Select } from "@chakra-ui/react/";
+import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
+import { FiChevronDown } from "react-icons/fi";
 export default function FilterCourse() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const filters = [
     {
       name: "Medical",
@@ -13,23 +14,22 @@ export default function FilterCourse() {
     },
   ];
 
-  const handleCategoryChange = (ev) => {
-    const category = ev.target.value;
+  const handleCategoryChange = (category) => {
     setSearchParams({ category: category });
   };
 
   return (
-    <Select
-      rounded={"full"}
-      maxW={["full", "full", "xs"]}
-      onChange={handleCategoryChange}
-      value={searchParams.get("category")}
-    >
-      {filters.map(({ name, value }) => (
-        <option key={name} value={value}>
-          {name}
-        </option>
-      ))}
-    </Select>
+    <Menu>
+      <MenuButton colorScheme="blue" as={Button} rightIcon={<FiChevronDown />}>
+        Filter Category
+      </MenuButton>
+      <MenuList>
+        {filters.map(({ name, value }) => (
+          <MenuItem onClick={() => handleCategoryChange(value)}>
+            {name}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
   );
 }

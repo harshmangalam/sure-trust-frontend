@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { useAuthState } from "../../../contexts/auth";
 import { Link } from "react-router-dom";
-import TrainingSchedule from "../../courses/TrainingSchedule";
 
 export default function Hero() {
   const { isAuthenticated } = useAuthState();

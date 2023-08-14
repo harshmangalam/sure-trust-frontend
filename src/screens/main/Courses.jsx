@@ -37,19 +37,23 @@ function Courses() {
 
   return (
     <Container maxW="container.xl" py={12}>
-      <Flex direction={["column", "column", "row"]} justify={"space-between"}>
+      <Flex
+        gap={4}
+        direction={["column", "column", "row"]}
+        justify={"space-between"}
+      >
         <Heading fontSize={"4xl"} textAlign={"center"}>
           Courses
         </Heading>
 
         <Flex
-          direction={["column", "column", "row"]}
+          direction={["column", "row"]}
           gap={4}
           flexGrow={1}
           justify={["center", "center", "flex-end"]}
         >
-          <TrainingSchedule />
           <FilterCourse />
+          <TrainingSchedule />
         </Flex>
       </Flex>
 
