@@ -2,13 +2,18 @@ import { Box, GridItem, SimpleGrid, Button, Container } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import CommunityServiceHero from "../../components/services-for-community/hero";
 import { GiPlantWatering } from "react-icons/gi";
-// import { BiDonateBlood } from "react-icons/bi";
+import { BiDonateBlood } from "react-icons/bi";
 export default function ServicesForCommunity() {
   const services = [
     {
       name: "Plantation",
       url: "/services-for-community/plantation",
       icon: <GiPlantWatering size={24} />,
+    },
+    {
+      name: "Blood donations",
+      url: "/services-for-community/blood-donation",
+      icon: <BiDonateBlood size={24} />,
     },
   ];
   return (
