@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import DomainCard from "../../../components/main/iery/DomainCard";
-// import IERYCFO from "../../../components/main/iery/IERYCFO";
 import IERYHero from "../../../components/main/iery/IERYHero";
 import { fetchDomains } from "../../../services/iery";
 export default function IERYHome() {
@@ -16,13 +15,10 @@ export default function IERYHome() {
   return (
     <Container maxW={"container.xl"} py="8">
       <IERYHero />
-      {/* <Box mt={"24"}>
-        <IERYCFO />
-      </Box> */}
+
       <Box mt={"24"}>
-        <Heading textAlign={"center"}>
-          Domains At Work For Building IT Solutions
-        </Heading>
+        <Heading textAlign={"center"}>Ongoing Internship Projects</Heading>
+
         {data?.data?.domain_list?.length ? (
           <SimpleGrid columns={[1, 2, 3, 4]} mt={"12"} spacing="4">
             {data?.data?.domain_list?.map((domain) => (

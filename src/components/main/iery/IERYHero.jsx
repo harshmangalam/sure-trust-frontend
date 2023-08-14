@@ -16,20 +16,24 @@ export default function IERYHero() {
       py={{ base: 20, md: 28 }}
       direction={{ base: "column", md: "row" }}
     >
-      <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+      <Stack flex={1} spacing={{ base: 5 }}>
         <Heading
           lineHeight={1.1}
           fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
+          fontSize={{ base: "3xl", sm: "4xl" }}
         >
-          <Text as={"span"} position={"relative"}>
-            Innovation & Entrepreneurship Hub for Educated Rural Youth
-          </Text>
-          <br />
           <Text as={"span"} color={"blue.400"}>
             SURE Trust - IERY
           </Text>
+          <br />
+          <Text as={"span"} position={"relative"}>
+            Innovation & Entrepreneurship Hub for Educated Rural Youth
+          </Text>
         </Heading>
+        <Text maxW={"md"} mx={"auto"} fontSize={"lg"} color={"CaptionText"}>
+          Gain hands-on experience through executive-led internships which are
+          open to 3rd/4th year B.Tech, MCA, MBA, and PG/Ph.D. students.
+        </Text>
       </Stack>
       <Flex
         flex={1}
