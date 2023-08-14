@@ -34,6 +34,7 @@ export default function ChatLayout() {
         replace: true,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { activeChat } = useChatState();
@@ -65,7 +66,7 @@ export default function ChatLayout() {
                 <ThemeToggle />
               </HStack>
               <Divider />
-              <VStack  align={"flex-start"} spacing={2} px={2} py={4}>
+              <VStack align={"flex-start"} spacing={2} px={2} py={4}>
                 {authState?.role === "teacher" && <TeacherChatCourses />}
                 {authState?.role === "student" && <StudentChatBatch />}
               </VStack>

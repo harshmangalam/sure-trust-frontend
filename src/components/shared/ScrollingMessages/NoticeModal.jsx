@@ -1,5 +1,4 @@
 import {
-  Button,
   Heading,
   Modal,
   ModalBody,
@@ -13,7 +12,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 
-import { FaEye, FaLongArrowAltRight } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 export default function NoticeModal({ notice }) {
   const { isOpen, onClose, onOpen } = useDisclosure();

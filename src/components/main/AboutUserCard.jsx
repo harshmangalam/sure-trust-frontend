@@ -7,7 +7,6 @@ import {
   Text,
   useColorModeValue,
   VStack,
-  Wrap,
 } from "@chakra-ui/react";
 import { FaLinkedin } from "react-icons/fa";
 export default function AboutUserCard({ image, name, linked_in_url, about }) {

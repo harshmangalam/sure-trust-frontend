@@ -8,12 +8,8 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  HStack,
-  Tooltip,
-  IconButton,
   Heading,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import { useAuthState } from "../../../contexts/auth";
 import CoursePlantation from "../../../components/plantation/CoursePlantation";
 import OverviewCard from "../../../components/plantation/OverviewCard";
@@ -22,9 +18,6 @@ import { BsCalendar2 } from "react-icons/bs";
 import { GiPlantRoots } from "react-icons/gi";
 import OverviewChart from "../../../components/plantation/OverviewChart";
 import { useQuery } from "react-query";
-import Logo from "../../../components/shared/Logo";
-import { RiHome2Line } from "react-icons/ri";
-import ThemeToggle from "../../../components/shared/ThemeToggle";
 import CreatePlantation from "../../../components/plantation/CreatePlantation";
 import {
   fetchPlantationAllowedUsers,

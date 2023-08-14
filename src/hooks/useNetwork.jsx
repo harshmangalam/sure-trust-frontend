@@ -1,15 +1,15 @@
-import { useToast } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react/";
 import { useEffect, useState } from "react";
 
 export default function useNetwork() {
   const [isOnline, setIsOnline] = useState(false);
   const toast = useToast();
-  const checkNetworkStatus = () => {
+
+  function checkNetworkStatus() {
     const isOnline = window.navigator?.onLine;
     setIsOnline(isOnline);
-  };
-
-  const handleStatusChange = (e) => {
+  }
+  function handleStatusChange(e) {
     const isOnline = e.type === "online";
     setIsOnline(isOnline);
     toast({
@@ -19,18 +19,17 @@ export default function useNetwork() {
       isClosable: true,
       duration: 6000,
     });
-  };
-
+  }
   useEffect(() => {
-    checkNetworkStatus();
-
     window.addEventListener("online", handleStatusChange);
     window.addEventListener("offline", handleStatusChange);
+    checkNetworkStatus();
 
     return () => {
-      window.removeEventListener("online", handleStatusChange)
-      window.removeEventListener("offline", handleStatusChange)
-    }
+      window.removeEventListener("online", handleStatusChange);
+      window.removeEventListener("offline", handleStatusChange);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return {
     isOnline,

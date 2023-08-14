@@ -1,18 +1,10 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useRef,
-} from "react";
-import { useNavigate } from "react-router-dom";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   fetchStudentBatches,
   fetchTeacherBatches,
   fetchTeacherCourses,
 } from "../services";
 import { useAuthState } from "./auth";
-// import { io } from "socket.io-client";
 import axios from "axios";
 export const ChatStateContext = createContext();
 export const ChatDispatchContext = createContext();
@@ -24,9 +16,6 @@ const NODE_BACKEND_URL =
     : process.env.REACT_APP_NODE_PROD_BASEURL;
 
 const CHAT_URL = `${NODE_BACKEND_URL}/api/chat`;
-const userData =
-  (localStorage.student && JSON.parse(localStorage.getItem("student"))) ||
-  (localStorage.teacher && JSON.stringify(localStorage.getItem("teacher")));
 
 const defaultState = {
   activeChat: null,
@@ -105,12 +94,11 @@ const reducer = (state, { type, payload }) => {
 
 export const ChatProvider = ({ children }) => {
   // const socketRef = useRef();
-  const { role, isAuthenticated, currentUser } = useAuthState();
+  const { role, isAuthenticated } = useAuthState();
   const [state, dispatch] = useReducer(reducer, defaultState);
-  const navigate = useNavigate();
   useEffect(() => {
     if (!isAuthenticated) {
-      return
+      return;
     }
 
     if (role === "teacher") {
@@ -121,20 +109,6 @@ export const ChatProvider = ({ children }) => {
       handleFetchStudentBatches();
     }
   }, [role, isAuthenticated]);
-
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     socketRef.current = io(NODE_BACKEND_URL, {
-  //       auth: {
-  //         token: userData?.token,
-  //       },
-  //     });
-  //   }
-
-  //   return () => {
-  //     socketRef.current.disconnect();
-  //   };
-  // }, []);
 
   async function handleFetchTeacherCourses() {
     dispatch({ type: "SET_LOADING", payload: "fetching-courses" });

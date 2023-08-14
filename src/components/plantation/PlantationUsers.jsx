@@ -12,7 +12,6 @@ import {
   HStack,
   Avatar,
   Text,
-  Tag,
   Badge,
   Box,
   ModalFooter,

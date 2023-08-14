@@ -21,6 +21,7 @@ export default function Meet() {
     if (!classMeet?.meetingCode) {
       return navigate("/dashboard/", { replace: true });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -31,6 +32,7 @@ export default function Meet() {
     }
 
     return () => handleClassEnd();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleClassStart() {

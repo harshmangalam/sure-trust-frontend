@@ -1,5 +1,4 @@
 import { useQuery } from "react-query";
-import { useState } from "react";
 import { fetchCoursesSchedule } from "../../services";
 import {
   Box,

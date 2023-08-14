@@ -7,7 +7,6 @@ import {
   useColorModeValue,
   Tooltip,
 } from "@chakra-ui/react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { socialLinks } from "../../data/social";
 
 export default function SmallWithLogoLeft() {

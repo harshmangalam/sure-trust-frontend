@@ -25,7 +25,7 @@ export default function ProjectCard({
       return student[0];
     }
     return null;
-  }, [STUDENTS?.length]);
+  }, [STUDENTS]);
   return (
     <Center>
       <Box

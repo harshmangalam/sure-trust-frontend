@@ -14,6 +14,7 @@ export default function ActiveChat() {
     if (!activeChat) {
       navigate("/chat");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeChat]);
   return (
     <Box h={"100vh"} bg={screenBg}>

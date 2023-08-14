@@ -6,7 +6,6 @@ import {
   SimpleGrid,
   Stack,
   Text,
-  VStack,
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import Error from "../../components/shared/Error";
@@ -45,7 +44,11 @@ function Course() {
         {query.data.subcourses?.length ? (
           <Box mt={12}>
             <Heading fontSize={"3xl"}>Sub Courses</Heading>
-            <SimpleGrid mt={"6"} columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
+            <SimpleGrid
+              mt={"6"}
+              columns={{ base: 1, md: 2, lg: 3 }}
+              spacing={6}
+            >
               {query.data.subcourses.map((course) => (
                 <GridItem key={course.id}>
                   <CourseCard course={course} />
@@ -58,7 +61,11 @@ function Course() {
         {teacherQuery?.data && (
           <Box mt={12}>
             <Heading fontSize={"3xl"}>Course Teachers</Heading>
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={"6"}>
+            <SimpleGrid
+              columns={{ base: 1, md: 2, lg: 3 }}
+              spacing={6}
+              mt={"6"}
+            >
               {teacherQuery.data.map((teacher, i) => (
                 <CourseTeacher teacher={teacher} key={i} />
               ))}

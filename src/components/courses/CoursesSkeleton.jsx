@@ -1,4 +1,4 @@
-import { SimpleGrid, GridItem, Skeleton, Container } from "@chakra-ui/react";
+import { SimpleGrid, GridItem, Skeleton } from "@chakra-ui/react";
 function CoursesSkelteton({ mt = "0", spacing = "6" }) {
   return (
     <SimpleGrid mt={mt} columns={{ base: 1, md: 2, lg: 3 }} spacing={spacing}>

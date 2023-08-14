@@ -8,9 +8,7 @@ export default function ActiveChatMessages() {
   const msgBodyRef = useRef();
 
   useEffect(() => {
-    if (activeChat?.messagea) {
-      console.log(msgBodyRef.current.scrollHeight);
-      console.log(msgBodyRef.current.scrollTop);
+    if (activeChat?.messages) {
       msgBodyRef.current.scrollTop = msgBodyRef.current.scrollHeight;
     }
   }, [activeChat?.messages]);

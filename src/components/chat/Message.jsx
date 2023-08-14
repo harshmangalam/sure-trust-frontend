@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuthState } from "../../contexts/auth";
 import { formatDistance } from "date-fns";
-import { useChatDispatch, useChatState } from "../../contexts/chat";
+import { useChatDispatch } from "../../contexts/chat";
 import { AiOutlineDelete } from "react-icons/ai";
 import Linkify from "react-linkify";
 import FileView from "./FileView";
