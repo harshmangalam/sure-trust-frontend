@@ -41,7 +41,7 @@ export default function Hero() {
             <Button
               as={Link}
               to="/auth/signup"
-              colorScheme="green"
+              colorScheme="blue"
               rounded={"full"}
               px={6}
             >
@@ -51,7 +51,7 @@ export default function Hero() {
             <Button
               as={Link}
               to="/dashboard"
-              colorScheme="green"
+              colorScheme="blue"
               rounded={"full"}
               px={6}
             >
@@ -62,14 +62,12 @@ export default function Hero() {
           <Button
             as={Link}
             to="/courses"
-            colorScheme="blue"
+            colorScheme="purple"
             rounded={"full"}
             px={6}
           >
             Explore Courses
           </Button>
-
-          <TrainingSchedule />
         </Wrap>
       </Stack>
       <Flex
