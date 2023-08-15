@@ -2,6 +2,7 @@ import { Box, Heading, Container } from "@chakra-ui/react";
 import Features from "../../components/main/home/Features";
 import Collaborators from "../../components/main/home/Collaborators";
 import Hero from "../../components/main/home/Hero";
+import StatsCount from "../../components/main/home/StatsData";
 function Home() {
   return (
     <Box>
@@ -13,6 +14,8 @@ function Home() {
       </Box>
 
       {/* Features section */}
+
+      <StatsCount />
 
       <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>

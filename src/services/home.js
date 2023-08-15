@@ -30,3 +30,7 @@ export const fetchFeatures = async () => {
     throw error;
   }
 };
+
+export const fetchStats = async ()=>{
+  return await axios.get("/community/get_count")
+}
