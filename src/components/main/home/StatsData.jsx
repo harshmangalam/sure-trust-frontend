@@ -10,11 +10,12 @@ export default function StatsCount() {
 
   return (
     <Container maxW={"container.xl"} mt={"4"}>
-      <SimpleGrid columns={{ base: 1, md: 5 }} spacing={{ base: 5, lg: 8 }}>
-        <StatItem title={"Students Ongoing"} stat={"1,000+"} />
-        <StatItem title={"Students Placed"} stat={"100+"} />
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
+        <StatItem title={"Students Undergoing Training"} stat={"300+"} />
+        <StatItem title={"Students Completed Training"} stat={"1000+"} />
+        <StatItem title={"Students Placed"} stat={"300+"} />
         <StatItem title={"Courses"} stat={result?.course_count} />
-        <StatItem title={"Batches"} stat={result?.batch_count} />
+        <StatItem title={"Ongoing Batches"} stat="25+" />
         <StatItem title={"Trainers"} stat={result?.trainer_count} />
       </SimpleGrid>
     </Container>
