@@ -8,13 +8,18 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-export default function ServiceStat({ label, count, icon }) {
+export default function ServiceStat({
+  color = "blue.800",
+  label,
+  count,
+  icon,
+}) {
   return (
     <Box
       borderWidth={"1px"}
       rounded="lg"
       p={"4"}
-      bg={useColorModeValue("white", "green.800")}
+      bg={useColorModeValue("white", color)}
     >
       <HStack justify={"space-between"} align="start">
         <Stat>

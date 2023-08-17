@@ -39,7 +39,6 @@ export default function ImageUpload({ images, setImages }) {
 
     for await (let imageFile of imageFiles) {
       const data = await uploadToCloud(imageFile);
-      console.log(data);
       setImages((images) => [
         ...images,
         { url: data.url, publicId: data.public_id },
