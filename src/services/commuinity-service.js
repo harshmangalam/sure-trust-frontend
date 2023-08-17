@@ -8,4 +8,17 @@ async function createBloodDonation(data) {
   return axios.post("/community/blood_donate/", data);
 }
 
-export { getBloodDonation, createBloodDonation };
+async function getSeniorCitizen(page) {
+  return await axios.get(`/community/senior_citizen/?page=${page}`);
+}
+
+async function createSeniorCitizen(data) {
+  return axios.post("/community/senior_citizen/", data);
+}
+
+export {
+  getBloodDonation,
+  createBloodDonation,
+  getSeniorCitizen,
+  createSeniorCitizen,
+};
