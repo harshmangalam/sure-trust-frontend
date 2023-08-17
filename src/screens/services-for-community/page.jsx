@@ -17,7 +17,7 @@ export default function ServicesForCommunity() {
       icon: <BiDonateBlood size={24} />,
     },
     {
-      name: "Senior citizen",
+      name: "Service to Senior citizen",
       url: "/services-for-community/senior-citizen",
       icon: <HiOutlineUsers size={24} />,
     },
@@ -26,7 +26,7 @@ export default function ServicesForCommunity() {
     <Box>
       <CommunityServiceHero />
       <Container maxW="container.xl">
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4} mt={16}>
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} spacing={4} mt={16}>
           {services.map(({ name, url, icon }) => (
             <GridItem key={name}>
               <Button
