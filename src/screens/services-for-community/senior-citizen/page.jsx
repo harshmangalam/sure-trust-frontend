@@ -11,17 +11,14 @@ import ServiceStat from "../../../components/services-for-community/service-stat
 import { MdOutlineBloodtype } from "react-icons/md";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { useQuery } from "react-query";
-import {
-  getBloodDonation,
-  getSeniorCitizen,
-} from "../../../services/commuinity-service";
+import { getSeniorCitizen } from "../../../services/commuinity-service";
 import Loader from "../../../components/shared/Loader";
 import ServiceCard from "../../../components/services-for-community/service-card";
 import { useSearchParams } from "react-router-dom";
 import { fetchPlantationAllowedUsers } from "../../../services";
 import { useMemo } from "react";
 import { useAuthState } from "../../../contexts/auth";
-import BloodDonationForm from "../../../components/services-for-community/blood-donation-form";
+import SeniorCitizenForm from "../../../components/services-for-community/senior-citizen-form";
 export default function SeniorCitizen() {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page") ?? 1;
@@ -59,9 +56,9 @@ export default function SeniorCitizen() {
   return (
     <Box>
       <Container maxW={"container.xl"}>
-        {isAuthenticated && isAuthorized && (
+        {isAuthenticated && (
           <Flex justifyContent={"flex-end"}>
-            <BloodDonationForm refetch={refetch} />
+            <SeniorCitizenForm refetch={refetch} />
           </Flex>
         )}
         <SimpleGrid columns={[1, 2, 3]} spacing={6}>
