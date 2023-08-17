@@ -10,13 +10,29 @@ export default function StatsCount() {
 
   return (
     <Container maxW={"container.xl"} mt={"4"}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
-        <StatItem title={"Students Undergoing Training"} stat={"300+"} />
-        <StatItem title={"Students Completed Training"} stat={"1000+"} />
-        <StatItem title={"Students Placed"} stat={"300+"} />
-        <StatItem title={"Courses"} stat={result?.course_count} />
-        <StatItem title={"Ongoing Batches"} stat="25+" />
-        <StatItem title={"Trainers"} stat={result?.trainer_count} />
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 4, lg: 4 }}>
+        <StatItem
+          color="blue.500"
+          title={"Students Undergoing Training"}
+          stat={"300+"}
+        />
+        <StatItem
+          color="pink.500"
+          title={"Students Completed Training"}
+          stat={"1000+"}
+        />
+        <StatItem color="green.500" title={"Students Placed"} stat={"300+"} />
+        <StatItem
+          color="blue.500"
+          title={"Courses"}
+          stat={result?.course_count}
+        />
+        <StatItem color="pink.500" title={"Ongoing Batches"} stat="25+" />
+        <StatItem
+          color="green.500"
+          title={"Trainers"}
+          stat={result?.trainer_count}
+        />
       </SimpleGrid>
     </Container>
   );

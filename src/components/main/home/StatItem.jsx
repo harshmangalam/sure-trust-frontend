@@ -8,20 +8,22 @@ import {
 } from "@chakra-ui/react";
 
 export default function StatItem(props) {
-  const { title, stat } = props;
+  const { title, stat, color } = props;
   return (
     <Stat
       px={{ base: 2, md: 4 }}
-      py={"5"}
-      shadow={"xl"}
-      border={"1px solid"}
-      borderColor={useColorModeValue("gray.800", "gray.500")}
+      py={"6"}
+      shadow={"sm"}
+      borderWidth={"1px"}
+      borderColor={useColorModeValue("gray.300", "gray.600")}
       rounded={"lg"}
     >
       <Flex justifyContent={"space-between"}>
         <Box pl={{ base: 2, md: 4 }}>
-          <StatLabel fontWeight={"medium"}>{title}</StatLabel>
-          <StatNumber fontSize={"2xl"} fontWeight={"medium"}>
+          <StatLabel fontSize={"lg"} fontWeight={"medium"}>
+            {title}
+          </StatLabel>
+          <StatNumber textColor={color} fontSize={"2xl"} fontWeight={"bold"}>
             {stat}
           </StatNumber>
         </Box>

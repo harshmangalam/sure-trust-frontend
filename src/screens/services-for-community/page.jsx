@@ -12,12 +12,12 @@ export default function ServicesForCommunity() {
       icon: <GiPlantWatering size={24} />,
     },
     {
-      name: "Blood donations",
+      name: "Blood Donations",
       url: "/services-for-community/blood-donation",
       icon: <BiDonateBlood size={24} />,
     },
     {
-      name: "Service to Senior citizen",
+      name: "Service To Senior Citizens",
       url: "/services-for-community/senior-citizen",
       icon: <HiOutlineUsers size={24} />,
     },

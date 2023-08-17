@@ -17,7 +17,7 @@ export default function IERYHome() {
       <IERYHero />
 
       <Box mt={"24"}>
-        <Heading textAlign={"center"}>Ongoing Internship Projects</Heading>
+        <Heading textAlign={"center"}>Domains For Internship Projects</Heading>
 
         {data?.data?.domain_list?.length ? (
           <SimpleGrid columns={[1, 2, 3, 4]} mt={"12"} spacing="4">
