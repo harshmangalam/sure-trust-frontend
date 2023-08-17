@@ -59,7 +59,7 @@ export default function BloodDonation() {
       <Container maxW={"container.xl"}>
         <Flex align={"center"} justify={"space-between"} mb={8}>
           <Heading fontSize={"3xl"}>Blood donation</Heading>
-          {isAuthenticated && (
+          {isAuthenticated && isAuthorized && (
             <Flex justifyContent={"flex-end"}>
               <BloodDonationForm refetch={refetch} />
             </Flex>
