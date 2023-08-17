@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CommunityServiceHero from "../../components/services-for-community/hero";
 import { GiPlantWatering } from "react-icons/gi";
 import { BiDonateBlood } from "react-icons/bi";
+import { HiOutlineUsers } from "react-icons/hi";
 export default function ServicesForCommunity() {
   const services = [
     {
@@ -14,6 +15,11 @@ export default function ServicesForCommunity() {
       name: "Blood donations",
       url: "/services-for-community/blood-donation",
       icon: <BiDonateBlood size={24} />,
+    },
+    {
+      name: "Senior citizen",
+      url: "/services-for-community/senior-citizen",
+      icon: <HiOutlineUsers size={24} />,
     },
   ];
   return (
