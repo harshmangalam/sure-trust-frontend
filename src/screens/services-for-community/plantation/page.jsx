@@ -55,16 +55,18 @@ export default function PlantationHome() {
 
   return (
     <Container maxW={"container.xl"}>
-      {isAuthenticated && isAuthorized && (
-        <Flex justifyContent={"flex-end"}>
-          <CreatePlantation refetch={refetch} />
-        </Flex>
-      )}
+      <Flex align={"center"} justify={"space-between"} mb={8}>
+        <Heading fontSize={"3xl"}>
+          Plantation Project - Each One Plant Two
+        </Heading>
+        {isAuthenticated && isAuthorized && (
+          <Flex justifyContent={"flex-end"}>
+            <CreatePlantation refetch={refetch} />
+          </Flex>
+        )}
+      </Flex>
 
-      <Heading fontSize={"3xl"}>
-        Plantation Project - Each One Plant Two
-      </Heading>
-      <SimpleGrid columns={[1, 2, 3]} spacing={"4"} mt={"8"}>
+      <SimpleGrid columns={[1, 2, 3]} spacing={"4"}>
         <OverviewCard label={"Days"} count={diffDays} icon={BsCalendar2} />
         <OverviewCard
           label={"Plants"}

@@ -5,6 +5,7 @@ import {
   Flex,
   GridItem,
   HStack,
+  Heading,
   SimpleGrid,
 } from "@chakra-ui/react";
 import ServiceStat from "../../../components/services-for-community/service-stat";
@@ -56,11 +57,14 @@ export default function BloodDonation() {
   return (
     <Box>
       <Container maxW={"container.xl"}>
-        {isAuthenticated && isAuthorized && (
-          <Flex justifyContent={"flex-end"}>
-            <BloodDonationForm refetch={refetch} />
-          </Flex>
-        )}
+        <Flex align={"center"} justify={"space-between"} mb={8}>
+          <Heading fontSize={"3xl"}>Blood donation</Heading>
+          {isAuthenticated && (
+            <Flex justifyContent={"flex-end"}>
+              <BloodDonationForm refetch={refetch} />
+            </Flex>
+          )}
+        </Flex>
         <SimpleGrid columns={[1, 2, 3]} spacing={6}>
           <GridItem>
             <ServiceStat icon={AiOutlineFieldTime} count={1} label={"Days"} />
@@ -75,7 +79,7 @@ export default function BloodDonation() {
           </GridItem>
         </SimpleGrid>
 
-        <SimpleGrid columns={[1, 1, 2, 3, 5]} gap={4} mt={6}>
+        <SimpleGrid columns={[1, 1, 2, 3]} gap={4} mt={6}>
           {data.data?.results?.map((result) => (
             <GridItem h={"full"}>
               <ServiceCard

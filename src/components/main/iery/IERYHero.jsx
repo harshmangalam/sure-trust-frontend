@@ -30,7 +30,7 @@ export default function IERYHero() {
             Innovation & Entrepreneurship Hub for Educated Rural Youth
           </Text>
         </Heading>
-        <Text maxW={"md"} mx={"auto"} fontSize={"lg"} color={"CaptionText"}>
+        <Text maxW={"md"} mx={"auto"} fontSize={"lg"}>
           Gain hands-on experience through executive-led internships which are
           open to 3rd/4th year B.Tech, MCA, MBA, and PG/Ph.D. students.
         </Text>
