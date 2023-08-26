@@ -30,7 +30,7 @@ const schema = yup.object({
   batch_name: yup.string(),
   course_name: yup.string(),
   donar_name: yup.string().required(),
-  blood_group: yup.string().required(),
+  blood_group: yup.string().optional(),
   user_role: yup.string().required(),
 });
 
@@ -140,8 +140,8 @@ export default function BloodDonationForm({ refetch }) {
                   {errors.donar_name?.message}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={errors.blood_group}>
-                <FormLabel>Blood group</FormLabel>
+              <FormControl>
+                <FormLabel>Blood group (Optional)</FormLabel>
                 <Select {...register("blood_group")} placeholder="Blood group">
                   {bloodGroups.map(({ name, value }) => (
                     <option value={value}>{name}</option>

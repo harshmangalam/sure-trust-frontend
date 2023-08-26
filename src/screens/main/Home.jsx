@@ -3,6 +3,7 @@ import Features from "../../components/main/home/Features";
 import Collaborators from "../../components/main/home/Collaborators";
 import Hero from "../../components/main/home/Hero";
 import StatsCount from "../../components/main/home/StatsData";
+import ProjectsSlider from "../../components/main/home/projects-slider";
 function Home() {
   return (
     <Box>
@@ -16,6 +17,9 @@ function Home() {
       {/* Features section */}
 
       <StatsCount />
+
+      {/* projects slider  */}
+      <ProjectsSlider />
 
       <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>
