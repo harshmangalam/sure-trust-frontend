@@ -19,7 +19,7 @@ function Home() {
       <StatsCount />
 
       {/* projects slider  */}
-      <ProjectsSlider />
+      {/* <ProjectsSlider /> */}
 
       <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>
