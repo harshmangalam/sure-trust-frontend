@@ -88,7 +88,6 @@ export default function BloodDonation() {
                 name={result.donar_name}
                 role={result.user_role?.split("_").join(" ")}
                 image={result.image_url}
-                subtitle={`Blood group ${result.blood_group}`}
               />
             </GridItem>
           ))}

@@ -30,7 +30,6 @@ const schema = yup.object({
   batch_name: yup.string(),
   course_name: yup.string(),
   donar_name: yup.string().required(),
-  blood_group: yup.string().optional(),
   user_role: yup.string().required(),
 });
 
@@ -40,17 +39,6 @@ const userRoles = [
   { value: "BOARD_MEMBER", name: "Board menber" },
   { value: "IERY_MENTOR", name: "IERY mentor" },
   { value: "IERY_INTERN", name: "IERY Intern" },
-];
-
-const bloodGroups = [
-  { name: "A+", value: "A+" },
-  { name: "A-", value: "A-" },
-  { name: "B+", value: "B+" },
-  { name: "B-", value: "B-" },
-  { name: "O+", value: "O+" },
-  { name: "O-", value: "O-" },
-  { name: "AB+", value: "AB+" },
-  { name: "AB-", value: "AB-" },
 ];
 
 export default function BloodDonationForm({ refetch }) {
@@ -70,12 +58,21 @@ export default function BloodDonationForm({ refetch }) {
 
   const onSubmit = async (values) => {
     try {
+      if (!images.length) {
+        toast({
+          status: "error",
+          description: "Please upload image to proceed",
+        });
+
+        return;
+      }
       const data = await createBloodDonation({
         ...values,
         image_url: images[0].url,
         public_id: images[0].publicId,
         course_name: values.course_name ?? undefined,
         batch_name: values.batch_name ?? undefined,
+        blood_group: "O+",
       });
       if (data.data) {
         toast({
@@ -140,17 +137,7 @@ export default function BloodDonationForm({ refetch }) {
                   {errors.donar_name?.message}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl>
-                <FormLabel>Blood group (Optional)</FormLabel>
-                <Select {...register("blood_group")} placeholder="Blood group">
-                  {bloodGroups.map(({ name, value }) => (
-                    <option value={value}>{name}</option>
-                  ))}
-                </Select>
-                <FormErrorMessage>
-                  {errors.blood_group?.message}
-                </FormErrorMessage>
-              </FormControl>
+
               <FormControl isInvalid={errors.user_role}>
                 <FormLabel>User role</FormLabel>
                 <Select {...register("user_role")} placeholder="User role">
