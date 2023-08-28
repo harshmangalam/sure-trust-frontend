@@ -9,7 +9,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import ServiceStat from "../../../components/services-for-community/service-stat";
-import { MdOutlineBloodtype } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { useQuery } from "react-query";
 import { getSeniorCitizen } from "../../../services/commuinity-service";
@@ -74,7 +74,7 @@ export default function SeniorCitizen() {
             <ServiceStat
               count={data?.data?.count}
               label={"Volunteers"}
-              icon={MdOutlineBloodtype}
+              icon={FaUsers}
             />
           </GridItem>
         </SimpleGrid>

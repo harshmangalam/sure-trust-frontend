@@ -24,18 +24,16 @@ export default function ServiceCard({
       boxShadow={"md"}
       rounded={"md"}
       p={6}
-      overflow={"hidden"}
     >
       <Box
         onClick={() => window.open(image)}
-        height={"300px"}
         bg={"gray.100"}
         mt={-6}
         mx={-6}
         mb={6}
         cursor={"pointer"}
       >
-        <Image src={image} height={"300px"} width={"full"} alt={name} />
+        <Image src={image} width={"full"} alt={name} />
       </Box>
       <Stack>
         <Text
