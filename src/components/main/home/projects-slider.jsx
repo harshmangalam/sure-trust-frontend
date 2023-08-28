@@ -4,7 +4,6 @@ import { register } from "swiper/swiper-element-bundle";
 import ProjectCard from "./project-card";
 import { useQuery } from "react-query";
 import { fetchFeaturedProjects } from "../../../services";
-import { useState } from "react";
 // register Swiper custom elements
 register();
 export default function ProjectsSlider() {

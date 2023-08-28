@@ -18,6 +18,7 @@ export default function ProjectCard({ project_name, poster_url, domain_name }) {
         shadow={"md"}
         overflow={"hidden"}
         rounded={"xl"}
+        borderWidth={"1px"}
       >
         <Box bg={"gray.100"} mt={-6} mx={-6} mb={6} pos={"relative"}>
           <Image
