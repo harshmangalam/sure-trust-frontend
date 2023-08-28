@@ -2,9 +2,20 @@
 import { Box, Container, Heading } from "@chakra-ui/react";
 import { register } from "swiper/swiper-element-bundle";
 import ProjectCard from "./project-card";
+import { useQuery } from "react-query";
+import { fetchFeaturedProjects } from "../../../services";
+import { useState } from "react";
 // register Swiper custom elements
 register();
 export default function ProjectsSlider() {
+  const { data, isLoading, isError } = useQuery(
+    ["featured-projects"],
+    fetchFeaturedProjects
+  );
+
+  if (isError) return <div>Error</div>;
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <Box mt={12}>
       <Container maxW={"container.xl"}>
@@ -21,15 +32,13 @@ export default function ProjectsSlider() {
             class="project"
             spaceBetween={16}
           >
-            {[...new Array(12)].map((_, i) => (
-              <swiper-slide key={i} class="col" style={{ margin: "0px 8px" }}>
-                <ProjectCard
-                  domain={"Web Development"}
-                  projectName={
-                    "Building a website for newly started Super Speciality Hospital"
-                  }
-                  videoLink={"https://www.youtube.com/embed/GaSnKf9Hr6w"}
-                />
+            {data?.data?.results?.map((project) => (
+              <swiper-slide
+                key={project.id}
+                class="col"
+                style={{ margin: "0px 16px" }}
+              >
+                <ProjectCard {...project} />
               </swiper-slide>
             ))}
           </swiper-container>

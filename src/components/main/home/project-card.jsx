@@ -5,9 +5,10 @@ import {
   Text,
   Stack,
   useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 
-export default function ProjectCard({ projectName, domain, videoLink }) {
+export default function ProjectCard({ project_name, poster_url, domain_name }) {
   return (
     <Center>
       <Box
@@ -18,23 +19,13 @@ export default function ProjectCard({ projectName, domain, videoLink }) {
         overflow={"hidden"}
         rounded={"xl"}
       >
-        <Box
-          h={"210px"}
-          bg={"gray.100"}
-          mt={-6}
-          mx={-6}
-          mb={6}
-          pos={"relative"}
-        >
-          <Box
-            align={"center"}
-            w={"100%"}
-            h={"full"}
-            as={"iframe"}
-            roundedTop={"xl"}
-            title="video"
-            src={videoLink}
-            allowFullScreen
+        <Box bg={"gray.100"} mt={-6} mx={-6} mb={6} pos={"relative"}>
+          <Image
+            src={poster_url}
+            alt={project_name}
+            w={"full"}
+            h={400}
+            objectFit="cover"
           />
         </Box>
         <Stack>
@@ -45,14 +36,14 @@ export default function ProjectCard({ projectName, domain, videoLink }) {
             fontSize={"sm"}
             letterSpacing={1.1}
           >
-            {domain}
+            {domain_name}
           </Text>
           <Heading
             color={useColorModeValue("gray.700", "white")}
             fontSize={"2xl"}
             fontFamily={"body"}
           >
-            {projectName}
+            {project_name}
           </Heading>
         </Stack>
       </Box>

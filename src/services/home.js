@@ -20,7 +20,6 @@ export const fetchNotices = async () => {
   }
 };
 
-
 export const fetchFeatures = async () => {
   try {
     const { data } = await axios.get("/home/about-suretrust/");
@@ -31,6 +30,10 @@ export const fetchFeatures = async () => {
   }
 };
 
-export const fetchStats = async ()=>{
-  return await axios.get("/community/get_count")
-}
+export const fetchFeaturedProjects = () => {
+  return axios.get(`/courses/projects/`);
+};
+
+export const fetchStats = async () => {
+  return await axios.get("/community/get_count");
+};
