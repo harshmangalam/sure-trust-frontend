@@ -1,7 +1,9 @@
 import axios from "axios";
 
-async function getBloodDonation(page) {
-  return await axios.get(`/community/blood_donate/?page=${page}`);
+async function getBloodDonation(page, courseName) {
+  return await axios.get(
+    `/community/blood_donate/?course_name=${courseName}&page=${page}`
+  );
 }
 
 async function createBloodDonation(data) {

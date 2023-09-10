@@ -43,6 +43,9 @@ const Plantation = lazy(() =>
 const BloodDonation = lazy(() =>
   import("../screens/services-for-community/blood-donation/page")
 );
+const BloodDonationDetails = lazy(() =>
+  import("../screens/services-for-community/blood-donation/details")
+);
 const SeniorCitizen = lazy(() =>
   import("../screens/services-for-community/senior-citizen/page")
 );
@@ -208,6 +211,10 @@ function AppRoutes() {
           <Route index element={<ServicesForCommunity />} />
           <Route path="plantation" element={<Plantation />} />
           <Route path="blood-donation" element={<BloodDonation />} />
+          <Route
+            path="blood-donation/:courseName"
+            element={<BloodDonationDetails />}
+          />
           <Route path="senior-citizen" element={<SeniorCitizen />} />
         </Route>
 

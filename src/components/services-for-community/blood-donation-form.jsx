@@ -41,7 +41,7 @@ const userRoles = [
   { value: "IERY_INTERN", name: "IERY Intern" },
 ];
 
-export default function BloodDonationForm({ refetch }) {
+export default function BloodDonationForm() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [images, setImages] = useState([]);
   const toast = useToast();
@@ -81,7 +81,6 @@ export default function BloodDonationForm({ refetch }) {
         });
         reset();
         setImages([]);
-        refetch();
         onClose();
       }
     } catch (error) {

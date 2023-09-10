@@ -33,7 +33,7 @@ export default function ServiceCard({
         mb={6}
         cursor={"pointer"}
       >
-        <Image src={image} width={"full"} alt={name} />
+        <Image roundedTop={"md"} src={image} width={"full"} alt={name} />
       </Box>
       <Stack>
         <Text
