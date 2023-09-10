@@ -18,6 +18,12 @@ ChartJS.register(
   Legend
 );
 const options = {
+  indexAxis: "y",
+  elements: {
+    bar: {
+      borderWidth: 0,
+    },
+  },
   responsive: true,
   plugins: {
     legend: {
@@ -38,18 +44,13 @@ export default function OverviewChart({ plants }) {
       {
         label: "Plants",
         data: plants.map((p) => p.plantsCount),
-        borderColor: "rgb(53, 162, 235)",
         backgroundColor: "#38A169",
-        
-        
       },
       {
         label: "Planters",
         data: plants.map((p) => p.users.length),
-        borderColor: "rgb(100, 100, 200)",
         backgroundColor: "#68D391",
       },
-   
     ],
   };
 
