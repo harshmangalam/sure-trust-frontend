@@ -34,14 +34,14 @@ export default function ProjectCard({ project_name, poster_url, domain_name }) {
             color={"green.500"}
             textTransform={"uppercase"}
             fontWeight={800}
-            fontSize={"sm"}
+            fontSize={"xs"}
             letterSpacing={1.1}
           >
             {domain_name}
           </Text>
           <Heading
             color={useColorModeValue("gray.700", "white")}
-            fontSize={"2xl"}
+            fontSize={"xl"}
             fontFamily={"body"}
           >
             {project_name}

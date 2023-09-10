@@ -4,6 +4,7 @@ import { register } from "swiper/swiper-element-bundle";
 import ProjectCard from "./project-card";
 import { useQuery } from "react-query";
 import { fetchFeaturedProjects } from "../../../services";
+
 // register Swiper custom elements
 register();
 export default function ProjectsSlider() {
@@ -21,22 +22,18 @@ export default function ProjectsSlider() {
         <Heading fontSize={"3xl"}>Projects</Heading>
         <Box mt={6}>
           <swiper-container
-            slides-per-view="3"
             speed="500"
             loop="true"
             css-mode="true"
             navigation={true}
+            space-between="30"
+            slides-per-view="2"
+            centered-slides="true"
             autoplay={true}
-            freeMode={true}
-            class="project"
-            spaceBetween={16}
+            free-mode={true}
           >
             {data?.data?.results?.map((project) => (
-              <swiper-slide
-                key={project.id}
-                class="col"
-                style={{ margin: "0px 16px" }}
-              >
+              <swiper-slide key={project.id} class="col">
                 <ProjectCard {...project} />
               </swiper-slide>
             ))}
