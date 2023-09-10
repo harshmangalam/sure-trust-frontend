@@ -18,7 +18,6 @@ ChartJS.register(
   Legend
 );
 const options = {
-  indexAxis: "y",
   elements: {
     bar: {
       borderWidth: 0,

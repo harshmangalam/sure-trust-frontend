@@ -24,6 +24,7 @@ import { useMemo } from "react";
 import { useAuthState } from "../../../contexts/auth";
 import BloodDonationForm from "../../../components/services-for-community/blood-donation-form";
 import ServiceCharts from "../../../components/services-for-community/service-charts";
+import { BiBookReader } from "react-icons/bi";
 import { calculateTimeDifferenceFromNow } from "../../../utils/date-time";
 export default function BloodDonation() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -89,6 +90,14 @@ export default function BloodDonation() {
               count={data?.data?.count}
               label={"Blood donars"}
               icon={MdOutlineBloodtype}
+            />
+          </GridItem>
+          <GridItem>
+            <ServiceStat
+              color="blue.800"
+              count={bloodDonationStatQuery.data?.data?.Result?.length}
+              label={"Courses"}
+              icon={BiBookReader}
             />
           </GridItem>
         </SimpleGrid>

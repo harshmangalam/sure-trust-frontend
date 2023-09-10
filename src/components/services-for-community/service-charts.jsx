@@ -18,7 +18,6 @@ ChartJS.register(
   Legend
 );
 const options = {
-  indexAxis: "y",
   elements: {
     bar: {
       borderWidth: 0,
@@ -48,6 +47,8 @@ export default function ServiceCharts({ payload }) {
         backgroundColor: "rgba(255, 99, 132, 0.5)",
         tension: 0.1,
         fill: false,
+        borderWidth: 2, // Border width
+        barPercentage: 0.2, // Adjust this value to customize bar width
       },
     ],
   };
