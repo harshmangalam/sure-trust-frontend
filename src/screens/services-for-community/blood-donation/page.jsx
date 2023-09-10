@@ -28,7 +28,7 @@ import { BiBookReader } from "react-icons/bi";
 import { calculateTimeDifferenceFromNow } from "../../../utils/date-time";
 export default function BloodDonation() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const diffDays = calculateTimeDifferenceFromNow(1665253800000);
+  const diffDays = calculateTimeDifferenceFromNow(1692748800000);
   const page = searchParams.get("page") ?? 1;
   const { data, isLoading, isError, refetch } = useQuery(
     ["blood_donations", page],
