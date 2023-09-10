@@ -26,6 +26,7 @@ import {
   fetchPlantationLists,
 } from "../../../services";
 import { useMemo } from "react";
+import { calculateTimeDifferenceFromNow } from "../../../utils/date-time";
 
 export default function PlantationHome() {
   const { isAuthenticated, currentUser } = useAuthState();
@@ -33,11 +34,7 @@ export default function PlantationHome() {
   const plantations = useQuery("plantations", fetchPlantationLists);
   const chartsQuery = useQuery("charts", fetchPlantationCharts);
   const allowedQuery = useQuery("allowed-users", fetchPlantationAllowedUsers);
-
-  const date1 = Number(1665253800000);
-  const date2 = Date.now();
-  const diffTime = Math.abs(date2 - date1);
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const diffDays = calculateTimeDifferenceFromNow(1665253800000);
 
   const refetch = () => {
     countsQuery.refetch();

@@ -16,9 +16,14 @@ async function createSeniorCitizen(data) {
   return axios.post("/community/senior_citizen/", data);
 }
 
+async function fetchBloodDonationStats() {
+  return axios.get("/community/blood_donate_course_count");
+}
+
 export {
   getBloodDonation,
   createBloodDonation,
   getSeniorCitizen,
   createSeniorCitizen,
+  fetchBloodDonationStats,
 };

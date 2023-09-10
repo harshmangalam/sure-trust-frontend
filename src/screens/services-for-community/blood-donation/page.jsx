@@ -12,7 +12,10 @@ import ServiceStat from "../../../components/services-for-community/service-stat
 import { MdOutlineBloodtype } from "react-icons/md";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { useQuery } from "react-query";
-import { getBloodDonation } from "../../../services/commuinity-service";
+import {
+  fetchBloodDonationStats,
+  getBloodDonation,
+} from "../../../services/commuinity-service";
 import Loader from "../../../components/shared/Loader";
 import ServiceCard from "../../../components/services-for-community/service-card";
 import { useSearchParams } from "react-router-dom";
@@ -20,12 +23,19 @@ import { fetchPlantationAllowedUsers } from "../../../services";
 import { useMemo } from "react";
 import { useAuthState } from "../../../contexts/auth";
 import BloodDonationForm from "../../../components/services-for-community/blood-donation-form";
+import ServiceCharts from "../../../components/services-for-community/service-charts";
+import { calculateTimeDifferenceFromNow } from "../../../utils/date-time";
 export default function BloodDonation() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const diffDays = calculateTimeDifferenceFromNow(1665253800000);
   const page = searchParams.get("page") ?? 1;
   const { data, isLoading, isError, refetch } = useQuery(
     ["blood_donations", page],
     () => getBloodDonation(page)
+  );
+  const bloodDonationStatQuery = useQuery(
+    ["blood_donation_graphs"],
+    fetchBloodDonationStats
   );
   const allowedQuery = useQuery("allowed-users", fetchPlantationAllowedUsers);
   const { isAuthenticated, currentUser } = useAuthState();
@@ -67,7 +77,11 @@ export default function BloodDonation() {
         </Flex>
         <SimpleGrid columns={[1, 2, 3]} spacing={6}>
           <GridItem>
-            <ServiceStat icon={AiOutlineFieldTime} count={1} label={"Days"} />
+            <ServiceStat
+              icon={AiOutlineFieldTime}
+              count={diffDays}
+              label={"Days"}
+            />
           </GridItem>
           <GridItem>
             <ServiceStat
@@ -78,6 +92,16 @@ export default function BloodDonation() {
             />
           </GridItem>
         </SimpleGrid>
+
+        {bloodDonationStatQuery.isError && (
+          <div>Error while loading graphs</div>
+        )}
+        {bloodDonationStatQuery.isLoading && <div>Loading graphs...</div>}
+        <Box py={12}>
+          {bloodDonationStatQuery.data?.data && (
+            <ServiceCharts payload={bloodDonationStatQuery.data.data.Result} />
+          )}
+        </Box>
 
         <SimpleGrid columns={[1, 1, 2, 3]} gap={4} mt={6}>
           {data.data?.results?.map((result) => (
