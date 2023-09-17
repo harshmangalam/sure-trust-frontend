@@ -1,45 +1,47 @@
-// import function to register Swiper custom elements
-import { Box, Container, Heading } from "@chakra-ui/react";
-import { register } from "swiper/swiper-element-bundle";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import ProjectCard from "./project-card";
 import { useQuery } from "react-query";
 import { fetchFeaturedProjects } from "../../../services";
+import { Box, Container, Heading } from "@chakra-ui/react";
 
-// register Swiper custom elements
-register();
 export default function ProjectsSlider() {
-  const { data, isLoading, isError } = useQuery(
-    ["featured-projects"],
-    fetchFeaturedProjects
-  );
+  const { data } = useQuery(["featured-projects"], fetchFeaturedProjects);
+  const handleDragStart = (e) => e.preventDefault();
 
-  if (isError) return <div>Error</div>;
-  if (isLoading) return <div>Loading...</div>;
+  const items = data?.data?.results?.map((project) => (
+    <ProjectCard onDragStart={handleDragStart} key={project.id} {...project} />
+  ));
 
   return (
-    <Box mt={12}>
-      <Container maxW={"container.xl"}>
+    <Container maxW={"container.xl"}>
+      <Box mt={12}>
         <Heading fontSize={"3xl"}>Projects</Heading>
         <Box mt={6}>
-          <swiper-container
-            speed="500"
-            loop="true"
-            css-mode="true"
-            navigation={true}
-            space-between="30"
-            slides-per-view="2"
-            centered-slides="true"
-            autoplay={true}
-            free-mode={true}
-          >
-            {data?.data?.results?.map((project) => (
-              <swiper-slide key={project.id} class="col">
-                <ProjectCard {...project} />
-              </swiper-slide>
-            ))}
-          </swiper-container>
+          <AliceCarousel
+            autoPlay
+            autoPlayInterval={2000}
+            autoPlayStrategy="default"
+            mouseTracking
+            items={items}
+            controlsStrategy="default"
+            responsive={{
+              0: {
+                items: 1,
+              },
+              480: {
+                items: 1,
+              },
+              768: {
+                items: 2,
+              },
+              1280: {
+                items: 3,
+              },
+            }}
+          />
         </Box>
-      </Container>
-    </Box>
+      </Box>
+    </Container>
   );
 }

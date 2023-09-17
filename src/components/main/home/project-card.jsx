@@ -8,9 +8,14 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-export default function ProjectCard({ project_name, poster_url, domain_name }) {
+export default function ProjectCard({
+  project_name,
+  poster_url,
+  domain_name,
+  onDragStart,
+}) {
   return (
-    <Center>
+    <Center onDragStart={onDragStart} mx={2}>
       <Box
         w={"full"}
         bg={useColorModeValue("white", "gray.900")}
