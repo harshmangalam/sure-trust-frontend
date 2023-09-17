@@ -14,6 +14,7 @@ import DesktopMenu from "./DesktopMenu";
 import { RiHome2Line } from "react-icons/ri";
 import { useAuthState } from "../../../contexts/auth";
 import NavProfileMenu from "../../shared/NavProfileMenu";
+import { FaGithub } from "react-icons/fa";
 function Header() {
   const { isAuthenticated } = useAuthState();
 
@@ -46,6 +47,13 @@ function Header() {
               <IconButton as={NavLink} to="/" aria-label="Home">
                 <RiHome2Line size={20} />
               </IconButton>
+              <IconButton
+                as={"a"}
+                href="https://github.com/sure-trust"
+                target="_blank"
+              >
+                <FaGithub size={20} />
+              </IconButton>
               <DesktopMenu />
               <ThemeToggle />
               {isAuthenticated && <NavProfileMenu />}
@@ -55,6 +63,13 @@ function Header() {
             <HStack display={{ base: "flex", md: "none" }}>
               <IconButton as={NavLink} to="/" aria-label="Home">
                 <RiHome2Line size={20} />
+              </IconButton>
+              <IconButton
+                as={"a"}
+                href="https://github.com/sure-trust"
+                target="_blank"
+              >
+                <FaGithub size={20} />
               </IconButton>
               <ThemeToggle />
               <MobileMenu />
