@@ -41,13 +41,16 @@ const Plantation = lazy(() =>
 );
 
 const BloodDonation = lazy(() =>
-  import("../screens/services-for-community/blood-donation/page")
+  import("../screens/services-for-community/blood-donation")
 );
 const BloodDonationDetails = lazy(() =>
   import("../screens/services-for-community/blood-donation/details")
 );
 const SeniorCitizen = lazy(() =>
-  import("../screens/services-for-community/senior-citizen/page")
+  import("../screens/services-for-community/senior-citizen/")
+);
+const SeniorCitizenDetails = lazy(() =>
+  import("../screens/services-for-community/senior-citizen/details")
 );
 
 const TeacherCourses = lazy(() =>
@@ -216,6 +219,10 @@ function AppRoutes() {
             element={<BloodDonationDetails />}
           />
           <Route path="senior-citizen" element={<SeniorCitizen />} />
+          <Route
+            path="senior-citizen/:courseName"
+            element={<SeniorCitizenDetails />}
+          />
         </Route>
 
         <Route path="*" element={<NotFound />} />

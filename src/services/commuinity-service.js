@@ -22,10 +22,15 @@ async function fetchBloodDonationStats() {
   return axios.get("/community/blood_donate_course_count");
 }
 
+async function fetchSeniorCitizenStats() {
+  return axios.get("/community/senior_citizen_course_count");
+}
+
 export {
   getBloodDonation,
   createBloodDonation,
   getSeniorCitizen,
   createSeniorCitizen,
   fetchBloodDonationStats,
+  fetchSeniorCitizenStats,
 };

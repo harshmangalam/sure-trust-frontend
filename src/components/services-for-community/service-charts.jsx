@@ -17,31 +17,31 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const options = {
-  elements: {
-    bar: {
-      borderWidth: 0,
-    },
-  },
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Blood Donation",
-    },
-  },
-};
 
-export default function ServiceCharts({ payload }) {
+export default function ServiceCharts({ payload, label, text }) {
+  const options = {
+    elements: {
+      bar: {
+        borderWidth: 0,
+      },
+    },
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: text,
+      },
+    },
+  };
   const labels = payload.map((p) => p.course_name);
   const data = {
     labels,
     datasets: [
       {
-        label: "Donars",
+        label,
         data: payload.map((p) => p.count),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",

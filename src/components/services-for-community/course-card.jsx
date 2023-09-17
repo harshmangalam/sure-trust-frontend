@@ -8,11 +8,11 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-export default function CourseCard({ course_name, count }) {
+export default function CourseCard({ course_name, count, href }) {
   return (
     <Box
       as={Link}
-      to={`/services-for-community/blood-donation/${course_name}`}
+      to={href}
       borderWidth={"1px"}
       rounded="lg"
       p={"4"}

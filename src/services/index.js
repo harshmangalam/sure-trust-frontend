@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export * from "./gallery";
 export * from "./reviews";
 export * from "./home";
@@ -7,6 +6,15 @@ export * from "./courses";
 export * from "./plantation";
 export * from "./images";
 export * from "./commuinity-service";
+
+const NODE_BACKEND_URL =
+  process.env.REACT_APP_NODE_ENV === "development"
+    ? process.env.REACT_APP_NODE_DEV_BASEURL
+    : process.env.REACT_APP_NODE_PROD_BASEURL;
+
+export const fetchAllowedUsers = async () => {
+  return axios.get(`${NODE_BACKEND_URL}/api/plantation/allowed-users`);
+};
 
 export const signup = async (payload) => {
   try {

@@ -62,8 +62,12 @@ export default function SeniorCitizenForm({ refetch }) {
         ...values,
         image_url: images[0].url,
         public_id: images[0].publicId,
-        course_name: values.course_name ?? undefined,
-        batch_name: values.batch_name ?? undefined,
+        course_name: values.course_name?.trim()?.length
+          ? values.course_name
+          : undefined,
+        batch_name: values.course_name?.trim()?.length
+          ? values.batch_name
+          : undefined,
       });
       if (data.data) {
         toast({

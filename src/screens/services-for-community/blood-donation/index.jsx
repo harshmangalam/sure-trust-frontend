@@ -81,7 +81,11 @@ export default function BloodDonation() {
         {bloodDonationStatQuery.isLoading && <div>Loading graphs...</div>}
         <Box py={12}>
           {bloodDonationStatQuery.data?.data && (
-            <ServiceCharts payload={bloodDonationStatQuery.data.data.Result} />
+            <ServiceCharts
+              label={"Blood donation"}
+              text={"Donar"}
+              payload={bloodDonationStatQuery.data.data.Result}
+            />
           )}
         </Box>
 
@@ -89,7 +93,11 @@ export default function BloodDonation() {
           <SimpleGrid columns={[1, 2, 3]} gap={6}>
             {bloodDonationStatQuery.data?.data?.Result?.length &&
               bloodDonationStatQuery.data?.data?.Result.map((data) => (
-                <CourseCard key={data.course_name} {...data} />
+                <CourseCard
+                  href={`/services-for-community/blood-donation/${data.course_name}`}
+                  key={data.course_name}
+                  {...data}
+                />
               ))}
           </SimpleGrid>
         </Box>
