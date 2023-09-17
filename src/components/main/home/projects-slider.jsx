@@ -16,7 +16,7 @@ export default function ProjectsSlider() {
   return (
     <Container maxW={"container.xl"}>
       <Box mt={12}>
-        <Heading fontSize={"3xl"}>Projects</Heading>
+        <Heading fontSize={"3xl"}>Internship Projects</Heading>
         <Box mt={6}>
           <AliceCarousel
             autoPlay
