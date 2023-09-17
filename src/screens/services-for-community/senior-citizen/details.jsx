@@ -8,16 +8,16 @@ import {
 } from "@chakra-ui/react";
 import ServiceCard from "../../../components/services-for-community/service-card";
 import { useQuery } from "react-query";
-import { getBloodDonation } from "../../../services";
-import { useParams, useSearchParams } from "react-router-dom";
+import { getSeniorCitizen } from "../../../services";
+import { useSearchParams } from "react-router-dom";
 
 export default function BloodDonationDetails() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { courseName } = useParams();
+  const courseName = searchParams.get("courseName");
   const page = searchParams.get("page") ?? 1;
   const { data, isLoading, isError } = useQuery(
     ["senior-citizen", courseName, page],
-    () => getBloodDonation(page, courseName)
+    () => getSeniorCitizen(page, courseName)
   );
 
   const handlePagination = (url) => {
@@ -36,7 +36,7 @@ export default function BloodDonationDetails() {
             <ServiceCard
               batch={result.batch_name ?? ""}
               course={result.course_name ?? ""}
-              name={result.donar_name}
+              name={result.user_name}
               role={result.user_role?.split("_").join(" ")}
               image={result.image_url}
             />

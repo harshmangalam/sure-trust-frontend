@@ -213,12 +213,12 @@ function AppRoutes() {
           <Route path="plantation" element={<Plantation />} />
           <Route path="blood-donation" element={<BloodDonation />} />
           <Route
-            path="blood-donation/:courseName"
+            path="blood-donation/details"
             element={<BloodDonationDetails />}
           />
           <Route path="senior-citizen" element={<SeniorCitizen />} />
           <Route
-            path="senior-citizen/:courseName"
+            path="senior-citizen/details"
             element={<SeniorCitizenDetails />}
           />
         </Route>

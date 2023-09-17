@@ -9,14 +9,15 @@ import {
 import ServiceCard from "../../../components/services-for-community/service-card";
 import { useQuery } from "react-query";
 import { getBloodDonation } from "../../../services";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function BloodDonationDetails() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { courseName } = useParams();
+  const courseName = searchParams.get("courseName");
+  console.log(courseName);
   const page = searchParams.get("page") ?? 1;
   const { data, isLoading, isError } = useQuery(
-    ["blood_donations", courseName, page],
+    ["blood-donations", courseName, page],
     () => getBloodDonation(page, courseName)
   );
 
