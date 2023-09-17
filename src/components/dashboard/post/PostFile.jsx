@@ -25,14 +25,28 @@ export default function PostFile({ file }) {
           <ModalCloseButton />
           <ModalBody>
             <Box as="object" w="full" h="full" data={file}>
-              <Box as="iframe" src={file} w="full" h="full"></Box>
+              <Box
+                as="iframe"
+                src={file}
+                w="full"
+                h="full"
+                loading="lazy"
+              ></Box>
             </Box>
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="red" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost" as="a" target="_blank" href={file} download colorScheme="blue" mr={3}>
+            <Button
+              variant="ghost"
+              as="a"
+              target="_blank"
+              href={file}
+              download
+              colorScheme="blue"
+              mr={3}
+            >
               Open in Browser
             </Button>
           </ModalFooter>

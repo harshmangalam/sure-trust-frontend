@@ -82,7 +82,13 @@ function Course() {
           data={query.data.syllabus}
           type="application/pdf"
         >
-          <Box as="iframe" src={query.data.syllabus} w="full" h="xl"></Box>
+          <Box
+            as="iframe"
+            loading="lazy"
+            src={query.data.syllabus}
+            w="full"
+            h="xl"
+          ></Box>
         </Box>
       )}
     </>

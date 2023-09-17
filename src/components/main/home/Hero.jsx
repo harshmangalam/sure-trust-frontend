@@ -95,6 +95,7 @@ export default function Hero() {
           title="video"
           src={`https://www.youtube.com/embed/GaSnKf9Hr6w`}
           allowFullScreen
+          loading="lazy"
         />
       </Flex>
     </Stack>

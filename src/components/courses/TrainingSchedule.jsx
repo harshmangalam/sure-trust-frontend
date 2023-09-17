@@ -41,6 +41,7 @@ export default function TrainingSchedule() {
                 src={courseSchedule?.data?.[0]?.shedule}
                 w="full"
                 h="70vh"
+                loading="lazy"
               ></Box>
             </Box>
           </ModalBody>

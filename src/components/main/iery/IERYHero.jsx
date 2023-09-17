@@ -69,6 +69,7 @@ export default function IERYHero() {
             title="video"
             src={`https://www.youtube.com/embed/YTu-pnGVgJQ`}
             allowFullScreen
+            loading="lazy"
           />
         </Box>
       </Flex>

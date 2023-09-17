@@ -145,7 +145,13 @@ export default function LstProgram() {
               data={lst?.module}
               type="application/pdf"
             >
-              <Box as="iframe" src={lst?.module} w="full" h="70vh"></Box>
+              <Box
+                loading="lazy"
+                as="iframe"
+                src={lst?.module}
+                w="full"
+                h="70vh"
+              ></Box>
             </Box>
           </ModalBody>
           <ModalFooter>

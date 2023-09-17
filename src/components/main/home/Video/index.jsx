@@ -14,15 +14,16 @@ export default function Video() {
   }
   return (
     <SimpleGrid zIndex="2" mt={8} columns={[1, 1, 2, 3]} spacing={10}>
-      {query.data.results.slice(0,3).map((video) => (
+      {query.data.results.slice(0, 3).map((video) => (
         <GridItem key={video.id}>
           <Box
-          rounded="xl"
+            rounded="xl"
             as="iframe"
             title="Sure Trust Videos"
             w="100%"
             h="sm"
             src={`https://www.youtube.com/embed/${video.video_name}`}
+            loading="lazy"
           ></Box>
         </GridItem>
       ))}

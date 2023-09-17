@@ -39,7 +39,7 @@ export default function Documents() {
   return (
     <Container maxW={"container.xl"} py={12}>
       <Heading>Documents</Heading>
-      <SimpleGrid columns={[1,2,2,3]} spacing={6} mt={12}>
+      <SimpleGrid columns={[1, 2, 2, 3]} spacing={6} mt={12}>
         {query.data.results.map((document) => (
           <GridItem
             bg={bg}
@@ -92,7 +92,13 @@ export default function Documents() {
               data={doc?.file}
               type="application/pdf"
             >
-              <Box as="iframe" src={doc?.file} w="full" h="70vh"></Box>
+              <Box
+                as="iframe"
+                loading="lazy"
+                src={doc?.file}
+                w="full"
+                h="70vh"
+              ></Box>
             </Box>
           </ModalBody>
           <ModalFooter>

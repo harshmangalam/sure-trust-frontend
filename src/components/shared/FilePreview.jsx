@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Modal,
   ModalBody,
@@ -25,7 +26,7 @@ export default function FilePreview({ file, setFile }) {
         <ModalCloseButton />
         <ModalBody>
           <Box mt={12} as="object" w="100%" h="70vh" data={file}>
-            <Box as="iframe" src={file} w="full" h="70vh"></Box>
+            <Box as="iframe" src={file} w="full" h="70vh" loading="lazy"></Box>
           </Box>
         </ModalBody>
         <ModalFooter>

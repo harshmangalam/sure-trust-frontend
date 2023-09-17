@@ -41,6 +41,7 @@ function PhotoGallery() {
                 title="video"
                 src={`https://www.youtube.com/embed/${video.video_name}`}
                 allowFullScreen
+                loading="lazy"
               ></Box>
             </AspectRatio>
           </GridItem>
