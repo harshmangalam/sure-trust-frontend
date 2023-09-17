@@ -9,7 +9,6 @@ const ResearchGuidance = lazy(() => import("../screens/main/ResearchGuidance"));
 const About = lazy(() => import("../screens/main/About"));
 const Contact = lazy(() => import("../screens/main/Contact"));
 const Courses = lazy(() => import("../screens/main/Courses"));
-const Reviews = lazy(() => import("../screens/main/Reviews"));
 const Course = lazy(() => import("../screens/main/Course"));
 const LstProgram = lazy(() => import("../screens/main/LstProgram"));
 const KnowMore = lazy(() => import("../screens/main/KnowMore"));
@@ -121,7 +120,6 @@ function AppRoutes() {
           <Route path="research-guidance" element={<ResearchGuidance />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="reviews" element={<Reviews />} />
           <Route path="photo-gallery" element={<PhotoGallery />} />
           <Route path="courses" element={<Courses />} />
           <Route path="lst" element={<LstProgram />} />

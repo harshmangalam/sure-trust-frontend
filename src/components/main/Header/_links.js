@@ -4,7 +4,6 @@ export const links = [
   { name: "Courses", to: "/courses" },
   { name: "IERY", to: "/iery" },
   { name: "Services for Community", to: "/services-for-community" },
-  { name: "Reviews", to: "/reviews" },
   { name: "Lifeskills Training Program", to: "/lst" },
   { name: "Know More", to: "/know-more" },
   { name: "Research Guidance", to: "/research-guidance" },

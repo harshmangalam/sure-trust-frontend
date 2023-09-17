@@ -1,6 +1,5 @@
 import axios from "axios";
 export * from "./gallery";
-export * from "./reviews";
 export * from "./home";
 export * from "./courses";
 export * from "./plantation";
