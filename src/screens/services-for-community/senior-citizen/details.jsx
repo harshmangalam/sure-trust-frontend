@@ -23,7 +23,7 @@ export default function BloodDonationDetails() {
   const handlePagination = (url) => {
     const u = new URL(url);
     const pageParams = u.searchParams.get("page") ?? +page - 1;
-    setSearchParams({ page: pageParams });
+    setSearchParams({ page: pageParams, courseName });
   };
 
   if (isLoading) return <div>Loading...</div>;
