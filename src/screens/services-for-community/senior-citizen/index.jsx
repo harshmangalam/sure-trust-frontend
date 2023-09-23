@@ -88,7 +88,9 @@ export default function BloodDonation() {
             {query.data?.data?.Result?.length &&
               query.data?.data?.Result.map((data) => (
                 <CourseCard
-                  href={`/services-for-community/senior-citizen/details/?courseName=${data.course_name}`}
+                  href={`/services-for-community/senior-citizen/details/?courseName=${encodeURIComponent(
+                    data.course_name
+                  )}`}
                   key={data.course_name}
                   {...data}
                 />

@@ -1,8 +1,11 @@
 import axios from "axios";
 
 async function getBloodDonation(page, courseName) {
+  console.log(courseName);
   return await axios.get(
-    `/community/blood_donate/?course_name=${courseName}&page=${page}`
+    `/community/blood_donate/?course_name=${encodeURIComponent(
+      courseName
+    )}&page=${page}`
   );
 }
 
@@ -10,8 +13,13 @@ async function createBloodDonation(data) {
   return axios.post("/community/blood_donate/", data);
 }
 
-async function getSeniorCitizen(page) {
-  return await axios.get(`/community/senior_citizen/?page=${page}`);
+async function getSeniorCitizen(page, courseName) {
+  console.log(courseName);
+  return await axios.get(
+    `/community/senior_citizen/?course_name=${encodeURIComponent(
+      courseName
+    )}&page=${page}`
+  );
 }
 
 async function createSeniorCitizen(data) {

@@ -11,12 +11,12 @@ import { useQuery } from "react-query";
 import { getSeniorCitizen } from "../../../services";
 import { useSearchParams } from "react-router-dom";
 
-export default function BloodDonationDetails() {
+export default function SeniorCitizenDetails() {
   const [searchParams, setSearchParams] = useSearchParams();
   const courseName = searchParams.get("courseName");
   const page = searchParams.get("page") ?? 1;
   const { data, isLoading, isError } = useQuery(
-    ["senior-citizen", courseName, page],
+    ["senior-citizen", page, courseName],
     () => getSeniorCitizen(page, courseName)
   );
 

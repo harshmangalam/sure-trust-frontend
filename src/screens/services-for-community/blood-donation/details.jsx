@@ -14,10 +14,9 @@ import { useSearchParams } from "react-router-dom";
 export default function BloodDonationDetails() {
   const [searchParams, setSearchParams] = useSearchParams();
   const courseName = searchParams.get("courseName");
-  console.log(courseName);
   const page = searchParams.get("page") ?? 1;
   const { data, isLoading, isError } = useQuery(
-    ["blood-donations", courseName, page],
+    ["blood-donations", page, courseName],
     () => getBloodDonation(page, courseName)
   );
 
