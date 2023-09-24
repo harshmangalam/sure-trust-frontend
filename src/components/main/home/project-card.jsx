@@ -32,6 +32,7 @@ export default function ProjectCard({
             w={"full"}
             h={400}
             objectFit="cover"
+            loading="lazy"
           />
         </Box>
         <Stack>

@@ -9,6 +9,7 @@ function Logo() {
           src="https://img1.wsimg.com/isteam/ip/6f038646-2052-4598-8c4e-ed7fea8124d5/SURE%20INITIATIVE%20LOGO.png/:/rs=h:200,cg:true,m/qt=q:95"
           alt="Sure Trust"
           w={16}
+          h={16}
         />
         <VStack
           spacing={0}
