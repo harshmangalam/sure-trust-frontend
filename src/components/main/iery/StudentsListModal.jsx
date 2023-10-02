@@ -26,8 +26,6 @@ export default function StudentsListModal({ students }) {
             aria-label="Students"
             icon={<HiOutlineUser size={24} />}
             onClick={onOpen}
-            variant="outline"
-            colorScheme="twitter"
             rounded="full"
           />
         </Box>

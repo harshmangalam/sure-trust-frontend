@@ -8,16 +8,19 @@ import {
   useColorModeValue,
   Image,
   HStack,
+  Tooltip,
+  IconButton,
 } from "@chakra-ui/react";
 import { useMemo } from "react";
 import StudentsListModal from "./StudentsListModal";
-
+import { FaGithub } from "react-icons/fa";
 export default function ProjectCard({
   project_name,
   domain,
   description,
   STUDENTS,
   poster_url,
+  github_url,
 }) {
   const admin = useMemo(() => {
     const student = STUDENTS?.filter((student) => student.is_admin);
@@ -82,7 +85,22 @@ export default function ProjectCard({
               </Stack>
             </Stack>
           )}
-          <StudentsListModal students={STUDENTS} />
+          <HStack>
+            <StudentsListModal students={STUDENTS} />
+            {github_url && (
+              <Tooltip label="Github">
+                <IconButton
+                  rounded="full"
+                  target="_blank"
+                  as={"a"}
+                  href={github_url}
+                  cursor={"pointer"}
+                >
+                  <FaGithub />
+                </IconButton>
+              </Tooltip>
+            )}
+          </HStack>
         </HStack>
       </Box>
     </Center>
