@@ -1,10 +1,10 @@
-import { Box, GridItem, SimpleGrid,Heading } from "@chakra-ui/react";
+import { Box, GridItem, SimpleGrid, Heading } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { fetchTeacherBatchStudents } from "../../../services";
 
 import Error from "../../../components/shared/Error";
 import StudentCard from "../../../components/dashboard/teacher/StudentCard";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 function Students() {
   const { batchId } = useParams();
   const students = useQuery(["teacherBatchStudents", batchId], () =>

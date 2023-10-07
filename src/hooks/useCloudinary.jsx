@@ -2,7 +2,9 @@ import { useState } from "react";
 import shortid from "shortid";
 import { deleteImage } from "../services/images";
 
-const CLOUDINARY_ENDPOINT = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET}/image/upload`;
+const CLOUDINARY_ENDPOINT = `https://api.cloudinary.com/v1_1/${
+  import.meta.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+}/image/upload`;
 
 export default function useCloudinary() {
   const [uploading, setUploading] = useState(false);
@@ -26,9 +28,9 @@ export default function useCloudinary() {
       formData.append("file", file);
       formData.append(
         "upload_preset",
-        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+        import.meta.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
       );
-      formData.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY);
+      formData.append("api_key", import.meta.env.REACT_APP_CLOUDINARY_API_KEY);
       formData.append("public_id", publicId);
 
       const response = await fetch(CLOUDINARY_ENDPOINT, {

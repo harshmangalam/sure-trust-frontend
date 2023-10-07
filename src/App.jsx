@@ -9,7 +9,6 @@ import { ChatProvider } from "./contexts/chat";
 import ReactGA from "react-ga";
 import { useEffect } from "react";
 import TagManager from "react-gtm-module";
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -17,8 +16,8 @@ const queryClient = new QueryClient({
     },
   },
 });
-axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
-const TRACKING_ID = process.env.REACT_APP_GA;
+axios.defaults.baseURL = import.meta.env.REACT_APP_BASEURL;
+const TRACKING_ID = import.meta.env.REACT_APP_GA;
 ReactGA.initialize(TRACKING_ID);
 
 const student = localStorage.student
@@ -45,7 +44,7 @@ function App() {
 
   // google tag manager
   useEffect(() => {
-    TagManager.initialize({ gtmId: process.env.REACT_APP_GTM_ID });
+    TagManager.initialize({ gtmId: import.meta.env.REACT_APP_GTM_ID });
   }, []);
 
   return (

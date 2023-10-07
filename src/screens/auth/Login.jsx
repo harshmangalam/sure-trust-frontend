@@ -166,7 +166,9 @@ function Login() {
               variant="ghost"
               as="a"
               size="sm"
-              href={`${process.env.REACT_APP_BASEURL}/users/reset_password/`}
+              href={`${
+                import.meta.env.REACT_APP_BASEURL
+              }/users/reset_password/`}
               target={"_blank"}
             >
               Forgotton password

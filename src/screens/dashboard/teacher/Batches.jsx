@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { fetchTeacherBatches } from "../../../services";
 import Error from "../../../components/shared/Error";
 import BatchCard from "../../../components/dashboard/teacher/BatchCard";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 
 function Batches() {
   const { courseId } = useParams();
