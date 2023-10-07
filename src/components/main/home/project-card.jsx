@@ -6,13 +6,16 @@ import {
   Stack,
   useColorModeValue,
   Image,
+  HStack,
+  IconButton,
 } from "@chakra-ui/react";
-
+import { FaGithub } from "react-icons/fa";
 export default function ProjectCard({
   project_name,
   poster_url,
   domain_name,
   onDragStart,
+  github_url,
 }) {
   return (
     <Center onDragStart={onDragStart} mx={2}>
@@ -35,24 +38,36 @@ export default function ProjectCard({
             loading="lazy"
           />
         </Box>
-        <Stack>
-          <Text
-            color={"green.500"}
-            textTransform={"uppercase"}
-            fontWeight={800}
-            fontSize={"xs"}
-            letterSpacing={1.1}
-          >
-            {domain_name}
-          </Text>
-          <Heading
-            color={useColorModeValue("gray.700", "white")}
-            fontSize={"xl"}
-            fontFamily={"body"}
-          >
-            {project_name}
-          </Heading>
-        </Stack>
+        <HStack justifyContent={"space-between"} gap={4}>
+          <Stack flex={1}>
+            <Text
+              color={"green.500"}
+              textTransform={"uppercase"}
+              fontWeight={800}
+              fontSize={"xs"}
+              letterSpacing={1.1}
+            >
+              {domain_name}
+            </Text>
+            <Heading
+              color={useColorModeValue("gray.700", "white")}
+              fontSize={"xl"}
+              fontFamily={"body"}
+            >
+              {project_name}
+            </Heading>
+          </Stack>
+          {github_url && (
+            <IconButton
+              target="_blank"
+              as={"a"}
+              href={github_url}
+              flex={"none"}
+            >
+              <FaGithub />
+            </IconButton>
+          )}
+        </HStack>
       </Box>
     </Center>
   );
