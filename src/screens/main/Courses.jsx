@@ -26,7 +26,7 @@ function Courses() {
 
   const handlePagination = (url) => {
     const u = new URL(url);
-    const page = u.searchParams.get("page");
+    const page = u.searchParams.get("page") ?? 1;
     setSearchParams({ category, page: page });
   };
 
