@@ -58,7 +58,7 @@ export default function AboutUserCard({ image, name, linked_in_url, about }) {
               target="_blank"
               rel="noreferrer"
               href={linked_in_url}
-              isFullWidth
+              w={"full"}
             >
               Linkedin
             </Button>

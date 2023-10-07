@@ -25,7 +25,7 @@ export default function FilterCourse() {
       </MenuButton>
       <MenuList>
         {filters.map(({ name, value }) => (
-          <MenuItem onClick={() => handleCategoryChange(value)}>
+          <MenuItem key={value} onClick={() => handleCategoryChange(value)}>
             {name}
           </MenuItem>
         ))}

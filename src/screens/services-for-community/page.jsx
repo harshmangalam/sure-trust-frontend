@@ -33,7 +33,7 @@ export default function ServicesForCommunity() {
                 as={Link}
                 to={url}
                 variant="outline"
-                isFullWidth
+                w={"full"}
                 size="lg"
                 h={16}
                 colorScheme="purple"
