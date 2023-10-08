@@ -30,7 +30,7 @@ export default function IERYHero() {
             Innovation & Entrepreneurship Hub for Educated Rural Youth
           </Text>
         </Heading>
-        <Text maxW={"md"} mx={"auto"} fontSize={"lg"}>
+        <Text maxW={"md"} fontSize={"lg"}>
           Gain hands-on experience through executive-led internships which are
           open to 3rd/4th year B.Tech, MCA, MBA, and PG/Ph.D. students.
         </Text>
@@ -43,7 +43,6 @@ export default function IERYHero() {
         w={"full"}
       >
         <Blob
-          w={"150%"}
           h={"150%"}
           position={"absolute"}
           top={"-20%"}

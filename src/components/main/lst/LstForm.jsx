@@ -67,7 +67,6 @@ export default function LstForm() {
         w={"full"}
       >
         <Blob
-          w={"150%"}
           h={"150%"}
           position={"absolute"}
           top={"-20%"}

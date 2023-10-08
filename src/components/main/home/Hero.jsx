@@ -77,28 +77,15 @@ export default function Hero() {
         w={"full"}
       >
         <Blob
-          w={"150%"}
           h={"150%"}
           position={"absolute"}
           top={"-20%"}
           left={0}
           zIndex={-1}
-          color={useColorModeValue("gray.100", "gray.700")}
+          color={useColorModeValue("purple.100", "purple.300")}
         />
 
         <YouTube videoId="GaSnKf9Hr6w" loading="lazy" />
-        {/* <Box
-          align={"center"}
-          w={"100%"}
-          h={"300px"}
-          as={YouTube}
-          rounded={"xl"}
-          title="video"
-            videoId="GaSnKf9Hr6w"
-        
-          loading="lazy"
-          
-        /> */}
       </Flex>
     </Stack>
   );
@@ -107,7 +94,7 @@ export default function Hero() {
 export const Blob = (props) => {
   return (
     <Icon
-      width={"100%"}
+      width={"full"}
       viewBox="0 0 578 440"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
