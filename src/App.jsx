@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, createLocalStorageManager } from "@chakra-ui/react";
 import theme from "./styles/theme";
 import { AuthProvider } from "./contexts/auth";
 import { QueryClient, QueryClientProvider } from "react-query";
