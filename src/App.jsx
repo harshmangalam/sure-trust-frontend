@@ -47,11 +47,12 @@ function App() {
     TagManager.initialize({ gtmId: import.meta.env.REACT_APP_GTM_ID });
   }, []);
 
+  const manager = createLocalStorageManager("sure-trust");
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <ChatProvider>
-          <ChakraProvider theme={theme}>
+          <ChakraProvider theme={theme} colorModeManager={manager}>
             <AppRoutes />
           </ChakraProvider>
         </ChatProvider>

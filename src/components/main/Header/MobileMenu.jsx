@@ -32,8 +32,8 @@ function MobileMenu() {
         placement="top"
         onClose={onClose}
         isOpen={isOpen}
-        allowPinchZoom={true}
-        isFullHeight={true}
+        allowPinchZoom
+        isFullHeight
       >
         <DrawerOverlay />
         <DrawerContent>

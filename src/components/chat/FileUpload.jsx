@@ -100,7 +100,7 @@ export default function FileUpload() {
           <Button
             isLoading={uploading || loading === "sending-message"}
             disabled={uploading || loading}
-            isFullWidth
+            w={"full"}
             onClick={() => inputFileRef.current?.click()}
             leftIcon={<BsImages size={24} />}
             colorScheme="twitter"
