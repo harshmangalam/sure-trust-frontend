@@ -4,7 +4,6 @@ import Collaborators from "../../components/main/home/Collaborators";
 import Hero from "../../components/main/home/Hero";
 import StatsCount from "../../components/main/home/StatsData";
 import ProjectsSlider from "../../components/main/home/projects-slider";
-import BackgroundSound from "../../components/main/home/BackgroundSound";
 function Home() {
   return (
     <Box>
@@ -12,7 +11,6 @@ function Home() {
       <Box as="section">
         <Container maxW={"container.xl"}>
           <Hero />
-          <BackgroundSound />
         </Container>
       </Box>
 
