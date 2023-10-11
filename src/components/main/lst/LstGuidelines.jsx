@@ -33,7 +33,7 @@ export default function LstGuidelines() {
             <Text py={4}>{guidelines.headerText}</Text>
             <List spacing={4} my={4}>
               {guidelines.lists.map((item) => (
-                <ListItem>
+                <ListItem key={item.title}>
                   <ListIcon as={MdCheckCircle} color="purple.400" />
                   <Box as={"span"} color="purple.400" fontWeight={"bold"}>
                     {item.title} :

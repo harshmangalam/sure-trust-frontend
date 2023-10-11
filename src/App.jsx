@@ -1,4 +1,4 @@
-import { ChakraProvider, createLocalStorageManager } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./styles/theme";
 import { AuthProvider } from "./contexts/auth";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -47,12 +47,11 @@ function App() {
     TagManager.initialize({ gtmId: import.meta.env.REACT_APP_GTM_ID });
   }, []);
 
-  const manager = createLocalStorageManager("sure-trust");
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <ChatProvider>
-          <ChakraProvider theme={theme} colorModeManager={manager}>
+          <ChakraProvider theme={theme}>
             <AppRoutes />
           </ChakraProvider>
         </ChatProvider>
