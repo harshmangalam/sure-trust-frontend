@@ -1,14 +1,8 @@
 import { HStack, Text } from "@chakra-ui/react";
 import NoticeModal from "./NoticeModal";
-export default function ScrollText({ notice, handleDragStart }) {
+export default function ScrollText({ notice }) {
   return (
-    <HStack
-      onDragStart={handleDragStart}
-      spacing={2}
-      justify={"center"}
-      align={["start", "center"]}
-      px="2"
-    >
+    <HStack spacing={2} justify={"center"} align={["start", "center"]} px="2">
       <svg
         data-ux="SVG"
         viewBox=" 0 0 35 35"
