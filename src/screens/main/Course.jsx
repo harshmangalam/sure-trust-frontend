@@ -60,7 +60,7 @@ function Course() {
 
         {teacherQuery?.data && (
           <Box mt={12}>
-            <Heading fontSize={"3xl"}>Course Teachers</Heading>
+            <Heading fontSize={"3xl"}>Course Trainers</Heading>
             <SimpleGrid
               columns={{ base: 1, md: 2, lg: 3 }}
               spacing={6}

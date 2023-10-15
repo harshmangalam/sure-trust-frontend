@@ -1,9 +1,9 @@
-import { Button, useToast } from "@chakra-ui/react";
+import { Box, Button, useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "../../contexts/auth";
 import { enrollStudentToCourse } from "../../services";
 
-function EnrollCourse({ course,...rest }) {
+function EnrollCourse({ course, ...rest }) {
   const navigate = useNavigate();
   const toast = useToast();
   const { isAuthenticated, role } = useAuthState();
@@ -32,13 +32,18 @@ function EnrollCourse({ course,...rest }) {
     }
   }
   return (
-    <>
+    <Box>
       {!course.subcourses?.length && isAuthenticated && role === "student" && (
-        <Button colorScheme={"purple"} size={"lg"} onClick={handleEnrollStudent}  {...rest}>
+        <Button
+          colorScheme={"purple"}
+          size={"lg"}
+          onClick={handleEnrollStudent}
+          {...rest}
+        >
           Enroll Now
         </Button>
       )}
-    </>
+    </Box>
   );
 }
 
