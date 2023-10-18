@@ -1,8 +1,8 @@
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
-import PostAuthor from "./PostAuthor";
-import PostTags from "./PostTags";
+import StoryAuthor from "./StoryAuthor";
+import StoryTags from "./StoryTags";
 
-export default function PostCard({ poster, title, tags, removeTag }) {
+export default function StoryCard({ poster, title, tags, removeTag }) {
   return (
     <Box>
       <Box borderRadius="lg" overflow="hidden">
@@ -20,7 +20,7 @@ export default function PostCard({ poster, title, tags, removeTag }) {
           />
         )}
       </Box>
-      <PostTags tags={tags} removeTag={removeTag} />
+      <StoryTags tags={tags} removeTag={removeTag} />
       <Heading fontSize="xl" marginTop="4">
         {title}
       </Heading>
@@ -37,7 +37,7 @@ export default function PostCard({ poster, title, tags, removeTag }) {
         Dolor omnis officiis illum at accusantium, nemo neque eaque alias
         praesentium in necessitatibus, sunt ea dolore, mollitia sequi. Repellat!
       </Text>
-      <PostAuthor
+      <StoryAuthor
         name="John Doe"
         createdAt={new Date("2021-04-06T19:01:27Z")}
       />
