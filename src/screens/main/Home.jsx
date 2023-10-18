@@ -4,7 +4,7 @@ import Collaborators from "../../components/main/home/Collaborators";
 import Hero from "../../components/main/home/Hero";
 import StatsCount from "../../components/main/home/StatsData";
 import ProjectsSlider from "../../components/main/home/projects-slider";
-import Stories from "../../components/main/home/Stories";
+// import Stories from "../../components/main/home/Stories";
 
 function Home() {
   return (
