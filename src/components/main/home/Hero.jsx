@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { useAuthState } from "../../../contexts/auth";
 import { Link } from "react-router-dom";
-import YouTube from "react-youtube";
 export default function Hero() {
   const { isAuthenticated } = useAuthState();
 
@@ -86,11 +85,15 @@ export default function Hero() {
         />
 
         <Box
-          w="full"
+          align={"center"}
+          w={"100%"}
+          h={"300px"}
           as={"iframe"}
+          rounded={"xl"}
+          title="video"
+          src={`https://www.youtube.com/embed/GaSnKf9Hr6w`}
+          allowFullScreen
           loading="lazy"
-          height="400"
-          src="www.youtube.com/embed/GaSnKf9Hr6w"
         />
       </Flex>
     </Stack>
