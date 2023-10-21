@@ -85,7 +85,13 @@ export default function Hero() {
           color={useColorModeValue("purple.100", "purple.300")}
         />
 
-        <YouTube videoId="GaSnKf9Hr6w" loading="lazy" />
+        <Box
+          w="full"
+          as={"iframe"}
+          loading="lazy"
+          height="400"
+          src="www.youtube.com/embed/GaSnKf9Hr6w"
+        />
       </Flex>
     </Stack>
   );
