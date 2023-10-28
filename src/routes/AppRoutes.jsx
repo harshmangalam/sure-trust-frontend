@@ -16,7 +16,7 @@ const PhotoGallery = lazy(() => import("../screens/main/PhotoGallery"));
 const Developers = lazy(() => import("../screens/main/Developers"));
 const VideoGallary = lazy(() => import("../screens/main/VideoGallary"));
 const Documents = lazy(() => import("../screens/main/Documents"));
-
+const PlacementCell = lazy(() => import("../screens/main/placement-cell"));
 const AuthLayout = lazy(() => import("../screens/auth"));
 const Login = lazy(() => import("../screens/auth/Login"));
 const Signup = lazy(() => import("../screens/auth/Signup"));
@@ -129,6 +129,7 @@ function AppRoutes() {
           <Route path="documents" element={<Documents />} />
           <Route path="iery" element={<IERYHome />} />
           <Route path="iery/:id" element={<IERYDomain />} />
+          <Route path="placement-cell" element={<PlacementCell />} />
         </Route>
 
         {!isAuthenticated && (
