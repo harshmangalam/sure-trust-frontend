@@ -9,10 +9,19 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 import UserCard from "../../components/shared/user-card";
+import { useQuery } from "react-query";
+import { fetchPlacementCellMembers } from "../../services";
 
 export default function PlacementCell() {
+  const { data, isLoading, isError } = useQuery(
+    ["placement-cell-members"],
+    fetchPlacementCellMembers
+  );
+
+  console.log("Hi");
+
   return (
-    <Container maxW={"5xl"}>
+    <Container maxW={"container.xl"} w="full">
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -25,53 +34,40 @@ export default function PlacementCell() {
           lineHeight={"110%"}
         >
           SURE Trust{" "}
-          <Text as={"span"} color={"orange.400"}>
+          <Text as={"span"} color={"blue.400"}>
             Placement cell
           </Text>
         </Heading>
         <Text color={"gray.500"} maxW={"3xl"}>
-          Never miss a meeting. Never be late for one too. Keep track of your
-          meetings and receive smart reminders in appropriate times. Read your
-          smart “Daily Agenda” every morning.
+          A placement cell connects students with job opportunities and helps
+          them secure employment by facilitating recruitment activities and
+          providing career guidance.
         </Text>
-        <Stack spacing={6} direction={"row"}>
-          <Button
-            rounded={"full"}
-            px={6}
-            colorScheme={"orange"}
-            bg={"orange.400"}
-            _hover={{ bg: "orange.500" }}
-          >
-            Action 1
-          </Button>
-          <Button rounded={"full"} px={6}>
-            Action 2
-          </Button>
-        </Stack>
       </Stack>
 
-      <Box mt={"4"}>
-        <Heading fontSize={["4xl", "5xl"]} textAlign={"center"}>
-          Flag Bearers
+      <Box my={"4"}>
+        <Heading fontSize={["3xl", "4xl"]} textAlign={"center"}>
+          Volunteering Wizards
         </Heading>
         <Box mt={12}>
           <SimpleGrid spacing={6} columns={[1, 2, 3]}>
-            {[...new Array(9)].map((_, i) => (
-              <GridItem>
-                <UserCard
-                  key={i}
-                  name="User 1"
-                  bio={
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit placeat temporibus eos magnam error quibusdam consequatur sequi facere doloremque, dolor esse debitis distinctio rem laboriosam nisi explicabo! Molestiae, cum. Vitae!"
-                  }
-                  image={
-                    "https://images.unsplash.com/photo-1613323593608-abc90fec84ff?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  }
-                  subtitle={"Engineering Manager"}
-                  linkedin={"https://"}
-                />
-              </GridItem>
-            ))}
+            {data?.data?.map(
+              (
+                { bio, designation, name, id, linkedin_url, profile_pic, role },
+                i
+              ) => (
+                <GridItem>
+                  <UserCard
+                    key={id}
+                    name={name}
+                    bio={bio}
+                    image={profile_pic}
+                    subtitle={role}
+                    linkedin={linkedin_url}
+                  />
+                </GridItem>
+              )
+            )}
           </SimpleGrid>
         </Box>
       </Box>

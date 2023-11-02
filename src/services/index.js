@@ -6,6 +6,7 @@ export * from "./plantation";
 export * from "./images";
 export * from "./commuinity-service";
 export * from "./stories";
+export * from "./placement-cell";
 const NODE_BACKEND_URL =
   import.meta.env.REACT_APP_NODE_ENV === "development"
     ? import.meta.env.REACT_APP_NODE_DEV_BASEURL
