@@ -23,15 +23,16 @@ export const frontendManager = {
 };
 
 export const backendManager = {
-  image: AshokImage,
-  name: "Mr. Ashok Babu",
-  active: false,
+  image:
+    "https://media.licdn.com/dms/image/D4D03AQFDDVPRFauJig/profile-displayphoto-shrink_400_400/0/1678738217881?e=1704326400&v=beta&t=4wF5kuPZ0yakUa1LU5p2q5EShDy3bTafYQWrwLZOE0Q",
+  name: "Ram Uchit Kumar",
+  active: true,
   education:
-    "B.Tech 3rd year, CSE, SRKR Engineering College, Bhimavaram, Andhra Pradhesh.",
+    "Python | GoLang | Django | Microservice | Socket | Postgres | MySql | Kubernetes | Docker | Kafka | PySpark | Gitlab | Jenkins | AWS | Azure | Agile",
   links: [
     {
       name: "Linkedin",
-      url: "https://www.linkedin.com/in/ashok-babu-g-5220971a5",
+      url: "https://www.linkedin.com/in/ramuchit/",
       icon: <FaLinkedin fontSize={"20px"} />,
       color: "linkedin",
     },
