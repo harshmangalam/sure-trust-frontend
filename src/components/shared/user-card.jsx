@@ -6,7 +6,10 @@ import {
   VStack,
   Box,
   Image,
+  IconButton,
+  Tooltip,
 } from "@chakra-ui/react";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function UserCard({
   name,
@@ -47,15 +50,16 @@ export default function UserCard({
         </Text>
         {linkedin && (
           <Box pt={4}>
-            <Button
-              colorScheme={"blue"}
-              as="a"
-              href={linkedin}
-              target={"_blank"}
-              rounded={"full"}
-            >
-              Linkedin
-            </Button>
+            <Tooltip label="Linkedin" hasArrow>
+              <IconButton
+                icon={<FaLinkedin />}
+                colorScheme={"blue"}
+                as="a"
+                href={linkedin}
+                target={"_blank"}
+                rounded={"full"}
+              />
+            </Tooltip>
           </Box>
         )}
       </VStack>

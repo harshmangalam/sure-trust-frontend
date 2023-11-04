@@ -46,7 +46,7 @@ export default function PlacementCell() {
                 designation,
                 name,
                 id,
-                linkedin_url,
+                linked_url,
                 profile_pic,
                 role,
               }) => ({
@@ -55,7 +55,7 @@ export default function PlacementCell() {
                 image: profile_pic,
                 subtitle: designation,
                 bio,
-                linkedin: linkedin_url,
+                linkedin: linked_url,
               })
             )}
           />

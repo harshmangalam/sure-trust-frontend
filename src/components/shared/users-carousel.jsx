@@ -4,6 +4,7 @@ import { Box } from "@chakra-ui/react";
 import UserCard from "./user-card";
 
 export default function UsersCarousel({ users }) {
+  console.log(users);
   const handleDragStart = (e) => e.preventDefault();
 
   const items = users?.map((user) => (
