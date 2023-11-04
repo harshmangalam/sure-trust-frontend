@@ -8,9 +8,23 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-export default function UserCard({ name, image, subtitle, bio, linkedin }) {
+export default function UserCard({
+  name,
+  image,
+  subtitle,
+  bio,
+  linkedin,
+  onDragStart = () => {},
+}) {
   return (
-    <Box bg={useColorModeValue("white", "gray.700")} rounded={"lg"}>
+    <Box
+      onDragStart={onDragStart}
+      mx={2}
+      bg={useColorModeValue("white", "gray.700")}
+      rounded={"lg"}
+      borderWidth={"1px"}
+      shadow={"md"}
+    >
       <Image
         w={"full"}
         src={image}

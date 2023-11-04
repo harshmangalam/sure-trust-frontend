@@ -11,6 +11,7 @@ import {
 import UserCard from "../../components/shared/user-card";
 import { useQuery } from "react-query";
 import { fetchPlacementCellMembers } from "../../services";
+import UsersCarousel from "../../components/shared/users-carousel";
 
 export default function PlacementCell() {
   const { data, isLoading, isError } = useQuery(
@@ -48,25 +49,26 @@ export default function PlacementCell() {
           Volunteering Team
         </Heading>
         <Box mt={12}>
-          <SimpleGrid spacing={6} columns={[1, 2, 3]}>
-            {data?.data?.map(
-              (
-                { bio, designation, name, id, linkedin_url, profile_pic, role },
-                i
-              ) => (
-                <GridItem>
-                  <UserCard
-                    key={id}
-                    name={name}
-                    bio={bio}
-                    image={profile_pic}
-                    subtitle={role}
-                    linkedin={linkedin_url}
-                  />
-                </GridItem>
-              )
+          <UsersCarousel
+            users={data?.data?.map(
+              ({
+                bio,
+                designation,
+                name,
+                id,
+                linkedin_url,
+                profile_pic,
+                role,
+              }) => ({
+                id,
+                name,
+                image: profile_pic,
+                subtitle: designation,
+                bio,
+                linkedin: linkedin_url,
+              })
             )}
-          </SimpleGrid>
+          />
         </Box>
       </Box>
     </Container>
