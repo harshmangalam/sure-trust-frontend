@@ -27,8 +27,13 @@ function Header() {
           <HStack>
             {/* display on larger screen  */}
             <HStack display={{ base: "none", md: "flex" }} spacing={4}>
-              <Button variant="ghost" as={NavLink} to="/iery">
-                IERY
+              <Button
+                display={["none", "none", "none", "none", "flex"]}
+                variant="ghost"
+                as={NavLink}
+                to="/iery"
+              >
+                Internships
               </Button>
               <Button
                 display={["none", "none", "none", "none", "flex"]}

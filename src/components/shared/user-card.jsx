@@ -2,7 +2,6 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Button,
   VStack,
   Box,
   Image,
@@ -34,7 +33,7 @@ export default function UserCard({
         alt={name}
         mb={4}
         pos={"relative"}
-        height={"72"}
+        height={"96"}
         roundedTop={"lg"}
         objectFit={"cover"}
       />
