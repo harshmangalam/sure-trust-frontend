@@ -45,7 +45,11 @@ export default function UserCard({
         <Text fontWeight={600} color={"gray.500"} mb={4}>
           {subtitle}
         </Text>
-        <Text color={useColorModeValue("gray.700", "gray.400")} px={3}>
+        <Text
+          noOfLines={2}
+          color={useColorModeValue("gray.700", "gray.400")}
+          px={3}
+        >
           {bio}
         </Text>
         {linkedin && (

@@ -15,6 +15,7 @@ import { fetchBoardMembers } from "../../services/board";
 import Loader from "../../components/shared/Loader";
 import { narrationByFounder } from "../../data/about";
 import satyaSaiBaba from "../../images/satya_sai_baba.jpg";
+import UsersCarousel from "../../components/shared/users-carousel";
 function About() {
   const { data, isLoading, isError } = useQuery("board", fetchBoardMembers);
 
@@ -68,22 +69,24 @@ function About() {
         </Container>
       </Box>
 
-      {/* board of trustees  start */}
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Board Of Trustees
           </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6} mt={12}>
-            {data.data?.board_of_trustees?.map((user) => (
-              <AboutUserCard key={user.id} {...user} />
-            ))}
-          </SimpleGrid>
+          <UsersCarousel
+            users={data.data?.board_of_trustees?.map((user) => ({
+              id: user.id,
+              name: user.name,
+              image: user.image,
+              subtitle: null,
+              bio: user.about,
+              linkedin: user.linked_in_url,
+            }))}
+          />
         </Container>
       </Box>
-      {/* board of trustees end  */}
 
-      {/* governing council start  */}
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
@@ -95,49 +98,57 @@ function About() {
               Senior Executive Members
             </Heading>
 
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={12}>
-              {data.data["Governing Council"]["senior_executives"].map(
-                (user) => (
-                  <AboutUserCard key={user.id} {...user} />
-                )
+            <UsersCarousel
+              users={data.data["Governing Council"]["senior_executives"]?.map(
+                (user) => ({
+                  id: user.id,
+                  name: user.name,
+                  image: user.image,
+                  subtitle: null,
+                  bio: user.about,
+                  linkedin: user.linked_in_url,
+                })
               )}
-            </SimpleGrid>
+            />
           </Box>
 
           <Box as="section" mt={12}>
             <Heading textAlign="center" fontSize="3xl">
               Executive Members
             </Heading>
-
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={12}>
-              {data.data["Governing Council"]["executives_members"].map(
-                (user) => (
-                  <AboutUserCard key={user.id} {...user} />
-                )
+            <UsersCarousel
+              users={data.data["Governing Council"]["executives_members"]?.map(
+                (user) => ({
+                  id: user.id,
+                  name: user.name,
+                  image: user.image,
+                  subtitle: null,
+                  bio: user.about,
+                  linkedin: user.linked_in_url,
+                })
               )}
-            </SimpleGrid>
+            />
           </Box>
         </Container>
       </Box>
 
-      {/* Governing Council end  */}
-
-      {/* BOARD OF ADVISORS start  */}
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Board Of Advisors
           </Heading>
-
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6} mt={12}>
-            {data.data?.board_of_advisers.map((user) => (
-              <AboutUserCard key={user.id} {...user} />
-            ))}
-          </SimpleGrid>
+          <UsersCarousel
+            users={data.data?.board_of_advisers?.map((user) => ({
+              id: user.id,
+              name: user.name,
+              image: user.image,
+              subtitle: null,
+              bio: user.about,
+              linkedin: user.linked_in_url,
+            }))}
+          />
         </Container>
       </Box>
-
-      {/* BOARD OF ADVISORS end  */}
     </Box>
   );
 }
