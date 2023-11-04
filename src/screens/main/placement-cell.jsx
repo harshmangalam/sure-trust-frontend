@@ -1,20 +1,10 @@
-import {
-  Container,
-  Heading,
-  Stack,
-  Text,
-  Button,
-  Box,
-  SimpleGrid,
-  GridItem,
-} from "@chakra-ui/react";
-import UserCard from "../../components/shared/user-card";
+import { Container, Heading, Stack, Text, Box } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { fetchPlacementCellMembers } from "../../services";
 import UsersCarousel from "../../components/shared/users-carousel";
 
 export default function PlacementCell() {
-  const { data, isLoading, isError } = useQuery(
+  const { data } = useQuery(
     ["placement-cell-members"],
     fetchPlacementCellMembers
   );
