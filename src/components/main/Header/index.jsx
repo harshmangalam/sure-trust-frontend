@@ -30,6 +30,14 @@ function Header() {
               <Button variant="ghost" as={NavLink} to="/iery">
                 IERY
               </Button>
+              <Button
+                display={["none", "none", "none", "none", "flex"]}
+                variant="ghost"
+                as={NavLink}
+                to="/placement-cell"
+              >
+                Placement Assistance Cell
+              </Button>
               {!isAuthenticated && (
                 <HStack spacing={2}>
                   {authLinks.map((link) => (
