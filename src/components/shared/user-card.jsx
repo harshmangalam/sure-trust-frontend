@@ -17,8 +17,9 @@ export default function UserCard({ name, image, subtitle, bio, linkedin }) {
         alt={name}
         mb={4}
         pos={"relative"}
-        height={"60"}
+        height={"72"}
         roundedTop={"lg"}
+        objectFit={"cover"}
       />
       <VStack px={3} py={4}>
         <Heading fontSize={"2xl"} fontFamily={"body"}>
@@ -30,7 +31,6 @@ export default function UserCard({ name, image, subtitle, bio, linkedin }) {
         <Text color={useColorModeValue("gray.700", "gray.400")} px={3}>
           {bio}
         </Text>
-
         {linkedin && (
           <Box pt={4}>
             <Button

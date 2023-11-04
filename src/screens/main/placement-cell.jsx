@@ -18,8 +18,6 @@ export default function PlacementCell() {
     fetchPlacementCellMembers
   );
 
-  console.log("Hi");
-
   return (
     <Container maxW={"container.xl"} w="full">
       <Stack
@@ -33,9 +31,9 @@ export default function PlacementCell() {
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
         >
-          SURE Trust{" "}
+          SURE Trust <br />
           <Text as={"span"} color={"blue.400"}>
-            Placement cell
+            Placement Assistance Cell
           </Text>
         </Heading>
         <Text color={"gray.500"} maxW={"3xl"}>
@@ -47,7 +45,7 @@ export default function PlacementCell() {
 
       <Box my={"4"}>
         <Heading fontSize={["3xl", "4xl"]} textAlign={"center"}>
-          Volunteering Wizards
+          Volunteering Team
         </Heading>
         <Box mt={12}>
           <SimpleGrid spacing={6} columns={[1, 2, 3]}>
