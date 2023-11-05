@@ -5,10 +5,10 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import axios from "axios";
 import AppRoutes from "./routes/AppRoutes";
 import { ChatProvider } from "./contexts/chat";
-// import { useEffect } from "react";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import { useEffect } from "react";
-import TagManager from "react-gtm-module";
+import { Partytown } from "@builder.io/partytown/react";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -17,8 +17,6 @@ const queryClient = new QueryClient({
   },
 });
 axios.defaults.baseURL = import.meta.env.REACT_APP_BASEURL;
-const TRACKING_ID = import.meta.env.REACT_APP_GA;
-ReactGA.initialize(TRACKING_ID);
 
 const student = localStorage.student
   ? JSON.parse(localStorage.getItem("student"))
@@ -36,27 +34,44 @@ if (teacher) {
   axios.defaults.headers.common["Authorization"] = `Token ${teacher.token}`;
 }
 
+const TRACKING_ID = import.meta.env.REACT_APP_GA;
+ReactGA.initialize(TRACKING_ID);
 function App() {
-  // google analytics
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   }, []);
-
-  // google tag manager
-  useEffect(() => {
-    TagManager.initialize({ gtmId: import.meta.env.REACT_APP_GTM_ID });
-  }, []);
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <ChatProvider>
-          <ChakraProvider theme={theme}>
-            <AppRoutes />
-          </ChakraProvider>
-        </ChatProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+    <>
+      <Partytown debug={true} forward={["dataLayer.push", "gtag"]} />
+      <script
+        type="text/partytown"
+        src="https://www.googletagmanager.com/gtag/js?id=GTM-WGHWSMB"
+      ></script>
+      <script
+        type="text/partytown"
+        src="https://meet.jit.si/external_api.js"
+      ></script>
+      <script
+        type="text/partytown"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-WGHWSMB');
+          `,
+        }}
+      />
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <ChatProvider>
+            <ChakraProvider theme={theme}>
+              <AppRoutes />
+            </ChakraProvider>
+          </ChatProvider>
+        </AuthProvider>
+      </QueryClientProvider>
+    </>
   );
 }
 
