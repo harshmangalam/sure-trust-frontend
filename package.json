@@ -3,7 +3,6 @@
   "version": "2.1.0",
   "private": true,
   "dependencies": {
-    "@builder.io/partytown": "^0.8.1",
     "@chakra-ui/react": "^1.8.9",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
