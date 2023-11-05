@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuthState } from "../../../contexts/auth";
 import { Link } from "react-router-dom";
+import YouTube from "react-youtube";
 export default function Hero() {
   const { isAuthenticated } = useAuthState();
 
@@ -83,8 +84,16 @@ export default function Hero() {
           zIndex={-1}
           color={useColorModeValue("purple.100", "purple.300")}
         />
-
         <Box
+          as={YouTube}
+          videoId="GaSnKf9Hr6w"
+          opts={{ width: "100%", height: "100%" }}
+          w={"100%"}
+          h={"400"}
+          rounded={"xl"}
+        />
+
+        {/* <Box
           align={"center"}
           w={"100%"}
           h={"300px"}
@@ -94,7 +103,7 @@ export default function Hero() {
           src={`https://www.youtube.com/embed/GaSnKf9Hr6w`}
           allowFullScreen
           loading="lazy"
-        />
+        /> */}
       </Flex>
     </Stack>
   );
