@@ -21,7 +21,13 @@ export default function Event({
   const dateObject = parseISO(event_date);
   return (
     <>
-      <ListItem as={"a"} href={"/"} target="_blank" w="full" display={"block"}>
+      <ListItem
+        as={"a"}
+        href={event_url}
+        target="_blank"
+        w="full"
+        display={"block"}
+      >
         <HStack px={4} justifyContent={"space-between"}>
           <HStack align={"start"} spacing={"12"}>
             <VStack>
@@ -34,7 +40,7 @@ export default function Event({
             </VStack>
             <VStack align={"flex-start"}>
               <Text fontSize={"sm"} fontWeight={"light"}>
-                {format(dateObject, "MMMM dd, yyyy")}, {event_start_time} -{" "}
+                {format(dateObject, "MMMM dd yyyy")}, {event_start_time} -{" "}
                 {event_end_time}
               </Text>
               <Text fontSize={"xl"} fontWeight={"medium"}>
