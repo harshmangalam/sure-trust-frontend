@@ -4,6 +4,7 @@ import Collaborators from "../../components/main/home/Collaborators";
 import Hero from "../../components/main/home/Hero";
 import StatsCount from "../../components/main/home/StatsData";
 import ProjectsSlider from "../../components/main/home/projects-slider";
+import Events from "../../components/main/home/events";
 // import Stories from "../../components/main/home/Stories";
 
 function Home() {
@@ -26,6 +27,12 @@ function Home() {
       <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>
           <Features />
+        </Container>
+      </Box>
+
+      <Box as="section" mt={24}>
+        <Container maxW={"container.xl"}>
+          <Events />
         </Container>
       </Box>
 

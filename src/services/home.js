@@ -37,3 +37,7 @@ export const fetchFeaturedProjects = () => {
 export const fetchStats = async () => {
   return await axios.get("/community/get_count");
 };
+
+export const fetchEvents = async () => {
+  return await axios.get("/courses/events/");
+};
