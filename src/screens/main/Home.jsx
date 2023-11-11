@@ -20,6 +20,11 @@ function Home() {
       {/* Features section */}
 
       <StatsCount />
+      <Box as="section" mt={24}>
+        <Container maxW={"container.xl"}>
+          <Events />
+        </Container>
+      </Box>
 
       {/* projects slider  */}
       <ProjectsSlider />
@@ -27,12 +32,6 @@ function Home() {
       <Box as="section" mt={24}>
         <Container maxW={"container.xl"}>
           <Features />
-        </Container>
-      </Box>
-
-      <Box as="section" mt={24}>
-        <Container maxW={"container.xl"}>
-          <Events />
         </Container>
       </Box>
 
