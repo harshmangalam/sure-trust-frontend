@@ -13,7 +13,7 @@ export default function Events() {
       <Heading fontSize={"3xl"}>Events</Heading>
       <List spacing={6} mt={8}>
         {data.data.map((event) => (
-          <Event {...event} />
+          <Event key={event.id} {...event} />
         ))}
       </List>
     </Box>

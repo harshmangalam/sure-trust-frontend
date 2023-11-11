@@ -10,7 +10,10 @@ export default function StatsCount() {
 
   return (
     <Container maxW={"container.xl"} mt={"4"}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 4, lg: 4 }}>
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 3 }}
+        spacing={{ base: 4, lg: 4 }}
+      >
         <StatItem title={"Students Undergoing Training"} stat={300} />
         <StatItem title={"Students Completed Training"} stat={1000} />
         <StatItem title={"Students Placed"} stat={300} />

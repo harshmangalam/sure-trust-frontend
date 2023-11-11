@@ -4,6 +4,7 @@ import {
   HStack,
   Image,
   ListItem,
+  Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -28,7 +29,11 @@ export default function Event({
         w="full"
         display={"block"}
       >
-        <HStack px={4} justifyContent={"space-between"}>
+        <Stack
+          direction={["column", "column", "row"]}
+          px={4}
+          justifyContent={"space-between"}
+        >
           <HStack align={"start"} spacing={"12"}>
             <VStack>
               <Text fontSize={"2xl"} fontWeight={"bold"}>
@@ -55,8 +60,15 @@ export default function Event({
               </Badge>
             </VStack>
           </HStack>
-          <Image src={image} w="52" h="52" alt={name} rounded={"xl"} />
-        </HStack>
+          <Image
+            alignSelf={"flex-end"}
+            src={image}
+            w="52"
+            h="52"
+            alt={name}
+            rounded={"xl"}
+          />
+        </Stack>
       </ListItem>
       <Divider />
     </>
