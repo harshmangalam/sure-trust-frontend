@@ -7,6 +7,7 @@ export default function Events() {
   const { isLoading, isError, data } = useQuery(["events"], fetchEvents);
   if (isLoading) return <p>Loading Events...</p>;
   if (isError) return <p>Error...</p>;
+  if (!data.data?.length) return null;
   return (
     <Box>
       <Heading fontSize={"3xl"}>Events</Heading>

@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Badge,
   Divider,
   HStack,
@@ -50,16 +49,7 @@ export default function Event({
               </Badge>
             </VStack>
           </HStack>
-          <Avatar
-            src={image}
-            rounded={"xl"}
-            size="2xl"
-            objectFit={"cover"}
-            showBorder
-            style={{
-              backgroundColor: "transparent",
-            }}
-          />
+          <Image src={image} w="52" h="52" alt={name} rounded={"xl"} />
         </HStack>
       </ListItem>
       <Divider />
