@@ -1,5 +1,6 @@
 import {
   Badge,
+  Button,
   Divider,
   HStack,
   Image,
@@ -8,6 +9,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { MdVideoCall } from "react-icons/md";
 import { format, getDate, parseISO } from "date-fns";
 export default function Event({
   name,
@@ -22,13 +24,7 @@ export default function Event({
   const dateObject = parseISO(event_date);
   return (
     <>
-      <ListItem
-        as={"a"}
-        href={event_url}
-        target="_blank"
-        w="full"
-        display={"block"}
-      >
+      <ListItem w="full">
         <Stack
           direction={["column", "column", "row"]}
           px={4}
@@ -51,13 +47,24 @@ export default function Event({
               <Text fontSize={"xl"} fontWeight={"medium"}>
                 {name}
               </Text>
+              <Badge variant="subtle" colorScheme="purple">
+                {event_place}
+              </Badge>
 
               <Text fontWeight={"light"} maxW={"2xl"} fontSize={"sm"}>
                 {about}
               </Text>
-              <Badge variant="subtle" colorScheme="purple">
-                {event_place}
-              </Badge>
+
+              <Button
+                colorScheme="purple"
+                leftIcon={<MdVideoCall size={18} />}
+                size="sm"
+                as={"a"}
+                href={event_url}
+                target="_blank"
+              >
+                Join
+              </Button>
             </VStack>
           </HStack>
           <Image
