@@ -9,7 +9,7 @@ export default function StatsCount() {
   if (isLoading) return null;
 
   return (
-    <Container maxW={"container.xl"} mt={"4"}>
+    <Container maxW={"container.xl"} mt={24}>
       <SimpleGrid
         columns={{ base: 1, sm: 2, md: 3 }}
         spacing={{ base: 4, lg: 4 }}

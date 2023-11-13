@@ -17,14 +17,13 @@ function Home() {
         </Container>
       </Box>
 
-      {/* Features section */}
-
-      <StatsCount />
-      <Box as="section" mt={24}>
+      <Box as="section" mt={6}>
         <Container maxW={"container.xl"}>
           <Events />
         </Container>
       </Box>
+
+      <StatsCount />
 
       {/* projects slider  */}
       <ProjectsSlider />

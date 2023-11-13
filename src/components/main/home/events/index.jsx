@@ -1,7 +1,8 @@
-import { Box, Heading, List } from "@chakra-ui/react";
+import { Box, Divider, Heading, List } from "@chakra-ui/react";
 import Event from "./event";
 import { useQuery } from "react-query";
 import { fetchEvents } from "../../../../services";
+import { Fragment } from "react";
 
 export default function Events() {
   const { isLoading, isError, data } = useQuery(["events"], fetchEvents);
@@ -13,7 +14,10 @@ export default function Events() {
       <Heading fontSize={"3xl"}>Events</Heading>
       <List spacing={6} mt={8}>
         {data.data.map((event) => (
-          <Event key={event.id} {...event} />
+          <Fragment key={event.id}>
+            <Event {...event} />
+            {data.data?.length > 1 && <Divider />}
+          </Fragment>
         ))}
       </List>
     </Box>
