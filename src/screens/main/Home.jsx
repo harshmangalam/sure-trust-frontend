@@ -17,7 +17,7 @@ function Home() {
         </Container>
       </Box>
 
-      <Box as="section" mt={6}>
+      <Box as="section" mt={0}>
         <Container maxW={"container.xl"}>
           <Events />
         </Container>
