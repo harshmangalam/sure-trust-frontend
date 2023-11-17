@@ -5,13 +5,11 @@ import { useAuthState } from "../contexts/auth";
 
 const MainLayout = lazy(() => import("../screens/main"));
 const Home = lazy(() => import("../screens/main/Home"));
-const ResearchGuidance = lazy(() => import("../screens/main/ResearchGuidance"));
 const About = lazy(() => import("../screens/main/About"));
 const Contact = lazy(() => import("../screens/main/Contact"));
 const Courses = lazy(() => import("../screens/main/Courses"));
 const Course = lazy(() => import("../screens/main/Course"));
 const LstProgram = lazy(() => import("../screens/main/LstProgram"));
-const KnowMore = lazy(() => import("../screens/main/KnowMore"));
 const PhotoGallery = lazy(() => import("../screens/main/PhotoGallery"));
 const Developers = lazy(() => import("../screens/main/Developers"));
 const VideoGallary = lazy(() => import("../screens/main/VideoGallary"));
@@ -116,8 +114,6 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="know-more" element={<KnowMore />} />
-          <Route path="research-guidance" element={<ResearchGuidance />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="photo-gallery" element={<PhotoGallery />} />
