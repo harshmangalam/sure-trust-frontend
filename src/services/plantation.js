@@ -1,26 +1,29 @@
 import axios from "axios";
 
-const NODE_BACKEND_URL = "https://suretrust-node.onrender.com";
-// import.meta.env.REACT_APP_NODE_ENV === "development"
-//   ? import.meta.env.REACT_APP_NODE_DEV_BASEURL
-//   : import.meta.env.REACT_APP_NODE_PROD_BASEURL;
+const NODE_BACKEND_URL =
+  import.meta.env.REACT_APP_NODE_ENV === "development"
+    ? import.meta.env.REACT_APP_NODE_DEV_BASEURL
+    : import.meta.env.REACT_APP_NODE_PROD_BASEURL;
 
 export const fetchPlantationCounts = async () => {
-  return axios.get(`${NODE_BACKEND_URL}/api/plantation/counts`);
+  const resp = await fetch(`${NODE_BACKEND_URL}/api/plantations/stats`);
+  const data = await resp.json();
+  console.log(data);
+  return axios.get(`${NODE_BACKEND_URL}/api/plantations/stats`);
 };
 
 export const fetchPlantationLists = async () => {
-  return axios.get(`${NODE_BACKEND_URL}/api/plantation`);
+  return axios.get(`${NODE_BACKEND_URL}/api/plantations`);
 };
 
 export const fetchPlantationCharts = async () => {
-  return axios.get(`${NODE_BACKEND_URL}/api/plantation/charts`);
+  return axios.get(`${NODE_BACKEND_URL}/api/plantations/charts`);
 };
 
 export const fetchPlantationAllowedUsers = async () => {
-  return axios.get(`${NODE_BACKEND_URL}/api/plantation/allowed-users`);
+  return axios.get(`${NODE_BACKEND_URL}/api/plantations/allowed-users`);
 };
 
 export const createPlantation = async (data) => {
-  return axios.post(`${NODE_BACKEND_URL}/api/plantation`, data);
+  return axios.post(`${NODE_BACKEND_URL}/api/plantations`, data);
 };
