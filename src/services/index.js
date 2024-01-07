@@ -13,7 +13,7 @@ const NODE_BACKEND_URL =
     : import.meta.env.REACT_APP_NODE_PROD_BASEURL;
 
 export const fetchAllowedUsers = async () => {
-  return axios.get(`${NODE_BACKEND_URL}/api/plantation/allowed-users`);
+  return axios.get(`${NODE_BACKEND_URL}/api/plantations/allowed-users`);
 };
 
 export const signup = async (payload) => {

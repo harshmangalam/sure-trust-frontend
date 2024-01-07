@@ -8,7 +8,6 @@ const NODE_BACKEND_URL =
 export const fetchPlantationCounts = async () => {
   const resp = await fetch(`${NODE_BACKEND_URL}/api/plantations/stats`);
   const data = await resp.json();
-  console.log(data);
   return axios.get(`${NODE_BACKEND_URL}/api/plantations/stats`);
 };
 

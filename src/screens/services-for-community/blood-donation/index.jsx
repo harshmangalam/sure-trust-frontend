@@ -30,7 +30,7 @@ export default function BloodDonation() {
 
   const isAuthorized = useMemo(
     () =>
-      allowedQuery?.data?.data.includes(
+      allowedQuery?.data?.data?.allowedUsers?.includes(
         String(currentUser?.id || currentUser?.user?.id)
       ),
     [currentUser, allowedQuery]
