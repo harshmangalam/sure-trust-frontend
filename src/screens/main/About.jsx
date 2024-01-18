@@ -90,51 +90,6 @@ function About() {
       <Box as="section" mt={24}>
         <Container maxW="container.xl">
           <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
-            Governing Council
-          </Heading>
-
-          <Box mt={12}>
-            <Heading textAlign="center" fontSize="3xl">
-              Senior Executive Members
-            </Heading>
-
-            <UsersCarousel
-              users={data.data["Governing Council"]["senior_executives"]?.map(
-                (user) => ({
-                  id: user.id,
-                  name: user.name,
-                  image: user.image,
-                  subtitle: null,
-                  bio: user.about,
-                  linkedin: user.linked_in_url,
-                })
-              )}
-            />
-          </Box>
-
-          <Box as="section" mt={12}>
-            <Heading textAlign="center" fontSize="3xl">
-              Executive Members
-            </Heading>
-            <UsersCarousel
-              users={data.data["Governing Council"]["executives_members"]?.map(
-                (user) => ({
-                  id: user.id,
-                  name: user.name,
-                  image: user.image,
-                  subtitle: null,
-                  bio: user.about,
-                  linkedin: user.linked_in_url,
-                })
-              )}
-            />
-          </Box>
-        </Container>
-      </Box>
-
-      <Box as="section" mt={24}>
-        <Container maxW="container.xl">
-          <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
             Board Of Advisors
           </Heading>
           <UsersCarousel
