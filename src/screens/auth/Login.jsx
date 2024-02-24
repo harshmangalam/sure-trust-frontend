@@ -7,7 +7,6 @@ import {
   Stack,
   FormErrorMessage,
   useColorModeValue,
-  Select,
   Alert,
   AlertIcon,
   AlertDescription,
@@ -18,18 +17,14 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import {
-  fetchStudentData,
-  loginStudent,
-  fetchTeacherData,
-} from "../../services";
+import { fetchStudentData, loginStudent } from "../../services";
 
 import { useAuthDispatch } from "../../contexts/auth";
 import axios from "axios";
 const schema = yup.object({
   email: yup.string().required().email(),
   password: yup.string().required(),
-  login_as: yup.string().required("Select login type"),
+  login_as: yup.string().optional(),
 });
 function Login() {
   const toast = useToast();
@@ -42,7 +37,7 @@ function Login() {
     setError,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = async ({ email, password, login_as }) => {
+  const onSubmit = async ({ email, password, login_as = "student" }) => {
     try {
       const data = await loginStudent({
         email,
@@ -78,20 +73,20 @@ function Login() {
         return navigate("/dashboard");
       }
 
-      if (login_as === "teacher") {
-        localStorage.setItem("teacher", JSON.stringify(data));
-        const teacherData = await fetchTeacherData(data);
-        authDispatch({ type: "SET_CURRENTUSER", payload: teacherData });
-        authDispatch({ type: "SET_CURRENTUSER_ROLE", payload: "teacher" });
-        toast({
-          title: "Teacher Login",
-          description: `You have successfully loggedin`,
-          status: "success",
-          duration: 6000,
-          isClosable: true,
-        });
-        return navigate("/dashboard");
-      }
+      // if (login_as === "teacher") {
+      //   localStorage.setItem("teacher", JSON.stringify(data));
+      //   const teacherData = await fetchTeacherData(data);
+      //   authDispatch({ type: "SET_CURRENTUSER", payload: teacherData });
+      //   authDispatch({ type: "SET_CURRENTUSER_ROLE", payload: "teacher" });
+      //   toast({
+      //     title: "Teacher Login",
+      //     description: `You have successfully loggedin`,
+      //     status: "success",
+      //     duration: 6000,
+      //     isClosable: true,
+      //   });
+      //   return navigate("/dashboard");
+      // }
     } catch (error) {
       console.log(error);
       setError("common", { error: "Something went wrong" });
@@ -109,7 +104,6 @@ function Login() {
         {errors.common && (
           <Alert status="error" rounded="md">
             <AlertIcon />
-
             <AlertDescription>{errors.common?.error}</AlertDescription>
           </Alert>
         )}
@@ -136,7 +130,7 @@ function Login() {
             <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
           </FormControl>
 
-          <FormControl isInvalid={errors.login_as}>
+          {/* <FormControl isInvalid={errors.login_as}>
             <FormLabel htmlFor="login_as">Select Login As</FormLabel>
             <Select id="login_as" name="login_as" {...register("login_as")}>
               <option value="">Select</option>
@@ -144,7 +138,7 @@ function Login() {
               <option value="teacher">Teacher</option>
             </Select>
             <FormErrorMessage>{errors.login_as?.message}</FormErrorMessage>
-          </FormControl>
+          </FormControl> */}
 
           <Button
             type="submit"
