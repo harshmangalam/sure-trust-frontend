@@ -86,7 +86,7 @@ export default function ProjectCard({
             </Stack>
           )}
           <HStack>
-            <StudentsListModal students={STUDENTS} />
+            {/* <StudentsListModal students={STUDENTS} /> */}
             {github_url && (
               <Tooltip label="Github">
                 <IconButton
